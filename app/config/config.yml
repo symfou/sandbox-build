@@ -64,7 +64,8 @@ framework:
 
     default_locale:          %locale%
     session:
-        save_path:           %kernel.root_dir%/cache/sessions
+    #    save_path:           %kernel.root_dir%/cache/sessions
+        save_path:           /tmp/sonata-23
 
     fragments:               ~
     trusted_proxies:         ~
