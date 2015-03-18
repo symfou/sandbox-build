@@ -45,7 +45,6 @@ imports:
     - { resource: sonata/sonata_customer.yml }
     - { resource: sonata/sonata_basket.yml }
 
-
 framework:
     #esi:                   ~
     translator:
@@ -64,8 +63,7 @@ framework:
 
     default_locale:          %locale%
     session:
-    #    save_path:           %kernel.root_dir%/cache/sessions
-        save_path:           /tmp/sonata-23
+        save_path:           %kernel.root_dir%/cache/sessions
 
     fragments:               ~
     trusted_proxies:         ~
