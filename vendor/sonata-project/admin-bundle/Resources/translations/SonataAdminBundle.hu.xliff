@@ -34,6 +34,10 @@
                 <source>btn_filter</source>
                 <target>Szűrés</target>
             </trans-unit>
+            <trans-unit id="btn_advanced_filters">
+                <source>btn_advanced_filters</source>
+                <target>btn_advanced_filters</target>
+            </trans-unit>
             <trans-unit id="btn_update">
                 <source>btn_update</source>
                 <target>Frissít</target>
@@ -304,11 +308,11 @@
             </trans-unit>
             <trans-unit id="td_compare">
                 <source>td_compare</source>
-                <target>Összehasonlít</target>
+                <target>Összehasonlítás</target>
             </trans-unit>
             <trans-unit id="td_revision">
                 <source>td_revision</source>
-                <target>Verziók</target>
+                <target>Verziószám</target>
             </trans-unit>
             <trans-unit id="td_timestamp">
                 <source>td_timestamp</source>
@@ -318,13 +322,21 @@
                 <source>td_username</source>
                 <target>Szerző</target>
             </trans-unit>
+            <trans-unit id="td_role">
+                <source>td_role</source>
+                <target>td_role</target>
+            </trans-unit>
             <trans-unit id="label_view_revision">
                 <source>label_view_revision</source>
                 <target>Verzió mutatása</target>
             </trans-unit>
             <trans-unit id="label_compare_revision">
                 <source>label_compare_revision</source>
-                <target>Összehasonlít ezzel a verzióval</target>
+                <target>Összehasonlítás ezzel a verzióval</target>
+            </trans-unit>
+            <trans-unit id="list_results_count_prefix">
+                <source>list_results_count_prefix</source>
+                <target>list_results_count_prefix</target>
             </trans-unit>
             <trans-unit id="list_results_count">
                 <source>list_results_count</source>
@@ -404,11 +416,15 @@
             </trans-unit>
             <trans-unit id="noscript_warning">
                 <source>noscript_warning</source>
-                <target>noscript_warning</target>
+                <target>A böngészőben a Javascript le van tiltva, emiatt néhány funkció nem fog megfelelően működni.</target>
             </trans-unit>
             <trans-unit id="message_form_group_empty">
                 <source>message_form_group_empty</source>
-                <target>message_form_group_empty</target>
+                <target>Nincs elérhető mező.</target>
+            </trans-unit>
+            <trans-unit id="link_filters">
+                <source>link_filters</source>
+                <target>Szűrők</target>
             </trans-unit>
         </body>
     </file>

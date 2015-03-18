@@ -14,10 +14,9 @@ namespace Sonata\AdminBundle\Datagrid;
 use Sonata\AdminBundle\Filter\FilterInterface;
 use Sonata\AdminBundle\Admin\FieldDescriptionCollection;
 use Sonata\AdminBundle\Admin\FieldDescriptionInterface;
-
-use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class Datagrid implements DatagridInterface
 {
@@ -48,10 +47,10 @@ class Datagrid implements DatagridInterface
      * @param ProxyQueryInterface        $query
      * @param FieldDescriptionCollection $columns
      * @param PagerInterface             $pager
-     * @param FormBuilder                $formBuilder
+     * @param FormBuilderInterface       $formBuilder
      * @param array                      $values
      */
-    public function __construct(ProxyQueryInterface $query, FieldDescriptionCollection $columns, PagerInterface $pager, FormBuilder $formBuilder, array $values = array())
+    public function __construct(ProxyQueryInterface $query, FieldDescriptionCollection $columns, PagerInterface $pager, FormBuilderInterface $formBuilder, array $values = array())
     {
         $this->pager       = $pager;
         $this->query       = $query;
@@ -224,7 +223,7 @@ class Datagrid implements DatagridInterface
     {
         $this->values[$name] = array(
             'type'  => $operator,
-            'value' => $value
+            'value' => $value,
         );
     }
 
@@ -235,6 +234,21 @@ class Datagrid implements DatagridInterface
     {
         foreach ($this->filters as $name => $filter) {
             if ($filter->isActive()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasDisplayableFilters()
+    {
+        foreach ($this->filters as $name => $filter) {
+            $showFilter = $filter->getOption('show_filter', null);
+            if (($filter->isActive() && $showFilter === null) || ($showFilter === true)) {
                 return true;
             }
         }

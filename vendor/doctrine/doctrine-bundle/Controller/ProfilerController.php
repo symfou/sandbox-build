@@ -14,8 +14,6 @@
 
 namespace Doctrine\Bundle\DoctrineBundle\Controller;
 
-use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Platforms\SQLServerPlatform;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -56,11 +54,8 @@ class ProfilerController extends ContainerAware
         /** @var $connection \Doctrine\DBAL\Connection */
         $connection = $this->container->get('doctrine')->getConnection($connectionName);
         try {
-            if ($connection->getDatabasePlatform() instanceof SQLServerPlatform) {
-                $results = $this->explainSQLServerPlatform($connection, $query);
-            } else {
-                $results = $this->explainOtherPlatform($connection, $query);
-            }
+            $results = $connection->executeQuery('EXPLAIN '.$query['sql'], $query['params'], $query['types'])
+                ->fetchAll(\PDO::FETCH_ASSOC);
         } catch (\Exception $e) {
             return new Response('This query cannot be explained.');
         }
@@ -69,23 +64,5 @@ class ProfilerController extends ContainerAware
             'data' => $results,
             'query' => $query,
         ));
-    }
-
-    private function explainSQLServerPlatform(Connection $connection, $query)
-    {
-        if (stripos($query['sql'], 'SELECT') === 0) {
-            $sql = 'SET STATISTICS PROFILE ON; ' . $query['sql'] . '; SET STATISTICS PROFILE OFF;';
-        } else {
-            $sql = 'SET SHOWPLAN_TEXT ON; GO; SET NOEXEC ON; ' . $query['sql'] .'; SET NOEXEC OFF; GO; SET SHOWPLAN_TEXT OFF;';
-        }
-        $stmt = $connection->executeQuery($sql, $query['params'], $query['types']);
-        $stmt->nextRowset();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    private function explainOtherPlatform(Connection $connection, $query)
-    {
-        return $connection->executeQuery('EXPLAIN '.$query['sql'], $query['params'], $query['types'])
-            ->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

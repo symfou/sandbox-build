@@ -57,7 +57,7 @@ interface DatagridInterface
     public function getValues();
 
     /**
-     * @return array
+     * @return \Sonata\AdminBundle\Admin\FieldDescriptionCollection
      */
     public function getColumns();
 
@@ -96,4 +96,9 @@ interface DatagridInterface
      * @return boolean
      */
     public function hasActiveFilters();
+
+    /**
+     * @return boolean
+     */
+    public function hasDisplayableFilters();
 }

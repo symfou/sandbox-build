@@ -257,6 +257,26 @@ class SonataMediaExtension extends Extension
                 'position'  => 'ASC',
             ),
         ));
+
+        if (interface_exists('Sonata\ClassificationBundle\Model\CategoryInterface')) {
+            $collector->addAssociation($config['class']['media'], 'mapManyToOne', array(
+                'fieldName'     => 'category',
+                'targetEntity'  => $config['class']['category'],
+                'cascade'       => array(
+                    'persist',
+                ),
+                'mappedBy'      => NULL,
+                'inversedBy'    => NULL,
+                'joinColumns'   => array(
+                    array(
+                     'name'                 => 'category_id',
+                     'referencedColumnName' => 'id',
+                     'onDelete'             => 'SET NULL',
+                    ),
+                ),
+                'orphanRemoval' => false,
+            ));
+        }
     }
 
     /**
@@ -343,8 +363,7 @@ class SonataMediaExtension extends Extension
             $container->getDefinition('sonata.media.adapter.filesystem.s3')
                 ->replaceArgument(0, new Reference('sonata.media.adapter.service.s3'))
                 ->replaceArgument(1, $config['filesystem']['s3']['bucket'])
-                ->replaceArgument(2, array('create' => $config['filesystem']['s3']['create'], 'region' => $config['filesystem']['s3']['region']))
-                ->addMethodCall('setDirectory', array($config['filesystem']['s3']['directory']));
+                ->replaceArgument(2, array('create' => $config['filesystem']['s3']['create'], 'region' => $config['filesystem']['s3']['region'], 'directory' => $config['filesystem']['s3']['directory'], 'ACL' => $config['filesystem']['s3']['acl']))
             ;
 
             $container->getDefinition('sonata.media.metadata.amazon')

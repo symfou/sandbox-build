@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Filter field definition &mdash; Sonata ~ DoctrineOrmAdminBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ DoctrineOrmAdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="6. Form field definition" href="form_field_definition.html"/>
+        <link rel="prev" title="4. List field definition" href="list_field_definition.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ DoctrineOrmAdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#download-the-bundle">1.1. Download the bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">1.2. Enable the bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html#full-configuration-options">3. Full configuration options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_field_definition.html">4. List field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#example">4.1. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#types-available">4.2. Types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#list-actions">4.3. List actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#advance-usage">4.4. Advance Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">5. Filter field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#filter-types-available">5.1. Filter types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">5.2. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timestamps">5.3. Timestamps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class">5.4. Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage">5.5. Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_field_definition.html">6. Form field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#example">6.1. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#types-available">6.2. Types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#short-object-placeholder">6.3. Short Object Placeholder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#advanced-usage-file-management">6.4. Advanced usage: File management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#advanced-usage-many-to-one">6.5. Advanced usage: Many-to-one</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#advanced-usage-one-to-many">6.6. Advanced Usage: One-to-many</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_types_and_transformers.html">7. Form types and data transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types_and_transformers.html#form-types">7.1. Form types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types_and_transformers.html#datatransformer">7.2. Datatransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">8. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audit.html">9. Audit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#how-it-works">9.1. How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#installation">9.2. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#configuration">9.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#usage">9.4. Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_proxy.html">10. Doctrine ORM Proxy Query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshootings.html">11. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshootings.html#deleted-elements-from-a-one-to-many-association-are-not-removed">11.1. Deleted elements from a one-to-many association are not removed!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshootings.html#ordered-fields-are-not-ordered">11.2. Ordered fields are not ordered!</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html">2. Defining Entities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#model-definition">2.1. Model definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#generate-getters-and-setters">2.2. Generate getters and setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#creating-the-database">2.3. Creating the Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_routing.html">3. Defining the routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html">4. Defining the CRUD controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#commentadmincontroller">4.1. CommentAdminController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#postadmincontroller">4.2. PostAdminController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#tagadmincontroller">4.3. TagAdminController</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html">5. Defining admin class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#postadmin">5.1. PostAdmin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#tweak-the-tagadmin-class">5.2. Tweak the TagAdmin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#tweak-the-commentadmin-class">5.3. Tweak the CommentAdmin class</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ DoctrineOrmAdminBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>5. Filter field definition</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/filter_field_definition.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="filter-field-definition">
+<span id="index-0"></span><h1>5. Filter field definition<a class="headerlink" href="#filter-field-definition" title="Permalink to this headline">¶</a></h1>
+<p>These fields are displayed inside the filter box. They allow you to filter the list of entities by a number of different methods.</p>
+<p>A filter instance is always linked to a Form Type, there are 3 types available:</p>
+<ul class="simple">
+<li><cite>sonata_type_filter_number</cite>: display 2 widgets, the operator ( &gt;, &gt;=, &lt;= , &lt;, =) and the value,</li>
+<li><cite>sonata_type_filter_choice</cite>: display 2 widgets, the operator (yes and no) and the value,</li>
+<li><cite>sonata_type_filter_default</cite>: display 2 widgets, an hidden operator (can be changed on demand) and the value,</li>
+<li><cite>sonata_type_filter_date</cite>, not implemented yet!</li>
+</ul>
+<p>The <cite>Form Type</cite> configuration is provided by the filter itself.
+But they can be tweaked in the <tt class="docutils literal"><span class="pre">configureDatagridFilters</span></tt> process with the <tt class="docutils literal"><span class="pre">add</span></tt> method.</p>
+<p>The <tt class="docutils literal"><span class="pre">add</span></tt> method accepts 5 arguments:</p>
+<ul class="simple">
+<li>the <cite>field name</cite>,</li>
+<li>the <cite>filter type</cite>, the filter name,</li>
+<li>the <cite>filter options</cite>, the options related to the filter,</li>
+<li>the <cite>field type</cite>, the type of widget used to render the value part,</li>
+<li>the <cite>field options</cite>, the type options.</li>
+</ul>
+<div class="section" id="filter-types-available">
+<h2>5.1. Filter types available<a class="headerlink" href="#filter-types-available" title="Permalink to this headline">¶</a></h2>
+<p>For now, only <cite>Doctrine ORM</cite> filters are available:</p>
+<ul class="simple">
+<li><cite>doctrine_orm_boolean</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_default</span></tt> Form Type, renders yes or no field,</li>
+<li><cite>doctrine_orm_callback</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_default</span></tt> Form Type, types can be configured as needed,</li>
+<li><cite>doctrine_orm_choice</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_choice</span></tt> Form Type, renders yes or no field,</li>
+<li><cite>doctrine_orm_model</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_number</span></tt> Form Type,</li>
+<li><cite>doctrine_orm_string</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_choice</span></tt>,</li>
+<li><cite>doctrine_orm_number</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_choice</span></tt> Form Type, renders yes or no field,</li>
+<li><cite>doctrine_orm_date</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_date</span></tt> Form Type, renders a date field,</li>
+<li><cite>doctrine_orm_date_range</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_date_range</span></tt> Form Type, renders a 2 date fields,</li>
+<li><cite>doctrine_orm_datetime</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_datetime</span></tt> Form Type, renders a datetime field,</li>
+<li><cite>doctrine_orm_datetime_range</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_datetime_range</span></tt> Form Type, renders a 2 datetime fields,</li>
+<li><cite>doctrine_orm_class</cite>: depends on the <tt class="docutils literal"><span class="pre">sonata_type_filter_default</span></tt> Form type, renders a choice list field.</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>5.2. Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureDatagridFilters</span><span class="p">(</span><span class="nx">DatagridMapper</span> <span class="nv">$datagrid</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$datagrid</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;expanded&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;multiple&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="timestamps">
+<h2>5.3. Timestamps<a class="headerlink" href="#timestamps" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">doctrine_orm_date</span></tt>, <tt class="docutils literal"><span class="pre">doctrine_orm_date_range</span></tt>, <tt class="docutils literal"><span class="pre">doctrine_orm_datetime</span></tt> and <tt class="docutils literal"><span class="pre">doctrine_orm_datetime_range</span></tt> support filtering of timestamp fields by specifying <tt class="docutils literal"><span class="pre">'input_type'</span> <span class="pre">=&gt;</span> <span class="pre">'timestamp'</span></tt> option:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureDatagridFilters</span><span class="p">(</span><span class="nx">DatagridMapper</span> <span class="nv">$datagrid</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$datagrid</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;doctrine_orm_datetime_range&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;input_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class">
+<h2>5.4. Class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">doctrine_orm_class</span></tt> supports filtering on hierarchical entities. You need to specify the <tt class="docutils literal"><span class="pre">sub_classes</span></tt> option:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureDatagridFilters</span><span class="p">(</span><span class="nx">DatagridMapper</span> <span class="nv">$datagrid</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$datagrid</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;doctrine_orm_class&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;sub_classes&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getSubClasses</span><span class="p">()));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-usage">
+<h2>5.5. Advanced usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filtering-by-sub-entity-properties">
+<h3>5.5.1. Filtering by sub entity properties<a class="headerlink" href="#filtering-by-sub-entity-properties" title="Permalink to this headline">¶</a></h3>
+<p>If you need to filter your base entities by the value of a sub entity property, you can simply use the dot-separated notation:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This only makes sense when the prefix path is made of entities, not collections.</p>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Acme\AcmeBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureDatagridFilters</span><span class="p">(</span><span class="nx">DatagridMapper</span> <span class="nv">$datagrid</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$datagrid</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;firstName&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;lastName&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;address.street&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;address.ZIPCode&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;address.town&#39;</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="label">
+<h3>5.5.2. Label<a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h3>
+<p>You can customize the label which appears on the main widget by using a <tt class="docutils literal"><span class="pre">label</span></tt> option:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="nf">configureDatagridFilters</span><span class="p">(</span><span class="nx">DatagridMapper</span> <span class="nv">$datagrid</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$datagrid</span>
+        <span class="c1">// ..</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;les tags&#39;</span><span class="p">),</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;expanded&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;multiple&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+        <span class="c1">// ..</span>
+    <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="callback">
+<h3>5.5.3. Callback<a class="headerlink" href="#callback" title="Permalink to this headline">¶</a></h3>
+<p>To create a custom callback filter, two methods need to be implemented:</p>
+<ul class="simple">
+<li>one to define the field type,</li>
+<li>one to define how to use the field&#8217;s value.</li>
+</ul>
+<p>The latter shall return whether the filter actually is applied to the queryBuilder or not.
+In this example, <tt class="docutils literal"><span class="pre">getWithOpenCommentField</span></tt> and <tt class="docutils literal"><span class="pre">getWithOpenCommentFilter</span></tt> implement this functionality:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Application\Sonata\NewsBundle\Entity\Comment</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureDatagridFilters</span><span class="p">(</span><span class="nx">DatagridMapper</span> <span class="nv">$datagridMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$datagridMapper</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;expanded&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;multiple&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;with_open_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;doctrine_orm_callback&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+<span class="c1">//                &#39;callback&#39;   =&gt; array($this, &#39;getWithOpenCommentFilter&#39;),</span>
+                <span class="s1">&#39;callback&#39;</span> <span class="o">=&gt;</span> <span class="k">function</span><span class="p">(</span><span class="nv">$queryBuilder</span><span class="p">,</span> <span class="nv">$alias</span><span class="p">,</span> <span class="nv">$field</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$value</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span> <span class="p">{</span>
+                        <span class="k">return</span><span class="p">;</span>
+                    <span class="p">}</span>
+
+                    <span class="nv">$queryBuilder</span><span class="o">-&gt;</span><span class="na">leftJoin</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%s.comments&#39;</span><span class="p">,</span> <span class="nv">$alias</span><span class="p">),</span> <span class="s1">&#39;c&#39;</span><span class="p">);</span>
+                    <span class="nv">$queryBuilder</span><span class="o">-&gt;</span><span class="na">andWhere</span><span class="p">(</span><span class="s1">&#39;c.status = :status&#39;</span><span class="p">);</span>
+                    <span class="nv">$queryBuilder</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="nx">Comment</span><span class="o">::</span><span class="na">STATUS_MODERATE</span><span class="p">);</span>
+
+                    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;field_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;checkbox&#39;</span>
+            <span class="p">))</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getWithOpenCommentFilter</span><span class="p">(</span><span class="nv">$queryBuilder</span><span class="p">,</span> <span class="nv">$alias</span><span class="p">,</span> <span class="nv">$field</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$value</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$queryBuilder</span><span class="o">-&gt;</span><span class="na">leftJoin</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%s.comments&#39;</span><span class="p">,</span> <span class="nv">$alias</span><span class="p">),</span> <span class="s1">&#39;c&#39;</span><span class="p">);</span>
+        <span class="nv">$queryBuilder</span><span class="o">-&gt;</span><span class="na">andWhere</span><span class="p">(</span><span class="s1">&#39;c.status = :status&#39;</span><span class="p">);</span>
+        <span class="nv">$queryBuilder</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="nx">Comment</span><span class="o">::</span><span class="na">STATUS_MODERATE</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="form_field_definition.html" class="btn btn-neutral float-right" title="6. Form field definition"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="list_field_definition.html" class="btn btn-neutral" title="4. List field definition"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. Security &mdash; Sonata ~ MediaBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ MediaBundle  documentation" href="../index.html"/>
+        <link rel="next" title="8. Command Line Tools" href="command_line.html"/>
+        <link rel="prev" title="6. Form Type" href="form.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ MediaBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#base-bundles">1.1. Base bundles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id1">1.2. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">2. Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#php-usage">2.1. PHP Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#twig-usage">2.2. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#thumbnails-for-files">2.3. Thumbnails for files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creating_a_provider_class.html">3. Creating a Media Provider: A Vimeo Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#media-entity">3.1. Media Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#case-study">3.2. Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#initialize-the-class">3.3. Initialize the class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#register-the-class-with-the-service-container">3.4. Register the Class with the Service Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#view-helper">3.5. View Helper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media_context.html">4. Media Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media_context.html#adminbundle-integration">4.1. <tt class="docutils literal"><span class="pre">AdminBundle</span></tt> Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">5. Usages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#saving-a-media-file">5.1. Saving a media file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#retrieving-metadata-information">5.2. Retrieving metadata information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form.html">6. Form Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form.html#media-type">6.1. Media Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">7. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-example">7.1. Configuration Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-security-download-strategy">7.2. Creating your own Security Download Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">8. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#media-commands">8.1. Media commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">9. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">10. Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">10.1. Pixlr Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">11. Sonata Notification Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">12. Liip Imagine Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">13. CKEditor Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">13.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">13.2. Medias in CKEditor with SonataFormatterBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">14. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">14.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">14.2. Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">14.3. Sending a media file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">15. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">15.1. Media Formats</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ MediaBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>7. Security</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/security.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="security">
+<h1>7. Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
+<p>Access to the original media is not possible as the file can be private or/and unsecure for the end user. However
+we still need an action to download the file from the server. To solve this issue, the <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt> introduces
+a download strategy interface, which can be set per context and authorize the media retrieval.</p>
+<p>Built-in security strategy:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sonata.media.security.superadmin_strategy</span></tt> : DEFAULT - the user need to have one of the following roles : <tt class="docutils literal"><span class="pre">ROLE_SUPER_ADMIN</span></tt> or <tt class="docutils literal"><span class="pre">ROLE_ADMIN</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sonata.media.security.public_strategy</span></tt> : no restriction, files are public</li>
+<li><tt class="docutils literal"><span class="pre">sonata.media.security.forbidden_strategy</span></tt> : not possible to retrieve the original file</li>
+<li><tt class="docutils literal"><span class="pre">sonata.media.security.connected_strategy</span></tt> : the need to have one of the following roles : <tt class="docutils literal"><span class="pre">IS_AUTHENTICATED_FULLY</span></tt> or <tt class="docutils literal"><span class="pre">IS_AUTHENTICATED_REMEMBERED</span></tt></li>
+</ul>
+<p>On top of that, there is 3 download modes which can be configured to download the media. The download mode depends on
+the HTTP server you used:</p>
+<ul class="simple">
+<li>http : DEFAULT - use php to send the file</li>
+<li>X-Sendfile : use the <tt class="docutils literal"><span class="pre">X-Sendfile</span></tt> flag (Apache + mod_xsendfile : <a class="reference external" href="https://tn123.org/mod_xsendfile/">https://tn123.org/mod_xsendfile/</a>)</li>
+<li>X-Accel-Redirect : use the <tt class="docutils literal"><span class="pre">X-Accel-Redirect</span></tt> flag (Nginx : <a class="reference external" href="http://wiki.nginx.org/X-accel">http://wiki.nginx.org/X-accel</a>)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some file storage abstractions might not be compatible with some specific server flag,
+if you are not sure always use <tt class="docutils literal"><span class="pre">http</span></tt>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you use <tt class="docutils literal"><span class="pre">X-Sendfile</span></tt> or <tt class="docutils literal"><span class="pre">X-Accel-Redirect</span></tt> download mode, don&#8217;t forget to specify that you trust this
+header by adding <tt class="docutils literal"><span class="pre">BinaryFileResponse::trustXSendfileTypeHeader();</span></tt> in your app controller.</p>
+</div>
+<div class="section" id="configuration-example">
+<h2>7.1. Configuration Example<a class="headerlink" href="#configuration-example" title="Permalink to this headline">¶</a></h2>
+<p>For the context <tt class="docutils literal"><span class="pre">default</span></tt> the user need to be a Super Admin to retrieve the file in <tt class="docutils literal"><span class="pre">http</span></tt> mode.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_media</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">doctrine_orm</span>
+    <span class="l-Scalar-Plain">contexts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>  <span class="c1"># the default context is mandatory</span>
+            <span class="l-Scalar-Plain">download</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">strategy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.security.superadmin_strategy</span>
+                <span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http</span>
+            <span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.media.provider.dailymotion</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.media.provider.youtube</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.media.provider.image</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.media.provider.file</span>
+</pre></div>
+</div>
+<p>The related download route name is <tt class="docutils literal"><span class="pre">sonata_media_download</span></tt>.</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="x">&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;sonata_media_download&#39;</span><span class="o">,</span> <span class="o">{</span><span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="nv">media</span><span class="o">|</span><span class="nf">sonata_urlsafeid</span> <span class="o">})</span> <span class="cp">}}</span><span class="x">&quot;&gt;Download file&lt;/a&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-your-own-security-download-strategy">
+<h2>7.2. Creating your own Security Download Strategy<a class="headerlink" href="#creating-your-own-security-download-strategy" title="Permalink to this headline">¶</a></h2>
+<p>The Strategy class must implement the <tt class="docutils literal"><span class="pre">DownloadStrategyInterface</span></tt> which contains 2 main methods :</p>
+<ul class="simple">
+<li>isGranted : return true or false depends on the strategy logic</li>
+<li>getDescription : explains the strategy</li>
+</ul>
+<p>Let&#8217;s create the following strategy : a media can be downloaded only once per session.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\MediaBundle\Security</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\MediaBundle\Model\MediaInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\SecurityContextInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Translation\TranslatorInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\ContainerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SessionDownloadStrategy</span> <span class="k">implements</span> <span class="nx">DownloadStrategyInterface</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$container</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$translator</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$times</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$sessionKey</span> <span class="o">=</span> <span class="s1">&#39;sonata/media/session/times&#39;</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param \Symfony\Component\Translation\TranslatorInterface $translator</span>
+<span class="sd">     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container</span>
+<span class="sd">     * @param int $times</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">TranslatorInterface</span> <span class="nv">$translator</span><span class="p">,</span> <span class="nx">ContainerInterface</span> <span class="nv">$container</span><span class="p">,</span> <span class="nv">$times</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">times</span>    <span class="o">=</span> <span class="nv">$times</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span> <span class="o">=</span> <span class="nv">$container</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">translator</span> <span class="o">=</span> <span class="nv">$translator</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param \Sonata\MediaBundle\Model\MediaInterface $media</span>
+<span class="sd">     * @param \Symfony\Component\HttpFoundation\Request $request</span>
+<span class="sd">     * @return bool</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isGranted</span><span class="p">(</span><span class="nx">MediaInterface</span> <span class="nv">$media</span><span class="p">,</span> <span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$times</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sessionKey</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$times</span> <span class="o">&gt;=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">times</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getSession</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sessionKey</span><span class="p">,</span> <span class="nv">$times</span><span class="o">++</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return string</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getDescription</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">translator</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;description.session_download_strategy&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;%times%&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">times</span><span class="p">),</span> <span class="s1">&#39;SonataMediaBundle&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @return \Symfony\Component\HttpFoundation\Session</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">getSession</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s explain a bit :</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">__construct</span></tt> : the constructor get the different dependency. As the session belongs to the request scope, it is not possible to inject the service session, so the Container is injected.</li>
+<li><tt class="docutils literal"><span class="pre">isGranted</span></tt> : the method test the number of time the file has been downloaded</li>
+<li><tt class="docutils literal"><span class="pre">getDescription</span></tt> : return a translated message to explain what the current strategy does</li>
+<li><tt class="docutils literal"><span class="pre">getSession</span></tt> : return the session from the container.</li>
+</ul>
+<p>The last important part is declaring the service. Open the <tt class="docutils literal"><span class="pre">service.xml</span></tt> file and add the following lines.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;sonata.media.security.session_strategy&quot;</span> <span class="na">class=</span><span class="s">&quot;Sonata\MediaBundle\Security\SessionDownloadStrategy&quot;</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;translator&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;service_container&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>1<span class="nt">&lt;/argument&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</pre></div>
+</div>
+<p>Now the service can be used with a context:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_media</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">doctrine_orm</span>
+    <span class="l-Scalar-Plain">contexts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">contents</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">download</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">strategy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.security.session_strategy</span>
+
+            <span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.media.provider.file</span>
+
+            <span class="l-Scalar-Plain">formats</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="command_line.html" class="btn btn-neutral float-right" title="8. Command Line Tools"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="form.html" class="btn btn-neutral" title="6. Form Type"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

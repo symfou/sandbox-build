@@ -12,8 +12,8 @@ namespace Sonata\AdminBundle\Form;
 
 use Sonata\AdminBundle\Builder\FormContractorInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
-use Symfony\Component\Form\FormBuilder;
 use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * This class is use to simulate the Form API
@@ -21,17 +21,20 @@ use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
  */
 class FormMapper extends BaseGroupedMapper
 {
+    /**
+     * @var FormBuilderInterface
+     */
     protected $formBuilder;
 
     /**
      * @param FormContractorInterface $formContractor
-     * @param FormBuilder                 $formBuilder
-     * @param AdminInterface            $admin
+     * @param FormBuilderInterface    $formBuilder
+     * @param AdminInterface          $admin
      */
-    public function __construct(FormContractorInterface $formContractor, FormBuilder $formBuilder, AdminInterface $admin)
+    public function __construct(FormContractorInterface $formContractor, FormBuilderInterface $formBuilder, AdminInterface $admin)
     {
         parent::__construct($formContractor, $admin);
-        $this->formBuilder    = $formBuilder;
+        $this->formBuilder = $formBuilder;
     }
 
     /**
@@ -54,14 +57,18 @@ class FormMapper extends BaseGroupedMapper
      */
     public function add($name, $type = null, array $options = array(), array $fieldDescriptionOptions = array())
     {
-        if ($name instanceof FormBuilder) {
+        if ($this->apply !== null && !$this->apply) {
+            return $this;
+        }
+
+        if ($name instanceof FormBuilderInterface) {
             $fieldName = $name->getName();
         } else {
             $fieldName = $name;
         }
 
         // "Dot" notation is not allowed as form name, but can be used as property path to access nested data.
-        if (!$name instanceof FormBuilder && strpos($fieldName, '.')!==false && !isset($options['property_path'])) {
+        if (!$name instanceof FormBuilderInterface && strpos($fieldName, '.')!==false && !isset($options['property_path'])) {
              $options['property_path'] = $fieldName;
 
              // fix the form name
@@ -88,7 +95,7 @@ class FormMapper extends BaseGroupedMapper
 
         $fieldDescription = $this->admin->getModelManager()->getNewFieldDescriptionInstance(
             $this->admin->getClass(),
-            $name instanceof FormBuilder ? $name->getName() : $name,
+            $name instanceof FormBuilderInterface ? $name->getName() : $name,
             $fieldDescriptionOptions
         );
 
@@ -101,7 +108,7 @@ class FormMapper extends BaseGroupedMapper
 
         $this->admin->addFormFieldDescription($fieldName, $fieldDescription);
 
-        if ($name instanceof FormBuilder) {
+        if ($name instanceof FormBuilderInterface) {
             $this->formBuilder->add($name);
         } else {
             // Note that the builder var is actually the formContractor:
@@ -162,7 +169,7 @@ class FormMapper extends BaseGroupedMapper
     }
 
     /**
-     * @return FormBuilder
+     * @return \Symfony\Component\Form\FormBuilderInterface
      */
     public function getFormBuilder()
     {
@@ -174,7 +181,7 @@ class FormMapper extends BaseGroupedMapper
      * @param mixed  $type
      * @param array  $options
      *
-     * @return FormBuilder
+     * @return \Symfony\Component\Form\FormBuilderInterface
      */
     public function create($name, $type = null, array $options = array())
     {

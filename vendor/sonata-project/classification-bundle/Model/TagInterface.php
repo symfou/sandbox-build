@@ -82,4 +82,14 @@ interface TagInterface
      * @return \DateTime $updatedAt
      */
     public function getUpdatedAt();
+
+    /**
+     * @param ContextInterface $context
+     */
+    public function setContext(ContextInterface $context);
+
+    /**
+     * @return ContextInterface
+     */
+    public function getContext();
 }

@@ -9,11 +9,7 @@ responses.
 Requirements
 ------------
 
-Goutte depends on PHP 5.4+ and Guzzle 4+.
-
-.. tip::
-
-    If you need support for PHP 5.3 or Guzzle 3, use Goutte 1.0.6.
+Goutte works with PHP 5.3.3 or later.
 
 Installation
 ------------
@@ -22,7 +18,7 @@ Add ``fabpot/goutte`` as a require dependency in your ``composer.json`` file:
 
 .. code-block:: bash
 
-    php composer.phar require fabpot/goutte:~2.0
+    php composer.phar require fabpot/goutte:~1.0
 
 .. tip::
 
@@ -53,12 +49,6 @@ Make requests with the ``request()`` method:
 
 The method returns a ``Crawler`` object
 (``Symfony\Component\DomCrawler\Crawler``).
-
-Fine-tune cURL options:
-
-.. code-block:: php
-
-    $client->getClient()->setDefaultOption('config/curl/'.CURLOPT_TIMEOUT, 60);
 
 Click on links:
 
@@ -100,7 +90,8 @@ Technical Information
 
 Goutte is a thin wrapper around the following fine PHP libraries:
 
-* Symfony Components: BrowserKit, CssSelector and DomCrawler;
+* Symfony Components: BrowserKit, ClassLoader, CssSelector, DomCrawler, Finder,
+  and Process;
 
 *  `Guzzle`_ HTTP Component.
 

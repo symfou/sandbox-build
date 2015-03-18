@@ -12,11 +12,16 @@
 namespace Sonata\AdminBundle\Twig\Extension;
 
 use Doctrine\Common\Util\ClassUtils;
-use Sonata\AdminBundle\Admin\FieldDescriptionInterface;
-use Sonata\AdminBundle\Exception\NoValueException;
-use Sonata\AdminBundle\Admin\Pool;
-use Symfony\Component\PropertyAccess\PropertyAccess;
+use Knp\Menu\MenuFactory;
+use Knp\Menu\ItemInterface;
 use Psr\Log\LoggerInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\AdminBundle\Admin\FieldDescriptionInterface;
+use Sonata\AdminBundle\Admin\Pool;
+use Sonata\AdminBundle\Exception\NoValueException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\Routing\RouterInterface;
 
 class SonataAdminExtension extends \Twig_Extension
 {
@@ -31,6 +36,11 @@ class SonataAdminExtension extends \Twig_Extension
     protected $pool;
 
     /**
+     * @var RouterInterface
+     */
+    protected $router;
+
+    /**
      * @var LoggerInterface
      */
     protected $logger;
@@ -39,10 +49,11 @@ class SonataAdminExtension extends \Twig_Extension
      * @param Pool            $pool
      * @param LoggerInterface $logger
      */
-    public function __construct(Pool $pool, LoggerInterface $logger = null)
+    public function __construct(Pool $pool, RouterInterface $router, LoggerInterface $logger = null)
     {
-        $this->pool = $pool;
+        $this->pool   = $pool;
         $this->logger = $logger;
+        $this->router = $router;
     }
 
     /**
@@ -59,12 +70,22 @@ class SonataAdminExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'render_list_element'           => new \Twig_Filter_Method($this, 'renderListElement', array('is_safe' => array('html'))),
-            'render_view_element'           => new \Twig_Filter_Method($this, 'renderViewElement', array('is_safe' => array('html'))),
-            'render_view_element_compare'   => new \Twig_Filter_Method($this, 'renderViewElementCompare', array('is_safe' => array('html'))),
-            'render_relation_element'       => new \Twig_Filter_Method($this, 'renderRelationElement'),
-            'sonata_urlsafeid'              => new \Twig_Filter_Method($this, 'getUrlsafeIdentifier'),
-            'sonata_xeditable_type'         => new \Twig_Filter_Method($this, 'getXEditableType'),
+            'render_list_element'           => new \Twig_Filter_Method($this,   'renderListElement', array('is_safe' => array('html'))),
+            'render_view_element'           => new \Twig_Filter_Method($this,   'renderViewElement', array('is_safe' => array('html'))),
+            'render_view_element_compare'   => new \Twig_Filter_Method($this,   'renderViewElementCompare', array('is_safe' => array('html'))),
+            'render_relation_element'       => new \Twig_Filter_Method($this,   'renderRelationElement'),
+            'sonata_urlsafeid'              => new \Twig_Filter_Method($this,   'getUrlsafeIdentifier'),
+            'sonata_xeditable_type'         => new \Twig_Filter_Method($this,   'getXEditableType'),
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFunctions()
+    {
+        return array(
+            'sonata_knp_menu_build' => new \Twig_Function_Method($this, 'getKnpMenu'),
         );
     }
 
@@ -99,7 +120,6 @@ class SonataAdminExtension extends \Twig_Extension
         try {
             $template = $this->environment->loadTemplate($templateName);
         } catch (\Twig_Error_Loader $e) {
-
             $template = $this->environment->loadTemplate($defaultTemplate);
 
             if (null !== $this->logger) {
@@ -127,7 +147,7 @@ class SonataAdminExtension extends \Twig_Extension
             'admin'             => $fieldDescription->getAdmin(),
             'object'            => $object,
             'value'             => $this->getValueFromFieldDescription($object, $fieldDescription),
-            'field_description' => $fieldDescription
+            'field_description' => $fieldDescription,
         )));
     }
 
@@ -207,7 +227,7 @@ class SonataAdminExtension extends \Twig_Extension
             'field_description' => $fieldDescription,
             'object'            => $object,
             'value'             => $value,
-            'admin'             => $fieldDescription->getAdmin()
+            'admin'             => $fieldDescription->getAdmin(),
         ));
     }
 
@@ -239,13 +259,13 @@ class SonataAdminExtension extends \Twig_Extension
         $baseValueOutput = $template->render(array(
             'admin'             => $fieldDescription->getAdmin(),
             'field_description' => $fieldDescription,
-            'value'             => $baseValue
+            'value'             => $baseValue,
         ));
 
         $compareValueOutput = $template->render(array(
             'field_description' => $fieldDescription,
             'admin'             => $fieldDescription->getAdmin(),
-            'value'             => $compareValue
+            'value'             => $compareValue,
         ));
 
         // Compare the rendered output of both objects by using the (possibly) overridden field block
@@ -256,7 +276,7 @@ class SonataAdminExtension extends \Twig_Extension
             'value'             => $baseValue,
             'value_compare'     => $compareValue,
             'is_diff'           => $isDiff,
-            'admin'             => $fieldDescription->getAdmin()
+            'admin'             => $fieldDescription->getAdmin(),
         ));
     }
 
@@ -292,21 +312,28 @@ class SonataAdminExtension extends \Twig_Extension
             return call_user_func(array($element, $method));
         }
 
+        if (is_callable($propertyPath)) {
+            return $propertyPath($element);
+        }
+
         return PropertyAccess::createPropertyAccessor()->getValue($element, $propertyPath);
     }
 
     /**
      * Get the identifiers as a string that is save to use in an url.
      *
-     * @param object $model
+     * @param object         $model
+     * @param AdminInterface $admin
      *
      * @return string string representation of the id that is save to use in an url
      */
-    public function getUrlsafeIdentifier($model)
+    public function getUrlsafeIdentifier($model, AdminInterface $admin = null)
     {
-        $admin = $this->pool->getAdminByClass(
-            ClassUtils::getClass($model)
-        );
+        if (is_null($admin)) {
+            $admin = $this->pool->getAdminByClass(
+                ClassUtils::getClass($model)
+            );
+        }
 
         return $admin->getUrlsafeIdentifier($model);
     }
@@ -334,5 +361,62 @@ class SonataAdminExtension extends \Twig_Extension
         );
 
         return isset($mapping[$type]) ? $mapping[$type] : false;
+    }
+
+    /**
+     * Get KnpMenu
+     *
+     * @param Request $request
+     *
+     * @return ItemInterface
+     */
+    public function getKnpMenu(Request $request = null)
+    {
+        $menuFactory = new MenuFactory();
+        $menu = $menuFactory
+            ->createItem('root')
+            ->setExtra('request', $request)
+        ;
+
+        foreach ($this->pool->getAdminGroups() as $name => $group) {
+            $menu
+                ->addChild($name, array('label' => $group['label']))
+                ->setAttributes(
+                    array(
+                        'icon'             => $group['icon'],
+                        'label_catalogue'  => $group['label_catalogue'],
+                    )
+                )
+                ->setExtra('roles', $group['roles'])
+            ;
+
+            foreach ($group['items'] as $item) {
+                if (array_key_exists('admin', $item) && $item['admin'] != null) {
+                    $admin             = $this->pool->getInstance($item['admin']);
+
+                    // skip menu item if no `list` url is available or user doesn't have the LIST access rights
+                    if (!$admin->hasRoute('list') || !$admin->isGranted('LIST')) {
+                        continue;
+                    }
+
+                    $label             = $admin->getLabel();
+                    $route             = $admin->generateUrl('list');
+                    $translationDomain = $admin->getTranslationDomain();
+                } else {
+                    $label             = $item['label'];
+                    $route             = $this->router->generate($item['route'], $item['route_params']);
+                    $translationDomain = $group['label_catalogue'];
+                    $admin             = null;
+                }
+
+                $menu[$name]
+                    ->addChild($label, array('uri' => $route))
+                    ->setExtra('translationdomain', $translationDomain)
+                    ->setExtra('admin', $admin)
+                ;
+            }
+        }
+
+        return $menu;
     }
 }

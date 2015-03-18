@@ -141,6 +141,7 @@ class SchemaTool
      */
     public function getSchemaFromMetadata(array $classes)
     {
+
         // Reminder for processed classes, used for hierarchies
         $processedClasses       = array();
         $eventManager           = $this->em->getEventManager();
@@ -155,6 +156,12 @@ class SchemaTool
 
         foreach ($classes as $class) {
             /** @var \Doctrine\ORM\Mapping\ClassMetadata $class */
+
+//            if ($class->name == 'Sonata\ProductBundle\Entity\BaseProduct') {
+//                var_dump($class);
+//                die();
+//            }
+
             if ($this->processingNotRequired($class, $processedClasses)) {
                 continue;
             }

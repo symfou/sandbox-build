@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Installation &mdash; Sonata ~ FormatterBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ FormatterBundle  documentation" href="../index.html"/>
+        <link rel="next" title="3. Usage" href="usage.html"/>
+        <link rel="prev" title="Formatter Bundle" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ FormatterBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#configuration">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#form">3.1. Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#twig-formatter">3.2. Twig Formatter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatter_widget.html">4. Formatter Widget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#preview">4.1. Preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#how-to-use-it">4.2. How to use it ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#dynamic-input">4.3. Dynamic Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#sonata-admin-integration">4.4. Sonata Admin Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatter_block.html">5. Formatter Block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formatter_block.html#installation">5.1. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ckeditor_medias.html">6. Use CKEditor to select medias in SonataMediaBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ckeditor_medias.html#configuration">6.1. Configuration</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ FormatterBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>1. Installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/installation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="installation">
+<span id="index-0"></span><h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>To begin, add the dependent bundles:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>php composer.phar require sonata-project/formatter-bundle
+</pre></div>
+</div>
+<p>Register the bundle in <tt class="docutils literal"><span class="pre">app/AppKernel.php</span></tt>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// app/AppKernel.php</span>
+
+<span class="nv">$bundles</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="c1">// SonataMarkItUpBundle is deprecated. All assets are now available in formatter bundle</span>
+    <span class="c1">// new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),</span>
+    <span class="k">new</span> <span class="nx">Knp\Bundle\MarkdownBundle\KnpMarkdownBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Ivory\CKEditorBundle\IvoryCKEditorBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\FormatterBundle\SonataFormatterBundle</span><span class="p">(),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h1>2. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>Edit the <tt class="docutils literal"><span class="pre">config.yml</span></tt> file and add these lines:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_formatter</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">formatters</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.formatter.text.markdown</span>
+            <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.control_flow</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.gist</span>
+        <span class="c1">#        - sonata.media.formatter.twig #keep this commented unless you are using media bundle.</span>
+
+
+        <span class="l-Scalar-Plain">text</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.formatter.text.text</span>
+            <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.control_flow</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.gist</span>
+        <span class="c1">#        - sonata.media.formatter.twig</span>
+
+
+        <span class="l-Scalar-Plain">rawhtml</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.formatter.text.raw</span>
+            <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.control_flow</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.gist</span>
+        <span class="c1">#        - sonata.media.formatter.twig</span>
+
+
+        <span class="l-Scalar-Plain">richhtml</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.formatter.text.raw</span>
+            <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.control_flow</span>
+                <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.formatter.twig.gist</span>
+        <span class="c1">#        - sonata.media.formatter.twig</span>
+
+
+        <span class="l-Scalar-Plain">twig</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.formatter.text.twigengine</span>
+            <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span> <span class="c1"># Twig formatter cannot have extensions</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage.html" class="btn btn-neutral float-right" title="3. Usage"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Formatter Bundle"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

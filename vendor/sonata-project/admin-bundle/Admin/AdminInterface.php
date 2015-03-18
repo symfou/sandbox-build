@@ -11,8 +11,6 @@
 
 namespace Sonata\AdminBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Pool;
-use Sonata\AdminBundle\Admin\FieldDescriptionInterface;
 use Sonata\AdminBundle\Builder\FormContractorInterface;
 use Sonata\AdminBundle\Builder\ListBuilderInterface;
 use Sonata\AdminBundle\Builder\DatagridBuilderInterface;
@@ -20,13 +18,12 @@ use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\AdminBundle\Security\Handler\SecurityHandlerInterface;
 use Sonata\AdminBundle\Builder\RouteBuilderInterface;
 use Sonata\AdminBundle\Translator\LabelTranslatorStrategyInterface;
-use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteGeneratorInterface;
-
 use Knp\Menu\FactoryInterface as MenuFactoryInterface;
-use Knp\Menu\ItemInterface as MenuItemInterface;
 
+use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\CoreBundle\Model\Metadata;
+
 use Symfony\Component\Validator\ValidatorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -175,12 +172,12 @@ interface AdminInterface
      * @param array  $parameters
      * @param bool   $absolute
      *
-     * @return string return a complete url
+     * @return array return url parts: 'route', 'routeParameters', 'routeAbsolute'
      */
     public function generateMenuUrl($name, array $parameters = array(), $absolute = false);
 
     /**
-     * @return \Sonata\AdminBundle\Model\ModelManagerInterface;
+     * @return \Sonata\AdminBundle\Model\ModelManagerInterface
      */
     public function getModelManager();
 
@@ -197,7 +194,7 @@ interface AdminInterface
     public function createQuery($context = 'list');
 
     /**
-     * @return \Symfony\Component\Form\FormBuilder the form builder
+     * @return \Symfony\Component\Form\FormBuilderInterface the form builder
      */
     public function getFormBuilder();
 
@@ -233,7 +230,7 @@ interface AdminInterface
 
     /**
      * @return boolean true if a request object is linked to this Admin, false
-     *      otherwise.
+     *                 otherwise.
      */
     public function hasRequest();
 
@@ -314,6 +311,15 @@ interface AdminInterface
     public function getIdParameter();
 
     /**
+     * Returns true if the route $name is available
+     *
+     * @param string $name
+     *
+     * @return bool
+     */
+    public function hasRoute($name);
+
+    /**
      * Returns true if the admin has a FieldDescription with the given $name
      *
      * @param string $name
@@ -390,6 +396,15 @@ interface AdminInterface
      * @return FieldDescriptionInterface[]
      */
     public function getFilterFieldDescriptions();
+
+    /**
+     * Returns a filter FieldDescription
+     *
+     * @param string $name
+     *
+     * @return array|null
+     */
+    public function getFilterFieldDescription($name);
 
     /**
      * Returns a list depend on the given $object
@@ -570,7 +585,7 @@ interface AdminInterface
      *
      * @param string $code
      *
-     * @return array|null
+     * @return AdminInterface|null
      */
     public function getChild($code);
 
@@ -601,7 +616,7 @@ interface AdminInterface
     public function getObject($id);
 
     /**
-     * @param string $subject
+     * @param object $subject
      *
      * @return mixed
      */
@@ -745,7 +760,7 @@ interface AdminInterface
 
     /**
      *
-     * @param \Sonata\AdminBundle\Validator\ErrorElement $errorElement
+     * @param \Sonata\CoreBundle\Validator\ErrorElement $errorElement
      * @param mixed                                      $object
      *
      * @return void
@@ -850,7 +865,7 @@ interface AdminInterface
     /**
      * Remove a form group field
      *
-     * @param $key
+     * @param string $key
      *
      * @return void
      */
@@ -1024,4 +1039,21 @@ interface AdminInterface
      * @return Metadata
      */
     public function getObjectMetadata($object);
+
+    /**
+     * @return array
+     */
+    public function getListModes();
+
+    /**
+     * @param string $mode
+     */
+    public function setListMode($mode);
+
+    /**
+     * return the list mode
+     *
+     * @return string
+     */
+    public function getListMode();
 }

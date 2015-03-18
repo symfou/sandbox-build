@@ -84,11 +84,16 @@ class Pool
 
         foreach ($this->adminGroups as $name => $adminGroup) {
             if (isset($adminGroup['items'])) {
-                foreach ($adminGroup['items'] as $key => $id) {
-                    $admin = $this->getInstance($id);
+                foreach ($adminGroup['items'] as $key => $item) {
+                    // Only Admin Group should be returned
+                    if ('' != $item['admin']) {
+                        $admin = $this->getInstance($item['admin']);
 
-                    if ($admin->showIn(Admin::CONTEXT_DASHBOARD)) {
-                        $groups[$name]['items'][$key] = $admin;
+                        if ($admin->showIn(Admin::CONTEXT_DASHBOARD)) {
+                            $groups[$name]['items'][$key] = $admin;
+                        } else {
+                            unset($groups[$name]['items'][$key]);
+                        }
                     } else {
                         unset($groups[$name]['items'][$key]);
                     }
@@ -149,7 +154,7 @@ class Pool
         }
 
         if (count($this->adminClasses[$class]) > 1) {
-            throw new \RuntimeException(sprintf('Unable to found a valid admin for the class: %s, get too many admin registered: %s', $class, implode(",", $this->adminClasses[$class])));
+            throw new \RuntimeException(sprintf('Unable to find a valid admin for the class: %s, there are too many registered: %s', $class, implode(",", $this->adminClasses[$class])));
         }
 
         return $this->getInstance($this->adminClasses[$class][0]);
@@ -207,7 +212,7 @@ class Pool
     }
 
     /**
-     * @return null|\Symfony\Component\DependencyInjection\ContainerInterface
+     * @return ContainerInterface|null
      */
     public function getContainer()
     {

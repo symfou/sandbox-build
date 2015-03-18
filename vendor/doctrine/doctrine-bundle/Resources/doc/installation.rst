@@ -1,43 +1,43 @@
+Doctrine Bundle
+===============
+
+Doctrine DBAL & ORM Bundle for the Symfony Framework.
+
+Because Symfony 2 does not want to force or suggest a specific persistence solutions on the users
+this bundle was removed from the core of the Symfony 2 framework. Doctrine2 will still be a major player
+in the Symfony world and the bundle is maintained by developers in the Doctrine and Symfony communities.
+
+IMPORTANT: This bundle is developed for Symfony 2.1 and up. For Symfony 2.0 applications the DoctrineBundle
+is still shipped with the core Symfony repository.
+
 Installation
-============
+------------
 
-Step 1: Download the Bundle
----------------------------
+1. Old deps and bin/vendors way
 
-Open a command console, enter your project directory and execute the following
-command to download the latest stable version of this bundle:
+Add the following snippets to "deps" files:
 
-.. code-block:: bash
+.. code-block::
 
-    $ composer require doctrine/doctrine-bundle
+    [doctrine-mongodb]
+        git=http://github.com/doctrine/dbal.git
 
-This command requires you to have Composer installed globally, as explained
-in the `installation chapter`_ of the Composer documentation.
+    [doctrine-mongodb-odm]
+        git=http://github.com/doctrine/doctrine2.git
 
-Step 2: Enable the Bundle
--------------------------
+    [DoctrineBundle]
+        git=http://github.com/doctrine/DoctrineBundle.git
+        target=/bundles/Doctrine/Bundle/DoctrineBundle
 
-Then, enable the bundle by adding the following line in the ``app/AppKernel.php``
-file of your project::
+2. Composer
 
-    <?php
-    // app/AppKernel.php
+Add the following dependencies to your projects composer.json file:
 
-    // ...
-    class AppKernel extends Kernel
-    {
-        public function registerBundles()
-        {
-            $bundles = array(
-                // ...
+.. code-block::
 
-                new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            );
-
-            // ...
-        }
-
-        // ...
+    "require": {
+        # ..
+        "doctrine/doctrine-bundle": "~1.2"
+        # ..
     }
 
-.. _`installation chapter`: https://getcomposer.org/doc/00-intro.md

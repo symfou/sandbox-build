@@ -13,6 +13,13 @@ use Gaufrette\Adapter\ListKeysAware;
 class Filesystem
 {
     protected $adapter;
+    
+    /**
+     * Contains File objects created with $this->createFile() method
+     * 
+     * @var array 
+     */
+    protected $fileRegister = array();
 
     /**
      * Constructor
@@ -68,6 +75,11 @@ class Filesystem
         if (! $this->adapter->rename($sourceKey, $targetKey)) {
             throw new \RuntimeException(sprintf('Could not rename the "%s" key to "%s".', $sourceKey, $targetKey));
         }
+        
+        if($this->isFileInRegister($sourceKey)) {
+            $this->fileRegister[$targetKey] = $this->fileRegister[$sourceKey];
+            unset($this->fileRegister[$sourceKey]);
+        }
 
         return true;
     }
@@ -93,16 +105,18 @@ class Filesystem
     /**
      * Writes the given content into the file
      *
-     * @param string  $key       Key of the file
-     * @param string  $content   Content to write in the file
-     * @param boolean $overwrite Whether to overwrite the file if exists
+     * @param string  $key                 Key of the file
+     * @param string  $content             Content to write in the file
+     * @param boolean $overwrite           Whether to overwrite the file if exists
+     * @throws Exception\FileAlreadyExists When file already exists and overwrite is false
+     * @throws \RuntimeException           When for any reason content could not be written
      *
      * @return integer The number of bytes that were written into the file
      */
     public function write($key, $content, $overwrite = false)
     {
         if (!$overwrite && $this->has($key)) {
-            throw new \InvalidArgumentException(sprintf('The key "%s" already exists and can not be overwritten.', $key));
+            throw new Exception\FileAlreadyExists($key);
         }
 
         $numBytes = $this->adapter->write($key, $content);
@@ -140,6 +154,7 @@ class Filesystem
      * Deletes the file matching the specified key
      *
      * @param string $key
+     * @throws \RuntimeException when cannot read file
      *
      * @return boolean
      */
@@ -148,6 +163,9 @@ class Filesystem
         $this->assertHasFile($key);
 
         if ($this->adapter->delete($key)) {
+            if($this->isFileInRegister($key)) {
+                unset($this->fileRegister[$key]);
+            }
             return true;
         }
 
@@ -184,7 +202,7 @@ class Filesystem
         $keys = array();
 
         foreach ($this->keys() as $key) {
-            if (empty($prefix) || false !== strpos($key, $prefix)) {
+            if (empty($prefix) || 0 === strpos($key, $prefix)) {
                 if ($this->adapter->isDirectory($key)) {
                     $dirs[] = $key;
                 } else {
@@ -232,6 +250,24 @@ class Filesystem
     }
 
     /**
+     * Returns the size of the specified file's content
+     *
+     * @param string $key
+     *
+     * @return integer File size in Bytes
+     */
+    public function size($key)
+    {
+        $this->assertHasFile($key);
+
+        if ($this->adapter instanceof Adapter\SizeCalculator) {
+            return $this->adapter->size($key);
+        }
+
+        return Util\Size::fromContent($this->read($key));
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function createStream($key)
@@ -248,21 +284,64 @@ class Filesystem
      */
     public function createFile($key)
     {
-        if ($this->adapter instanceof Adapter\FileFactory) {
-            return $this->adapter->createFile($key, $this);
+        if(false === $this->isFileInRegister($key)) {
+            if ($this->adapter instanceof Adapter\FileFactory) {
+                $this->fileRegister[$key] = $this->adapter->createFile($key, $this);
+            } else {
+                $this->fileRegister[$key] = new File($key, $this);
+            }
         }
 
-        return new File($key, $this);
+        return $this->fileRegister[$key];
     }
 
     /**
-     * @param $key
-     * @throws Gaufrette\Exception\FileNotFound
+     * Get the mime type of the provided key
+     *
+     * @param string $key
+     *
+     * @return string
+     */
+    public function mimeType($key)
+    {
+        $this->assertHasFile($key);
+
+        if ($this->adapter instanceof Adapter\MimeTypeProvider) {
+            return $this->adapter->mimeType($key);
+        }
+
+        throw new \LogicException(sprintf(
+            'Adapter "%s" cannot provide MIME type',
+            get_class($this->adapter)
+        ));
+    }
+
+    /**
+     * Checks if matching file by given key exists in the filesystem
+     *
+     * Key must be non empty string, otherwise it will throw Exception\FileNotFound
+     * {@see http://php.net/manual/en/function.empty.php}
+     *
+     * @param string $key
+     *
+     * @throws Exception\FileNotFound   when sourceKey does not exist
      */
     private function assertHasFile($key)
     {
-        if (! $this->has($key)) {
+        if (! empty($key) && ! $this->has($key)) {
             throw new Exception\FileNotFound($key);
         }
+    }
+    
+    /**
+     * Checks if matching File object by given key exists in the fileRegister
+     * 
+     * @param string $key
+     * 
+     * @return bool
+     */
+    private function isFileInRegister($key)
+    {
+        return array_key_exists($key, $this->fileRegister);
     }
 }

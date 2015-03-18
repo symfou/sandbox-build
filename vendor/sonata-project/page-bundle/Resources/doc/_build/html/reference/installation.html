@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Installation &mdash; Sonata ~ PageBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ PageBundle  documentation" href="../index.html"/>
+        <link rel="next" title="3. Getting Started" href="getting_started.html"/>
+        <link rel="prev" title="1. Introduction" href="introduction.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ PageBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-site">1.1. A Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-page">1.2. A Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-block">1.3. A Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-snapshot">1.4. A Snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-cache">1.5. A Cache</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-the-bundle">2.2. Enable the Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">2.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extend-the-bundle">2.4. Extend the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">3. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-a-default-site">3.1. Creating a default site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-default-pages">3.2. Creating default pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-default-snapshots">3.3. Creating default snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#add-or-edit-a-block">3.4. Add or Edit a Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#publish-a-snapshot">3.5. Publish a snapshot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_composer.html">4. Page Composer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_composer.html#configure">4.1. Configure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_composer.html#javascript">4.2. Javascript</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multisite.html">5. Multisite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-strategy">5.1. Host Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-by-locale-strategy">5.2. Host By Locale Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-and-path-strategy">5.3. Host and Path Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-and-path-by-locale-strategy">5.4. Host and Path By Locale Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="error_pages.html">6. Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">7. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#url">7.1. Url</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#container">7.2. Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#breadcrumbs">7.3. Breadcrumbs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#assets">7.4. Assets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">8. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#flush-commands">8.1. Flush commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#page-commands">8.2. Page commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#debug-commands">8.3. Debug Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">9. Advanced usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#ignore-options">9.1. Ignore options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#page-default-options">9.2. Page default options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_services.html">10. Pages Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_services.html#creating-a-new-page-service">10.1. Creating a new Page Service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">11. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">12. Varnish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="varnish.html#basic-configuration">12.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="varnish.html#using-esi">12.2. Using ESI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">13. Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#indexes">13.1. Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#snapshots">13.2. Snapshots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">14. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">14.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">14.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ PageBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>2. Installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/installation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="installation">
+<h1>2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>2.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>PHP 5.3 and Symfony 2 are needed to make this bundle work ; there are also some
+Sonata dependencies that need to be installed and configured beforehand:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://sonata-project.org/bundles/cache">SonataCacheBundle</a></li>
+<li><a class="reference external" href="http://sonata-project.org/bundles/block">SonataBlockBundle</a></li>
+<li><a class="reference external" href="http://sonata-project.org/bundles/seo">SonataSeoBundle</a></li>
+<li><a class="reference external" href="http://sonata-project.org/bundles/easy-extends">SonataEasyExtendsBundle</a></li>
+<li><a class="reference external" href="http://sonata-project.org/bundles/notification">SonataNotificationBundle</a></li>
+<li><a class="reference external" href="http://sonata-project.org/bundles/admin">SonataAdminBundle</a></li>
+<li><a class="reference external" href="http://sonata-project.org/bundles/doctrine-orm-admin">SonataDoctrineORMAdminBundle</a></li>
+</ul>
+</div></blockquote>
+<p>You will also need a SymfonyCmf Bundle to make the routing work depending on which Symfony version you are using:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/symfony-cmf/RoutingExtraBundle">SymfonyCmfRoutingExtraBundle</a> for Symfony &lt;2.3</li>
+<li><a class="reference external" href="https://github.com/symfony-cmf/RoutingBundle">SymfonyCmfRoutingBundle</a> for Symfony &gt;=2.3</li>
+</ul>
+</div></blockquote>
+<p>Follow also their configuration steps; you will find everything you need in their installation chapter.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If a dependency is already installed somewhere in your project or in
+another dependency, you won&#8217;t need to install it again.</p>
+</div>
+</div>
+<div class="section" id="enable-the-bundle">
+<h2>2.2. Enable the Bundle<a class="headerlink" href="#enable-the-bundle" title="Permalink to this headline">¶</a></h2>
+<p>Add the dependant bundles to the vendor/bundles directory:</p>
+<div class="highlight-bash"><div class="highlight"><pre>php composer.phar require sonata-project/page-bundle --no-update
+php composer.phar require sonata-project/doctrine-orm-admin-bundle --no-update
+php composer.phar update
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The SonataAdminBundle and SonataDoctrineORMAdminBundle must be installed, please refer to <a class="reference external" href="http://sonata-project.org/bundles/admin">the dedicated documentation for more information</a>.</p>
+</div>
+<p>Next, be sure to enable the <tt class="docutils literal"><span class="pre">Page</span></tt> and <tt class="docutils literal"><span class="pre">EasyExtends</span></tt> bundles in your application kernel:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1">// app/appkernel.php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">registerbundles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="c1">// ...</span>
+        <span class="k">new</span> <span class="nx">Sonata\PageBundle\SonataPageBundle</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">Sonata\EasyExtendsBundle\SonataEasyExtendsBundle</span><span class="p">(),</span>
+        <span class="c1">// ...</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Before we can go on with generating our Application files trough the <tt class="docutils literal"><span class="pre">EasyExtends</span></tt> bundle, we need to add some lines which we will override later (we need them now only for the following step):</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_page</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">multisite</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">host</span>
+    <span class="l-Scalar-Plain">default_template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">default</span> <span class="c1"># template key from templates section, used as default for</span>
+    <span class="l-Scalar-Plain">templates</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>  <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataPageBundle::layout.html.twig&#39;</span><span class="p-Indicator">,</span>          <span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;default&#39;</span> <span class="p-Indicator">}</span>
+        <span class="l-Scalar-Plain">2columns</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataPageBundle::2columns_layout.html.twig&#39;</span><span class="p-Indicator">,</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;2</span><span class="nv"> </span><span class="s">columns</span><span class="nv"> </span><span class="s">layout&#39;</span> <span class="p-Indicator">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>2.3. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>To use the <tt class="docutils literal"><span class="pre">PageBundle</span></tt>, add the following lines to your application
+configuration file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If your <tt class="docutils literal"><span class="pre">auto_mapping</span></tt> have a <tt class="docutils literal"><span class="pre">false</span></tt> value, add these lines to your
+mapping configuration :</p>
+<div class="last highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">doctrine</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">orm</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">entity_managers</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">mappings</span><span class="p-Indicator">:</span>
+                    <span class="l-Scalar-Plain">ApplicationSonataPageBundle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span> <span class="c1"># only once the ApplicationSonataPageBundle is generated</span>
+                    <span class="l-Scalar-Plain">SonataPageBundle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">cmf_routing</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">chain</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">routers_by_id</span><span class="p-Indicator">:</span>
+            <span class="c1"># enable the DynamicRouter with high priority to allow overwriting configured routes with content</span>
+            <span class="c1">#cmf_routing.dynamic_router: 200</span>
+            <span class="c1"># enable the symfony default router with a lower priority</span>
+            <span class="l-Scalar-Plain">sonata.page.router</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">150</span>
+            <span class="l-Scalar-Plain">router.default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">100</span>
+
+<span class="l-Scalar-Plain">sonata_page</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">multisite</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">host</span>
+    <span class="l-Scalar-Plain">use_streamed_response</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span> <span class="c1"># set the value to false in debug mode or if the reverse proxy does not handle streamed response</span>
+    <span class="l-Scalar-Plain">ignore_route_patterns</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">^(.*)admin(.*)</span>   <span class="c1"># ignore admin route, ie route containing &#39;admin&#39;</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">^_(.*)</span>          <span class="c1"># ignore symfony routes</span>
+
+    <span class="l-Scalar-Plain">ignore_routes</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_page_cache_esi</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_page_cache_ssi</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_page_js_sync_cache</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_page_js_async_cache</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_cache_esi</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_cache_ssi</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_cache_js_async</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_cache_js_sync</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata_cache_apc</span>
+
+    <span class="l-Scalar-Plain">ignore_uri_patterns</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">^/admin\/</span>   <span class="c1"># ignore admin route, ie route containing &#39;admin&#39;</span>
+
+    <span class="l-Scalar-Plain">page_defaults</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">homepage</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span><span class="nv">decorate</span><span class="p-Indicator">:</span> <span class="nv">false</span><span class="p-Indicator">}</span> <span class="c1"># disable decoration for homepage, key - is a page route</span>
+
+    <span class="l-Scalar-Plain">default_template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">default</span> <span class="c1"># template key from templates section, used as default for pages</span>
+    <span class="l-Scalar-Plain">templates</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>  <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataPageBundle::layout.html.twig&#39;</span><span class="p-Indicator">,</span>          <span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;default&#39;</span> <span class="p-Indicator">}</span>
+        <span class="l-Scalar-Plain">2columns</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataPageBundle::2columns_layout.html.twig&#39;</span><span class="p-Indicator">,</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="s">&#39;2</span><span class="nv"> </span><span class="s">columns</span><span class="nv"> </span><span class="s">layout&#39;</span> <span class="p-Indicator">}</span>
+
+    <span class="c1"># manage the http errors</span>
+    <span class="l-Scalar-Plain">catch_exceptions</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">not_found</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">404</span><span class="p-Indicator">]</span>    <span class="c1"># render 404 page with &quot;not_found&quot; key (name generated: _page_internal_error_{key})</span>
+        <span class="l-Scalar-Plain">fatal</span><span class="p-Indicator">:</span>     <span class="p-Indicator">[</span><span class="nv">500</span><span class="p-Indicator">]</span>    <span class="c1"># so you can use the same page for different http errors or specify specific page for each error</span>
+
+
+<span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">assets</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">javascripts</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bundles/sonataadmin/vendor/jquery/dist/jquery.min.js</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.js</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js</span>
+
+        <span class="l-Scalar-Plain">stylesheets</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bundles/sonataadmin/vendor/AdminLTE/css/font-awesome.min.css</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bundles/sonataadmin/vendor/jqueryui/themes/flick/jquery-ui.min.css</span>
+</pre></div>
+</div>
+<p>Add block context manager:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">sonata_block</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">context_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.page.block.context_manager</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please you need to use the context <tt class="docutils literal"><span class="pre">sonata_page_bundle</span></tt> in the SonataBlockBundle to add block into a Page.</p>
+</div>
+<p>Add json Doctrine type</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">doctrine</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">dbal</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">types</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">json</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sonata\Doctrine\Types\JsonType</span>
+</pre></div>
+</div>
+<p>Add Roles</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">role_hierarchy</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">ROLE_ADMIN</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ROLE_USER</span>
+        <span class="l-Scalar-Plain">ROLE_SUPER_ADMIN</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">ROLE_USER</span><span class="p-Indicator">,</span> <span class="nv">ROLE_SONATA_ADMIN</span><span class="p-Indicator">,</span> <span class="nv">ROLE_ADMIN</span><span class="p-Indicator">,</span> <span class="nv">ROLE_ALLOWED_TO_SWITCH</span><span class="p-Indicator">,</span> <span class="nv">SONATA</span><span class="p-Indicator">]</span>
+
+        <span class="l-Scalar-Plain">SONATA</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT</span> <span class="c1"># if you are not using acl then this line must be uncommented</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_PAGE_ADMIN_BLOCK_EDIT</span>
+</pre></div>
+</div>
+<p>If you have decided to customize your logout management (in particular if you have set <tt class="docutils literal"><span class="pre">invalidate_session</span></tt> to false), you might want to add this logout handler:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="c1">#...</span>
+    <span class="l-Scalar-Plain">firewalls</span><span class="p-Indicator">:</span>
+        <span class="c1">#...</span>
+        <span class="l-Scalar-Plain">main</span><span class="p-Indicator">:</span> <span class="c1"># replace with your firewall name</span>
+            <span class="c1">#...</span>
+            <span class="l-Scalar-Plain">logout</span><span class="p-Indicator">:</span>
+                <span class="c1">#...</span>
+                <span class="l-Scalar-Plain">handlers</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&#39;sonata.page.cms_manager_selector&#39;</span><span class="p-Indicator">]</span>
+</pre></div>
+</div>
+<p>At the end of your routing file, add the following lines</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/routing.yml</span>
+<span class="l-Scalar-Plain">sonata_page_exceptions</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&#39;@SonataPageBundle/Resources/config/routing/exceptions.xml&#39;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/</span>
+
+<span class="l-Scalar-Plain">sonata_page_cache</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&#39;@SonataPageBundle/Resources/config/routing/cache.xml&#39;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extend-the-bundle">
+<h2>2.4. Extend the Bundle<a class="headerlink" href="#extend-the-bundle" title="Permalink to this headline">¶</a></h2>
+<p>At this point, the bundle is usable, but not quite ready yet. You need to
+generate the correct entities for the page:</p>
+<div class="highlight-bash"><div class="highlight"><pre>php app/console sonata:easy-extends:generate SonataPageBundle
+</pre></div>
+</div>
+<p>If you specify no parameter, the files are generated in app/Application/Sonata... but you can specify the path with &#8211;dest=src</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The command will generate domain objects in an <tt class="docutils literal"><span class="pre">Application</span></tt> namespace.
+So you can point entities associations to a global and common namespace.
+This will make entities sharing very easily as your models are accessible
+through a global namespace. For instance the page will be
+<tt class="docutils literal"><span class="pre">Application\Sonata\PageBundle\Entity\Page</span></tt>.</p>
+</div>
+<p>Now, add the new <cite>Application</cite> Bundle to the kernel</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">registerbundles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="c1">// ...</span>
+
+        <span class="c1">// Application Bundles</span>
+        <span class="k">new</span> <span class="nx">Application\Sonata\PageBundle\ApplicationSonataPageBundle</span><span class="p">(),</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And now, you&#8217;re good to go !</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="3. Getting Started"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="1. Introduction"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Twig Helpers &mdash; Sonata ~ CoreBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ CoreBundle  documentation" href="../index.html"/>
+        <link rel="next" title="7. Doctrine base entity manager" href="doctrine_base_manager.html"/>
+        <link rel="prev" title="5. Flash Messages" href="flash_messages.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ CoreBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#configuration">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form_types.html">3. Form Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#doctrineormserializationtype">3.1. DoctrineORMSerializationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-immutable-array">3.2. sonata_type_immutable_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-boolean">3.3. sonata_type_boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-translatable-choice">3.4. sonata_type_translatable_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-collection">3.5. sonata_type_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#statustype">3.6. StatusType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-date-picker-and-sonata-type-datetime-picker">3.7. sonata_type_date_picker and sonata_type_datetime_picker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status_helper.html">4. Twig status helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="status_helper.html#define-a-service">4.1. Define a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_helper.html#use-the-service">4.2. Use the service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flash_messages.html">5. Flash Messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flash_messages.html#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flash_messages.html#how-to-use">5.2. How-to use</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">6. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-slugify">6.1. sonata_slugify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-flashmessages-get-and-sonata-flashmessages-types">6.2. sonata_flashmessages_get and sonata_flashmessages_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-urlsafeid">6.3. sonata_urlsafeid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine_base_manager.html">7. Doctrine base entity manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine_base_manager.html#use-it-in-your-managers">7.1. Use it in your managers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">8. Serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html#custom-handlers">8.1. Custom handlers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_validation.html">10. Inline Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#using-this-validator">10.1. Using this validator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#example-from-the-sonatapagebundle">10.2. Example from the <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ CoreBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>6. Twig Helpers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/twig_helpers.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="twig-helpers">
+<span id="index-0"></span><h1>6. Twig Helpers<a class="headerlink" href="#twig-helpers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sonata-slugify">
+<h2>6.1. sonata_slugify<a class="headerlink" href="#sonata-slugify" title="Permalink to this headline">¶</a></h2>
+<p>Create a slug from a string:</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="s2">&quot;my string&quot;</span><span class="o">|</span><span class="nf">sonata_slugify</span> <span class="cp">}}</span><span class="x"> =&gt; my-string</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sonata-flashmessages-get-and-sonata-flashmessages-types">
+<h2>6.2. sonata_flashmessages_get and sonata_flashmessages_types<a class="headerlink" href="#sonata-flashmessages-get-and-sonata-flashmessages-types" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference internal" href="flash_messages.html"><em>Flash Messages</em></a> for more information.</p>
+</div>
+<div class="section" id="sonata-urlsafeid">
+<h2>6.3. sonata_urlsafeid<a class="headerlink" href="#sonata-urlsafeid" title="Permalink to this headline">¶</a></h2>
+<p>Gets the identifiers of the object as a string that is safe to use in an url.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="doctrine_base_manager.html" class="btn btn-neutral float-right" title="7. Doctrine base entity manager"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flash_messages.html" class="btn btn-neutral" title="5. Flash Messages"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

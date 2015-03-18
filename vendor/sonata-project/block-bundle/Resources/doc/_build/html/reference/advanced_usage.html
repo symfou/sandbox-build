@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. Advanced usage &mdash; Sonata ~ BlockBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ BlockBundle  documentation" href="../index.html"/>
+        <link rel="next" title="8. Cache" href="cache.html"/>
+        <link rel="prev" title="6. Exception strategy" href="exceptions.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ BlockBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">1.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">2. Twig Helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="provided_blocks.html">3. Provided Blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#emptyblockservice">3.1. EmptyBlockService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#textblockservice">3.2. TextBlockService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#rssblockservice">3.3. RssBlockService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#menublockservice">3.4. MenuBlockService</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="your_first_block.html">4. Your first block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#first-namespaces">4.1. First namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#default-settings">4.2. Default settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#execute">4.4. Execute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#template">4.5. Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#service">4.6. Service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">5. Profiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">6. Exception strategy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#filters">6.1. Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#renderers">6.2. Renderers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">7. Advanced usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cache">7.1. Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#block-context-manager-context-cache">7.2. Block Context Manager - context cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#block-loading">7.3. Block loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#empty-block">7.4. Empty block</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">8. Cache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#cache-behavior">8.1. Cache Behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#block-ttl-computation">8.2. Block TTL computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#final-response-ttl-computation">8.3. Final Response TTL computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#cache-backends">8.4. Cache Backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#cache-configuration">8.5. Cache configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">9. Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#implementation">9.1. Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#profiler-information">9.2. Profiler Information</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/rapid_prototyping.html">1. Rapid Prototyping with BlockBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbooks/rapid_prototyping.html#the-symfony-template-controller">1.1. The Symfony Template Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbooks/rapid_prototyping.html#the-template-block-service">1.2. The Template Block Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbooks/rapid_prototyping.html#example">1.3. Example</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ BlockBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>7. Advanced usage</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/advanced_usage.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="advanced-usage">
+<span id="index-0"></span><h1>7. Advanced usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<p>This happens when a block is rendered:</p>
+<ul class="simple">
+<li>A block is loaded based on the configuration passed to <tt class="docutils literal"><span class="pre">sonata_block_render</span></tt>,</li>
+<li>If caching is configured, the cache is checked and content is returned if found,</li>
+<li>Each block model also has a block service, the execute method of it is called:<ul>
+<li>You can put here logic like in a controller,</li>
+<li>It calls a template,</li>
+<li>The result is a <cite>Response</cite> object.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="cache">
+<h2>7.1. Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SonataBlockBundle</span></tt> integrated with the <a class="reference external" href="https://github.com/sonata-project/SonataCacheBundle">SonataCacheBundle</a> provides several caching solutions.
+Have a look at the available adapters in the <tt class="docutils literal"><span class="pre">SonataCacheBundle</span></tt> to see all options.</p>
+</div>
+<div class="section" id="block-context-manager-context-cache">
+<h2>7.2. Block Context Manager - context cache<a class="headerlink" href="#block-context-manager-context-cache" title="Permalink to this headline">¶</a></h2>
+<p>When using <cite>Varnish</cite>, <cite>Ssi</cite> or <cite>Js</cite> cache, the settings passed here are lost:</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_block_render</span><span class="o">({</span> <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="s1">&#39;sonata.block.service.rss&#39;</span> <span class="o">},</span> <span class="o">{</span>
+    <span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;Sonata Project\&#39;s Feeds&#39;</span><span class="o">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;http://sonata-project.org/blog/archive.rss&#39;</span>
+<span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Taking Js as example, an url is generated and added to some javascript. This javascript is injected in the page. When the page is loaded, the javascript calls the url to retrieve the block content.</p>
+<p>The default <tt class="docutils literal"><span class="pre">BlockContextManager</span></tt> automatically adds settings passed from the template to the <tt class="docutils literal"><span class="pre">extra_cache_keys</span></tt> with the key <tt class="docutils literal"><span class="pre">context</span></tt>.
+This allows cache adapters to rebuild a <tt class="docutils literal"><span class="pre">BlockContext</span></tt> if implemented.</p>
+<p>Still in the Js example, the cache keys can be added to the url as query parameters.
+When the url is called from the javascript, the cache adapter handles the request. It retrieves the settings from the <tt class="docutils literal"><span class="pre">context</span></tt> parameter and passes it to the <tt class="docutils literal"><span class="pre">BlockContextManager</span></tt> while creating a new <tt class="docutils literal"><span class="pre">BlockContext</span></tt>.
+This ensures the <tt class="docutils literal"><span class="pre">BlockContext</span></tt> is the same as when it was created from a template helper call without cache enabled.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The settings are exposed because they are added to the url as parameters, secure the url if needed.</p>
+</div>
+</div>
+<div class="section" id="block-loading">
+<h2>7.3. Block loading<a class="headerlink" href="#block-loading" title="Permalink to this headline">¶</a></h2>
+<p>Block models are loaded by a chain loader, add your own loader by tagging a service with <tt class="docutils literal"><span class="pre">sonata.block.loader&quot;</span></tt> and implement <tt class="docutils literal"><span class="pre">Sonata\BlockBundle\Block\BlockLoaderInterface</span></tt> in the loader class.</p>
+</div>
+<div class="section" id="empty-block">
+<h2>7.4. Empty block<a class="headerlink" href="#empty-block" title="Permalink to this headline">¶</a></h2>
+<p>By default, the loader interface expects the exception <tt class="docutils literal"><span class="pre">Sonata\BlockBundle\Exception\BlockNotFoundException</span></tt> if a block is not found.
+Return an empty block from your loader class if the default behaviour for your blocks is to always return content.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cache.html" class="btn btn-neutral float-right" title="8. Cache"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="exceptions.html" class="btn btn-neutral" title="6. Exception strategy"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

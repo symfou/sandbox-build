@@ -18,6 +18,7 @@
                     <argument key="peugeot">Sonata\Bundle\DemoBundle\Entity\Peugeot</argument>
                 </argument>
             </call>
+
         </service>
 
         <service id="sonata.demo.admin.engine" class="Sonata\Bundle\DemoBundle\Admin\EngineAdmin">
@@ -25,14 +26,6 @@
 
             <argument />
             <argument>Sonata\Bundle\DemoBundle\Entity\Engine</argument>
-            <argument />
-        </service>
-
-        <service id="sonata.demo.admin.inspection" class="Sonata\Bundle\DemoBundle\Admin\InspectionAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="Demo" label="Inspection"/>
-
-            <argument />
-            <argument>Sonata\Bundle\DemoBundle\Entity\Inspection</argument>
             <argument />
         </service>
 
@@ -44,6 +37,7 @@
             <argument />
         </service>
 
+
         <service id="sonata.demo.admin.material" class="Sonata\Bundle\DemoBundle\Admin\MaterialAdmin">
             <tag name="sonata.admin" manager_type="orm" group="Demo" label="Material" />
 
@@ -51,5 +45,14 @@
             <argument>Sonata\Bundle\DemoBundle\Entity\Material</argument>
             <argument />
         </service>
+
+        <service id="sonata.demo.admin.inspection" class="Sonata\Bundle\DemoBundle\Admin\InspectionAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Demo" label="Inspection"/>
+
+            <argument />
+            <argument>Sonata\Bundle\DemoBundle\Entity\Inspection</argument>
+            <argument />
+        </service>
     </services>
+
 </container>

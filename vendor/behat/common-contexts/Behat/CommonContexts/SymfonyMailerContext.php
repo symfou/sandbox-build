@@ -2,7 +2,6 @@
 
 namespace Behat\CommonContexts;
 
-use Behat\Behat\Context\BehatContext;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -51,7 +50,7 @@ class SymfonyMailerContext extends RawMinkContext implements KernelAwareInterfac
 
         $foundToAddresses = null;
         $foundSubjects = array();
-        foreach ($mailer->getMessages() as $message) {
+        foreach ($mailer->getMessages('default') as $message) {
             $foundSubjects[] = $message->getSubject();
 
             if (trim($subject) === trim($message->getSubject())) {

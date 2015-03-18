@@ -472,8 +472,8 @@ class HelperControllerTest extends \PHPUnit_Framework_TestCase
         $validator = $this->getMock('Symfony\Component\Validator\ValidatorInterface');
         $validator
             ->expects($this->once())
-            ->method('validateProperty')
-            ->with($bar, 'enabled')
+            ->method('validate')
+            ->with($bar)
             ->will($this->returnValue($violations))
         ;
 
@@ -501,7 +501,7 @@ class HelperControllerTest extends \PHPUnit_Framework_TestCase
             }));
 
         $request = new Request(array(
-            'code'     => 'foo.admin',
+            'admin_code'     => 'foo.admin',
         ), array(), array(), array(), array(), array('REQUEST_METHOD' => 'GET', 'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'));
 
         $this->controller->retrieveAutocompleteItemsAction($request);
@@ -574,7 +574,7 @@ class HelperControllerTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
 
         $request = new Request(array(
-            'code'  => 'foo.admin',
+            'admin_code'  => 'foo.admin',
             'field' => 'barField'
         ), array(), array(), array(), array(), array('REQUEST_METHOD' => 'GET', 'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'));
 
@@ -676,7 +676,7 @@ class HelperControllerTest extends \PHPUnit_Framework_TestCase
             }));
 
         $request = new Request(array(
-            'code'  => 'foo.admin',
+            'admin_code'  => 'foo.admin',
             'field' => 'barField'
         ), array(), array(), array(), array(), array('REQUEST_METHOD' => 'GET', 'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'));
 

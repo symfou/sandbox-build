@@ -34,6 +34,10 @@
                 <source>btn_filter</source>
                 <target>Filtern</target>
             </trans-unit>
+            <trans-unit id="btn_advanced_filters">
+                <source>btn_advanced_filters</source>
+                <target>btn_advanced_filters</target>
+            </trans-unit>
             <trans-unit id="btn_update">
                 <source>btn_update</source>
                 <target>Speichern</target>
@@ -314,13 +318,21 @@
                 <source>td_username</source>
                 <target>Autor</target>
             </trans-unit>
+            <trans-unit id="td_role">
+                <source>td_role</source>
+                <target>td_role</target>
+            </trans-unit>
             <trans-unit id="label_view_revision">
                 <source>label_view_revision</source>
                 <target>Version anzeigen</target>
             </trans-unit>
+            <trans-unit id="list_results_count_prefix">
+                <source>list_results_count_prefix</source>
+                <target>mehr als</target>
+            </trans-unit>
             <trans-unit id="list_results_count">
                 <source>list_results_count</source>
-                <target>{1}1 Ergebnis|]1,Inf] %count% Ergebnisse</target>
+                <target>1 Ergebnis|%count% Ergebnisse</target>
             </trans-unit>
             <trans-unit id="label_export_download">
                 <source>label_export_download</source>
@@ -396,11 +408,15 @@
             </trans-unit>
             <trans-unit id="noscript_warning">
                 <source>noscript_warning</source>
-                <target>noscript_warning</target>
+                <target>Javascript ist in ihrem Brwoser deaktiviert. Einige Funktionen werden nicht korrekt funktionieren.</target>
             </trans-unit>
             <trans-unit id="message_form_group_empty">
                 <source>message_form_group_empty</source>
-                <target>message_form_group_empty</target>
+                <target>Keine Felder verfügbar.</target>
+            </trans-unit>
+            <trans-unit id="link_filters">
+                <source>link_filters</source>
+                <target>Filter</target>
             </trans-unit>
         </body>
     </file>

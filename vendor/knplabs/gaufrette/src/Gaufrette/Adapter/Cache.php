@@ -95,9 +95,7 @@ class Cache implements Adapter,
      */
     public function rename($key, $new)
     {
-        $this->source->rename($key, $new);
-
-        return $this->cache->rename($key, $new);
+        return $this->source->rename($key, $new) && $this->cache->rename($key, $new);
     }
 
     /**
@@ -105,9 +103,19 @@ class Cache implements Adapter,
      */
     public function write($key, $content, array $metadata = null)
     {
-        $this->source->write($key, $content);
+        $bytesSource = $this->source->write($key, $content);
 
-        return $this->cache->write($key, $content);
+        if (false === $bytesSource) {
+            return false;
+        }
+
+        $bytesCache = $this->cache->write($key, $content);
+
+        if ($bytesSource !== $bytesCache) {
+            return false;
+        }
+
+        return $bytesSource;
     }
 
     /**
@@ -115,7 +123,10 @@ class Cache implements Adapter,
      */
     public function exists($key)
     {
-        return $this->source->exists($key);
+        if ($this->needsReload($key)) {
+            return $this->source->exists($key);
+        }
+        return $this->cache->exists($key);
     }
 
     /**
@@ -197,12 +208,11 @@ class Cache implements Adapter,
         if ($this->cache->exists($key)) {
             try {
                 $dateCache = $this->cache->mtime($key);
+                $needsReload = false;
 
                 if (time() - $this->ttl >= $dateCache) {
                     $dateSource = $this->source->mtime($key);
                     $needsReload = $dateCache < $dateSource;
-                } else {
-                    $needsReload = false;
                 }
             } catch (\RuntimeException $e) { }
         }

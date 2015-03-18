@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Formatter Widget &mdash; Sonata ~ FormatterBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ FormatterBundle  documentation" href="../index.html"/>
+        <link rel="next" title="5. Formatter Block" href="formatter_block.html"/>
+        <link rel="prev" title="3. Usage" href="usage.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ FormatterBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#configuration">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#form">3.1. Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#twig-formatter">3.2. Twig Formatter</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">4. Formatter Widget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preview">4.1. Preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-it">4.2. How to use it ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-input">4.3. Dynamic Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-admin-integration">4.4. Sonata Admin Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatter_block.html">5. Formatter Block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formatter_block.html#installation">5.1. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ckeditor_medias.html">6. Use CKEditor to select medias in SonataMediaBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ckeditor_medias.html#configuration">6.1. Configuration</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ FormatterBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>4. Formatter Widget</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/formatter_widget.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="formatter-widget">
+<span id="index-0"></span><h1>4. Formatter Widget<a class="headerlink" href="#formatter-widget" title="Permalink to this headline">¶</a></h1>
+<p>One recurrent need is to provide some kind of rich user interface to edit content.
+However, depending on the final target the content can have different formats: <tt class="docutils literal"><span class="pre">markdown</span></tt>, <tt class="docutils literal"><span class="pre">raw</span> <span class="pre">content</span></tt> or <tt class="docutils literal"><span class="pre">html</span></tt>.</p>
+<p>The <tt class="docutils literal"><span class="pre">sonata_formatter_type_selector</span></tt> widget has been implemented to allow end users to select the correct format for his/her need.
+And depending on the format, the textarea will change to match its requirements.</p>
+<p>By default, the widget supports these types:</p>
+<ul class="simple">
+<li><cite>text</cite> with a standard textarea widget;</li>
+<li><cite>markdown</cite> with <a class="reference external" href="http://markitup.jaysalvat.com/examples/markdown/">Markdow MarkItUp!</a>;</li>
+<li><cite>rawhtml</cite> with <a class="reference external" href="http://markitup.jaysalvat.com/examples/html/">HTML MarkItUp!</a>;</li>
+<li><cite>richhtml</cite> with <a class="reference external" href="http://ckeditor.com/">CKEditor</a>.</li>
+</ul>
+<div class="section" id="preview">
+<h2>4.1. Preview<a class="headerlink" href="#preview" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<img alt="formatter with CKEditor" src="../_images/formatter_with_ckeditor.png" />
+<p class="caption">The formatter with CKEditor</p>
+</div>
+<div class="figure align-center">
+<img alt="formatter with MarkItUp!" src="../_images/formatter_with_markitup.png" />
+<p class="caption">The formatter with MarkItUp!</p>
+</div>
+</div>
+<div class="section" id="how-to-use-it">
+<h2>4.2. How to use it ?<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
+<p>In order to make it work, let&#8217;s take a real life example: &#8220;a post from a blog can have different input formats&#8221;.
+So, the post model requires the following fields:</p>
+<ul class="simple">
+<li>a <tt class="docutils literal"><span class="pre">contentFormatter</span></tt> field: store the selected formatter;</li>
+<li>a <tt class="docutils literal"><span class="pre">rawContent</span></tt> field: store the original content from the user;</li>
+<li>a <tt class="docutils literal"><span class="pre">content</span></tt> field: store the transformed content display to the visitor.</li>
+</ul>
+<p>Now, let&#8217;s define a form to edit this post:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$formBuilder</span>
+    <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_formatter_type&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;event_dispatcher&#39;</span> <span class="o">=&gt;</span> <span class="nv">$formBuilder</span><span class="o">-&gt;</span><span class="na">getEventDispatcher</span><span class="p">(),</span>
+        <span class="s1">&#39;format_field&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;contentFormatter&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source_field&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;rawContent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source_field_options&#39;</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;attr&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;span10&#39;</span><span class="p">,</span> <span class="s1">&#39;rows&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;listener&#39;</span>       <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;target_field&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;content&#39;</span>
+    <span class="p">))</span>
+</pre></div>
+</div>
+<p>The form type defines a <tt class="docutils literal"><span class="pre">contentFormatter</span></tt> with a select choice (<tt class="docutils literal"><span class="pre">sonata_formatter_type_selector</span></tt>).
+The <tt class="docutils literal"><span class="pre">sonata_formatter_type_selector</span></tt> takes various options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">listener</span></tt> (optional, default is <tt class="docutils literal"><span class="pre">true</span></tt>);</li>
+<li><tt class="docutils literal"><span class="pre">event_dispatcher</span></tt>: the form dispatcher to attach the &#8220;submit&#8221; event  (optional, depends on the <tt class="docutils literal"><span class="pre">listener</span></tt> value);</li>
+<li><tt class="docutils literal"><span class="pre">format_field</span></tt>: the entity&#8217;s format field;</li>
+<li><tt class="docutils literal"><span class="pre">format_field_options</span></tt>: the format field options (optional);</li>
+<li><tt class="docutils literal"><span class="pre">source_field</span></tt>: the entity&#8217;s source field;</li>
+<li><tt class="docutils literal"><span class="pre">source_field_options</span></tt>: the source field options (optional);</li>
+<li><tt class="docutils literal"><span class="pre">target_field</span></tt>: the entity&#8217;s final field with the transformed data.</li>
+</ul>
+<p>Additionally, the following options can be added to give <cite>CKEditor</cite> a context in order to select images directly from <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt>, and to define a custom <cite>CKEditor</cite> toolbar configuration:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ckeditor_context</span></tt>: give CKEditor a context in order to customize routes used to browse and upload medias (see &#8220;Use CKEditor to select medias in SonataMediaBundle&#8221; chapter)</li>
+<li><tt class="docutils literal"><span class="pre">ckeditor_toolbar_icons</span></tt> : give CKEditor a custom toolbar configuration (optional)</li>
+</ul>
+<p>Here is the default <cite>CKEditor</cite> custom tooolbar configuration, you can tweak:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$ckeditor_toolbar_icons</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="mi">1</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Bold&#39;</span><span class="p">,</span> <span class="s1">&#39;Italic&#39;</span><span class="p">,</span> <span class="s1">&#39;Underline&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;Cut&#39;</span><span class="p">,</span> <span class="s1">&#39;Copy&#39;</span><span class="p">,</span> <span class="s1">&#39;Paste&#39;</span><span class="p">,</span> <span class="s1">&#39;PasteText&#39;</span><span class="p">,</span> <span class="s1">&#39;PasteFromWord&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;Undo&#39;</span><span class="p">,</span> <span class="s1">&#39;Redo&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;NumberedList&#39;</span><span class="p">,</span> <span class="s1">&#39;BulletedList&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;Outdent&#39;</span><span class="p">,</span> <span class="s1">&#39;Indent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;Blockquote&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;Image&#39;</span><span class="p">,</span> <span class="s1">&#39;Link&#39;</span><span class="p">,</span> <span class="s1">&#39;Unlink&#39;</span><span class="p">,</span> <span class="s1">&#39;Table&#39;</span><span class="p">),</span>
+    <span class="mi">2</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Maximize&#39;</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>If you stop here, the most interesting part will not be present. Let&#8217;s edit some configuration files.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want to see an actual implementation of this can, you can have a look at the <tt class="docutils literal"><span class="pre">SonataNewsBundle</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="dynamic-input">
+<h2>4.3. Dynamic Input<a class="headerlink" href="#dynamic-input" title="Permalink to this headline">¶</a></h2>
+<p>Open the <tt class="docutils literal"><span class="pre">config.yml</span></tt> file and add the following lines (or adjust the current configuration):</p>
+<div class="highlight-yaml"><div class="highlight"><pre>twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+    form:
+        resources:
+            # ...
+            - &#39;SonataFormatterBundle:Form:formatter.html.twig&#39;
+</pre></div>
+</div>
+<p>Make sure the <tt class="docutils literal"><span class="pre">SonataFormatterBundle:Form:formatter.html.twig</span></tt> is set.
+This template contains custom javascript code to load the selected text editor.</p>
+<p>You also need to include some assets in your template:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/markitup/skins/sonata/style.css&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/markitup/sets/markdown/style.css&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/markitup/sets/html/style.css&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/markitup/sets/textile/style.css&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ asset(&#39;bundles/ivoryckeditor/ckeditor.js&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/markitup/sets/markdown/set.js&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/markitup/sets/html/set.js&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ asset(&#39;bundles/sonataformatter/markitup/sets/textile/set.js&#39;) }}&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Files provided in the <tt class="docutils literal"><span class="pre">SonataMarkItUpBundle</span></tt> are fine for standard usage, feel free to include your own configuration files.
+For more information about how to edit configuration please refer to their officials documentations.</p>
+</div>
+</div>
+<div class="section" id="sonata-admin-integration">
+<h2>4.4. Sonata Admin Integration<a class="headerlink" href="#sonata-admin-integration" title="Permalink to this headline">¶</a></h2>
+<p>Of course, it is possible to use this feature with the <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt>. In order to make it work, you need to do an extra bit of work.</p>
+<p>Create a new file named <tt class="docutils literal"><span class="pre">layout.html.twig</span></tt> inside the <tt class="docutils literal"><span class="pre">app/Resources/SonataAdminBundle/views/</span></tt> with the following content:</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;SonataAdminBundle::standard_layout.html.twig&#39;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">stylesheets</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">parent</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/markitup/skins/sonata/style.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/css&quot; media=&quot;all&quot; /&gt;</span>
+<span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/markitup/sets/markdown/style.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/css&quot; media=&quot;all&quot; /&gt;</span>
+<span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/markitup/sets/html/style.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/css&quot; media=&quot;all&quot; /&gt;</span>
+<span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/markitup/sets/textile/style.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/css&quot; media=&quot;all&quot; /&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">javascripts</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">parent</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="x">    &lt;script src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/ivoryckeditor/ckeditor.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    &lt;script src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    &lt;script src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/markitup/sets/markdown/set.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    &lt;script src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/markitup/sets/html/set.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    &lt;script src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;bundles/sonataformatter/markitup/sets/textile/set.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Then, update the <tt class="docutils literal"><span class="pre">sonata_admin</span></tt> configuration to use this template:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">templates</span><span class="p-Indicator">:</span>
+        <span class="c1"># default global templates</span>
+        <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">SonataAdminBundle::layout.html.twig</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="formatter_block.html" class="btn btn-neutral float-right" title="5. Formatter Block"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="usage.html" class="btn btn-neutral" title="3. Usage"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

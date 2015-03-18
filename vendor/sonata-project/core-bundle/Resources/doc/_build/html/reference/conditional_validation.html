@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. Inline Validation &mdash; Sonata ~ CoreBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ CoreBundle  documentation" href="../index.html"/>
+        <link rel="prev" title="9. Api" href="api.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ CoreBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#configuration">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form_types.html">3. Form Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#doctrineormserializationtype">3.1. DoctrineORMSerializationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-immutable-array">3.2. sonata_type_immutable_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-boolean">3.3. sonata_type_boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-translatable-choice">3.4. sonata_type_translatable_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-collection">3.5. sonata_type_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#statustype">3.6. StatusType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#sonata-type-date-picker-and-sonata-type-datetime-picker">3.7. sonata_type_date_picker and sonata_type_datetime_picker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status_helper.html">4. Twig status helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="status_helper.html#define-a-service">4.1. Define a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_helper.html#use-the-service">4.2. Use the service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flash_messages.html">5. Flash Messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flash_messages.html#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flash_messages.html#how-to-use">5.2. How-to use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">6. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#sonata-slugify">6.1. sonata_slugify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#sonata-flashmessages-get-and-sonata-flashmessages-types">6.2. sonata_flashmessages_get and sonata_flashmessages_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#sonata-urlsafeid">6.3. sonata_urlsafeid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine_base_manager.html">7. Doctrine base entity manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine_base_manager.html#use-it-in-your-managers">7.1. Use it in your managers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">8. Serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html#custom-handlers">8.1. Custom handlers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Api</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">10. Inline Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-this-validator">10.1. Using this validator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-from-the-sonatapagebundle">10.2. Example from the <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ CoreBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>10. Inline Validation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/conditional_validation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="inline-validation">
+<h1>10. Inline Validation<a class="headerlink" href="#inline-validation" title="Permalink to this headline">¶</a></h1>
+<p>The inline validation is about delegating model validation to a dedicated service.
+The current validation implementation built in the Symfony2 framework is very powerful
+as it allows to declare validation on a : class, field and getter. However these declarations
+can take a while to code for complex rules. As rules must be a set of a <tt class="docutils literal"><span class="pre">Constraint</span></tt>
+and a <tt class="docutils literal"><span class="pre">Validator</span></tt> instances.</p>
+<p>The inline validation tries to provide a nice solution by introducing an <tt class="docutils literal"><span class="pre">ErrorElement</span></tt>
+object. The object can be used to check assertions against the model :</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$errorElement</span>
+    <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;settings.url&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">(</span><span class="k">array</span><span class="p">())</span>
+        <span class="o">-&gt;</span><span class="na">assertNotBlank</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;settings.title&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">(</span><span class="k">array</span><span class="p">())</span>
+        <span class="o">-&gt;</span><span class="na">assertNotBlank</span><span class="p">()</span>
+        <span class="c1">// for minimum length constraint</span>
+        <span class="o">-&gt;</span><span class="na">assertLength</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;min&#39;</span> <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">))</span>
+        <span class="c1">// for maximum length constraint</span>
+        <span class="o">-&gt;</span><span class="na">assertLength</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;max&#39;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">addViolation</span><span class="p">(</span><span class="s1">&#39;ho yeah!&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">end</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="cm">/* complex rules */</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$errorElement</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">addViolation</span><span class="p">(</span><span class="s1">&#39;Fail to check the complex rules&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="cm">/* conditional validation */</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getSubject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">()</span> <span class="o">==</span> <span class="nx">Post</span><span class="o">::</span><span class="na">STATUS_ONLINE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$errorElement</span>
+        <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This solution relies on the validator component so validation defined through
+the validator component will be used.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>You can also use <tt class="docutils literal"><span class="pre">$errorElement-&gt;addConstraint(new</span> <span class="pre">\Symfony\Component\Validator\Constraints\NotBlank())</span></tt>
+instead of calling assertNotBlank().</p>
+<p class="last">You can also use <tt class="docutils literal"><span class="pre">$errorElement-&gt;addConstraint(new</span> <span class="pre">\Symfony\Component\Validator\Constraints\Length(array('min'=&gt;5,</span> <span class="pre">'max'=&gt;100))</span></tt>
+instead of calling assertLength().</p>
+</div>
+<div class="section" id="using-this-validator">
+<h2>10.1. Using this validator<a class="headerlink" href="#using-this-validator" title="Permalink to this headline">¶</a></h2>
+<p>Add the <tt class="docutils literal"><span class="pre">InlineConstraint</span></tt> class constraint to your bundle&#8217;s validation configuration, for example:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>XML</em><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- src/Application/Sonata/PageBundle/Resources/config/validation.xml --&gt;</span>
+<span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;constraint-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">&quot;Application\Sonata\PageBundle\Entity\Block&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;constraint</span> <span class="na">name=</span><span class="s">&quot;Sonata\CoreBundle\Validator\Constraints\InlineConstraint&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;service&quot;</span><span class="nt">&gt;</span>sonata.page.cms.page<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;method&quot;</span><span class="nt">&gt;</span>validateBlock<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/constraint&gt;</span>
+    <span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/constraint-mapping&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># src/Application/Sonata/PageBundle/Resources/config/validation.yml</span>
+<span class="l-Scalar-Plain">Application\Sonata\PageBundle\Entity\Block</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Sonata\CoreBundle\Validator\Constraints\InlineConstraint</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.page.cms.page</span>
+            <span class="l-Scalar-Plain">method</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">validateBlock</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>There are two important options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">service</span></tt>: the service where the validation method is defined</li>
+<li><tt class="docutils literal"><span class="pre">method</span></tt>: the service&#8217;s method to call</li>
+</ul>
+</div></blockquote>
+<p>The method must accept two arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ErrorElement</span></tt>: the instance where assertion can be checked</li>
+<li><tt class="docutils literal"><span class="pre">value</span></tt>: the object instance</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="example-from-the-sonatapagebundle">
+<h2>10.2. Example from the <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt><a class="headerlink" href="#example-from-the-sonatapagebundle" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\PageBundle\Block</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\PageBundle\Model\PageInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\CoreBundle\Validator\ErrorElement</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\BlockBundle\Block\BaseBlockService</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\BlockBundle\Model\BlockInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RssBlockService</span> <span class="k">extends</span> <span class="nx">BaseBlockService</span>
+<span class="p">{</span>
+    <span class="c1">// ... code removed for simplification</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">validateBlock</span><span class="p">(</span><span class="nx">ErrorElement</span> <span class="nv">$errorElement</span><span class="p">,</span> <span class="nx">BlockInterface</span> <span class="nv">$block</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$errorElement</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;settings.url&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">(</span><span class="k">array</span><span class="p">())</span>
+                <span class="o">-&gt;</span><span class="na">assertNotBlank</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;settings.title&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">(</span><span class="k">array</span><span class="p">())</span>
+                <span class="o">-&gt;</span><span class="na">assertNotBlank</span><span class="p">()</span>
+                <span class="c1">// for minimum length constraint</span>
+                <span class="o">-&gt;</span><span class="na">assertLength</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;min&#39;</span> <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">))</span>
+                <span class="c1">// for maximum length constraint</span>
+                <span class="o">-&gt;</span><span class="na">assertLength</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;max&#39;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">addViolation</span><span class="p">(</span><span class="s1">&#39;ho yeah!&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="9. Api"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

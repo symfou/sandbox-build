@@ -88,6 +88,7 @@ class CarAdmin extends Admin
                     'inline' => 'table'
                 ))
             ->end()
+
         ;
     }
 
@@ -100,7 +101,7 @@ class CarAdmin extends Admin
 
         $inspection = new Inspection();
         $inspection->setDate(new \DateTime());
-        $inspection->setComment("Initial inspection");
+        $inspection->setComment("Initial inpection");
 
         $object->addInspection($inspection);
 

@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>7. Form types and data transformers &mdash; Sonata ~ DoctrineOrmAdminBundle  documentation</title>
+
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+
+
+    <link rel="top" title="Sonata ~ DoctrineOrmAdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="8. Templates" href="templates.html"/>
+        <link rel="prev" title="6. Form field definition" href="form_field_definition.html"/>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ DoctrineOrmAdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#download-the-bundle">1.1. Download the bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">1.2. Enable the bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html#full-configuration-options">3. Full configuration options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_field_definition.html">4. List field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#example">4.1. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#types-available">4.2. Types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#list-actions">4.3. List actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#advance-usage">4.4. Advance Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="filter_field_definition.html">5. Filter field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#filter-types-available">5.1. Filter types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#example">5.2. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#timestamps">5.3. Timestamps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#class">5.4. Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#advanced-usage">5.5. Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_field_definition.html">6. Form field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#example">6.1. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#types-available">6.2. Types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#short-object-placeholder">6.3. Short Object Placeholder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#advanced-usage-file-management">6.4. Advanced usage: File management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#advanced-usage-many-to-one">6.5. Advanced usage: Many-to-one</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_field_definition.html#advanced-usage-one-to-many">6.6. Advanced Usage: One-to-many</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">7. Form types and data transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#form-types">7.1. Form types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#datatransformer">7.2. Datatransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">8. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audit.html">9. Audit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#how-it-works">9.1. How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#installation">9.2. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#configuration">9.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#usage">9.4. Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_proxy.html">10. Doctrine ORM Proxy Query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshootings.html">11. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshootings.html#deleted-elements-from-a-one-to-many-association-are-not-removed">11.1. Deleted elements from a one-to-many association are not removed!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshootings.html#ordered-fields-are-not-ordered">11.2. Ordered fields are not ordered!</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html">2. Defining Entities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#model-definition">2.1. Model definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#generate-getters-and-setters">2.2. Generate getters and setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#creating-the-database">2.3. Creating the Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_routing.html">3. Defining the routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html">4. Defining the CRUD controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#commentadmincontroller">4.1. CommentAdminController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#postadmincontroller">4.2. PostAdminController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#tagadmincontroller">4.3. TagAdminController</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html">5. Defining admin class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#postadmin">5.1. PostAdmin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#tweak-the-tagadmin-class">5.2. Tweak the TagAdmin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#tweak-the-commentadmin-class">5.3. Tweak the CommentAdmin class</a></li>
+</ul>
+</li>
+</ul>
+
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ DoctrineOrmAdminBundle</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+
+    <li>7. Form types and data transformers</li>
+      <li class="wy-breadcrumbs-aside">
+
+          <a href="../_sources/reference/form_types_and_transformers.txt" rel="nofollow"> View page source</a>
+
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+
+  <div class="section" id="form-types-and-data-transformers">
+<span id="index-0"></span><h1>7. Form types and data transformers<a class="headerlink" href="#form-types-and-data-transformers" title="Permalink to this headline">¶</a></h1>
+<p>The <cite>AdminBundle</cite> is shipped with custom form types and data transfomers in order to handle the different model&#8217;s workflows and lifecycle.</p>
+<div class="section" id="form-types">
+<h2>7.1. Form types<a class="headerlink" href="#form-types" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">sonata_type_admin</span></tt>: this type is linked to an <cite>Admin</cite> class and the field construction is delegated to an Admin class,</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">sonata_type_collection</span></tt>: this type works like the native <tt class="docutils literal"><span class="pre">CollectionType</span></tt> but contains two extra features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the data layer is abstracted to work with any implemented layer,</li>
+<li>a delete option is added so a collection entry can be deleted.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">sonata_type_model</span></tt>: this type works like the native <tt class="docutils literal"><span class="pre">EntityType</span></tt> but this internal is abstracted to work with any implemented layer.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">sonata_type_immutable_array</span></tt>: this type allows to edit a fixed array, like a settings array.</p>
+</li>
+</ul>
+<p>Let&#8217;s say, the object has settings properties:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Page</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$settings</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;content&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;default content&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;public&#39;</span>    <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span>      <span class="o">=&gt;</span> <span class="mi">1</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now you can edit the settings array with:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\PageBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\CoreBundle\Validator\ErrorElement</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PageAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureFormFields</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$formMapper</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;settings&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_immutable_array&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;keys&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">()),</span>
+                    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="s1">&#39;checkbox&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">()),</span>
+                    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;choices&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;type 1&#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=&gt;</span> <span class="s1">&#39;type 2&#39;</span><span class="p">)))</span>
+                <span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">));</span>
+</pre></div>
+</div>
+<p>Then, the output will be:</p>
+<a class="reference internal image-reference" href="../_images/sonata_type_immutable_array.png"><img alt="Immutable Array Type" src="../_images/sonata_type_immutable_array.png" style="width: 460px;" /></a>
+<p>Other options:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Application\Sonata\NewsBundle\Entity\Comment</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureFormFields</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$formMapper</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;General&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_model&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;edit&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;list&#39;</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;abstract&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;Tags&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_model&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;expanded&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;Options&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;collapsed&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;commentsCloseAt&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;commentsEnabled&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;commentsDefaultStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;choices&#39;</span> <span class="o">=&gt;</span> <span class="nx">Comment</span><span class="o">::</span><span class="na">getStatusList</span><span class="p">()))</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datatransformer">
+<h2>7.2. Datatransformer<a class="headerlink" href="#datatransformer" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ArrayToModelTransformer</span></tt>: transform an array to an object,</li>
+<li><tt class="docutils literal"><span class="pre">ModelsToArrayTransformer</span></tt>: transform a collection of array into a collection of object,</li>
+<li><tt class="docutils literal"><span class="pre">ModelToIdTransformater</span></tt>: transform an <tt class="docutils literal"><span class="pre">id</span></tt> into an object.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+        <a href="templates.html" class="btn btn-neutral float-right" title="8. Templates"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+        <a href="form_field_definition.html" class="btn btn-neutral" title="6. Form field definition"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+    </div>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+
+
+
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+
+
+</body>
+</html>

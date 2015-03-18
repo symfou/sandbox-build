@@ -1,8 +1,36 @@
 CHANGELOG
 =========
 
-### 2015-01-05
+### 2015-03-04
+ * [BC BREAK] Admin LTE 2.0 used. Assets files changed.
+ * [BC BREAK] moved ``sonata_wrapper`` block on ```standard_layout.html.twig```
+ * [BC BREAK] removed ``btn-outline``` from doctrine-orm-admin form actions buttons
+
+### 2015-03-01
+ * [BC BREAK] added the ``hasRoute`` method to the AdminInterface
+
+## 2015-02-18
+ * [BC BREAK] Integration of KNPMenu for the admin menu. This integration is resetted when the standard layout ``standard_layout.html.twig`` is overrided. The KNPMenu is available in ``sonata_menu.html.twig`` template.
+
+### 2015-02-15
+ * [BC BREAK] added ``getFieldOption``, ``setFieldOption`` methods to the FilterInterface
+ * [BC BREAK] added the ``getFilterFieldDescription`` method to the AdminInterface
+ * [BC BREAK] added the ``getMaxPageLinks``, ``setMaxPageLinks`` methods to the PagerInterface
+ * [BC BREAK] CSS class ``sonata-autocomplete-dropdown-item`` is not automatically added to dropdown
+   autocomplete item in ``sonata_type_model_autocomplete``, use option ``dropdown_item_css_class``
+   to set the CSS class of dropdown item.
+
+## 2015-01-05
  * [BC BREAK] #2665 - text from Admin's toString method is escaped for html output before adding in flash message to prevent possible XSS vulnerability.
+
+### 2014-11-04
+* [BC BREAK] Inline edition now validates the whole object.
+
+### 2014-09-21
+ * added new form type ``sonata_choice_field_mask``
+
+### 2014-09-19
+ * [BC BREAK] ``field_options`` is now directly given to ``value`` form in ``DateRangeType`` and ``DateTimeRangeType`` filters.
 
 ### 2014-08-08
  * added new form type ``sonata_type_model_autocomplete``

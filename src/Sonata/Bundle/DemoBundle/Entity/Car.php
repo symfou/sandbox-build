@@ -52,12 +52,6 @@ class Car
     protected $rescueEngine;
 
     /**
-     * @ORM\OneToMany(targetEntity="Inspection", cascade={"persist", "remove"}, mappedBy="car")
-     * @Assert\Valid
-     */
-    protected $inspections;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Color", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumns({
      *      @ORM\JoinColumn(name="color_r", referencedColumnName="r"),
@@ -68,11 +62,20 @@ class Car
      */
     protected $color;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Inspection", cascade={"persist", "remove"}, orphanRemoval=True, mappedBy="car")
+     * @Assert\Valid
+     */
+    protected $inspections;
+
     public function __construct()
     {
         $this->inspections = new ArrayCollection();
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
@@ -147,11 +150,27 @@ class Car
     }
 
     /**
+     * @param mixed $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
      * @param Inspection[] $inspections
      */
     public function setInspections($inspections)
     {
-        $this->inspections->clear();
+        $this->inspections = new ArrayCollection();
 
         foreach ($inspections as $inspection) {
             $this->addInspection($inspection);
@@ -173,6 +192,7 @@ class Car
     public function addInspection(Inspection $inspection)
     {
         $inspection->setCar($this);
+
         $this->inspections->add($inspection);
     }
 
@@ -191,21 +211,5 @@ class Car
     public function __toString()
     {
         return $this->getName() ?: 'n/a';
-    }
-
-    /**
-     * @param mixed $color
-     */
-    public function setColor($color)
-    {
-        $this->color = $color;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getColor()
-    {
-        return $this->color;
     }
 }

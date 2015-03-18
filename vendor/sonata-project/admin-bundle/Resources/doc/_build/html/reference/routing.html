@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9. Routing &mdash; Sonata ~ AdminBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ AdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="10. The List View" href="action_list.html"/>
+        <link rel="prev" title="8. KnpMenu" href="knp_menu.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ AdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#downloading-the-code">1.1. Downloading the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#selecting-and-downloading-a-storage-bundle">1.2. Selecting and downloading a storage bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enabling-sonataadminbundle-and-its-dependencies">1.3. Enabling SonataAdminBundle and its dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuring-sonataadminbundle-dependencies">1.4. Configuring SonataAdminBundle dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#cleaning-up">1.5. Cleaning up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting started with SonataAdminBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-1-define-sonataadminbundle-routes">2.1. Step 1: Define SonataAdminBundle routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-2-create-an-admin-class">2.2. Step 2: Create an Admin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-3-create-an-admin-service">2.3. Step 3: Create an Admin service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-4-configuration">2.4. Step 4: Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps-security">2.5. Next steps - Security</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration // Warning: this doc page is not up to date and will be removed soon.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration">3.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#full-configuration-options">3.2. Full Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">4. Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#the-admin-class">4.1. The Admin Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#crudcontroller">4.2. CRUDController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#fields-definition">4.3. Fields Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#templates">4.4. Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#managing-admin-service">4.5. Managing <tt class="docutils literal"><span class="pre">Admin</span></tt> Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#create-child-admins">4.6. Create child admins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">5. Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#blocks">5.1. Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#the-admin-list-block">5.2. The <tt class="docutils literal"><span class="pre">Admin</span></tt> list block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#configuring-the-admin-list">5.3. Configuring the <tt class="docutils literal"><span class="pre">Admin</span></tt> list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#adding-more-blocks">5.4. Adding more Blocks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">6. Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="search.html#customization">6.1. Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html#performance">6.2. Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="select2.html">7. Select2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#disable-select2">7.1. Disable select2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#disable-select2-on-some-form-elements">7.2. Disable select2 on some form elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#allowclear">7.3. AllowClear</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="knp_menu.html">8. KnpMenu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="knp_menu.html#add-a-custom-controller-entry-in-the-menu">8.1. Add a custom controller entry in the menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">9. Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#routing-definition">9.1. Routing Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#routing-usage">9.2. Routing usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-route">9.3. Create a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#removing-a-route">9.4. Removing a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#persistent-parameters">9.5. Persistent parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-the-default-route-in-a-list-action">9.6. Changing the default route in a List Action</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_list.html">10. The List View</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#basic-configuration">10.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-fields-displayed-on-the-list-page">10.2. Customizing the fields displayed on the list page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-query-used-to-generate-the-list">10.3. Customizing the query used to generate the list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-sort-order">10.4. Customizing the sort order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#filters">10.5. Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_create_edit.html">11. Creating and Editing objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#basic-configuration">11.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#embedding-other-admins">11.2. Embedding other Admins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#customizing-just-one-of-the-actions">11.3. Customizing just one of the actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html">12. The Show action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#basic-configuration">12.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#customising-the-query-used-to-show-the-object-from-within-your-admin-class">12.2. Customising the query used to show the object from within your Admin class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html#setting-up-a-custom-show-template-very-useful">13. Setting up a custom show template (very useful)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action_delete.html">14. Deleting objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_delete.html#basic-configuration">14.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_export.html">15. The Export action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_export.html#basic-configuration">15.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="saving_hooks.html">16. Saving hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="saving_hooks.html#example-used-with-the-fos-userbundle">16.1. Example used with the FOS/UserBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_types.html">17. Form Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#admin-related-form-types">17.1. Admin related form types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#types-options">17.2. Types options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_help_message.html">18. Form Help Messages and Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#help-messages">18.1. Help Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#form-group-descriptions">18.2. Form Group Descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">19. Field Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="field_types.html#list-and-show-actions">19.1. List and Show Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_validation.html">20. Inline Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#troubleshooting">20.1. Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">21. Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#global-templates">21.1. Global Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#dashboard-template">21.2. Dashboard Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#crudcontroller-actions-templates">21.3. CRUDController Actions Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#row-templates">21.4. Row Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#other-templates">21.5. Other Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#configuring-templates">21.6. Configuring templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch_actions.html">22. Batch actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#defining-new-actions">22.1. Defining new actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-overriding-the-batch-selection-template">22.2. (Optional) Overriding the batch selection template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-overriding-the-default-relevancy-check-function">22.3. (Optional) Overriding the default relevancy check function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-executing-a-pre-batch-hook">22.4. (Optional) Executing a pre batch hook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#define-the-core-action-logic">22.5. Define the core action logic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">23. Translation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#translate-field-labels">23.1. Translate field labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">24. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#user-management">24.1. User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#security-handlers">24.2. Security handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#role-handler">24.3. Role handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#acl-and-friendsofsymfony-userbundle">24.4. ACL and FriendsOfSymfony/UserBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#acl-editor">24.5. ACL editor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">25. Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#configuration">25.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">26. Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configureevent">26.1. ConfigureEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#persistenceevent">26.2. PersistenceEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configurequeryevent">26.3. ConfigureQueryEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#blockevent">26.4. BlockEvent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">27. Advanced configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#service-configuration">27.1. Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#inherited-classes">27.2. Inherited classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#dropdowns-in-tab-menu">27.3. Dropdowns in Tab Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#disable-content-stretching">27.4. Disable content stretching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="console.html">28. Console/Command-Line Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="console.html#cache-create-cache-class">28.1. cache:create-cache-class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate">28.2. sonata:admin:generate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-list">28.3. sonata:admin:list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-explain">28.4. sonata:admin:explain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-setup-acl">28.5. sonata:admin:setup-acl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate-object-acl">28.6. sonata:admin:generate-object-acl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preview_mode.html">29. Preview Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preview_mode.html#simulating-front-end-rendering">29.1. Simulating front-end rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">30. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#the-tostring-method">30.1. The toString method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#large-filters-and-long-urls-problem">30.2. Large filters and long urls problem</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_file_uploads.html">1. Uploading and saving documents (including images) using DoctrineORM and SonataAdmin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#pre-requisites">1.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#the-recipe">1.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#notes">1.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_image_previews.html">2. Showing image previews</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#pre-requisites">2.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#the-recipe">2.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#notes">2.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_row_templates.html">3. Row templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_row_templates.html#the-recipe">3.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html">4. Sortable behavior in admin listing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#background">4.1. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#pre-requisites">4.2. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#the-recipe">4.3. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#further-work">4.4. Further work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_dynamic_form_modification.html">5. Modifying form fields dynamically depending on edited object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_custom_action.html">6. Creating a Custom Admin Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_custom_action.html#the-recipe">6.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_customizing_a_mosaic_list.html">7. Customizing a mosaic list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_overwrite_admin_configuration.html">8. Overwrite Admin Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html">9. Improve performance of large datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html#change-default-pager-to-simplepager">9.1. Change default Pager to SimplePager</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ AdminBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>9. Routing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/routing.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="routing">
+<h1>9. Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h1>
+<p>The default routes used in the CRUD controller are accessible through the
+<tt class="docutils literal"><span class="pre">Admin</span></tt> class.</p>
+<p>The <tt class="docutils literal"><span class="pre">Admin</span></tt> class contains two routing methods:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">getRoutes()</span></tt>: Returns the available routes;</li>
+<li><tt class="docutils literal"><span class="pre">generateUrl($name,</span> <span class="pre">$options)</span></tt>: Generates the related routes.</li>
+</ul>
+<div class="section" id="routing-definition">
+<h2>9.1. Routing Definition<a class="headerlink" href="#routing-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="route-names">
+<h3>9.1.1. Route names<a class="headerlink" href="#route-names" title="Permalink to this headline">¶</a></h3>
+<p>You can set a <tt class="docutils literal"><span class="pre">baseRouteName</span></tt> property inside your <tt class="docutils literal"><span class="pre">Admin</span></tt> class. This
+represents the route prefix, to which an underscore and the action name will
+be added to generate the actual route names. Note: this is the internal <em>name</em>
+given to a route (it has nothing to do with the route&#8217;s visible <em>URL</em>).</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$baseRouteName</span> <span class="o">=</span> <span class="s1">&#39;sonata_post&#39;</span><span class="p">;</span>
+    <span class="c1">// will result in routes named:</span>
+    <span class="c1">//   sonata_post_list</span>
+    <span class="c1">//   sonata_post_create</span>
+    <span class="c1">//   etc..</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If no <tt class="docutils literal"><span class="pre">baseRouteName</span></tt> is defined then the Admin will generate one for you,
+based on the following format: &#8216;admin_vendor_bundlename_entityname&#8217; so you will have
+route names for your actions like &#8216;admin_vendor_bundlename_entityname_list&#8217;.</p>
+<p>If the Admin fails to find a baseRouteName for your Admin class a <tt class="docutils literal"><span class="pre">RuntimeException</span></tt>
+will be thrown with a related message.</p>
+</div>
+<div class="section" id="route-patterns-urls">
+<h3>9.1.2. Route patterns (URLs)<a class="headerlink" href="#route-patterns-urls" title="Permalink to this headline">¶</a></h3>
+<p>You can use <tt class="docutils literal"><span class="pre">baseRoutePattern</span></tt> to set a custom URL for a given <tt class="docutils literal"><span class="pre">Admin</span></tt> class.</p>
+<p>For example, to use <tt class="docutils literal"><span class="pre">http://yourdomain.com/admin/foo</span></tt> as the base URL for
+the <tt class="docutils literal"><span class="pre">FooAdmin</span></tt> class (instead of the default of <tt class="docutils literal"><span class="pre">http://yourdomain.com/admin/vendor/bundle/foo</span></tt>)
+use the following code:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">FooAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$baseRoutePattern</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You will then have route URLs like <tt class="docutils literal"><span class="pre">http://yourdomain.com/admin/foo/list</span></tt> and
+<tt class="docutils literal"><span class="pre">http://yourdomain.com/admin/foo/1/edit</span></tt></p>
+</div>
+</div>
+<div class="section" id="routing-usage">
+<h2>9.2. Routing usage<a class="headerlink" href="#routing-usage" title="Permalink to this headline">¶</a></h2>
+<p>Inside a CRUD template, a route for the current <tt class="docutils literal"><span class="pre">Admin</span></tt> class can be generated via
+the admin variable&#8217;s <tt class="docutils literal"><span class="pre">generateUrl()</span></tt> command:</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">admin.generateUrl</span><span class="o">(</span><span class="s1">&#39;list&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>List<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">admin.generateUrl</span><span class="o">(</span><span class="s1">&#39;list&#39;</span><span class="o">,</span> <span class="nv">params</span><span class="o">|</span><span class="nf">merge</span><span class="o">(</span><span class="s1">&#39;page&#39;</span><span class="o">:</span> <span class="m">1</span><span class="o">))</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>List<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p>Note that you do not need to provide the Admin&#8217;s route prefix (baseRouteName) to
+generate a URL for the current Admin, just the action name.</p>
+<p>To generate a URL for a different Admin you just use the Route Name with the usual
+Twig helpers:</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;admin_acme_demo_foo_list&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>List<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-route">
+<h2>9.3. Create a route<a class="headerlink" href="#create-a-route" title="Permalink to this headline">¶</a></h2>
+<p>You can register new routes by defining them in your <tt class="docutils literal"><span class="pre">Admin</span></tt> class. Only Admin
+routes should be registered this way.</p>
+<p>The routes you define in this way are generated within your Admin&#8217;s context, and
+the only required parameter to <tt class="docutils literal"><span class="pre">add()</span></tt> is the action name. The second parameter
+can be used to define the URL format to append to <tt class="docutils literal"><span class="pre">baseRoutePattern</span></tt>, if not set
+explicitly this defaults to the action name.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Route\RouteCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MediaAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureRoutes</span><span class="p">(</span><span class="nx">RouteCollection</span> <span class="nv">$collection</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;myCustom&#39;</span><span class="p">);</span> <span class="c1">// Action gets added automatically</span>
+        <span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;view&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRouterIdParameter</span><span class="p">()</span><span class="o">.</span><span class="s1">&#39;/view&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="other-steps-needed-to-create-your-new-action">
+<h3>9.3.1. Other steps needed to create your new action<a class="headerlink" href="#other-steps-needed-to-create-your-new-action" title="Permalink to this headline">¶</a></h3>
+<p>In addition to defining the route for your new action you also need to create a
+handler for it in your Controller. By default Admin classes use <tt class="docutils literal"><span class="pre">SonataAdminBundle:CRUD</span></tt>
+as their controller, but this can be changed by altering the third argument when defining
+your Admin service (in your admin.yml file).</p>
+<p>For example, lets change the Controller for our MediaAdmin class to AcmeDemoBundle:MediaCRUD:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># src/Acme/DemoBundle/Resources/config/admin.yml</span>
+<span class="l-Scalar-Plain">sonata.admin.media</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Acme\DemoBundle\Admin\MediaAdmin</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="nv">sonata.admin</span><span class="p-Indicator">,</span> <span class="nv">manager_type</span><span class="p-Indicator">:</span> <span class="nv">orm</span><span class="p-Indicator">,</span> <span class="nv">label</span><span class="p-Indicator">:</span> <span class="s">&quot;Media&quot;</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">~</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Acme\DemoBundle\Entity\Page</span>
+        <span class="p-Indicator">-</span> <span class="s">&#39;AcmeDemoBundle:MediaCRUD&#39;</span> <span class="c1"># define the new controller via the third argument</span>
+    <span class="l-Scalar-Plain">calls</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">[</span> <span class="nv">setTranslationDomain</span><span class="p-Indicator">,</span> <span class="p-Indicator">[</span><span class="nv">Acme\DemoBundle</span><span class="p-Indicator">]]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>We now need to create our Controller, the easiest way is to extend the basic Sonata CRUD controller:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1">// /src/Acme/DemoBundle/Controller/MediaCRUDController.php</span>
+<span class="k">namespace</span> <span class="nx">Acme\DemoBundle\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Controller\CRUDController</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MediaCRUDController</span> <span class="k">extends</span> <span class="nx">CRUDController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">myCustomAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// your code here ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="removing-a-route">
+<h2>9.4. Removing a route<a class="headerlink" href="#removing-a-route" title="Permalink to this headline">¶</a></h2>
+<p>Extending <tt class="docutils literal"><span class="pre">Sonata\AdminBundle\Admin\Admin</span></tt> will give your Admin classes the following
+default routes:</p>
+<ul class="simple">
+<li>batch</li>
+<li>create</li>
+<li>delete</li>
+<li>export</li>
+<li>edit</li>
+<li>list</li>
+<li>show</li>
+</ul>
+<p>You can view all of the current routes defined for an Admin class by using the console to run</p>
+<p><tt class="docutils literal"><span class="pre">php</span> <span class="pre">app/console</span> <span class="pre">sonata:admin:explain</span> <span class="pre">&lt;&lt;admin.service.name&gt;&gt;</span></tt></p>
+<p>for example if your Admin is called sonata.admin.foo you would run</p>
+<p><tt class="docutils literal"><span class="pre">php</span> <span class="pre">app/console</span> <span class="pre">sonata:admin:explain</span> <span class="pre">sonata.admin.foo</span></tt></p>
+<p>Sonata internally checks for the existence of a route before linking to it. As a result, removing a
+route will prevent links to that action from appearing in the administrative interface. For example,
+removing the &#8216;create&#8217; route will prevent any links to &#8220;Add new&#8221; from appearing.</p>
+<div class="section" id="removing-a-single-route">
+<h3>9.4.1. Removing a single route<a class="headerlink" href="#removing-a-single-route" title="Permalink to this headline">¶</a></h3>
+<p>Any single registered route can be easily removed by name:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Route\RouteCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MediaAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureRoutes</span><span class="p">(</span><span class="nx">RouteCollection</span> <span class="nv">$collection</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removing-all-routes-except-named-ones">
+<h3>9.4.2. Removing all routes except named ones<a class="headerlink" href="#removing-all-routes-except-named-ones" title="Permalink to this headline">¶</a></h3>
+<p>If you want to disable all default Sonata routes except few whitelisted ones, you can use
+the <tt class="docutils literal"><span class="pre">clearExcept()</span></tt> method. This method accepts an array of routes you want to keep active.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Route\RouteCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MediaAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureRoutes</span><span class="p">(</span><span class="nx">RouteCollection</span> <span class="nv">$collection</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Only `list` and `edit` route will be active</span>
+        <span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">clearExcept</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="s1">&#39;edit&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removing-all-routes">
+<h3>9.4.3. Removing all routes<a class="headerlink" href="#removing-all-routes" title="Permalink to this headline">¶</a></h3>
+<p>If you want to remove all default routes, you can use <tt class="docutils literal"><span class="pre">clear()</span></tt> method.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Route\RouteCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MediaAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureRoutes</span><span class="p">(</span><span class="nx">RouteCollection</span> <span class="nv">$collection</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// All routes are removed</span>
+        <span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removing-routes-only-when-an-admin-is-embedded">
+<h3>9.4.4. Removing routes only when an Admin is embedded<a class="headerlink" href="#removing-routes-only-when-an-admin-is-embedded" title="Permalink to this headline">¶</a></h3>
+<p>To prevent some routes from being available when one Admin is embedded inside another one
+(e.g. to remove the &#8220;add new&#8221; option when you embed <tt class="docutils literal"><span class="pre">TagAdmin</span></tt> within <tt class="docutils literal"><span class="pre">PostAdmin</span></tt>) you
+can use <tt class="docutils literal"><span class="pre">hasParentFieldDescription()</span></tt> to detect this case and remove the routes.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Route\RouteCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TagAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureRoutes</span><span class="p">(</span><span class="nx">RouteCollection</span> <span class="nv">$collection</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasParentFieldDescription</span><span class="p">())</span> <span class="p">{</span> <span class="c1">// prevent display of &quot;Add new&quot; when embedding this form</span>
+            <span class="nv">$collection</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="s1">&#39;create&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="persistent-parameters">
+<h2>9.5. Persistent parameters<a class="headerlink" href="#persistent-parameters" title="Permalink to this headline">¶</a></h2>
+<p>In some cases, the interface might be required to pass the same parameters
+across the different <tt class="docutils literal"><span class="pre">Admin</span></tt>&#8216;s actions. Instead of setting them in the
+template or doing other weird hacks, you can define a <tt class="docutils literal"><span class="pre">getPersistentParameters</span></tt>
+method. This method will be used when a link is being generated.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">MediaAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPersistentParameters</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">array</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;provider&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;context&#39;</span>  <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;context&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// the result:</span>
+<span class="c1">// $admin-&gt;generateUrl(&#39;create&#39;) =&gt; /admin/module/create?context=default</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changing-the-default-route-in-a-list-action">
+<h2>9.6. Changing the default route in a List Action<a class="headerlink" href="#changing-the-default-route-in-a-list-action" title="Permalink to this headline">¶</a></h2>
+<p>Usually the identifier column of a list action links to the edit screen. To change the
+list action&#8217;s links to point to a different action, set the <tt class="docutils literal"><span class="pre">route</span></tt> option in your call to
+<tt class="docutils literal"><span class="pre">ListMapper::addIdentifier()</span></tt>. For example, to link to show instead of edit:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureListFields</span><span class="p">(</span><span class="nx">ListMapper</span> <span class="nv">$listMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$listMapper</span>
+            <span class="o">-&gt;</span><span class="na">addIdentifier</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;route&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;show&#39;</span><span class="p">)</span>
+            <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="action_list.html" class="btn btn-neutral float-right" title="10. The List View"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="knp_menu.html" class="btn btn-neutral" title="8. KnpMenu"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

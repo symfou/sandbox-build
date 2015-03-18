@@ -15,8 +15,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\AdminBundle\Validator\ErrorElement;
-use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 
 use Knp\Menu\ItemInterface as MenuItemInterface;
@@ -44,7 +43,7 @@ interface AdminExtensionInterface
     /**
      * @param ShowMapper $filter
      */
-    public function configureShowFields(ShowMapper $filter);
+    public function configureShowFields(ShowMapper $show);
 
     /**
      * @param AdminInterface  $admin

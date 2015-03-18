@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>6. Form field definition &mdash; Sonata ~ DoctrineOrmAdminBundle  documentation</title>
+
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+
+
+    <link rel="top" title="Sonata ~ DoctrineOrmAdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="7. Form types and data transformers" href="form_types_and_transformers.html"/>
+        <link rel="prev" title="5. Filter field definition" href="filter_field_definition.html"/>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ DoctrineOrmAdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#download-the-bundle">1.1. Download the bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">1.2. Enable the bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html#full-configuration-options">3. Full configuration options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_field_definition.html">4. List field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#example">4.1. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#types-available">4.2. Types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#list-actions">4.3. List actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list_field_definition.html#advance-usage">4.4. Advance Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="filter_field_definition.html">5. Filter field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#filter-types-available">5.1. Filter types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#example">5.2. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#timestamps">5.3. Timestamps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#class">5.4. Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter_field_definition.html#advanced-usage">5.5. Advanced usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">6. Form field definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">6.1. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#types-available">6.2. Types available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#short-object-placeholder">6.3. Short Object Placeholder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage-file-management">6.4. Advanced usage: File management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage-many-to-one">6.5. Advanced usage: Many-to-one</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage-one-to-many">6.6. Advanced Usage: One-to-many</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_types_and_transformers.html">7. Form types and data transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types_and_transformers.html#form-types">7.1. Form types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types_and_transformers.html#datatransformer">7.2. Datatransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">8. Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audit.html">9. Audit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#how-it-works">9.1. How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#installation">9.2. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#configuration">9.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit.html#usage">9.4. Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_proxy.html">10. Doctrine ORM Proxy Query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshootings.html">11. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshootings.html#deleted-elements-from-a-one-to-many-association-are-not-removed">11.1. Deleted elements from a one-to-many association are not removed!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshootings.html#ordered-fields-are-not-ordered">11.2. Ordered fields are not ordered!</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html">2. Defining Entities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#model-definition">2.1. Model definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#generate-getters-and-setters">2.2. Generate getters and setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_entities.html#creating-the-database">2.3. Creating the Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_routing.html">3. Defining the routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html">4. Defining the CRUD controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#commentadmincontroller">4.1. CommentAdminController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#postadmincontroller">4.2. PostAdminController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_crud_controller.html#tagadmincontroller">4.3. TagAdminController</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html">5. Defining admin class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#postadmin">5.1. PostAdmin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#tweak-the-tagadmin-class">5.2. Tweak the TagAdmin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/creating_your_first_admin_class/defining_admin_class.html#tweak-the-commentadmin-class">5.3. Tweak the CommentAdmin class</a></li>
+</ul>
+</li>
+</ul>
+
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ DoctrineOrmAdminBundle</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+
+    <li>6. Form field definition</li>
+      <li class="wy-breadcrumbs-aside">
+
+          <a href="../_sources/reference/form_field_definition.txt" rel="nofollow"> View page source</a>
+
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+
+  <div class="section" id="form-field-definition">
+<span id="index-0"></span><h1>6. Form field definition<a class="headerlink" href="#form-field-definition" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example">
+<h2>6.1. Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\CoreBundle\Validator\ErrorElement</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureFormFields</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$formMapper</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_model_list&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;abstract&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+
+            <span class="c1">// you can define help messages like this</span>
+            <span class="o">-&gt;</span><span class="na">setHelps</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+               <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;help_post_title&#39;</span><span class="p">)</span>
+            <span class="p">));</span>
+
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">validate</span><span class="p">(</span><span class="nx">ErrorElement</span> <span class="nv">$errorElement</span><span class="p">,</span> <span class="nv">$object</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// conditional validation, see the related section for more information</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getEnabled</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// abstract cannot be empty when the post is enabled</span>
+            <span class="nv">$errorElement</span>
+                <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;abstract&#39;</span><span class="p">)</span>
+                    <span class="o">-&gt;</span><span class="na">assertNotBlank</span><span class="p">()</span>
+                    <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">()</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default, the form framework always sets <tt class="docutils literal"><span class="pre">required=true</span></tt> for each field.
+This can be an issue for HTML5 browsers as they provide client-side validation.</p>
+</div>
+</div>
+<div class="section" id="types-available">
+<h2>6.2. Types available<a class="headerlink" href="#types-available" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><cite>array</cite>,</li>
+<li><cite>checkbox</cite>,</li>
+<li><cite>choice</cite>,</li>
+<li><cite>decimal</cite>,</li>
+<li><cite>integer</cite>,</li>
+<li><cite>text</cite>,</li>
+<li><cite>date</cite>,</li>
+<li><cite>time</cite>,</li>
+<li><cite>datetime</cite>.</li>
+</ul>
+<p>If no type is set, the <cite>Admin</cite> class will use the one set in the doctrine mapping definition.</p>
+</div>
+<div class="section" id="short-object-placeholder">
+<h2>6.3. Short Object Placeholder<a class="headerlink" href="#short-object-placeholder" title="Permalink to this headline">¶</a></h2>
+<p>When using <cite>Many-to-One</cite> or <cite>One-to-One</cite> relations with <cite>Sonata Type</cite> fields, a short object description is used to represent the target object.
+If no object is selected, a <cite>No selection</cite> placeholder will be used. If you want to customize this placeholder, you can use the corresponding option in the form field definition:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureFormFields</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$formMapper</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;General&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_model_list&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="p">),</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;No author selected&#39;</span>
+                <span class="p">))</span>
+
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This placeholder is translated using the <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt> catalog.</p>
+</div>
+<div class="section" id="advanced-usage-file-management">
+<h2>6.4. Advanced usage: File management<a class="headerlink" href="#advanced-usage-file-management" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use custom types from the Form framework you must use the <tt class="docutils literal"><span class="pre">addType</span></tt> method.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">add</span></tt> method uses the information provided by the model definition.</p>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">  </span><span class="cp">&lt;?php</span>
+  <span class="k">namespace</span> <span class="nx">Sonata\MediaBundle\Admin</span><span class="p">;</span>
+
+  <span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+  <span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+
+  <span class="k">class</span> <span class="nc">MediaAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+  <span class="p">{</span>
+      <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureFormFields</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$form</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="nv">$formMapper</span>
+              <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+              <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+              <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;authorName&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+              <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;cdnIsFlushable&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+              <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+              <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;copyright&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+              <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;binaryContent&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">));</span>
+      <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By setting <tt class="docutils literal"><span class="pre">type=false</span></tt> in the file definition, the Form framework will provide an instance of <tt class="docutils literal"><span class="pre">UploadedFile</span></tt> for the <tt class="docutils literal"><span class="pre">Media::setBinaryContent</span></tt> method.
+Otherwise, the full path will be provided.</p>
+</div>
+</div>
+<div class="section" id="advanced-usage-many-to-one">
+<h2>6.5. Advanced usage: Many-to-one<a class="headerlink" href="#advanced-usage-many-to-one" title="Permalink to this headline">¶</a></h2>
+<p>If you have many <tt class="docutils literal"><span class="pre">Post</span></tt> linked to one <tt class="docutils literal"><span class="pre">User</span></tt>, then the <tt class="docutils literal"><span class="pre">Post</span></tt> form should display a <tt class="docutils literal"><span class="pre">User</span></tt> field.</p>
+<p>The AdminBundle provides 2 options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sonata_type_model</span></tt>: the <tt class="docutils literal"><span class="pre">User</span></tt> list is set in a select widget with an <cite>Add</cite> button to create a new <tt class="docutils literal"><span class="pre">User</span></tt>,</li>
+<li><tt class="docutils literal"><span class="pre">sonata_type_model_list</span></tt>: the <tt class="docutils literal"><span class="pre">User</span></tt> list is set in a model where you can search, select and delete a <tt class="docutils literal"><span class="pre">User</span></tt>.</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NewsBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Show\ShowMapper</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureFormFields</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$formMapper</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;General&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_model_list&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;btn_add&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;Add author&#39;</span><span class="p">,</span>      <span class="c1">//Specify a custom label</span>
+                    <span class="s1">&#39;btn_list&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;button.list&#39;</span><span class="p">,</span>     <span class="c1">//which will be translated</span>
+                    <span class="s1">&#39;btn_delete&#39;</span>    <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>             <span class="c1">//or hide the button.</span>
+                    <span class="s1">&#39;btn_catalogue&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SonataNewsBundle&#39;</span> <span class="c1">//Custom translation domain for buttons</span>
+                <span class="p">),</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;No author selected&#39;</span>
+                <span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;abstract&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;Tags&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_model&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;expanded&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;Options&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;collapsed&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;commentsCloseAt&#39;</span><span class="p">)</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;commentsEnabled&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">))</span>
+                <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;commentsDefaultStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;choices&#39;</span> <span class="o">=&gt;</span> <span class="nx">Comment</span><span class="o">::</span><span class="na">getStatusList</span><span class="p">()))</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-usage-one-to-many">
+<h2>6.6. Advanced Usage: One-to-many<a class="headerlink" href="#advanced-usage-one-to-many" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s say you have a <tt class="docutils literal"><span class="pre">Gallery</span></tt> that links to some <tt class="docutils literal"><span class="pre">Media``s</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">join</span> <span class="pre">table</span> <span class="pre">``galleryHasMedias</span></tt>.
+You can easily add a new <tt class="docutils literal"><span class="pre">galleryHasMedias</span></tt> row by defining one of these options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">edit</span></tt>: <tt class="docutils literal"><span class="pre">inline|standard</span></tt>, the inline mode allows you to add new rows,</li>
+<li><tt class="docutils literal"><span class="pre">inline</span></tt>: <tt class="docutils literal"><span class="pre">table|standard</span></tt>, the fields are displayed into table,</li>
+<li><tt class="docutils literal"><span class="pre">sortable</span></tt>: if the model has a position field, you can enable a drag and drop sortable effect by setting <tt class="docutils literal"><span class="pre">sortable=field_name</span></tt>.</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\MediaBundle\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Admin\Admin</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\DatagridMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Datagrid\ListMapper</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">GalleryAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">configureFormFields</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$formMapper</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;defaultFormat&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;galleryHasMedias&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_collection&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;edit&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;inline&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;inline&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;table&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;sortable&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;position&#39;</span>
+            <span class="p">))</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By default, position row will be rendered. If you want to hide it, you will need to alter child  admin class and add hidden position field.
+Use code like:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">protected function configureFormFields(FormMapper $formMapper)</span>
+<span class="x">{</span>
+<span class="x">    $formMapper</span>
+<span class="x">       -&gt;add(&#39;position&#39;,&#39;hidden&#39;,array(&#39;attr&#39;=&gt;array(&quot;hidden&quot; =&gt; true)))</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+        <a href="form_types_and_transformers.html" class="btn btn-neutral float-right" title="7. Form types and data transformers"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+        <a href="filter_field_definition.html" class="btn btn-neutral" title="5. Filter field definition"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+    </div>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+
+
+
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+
+
+</body>
+</html>

@@ -2,9 +2,6 @@
 
 namespace Behat\CommonContexts;
 
-require_once 'PHPUnit/Autoload.php';
-require_once 'PHPUnit/Framework/Assert/Functions.php';
-
 use Behat\MinkExtension\Context\RawMinkContext;
 
 use Behat\Mink\Exception\UnsupportedDriverActionException,
@@ -57,10 +54,17 @@ class MinkRedirectContext extends RawMinkContext
     {
         $headers = $this->getSession()->getResponseHeaders();
 
-        assertArrayHasKey('Location', $headers, 'The response contains a "Location" header');
+        if (empty($headers['Location']) && empty($headers['location'])) {
+            throw new \RuntimeException('The response should contain a "Location" header');
+        }
 
         if (null !== $page) {
-            assertEquals($headers['Location'][0], $this->locatePath($page), 'The "Location" header points to the correct URI');
+            $header = empty($headers['Location']) ? $headers['location'] : $headers['Location'];
+            if (is_array($header)) {
+                $header = current($header);
+            }
+
+            \PHPUnit_Framework_Assert::assertEquals($header, $this->locatePath($page), 'The "Location" header points to the correct URI');
         }
 
         $client = $this->getClient();
@@ -72,9 +76,9 @@ class MinkRedirectContext extends RawMinkContext
     /**
      * Returns current active mink session.
      *
-     * @return  Symfony\Component\BrowserKit\Client
+     * @return  \Symfony\Component\BrowserKit\Client
      *
-     * @throws  Behat\Mink\Exception\UnsupportedDriverActionException
+     * @throws  \Behat\Mink\Exception\UnsupportedDriverActionException
      */
     protected function getClient()
     {

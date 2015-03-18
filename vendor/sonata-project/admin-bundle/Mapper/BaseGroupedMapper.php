@@ -19,6 +19,8 @@ abstract class BaseGroupedMapper extends BaseMapper
     protected $currentGroup;
     protected $currentTab;
 
+    protected $apply;
+
     abstract protected function getGroups();
     abstract protected function getTabs();
 
@@ -63,6 +65,7 @@ abstract class BaseGroupedMapper extends BaseMapper
             'description'        => false,
             'translation_domain' => null,
             'name'               => $name,
+            'box_class'          => 'box box-primary',
         );
 
         $code = $name;
@@ -136,6 +139,56 @@ abstract class BaseGroupedMapper extends BaseMapper
     }
 
     /**
+     * Only nested add if the condition match true
+     *
+     * @param boolean $bool
+     *
+     * @return $this
+     *
+     * @throws \RuntimeException
+     */
+    public function ifTrue($bool)
+    {
+        if ($this->apply !== null) {
+            throw new \RuntimeException('Cannot nest ifTrue or ifFalse call');
+        }
+
+        $this->apply = ($bool === true);
+
+        return $this;
+    }
+
+    /**
+     * Only nested add if the condition match false
+     *
+     * @param boolean $bool
+     *
+     * @return $this
+     *
+     * @throws \RuntimeException
+     */
+    public function ifFalse($bool)
+    {
+        if ($this->apply !== null) {
+            throw new \RuntimeException('Cannot nest ifTrue or ifFalse call');
+        }
+
+        $this->apply = ($bool === false);
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function ifEnd()
+    {
+        $this->apply = null;
+
+        return $this;
+    }
+
+    /**
      * Add new tab
      *
      * @param string $name
@@ -166,6 +219,16 @@ abstract class BaseGroupedMapper extends BaseMapper
         }
 
         return $this;
+    }
+    
+    /**
+     * Returns a boolean indicating if there is an open tab at the moment.
+     * 
+     * @return boolean
+     */
+    public function hasOpenTab()
+    {
+        return null !== $this->currentTab;
     }
 
     /**

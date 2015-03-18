@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Form Types &mdash; Sonata ~ CoreBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ CoreBundle  documentation" href="../index.html"/>
+        <link rel="next" title="4. Twig status helper" href="status_helper.html"/>
+        <link rel="prev" title="1. Installation" href="installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ CoreBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#configuration">2. Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3. Form Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#doctrineormserializationtype">3.1. DoctrineORMSerializationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-type-immutable-array">3.2. sonata_type_immutable_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-type-boolean">3.3. sonata_type_boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-type-translatable-choice">3.4. sonata_type_translatable_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-type-collection">3.5. sonata_type_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statustype">3.6. StatusType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-type-date-picker-and-sonata-type-datetime-picker">3.7. sonata_type_date_picker and sonata_type_datetime_picker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status_helper.html">4. Twig status helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="status_helper.html#define-a-service">4.1. Define a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_helper.html#use-the-service">4.2. Use the service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flash_messages.html">5. Flash Messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flash_messages.html#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flash_messages.html#how-to-use">5.2. How-to use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">6. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#sonata-slugify">6.1. sonata_slugify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#sonata-flashmessages-get-and-sonata-flashmessages-types">6.2. sonata_flashmessages_get and sonata_flashmessages_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#sonata-urlsafeid">6.3. sonata_urlsafeid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine_base_manager.html">7. Doctrine base entity manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine_base_manager.html#use-it-in-your-managers">7.1. Use it in your managers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">8. Serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html#custom-handlers">8.1. Custom handlers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_validation.html">10. Inline Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#using-this-validator">10.1. Using this validator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#example-from-the-sonatapagebundle">10.2. Example from the <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ CoreBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>3. Form Types</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/form_types.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="form-types">
+<span id="index-0"></span><h1>3. Form Types<a class="headerlink" href="#form-types" title="Permalink to this headline">¶</a></h1>
+<p>The bundle comes with some handy form types.</p>
+<div class="section" id="doctrineormserializationtype">
+<h2>3.1. DoctrineORMSerializationType<a class="headerlink" href="#doctrineormserializationtype" title="Permalink to this headline">¶</a></h2>
+<p>This form type reads <tt class="docutils literal"><span class="pre">JMSSerializer</span></tt> serialization class metadata and uses <tt class="docutils literal"><span class="pre">Doctrine</span></tt> ORM entity metadata to generate form fields and correct types.</p>
+<p>All you have to do is to define a form type service for each entity for which you want to use a form type, like this:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;my.custom.form.type.post&quot;</span> <span class="na">class=</span><span class="s">&quot;Sonata\CoreBundle\Form\Type\DoctrineORMSerializationType&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;form.type&quot;</span> <span class="na">alias=</span><span class="s">&quot;my_custom_form_type_comment&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;jms_serializer.metadata_factory&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;doctrine&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>my_custom_form_type_comment<span class="nt">&lt;/argument&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>My\CustomBundle\Entity\Comment<span class="nt">&lt;/argument&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>a_serialization_group<span class="nt">&lt;/argument&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</pre></div>
+</div>
+<p>The service definition should contain the following arguments:</p>
+<ul class="simple">
+<li>The JMSSerializer metadata factory,</li>
+<li>The Doctrine ORM entity manager,</li>
+<li>The form type name,</li>
+<li>The entity class name for which you want to build form,</li>
+<li>The serialization group you want serialization fields have.</li>
+</ul>
+</div>
+<div class="section" id="sonata-type-immutable-array">
+<h2>3.2. sonata_type_immutable_array<a class="headerlink" href="#sonata-type-immutable-array" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Immutable</span> <span class="pre">Array</span></tt> allows you to edit an array property by defining a type per key.</p>
+<p>The type has a <tt class="docutils literal"><span class="pre">keys</span></tt> parameter which contains the definition for each key.
+A definition is an array with 3 options:</p>
+<ul class="simple">
+<li>key name,</li>
+<li>type: a type name or a <tt class="docutils literal"><span class="pre">FormType</span></tt> instance,</li>
+<li>related type parameters: please refer to the related form documentation.</li>
+</ul>
+<p>Let&#8217;s say a <tt class="docutils literal"><span class="pre">Page</span></tt> has options property with some fixed key-value pairs.
+Each value has a different type: <cite>integer</cite>, <cite>url</cite>, or <cite>string</cite> for instance.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Page</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;ttl&#39;</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;redirect&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">);</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setOptions</span><span class="p">(</span><span class="k">array</span> <span class="nv">$options</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOptions</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, the property can be edited by setting a type for each type:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_immutable_array&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;keys&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ttl&#39;</span><span class="p">,</span>        <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">)),</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;redirect&#39;</span><span class="p">,</span>   <span class="s1">&#39;url&#39;</span><span class="p">,</span>  <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">)),</span>
+    <span class="p">)</span>
+<span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sonata-type-boolean">
+<h2>3.3. sonata_type_boolean<a class="headerlink" href="#sonata-type-boolean" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">boolean</span></tt> type is a specialized <tt class="docutils literal"><span class="pre">ChoiceType</span></tt>, where the list of choices is locked to <em>yes</em> and <em>no</em>.</p>
+<p>Note that for backward compatibility reasons, it will set your value to <em>1</em> for <em>yes</em> and to <em>2</em> for <em>no</em>.
+If you want to map to a boolean value, just set the option <tt class="docutils literal"><span class="pre">transform</span></tt> to true. For instance, you need to do so when mapping to a doctrine boolean.</p>
+</div>
+<div class="section" id="sonata-type-translatable-choice">
+<h2>3.4. sonata_type_translatable_choice<a class="headerlink" href="#sonata-type-translatable-choice" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><tt class="docutils literal"><span class="pre">sonata_type_translatable_choice</span></tt> is deprecated,  use <tt class="docutils literal"><span class="pre">ChoiceType</span></tt> with the <tt class="docutils literal"><span class="pre">translation_domain</span></tt> option instead!</p>
+</div>
+<p>The translatable type is a specialized <tt class="docutils literal"><span class="pre">ChoiceType</span></tt> where the choices values are translated with the Symfony Translator component.</p>
+<p>The type has one extra parameter:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">catalogue</span></tt>: the catalogue name to translate the value.</li>
+</ul>
+</div></blockquote>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// The delivery list</span>
+<span class="k">class</span> <span class="nc">Delivery</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getStatusList</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_OPEN</span>      <span class="o">=&gt;</span> <span class="s1">&#39;status_open&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_PENDING</span>   <span class="o">=&gt;</span> <span class="s1">&#39;status_pending&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_VALIDATED</span> <span class="o">=&gt;</span> <span class="s1">&#39;status_validated&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_CANCELLED</span> <span class="o">=&gt;</span> <span class="s1">&#39;status_cancelled&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_ERROR</span>     <span class="o">=&gt;</span> <span class="s1">&#39;status_error&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_STOPPED</span>   <span class="o">=&gt;</span> <span class="s1">&#39;status_stopped&#39;</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// form usage</span>
+<span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;deliveryStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_translatable_choice&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;choices&#39;</span> <span class="o">=&gt;</span> <span class="nx">Delivery</span><span class="o">::</span><span class="na">getStatusList</span><span class="p">(),</span>
+    <span class="s1">&#39;catalogue&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SonataOrderBundle&#39;</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information, you can check the official <a class="reference external" href="http://symfony.com/doc/current/reference/forms/types/choice.html">ChoiceType documentation</a>.</p>
+</div>
+</div>
+<div class="section" id="sonata-type-collection">
+<h2>3.5. sonata_type_collection<a class="headerlink" href="#sonata-type-collection" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Collection</span> <span class="pre">Type</span></tt> is meant to handle creation and editing of model
+collections. Rows can be added and deleted, and your model abstraction layer may
+allow you to edit fields inline. You can use <tt class="docutils literal"><span class="pre">type_options</span></tt> to pass values
+to the underlying forms.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">class AcmeProductAdmin extends Admin</span>
+<span class="x">{</span>
+<span class="x">    protected function configureFormFields(FormMapper $formMapper)</span>
+<span class="x">    {</span>
+<span class="x">        $formMapper</span>
+<span class="x">            -&gt;add(&#39;sales&#39;, &#39;sonata_type_collection&#39;, array(</span>
+<span class="x">                // Prevents the &quot;Delete&quot; option from being displayed</span>
+<span class="x">                &#39;type_options&#39; =&gt; array(&#39;delete&#39; =&gt; false)</span>
+<span class="x">            ), array(</span>
+<span class="x">                &#39;edit&#39; =&gt; &#39;inline&#39;,</span>
+<span class="x">                &#39;inline&#39; =&gt; &#39;table&#39;,</span>
+<span class="x">                &#39;sortable&#39; =&gt; &#39;position&#39;,</span>
+<span class="x">            ))</span>
+<span class="x">        ;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<p>The available options (which can be passed as a third parameter to <tt class="docutils literal"><span class="pre">FormMapper::add()</span></tt>) are:</p>
+<dl class="docutils">
+<dt>btn_add and btn_catalogue:</dt>
+<dd>The label on the <tt class="docutils literal"><span class="pre">add</span></tt> button can be customized
+with this parameters. Setting it to <tt class="docutils literal"><span class="pre">false</span></tt> will hide the
+corresponding button. You can also specify a custom translation catalogue
+for this label, which defaults to <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt>.</dd>
+<dt>type_options:</dt>
+<dd>This array is passed to the underlying forms.</dd>
+<dt>pre_bind_data_callback:</dt>
+<dd>This closure will be executed during the preBind method (<tt class="docutils literal"><span class="pre">FormEvent::PRE_BIND</span></tt> | <tt class="docutils literal"><span class="pre">FormEvent::PRE_SUBMIT</span></tt>)
+to build the data given to the form based on the value retrieved. Use this if you need to generate your forms based
+on the submitted data.</dd>
+</dl>
+<p><strong>TIP</strong>: A jQuery event is fired after a row has been added (<tt class="docutils literal"><span class="pre">sonata-admin-append-form-element</span></tt>).
+You can listen to this event to trigger custom javascript (eg: add a calendar widget to a newly added date field)</p>
+</div>
+<div class="section" id="statustype">
+<h2>3.6. StatusType<a class="headerlink" href="#statustype" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">StatusType</span></tt> is not available as a service. However, you can use it to declare your own type to render a choice of status.</p>
+<p>Let&#8217;s say, you have a <tt class="docutils literal"><span class="pre">Delivery::getStatusList</span></tt> method which returns a list of status. Now, you want to create a form type to expose those values.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1">// The delivery list</span>
+<span class="k">class</span> <span class="nc">Delivery</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getStatusList</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_OPEN</span>      <span class="o">=&gt;</span> <span class="s1">&#39;status_open&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_PENDING</span>   <span class="o">=&gt;</span> <span class="s1">&#39;status_pending&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_VALIDATED</span> <span class="o">=&gt;</span> <span class="s1">&#39;status_validated&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_CANCELLED</span> <span class="o">=&gt;</span> <span class="s1">&#39;status_cancelled&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_ERROR</span>     <span class="o">=&gt;</span> <span class="s1">&#39;status_error&#39;</span><span class="p">,</span>
+            <span class="nx">self</span><span class="o">::</span><span class="na">STATUS_STOPPED</span>   <span class="o">=&gt;</span> <span class="s1">&#39;status_stopped&#39;</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This can be done by declaring a new service:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>XML</em><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;sonata.order.form.status_type&quot;</span> <span class="na">class=</span><span class="s">&quot;Sonata\CoreBundle\Form\Type\StatusType&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>%sonata.order.order.class%<span class="nt">&lt;/argument&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>getStatusList<span class="nt">&lt;/argument&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>sonata_order_status<span class="nt">&lt;/argument&gt;</span>
+
+    <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;form.type&quot;</span> <span class="na">alias=</span><span class="s">&quot;sonata_order_status&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>And the type can now be used:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$form</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;deliveryStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_order_status&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sonata-type-date-picker-and-sonata-type-datetime-picker">
+<h2>3.7. sonata_type_date_picker and sonata_type_datetime_picker<a class="headerlink" href="#sonata-type-date-picker-and-sonata-type-datetime-picker" title="Permalink to this headline">¶</a></h2>
+<p>Those types integrate <a class="reference external" href="https://github.com/Eonasdan/bootstrap-datetimepicker">Eonasdan&#8217;s Bootstrap datetimepicker</a> into a Symfony2 form. They both are available as services, and inherit from <tt class="docutils literal"><span class="pre">date</span></tt> and <tt class="docutils literal"><span class="pre">datetime</span></tt> default form types.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These form types require you to have bootstrap and jquery assets available in your project.</p>
+</div>
+<p>They will allow you to have a JS date picker onto your form fields as follows:</p>
+<img alt="../_images/datepicker.png" src="../_images/datepicker.png" />
+<p>In order to use them, you&#8217;ll need to perform a bit of setup:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config.yml</span>
+<span class="l-Scalar-Plain">twig</span><span class="p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l-Scalar-Plain">form</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">resources</span><span class="p-Indicator">:</span>
+            <span class="c1"># ...</span>
+            <span class="p-Indicator">-</span> <span class="s">&#39;SonataCoreBundle:Form:datepicker.html.twig&#39;</span>
+</pre></div>
+</div>
+<p>In your layout, you&#8217;ll need to add the assets dependencies (feel free to adapt this to your needs, for instance to use with assetic):</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;path_to_jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/bundles/sonatacore/public/vendor/moment/min/moment.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;path_to_bootstrap.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/bundles/sonatacore/public/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;path_to_bootstrap.min.css&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/bundles/sonatacore/public/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</pre></div>
+</div>
+<p>Finally, in your form, you may use the form type as follows:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+    <span class="nv">$builder</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;publicationDateStart&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_datetime_picker&#39;</span><span class="p">)</span>    <span class="c1">// Or sonata_type_date_picker if you don&#39;t need the time</span>
+        <span class="c1">// ...</span>
+    <span class="p">;</span>
+</pre></div>
+</div>
+<p>Many of the <a class="reference external" href="http://eonasdan.github.io/bootstrap-datetimepicker/#options">standard date picker options</a> are available by adding options with a <tt class="docutils literal"><span class="pre">dp_</span></tt> prefix:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+    <span class="nv">$builder</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;publicationDateStart&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_datetime_picker&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;dp_side_by_side&#39;</span>       <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+                <span class="s1">&#39;dp_use_current&#39;</span>        <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+                <span class="s1">&#39;dp_use_seconds&#39;</span>        <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="p">))</span>    <span class="c1">// Or sonata_type_date_picker if you don&#39;t need the time</span>
+        <span class="c1">// ...</span>
+    <span class="p">;</span>
+</pre></div>
+</div>
+<p>If you look in the classes <tt class="docutils literal"><span class="pre">DateTimePickerType.php</span></tt> and <tt class="docutils literal"><span class="pre">BasePickerType.php</span></tt> you can see all the currently available options.</p>
+<p>In addition to these standard options, there is also the option <cite>datepicker_use_button</cite> which, when used, will change the widget so that the datepicker icon is not shown and the pop-up datepicker is invoked simply by clicking on the date input.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="status_helper.html" class="btn btn-neutral float-right" title="4. Twig status helper"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="1. Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

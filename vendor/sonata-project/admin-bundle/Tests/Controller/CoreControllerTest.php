@@ -46,10 +46,10 @@ class CoreControllerTest extends \PHPUnit_Framework_TestCase
             'request_stack'     => $requestStack
         );
 
-        $container->expects($this->any())->method('get')->will($this->returnCallback(function($id) use ($values) {
+        $container->expects($this->any())->method('get')->will($this->returnCallback(function ($id) use ($values) {
             return $values[$id];
         }));
-        $container->expects($this->any())->method('getParameter')->will($this->returnCallback(function($name) {
+        $container->expects($this->any())->method('getParameter')->will($this->returnCallback(function ($name) {
             if ($name == 'sonata.admin.configuration.dashboard_blocks') {
                 return array();
             }
@@ -58,7 +58,7 @@ class CoreControllerTest extends \PHPUnit_Framework_TestCase
         $controller = new CoreController();
         $controller->setContainer($container);
 
-        $response = $controller->dashboardAction();
+        $response = $controller->dashboardAction($request);
 
         $this->isInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
     }
@@ -90,20 +90,19 @@ class CoreControllerTest extends \PHPUnit_Framework_TestCase
             'request_stack'     => $requestStack
         );
 
-        $container->expects($this->any())->method('get')->will($this->returnCallback(function($id) use ($values) {
+        $container->expects($this->any())->method('get')->will($this->returnCallback(function ($id) use ($values) {
             return $values[$id];
         }));
-        $container->expects($this->any())->method('getParameter')->will($this->returnCallback(function($name) {
+        $container->expects($this->any())->method('getParameter')->will($this->returnCallback(function ($name) {
             if ($name == 'sonata.admin.configuration.dashboard_blocks') {
                 return array();
             }
         }));
 
-
         $controller = new CoreController();
         $controller->setContainer($container);
 
-        $response = $controller->dashboardAction();
+        $response = $controller->dashboardAction($request);
 
         $this->isInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
     }

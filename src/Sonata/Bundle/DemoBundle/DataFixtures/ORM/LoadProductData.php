@@ -11,13 +11,13 @@
 
 namespace Sonata\Bundle\DemoBundle\DataFixtures\ORM;
 
-use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
-use Application\Sonata\ProductBundle\Entity\Delivery;
-use Application\Sonata\ProductBundle\Entity\Goodie;
-use Application\Sonata\ProductBundle\Entity\Travel;
-use Application\Sonata\ProductBundle\Entity\Package;
-use Application\Sonata\ProductBundle\Entity\ProductCategory;
-use Application\Sonata\ProductBundle\Entity\ProductCollection;
+use AppBundle\Entity\GalleryHasMedia;
+use Sonata\Bundle\DemoBundle\Entity\Goodie;
+use AppBundle\Entity\Delivery;
+use Sonata\Bundle\DemoBundle\Entity\Travel;
+use AppBundle\Entity\Package;
+use AppBundle\Entity\ProductCategory;
+use AppBundle\Entity\ProductCollection;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -47,17 +47,20 @@ class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
+
         $productPool = $this->getProductPool();
+
+        $dummyCategory     = $this->getDummyCategory();
 
         // default media
         $defaultMedia = $this->getMediaManager()->create();
         $defaultMedia->setBinaryContent(new \SplFileInfo(__DIR__.'/../data/files/sonata_logo.png'));
         $defaultMedia->setEnabled(true);
-        $defaultMedia->setName('sonata_product_default_media');
+        $defaultMedia->setName('product_catalog_default_media');
         $defaultMedia->setDescription('Default Product media');
-        $this->getMediaManager()->save($defaultMedia, 'sonata_product_default', 'sonata.media.provider.image');
+        $defaultMedia->setCategory($dummyCategory);
+        $this->getMediaManager()->save($defaultMedia, 'product_catalog_default', 'sonata.media.provider.image');
 
-        $dummyCategory     = $this->getDummyCategory();
         $goodiesCategory   = $this->getGoodiesCategory();
         $travelsCategory   = $this->getTravelsCategory();
         $plushesCategory   = $this->getPlushesCategory();
@@ -69,7 +72,7 @@ class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
         $travelCollection = $this->getTravelCollection();
         $dummyCollection = $this->getDummyCollection();
 
-        $dummyMedia = $this->createMedia(__DIR__.'/../data/files/sonata_logo.png', 'Dummy', 'Dummy product');
+        $dummyMedia = $this->createMedia(__DIR__.'/../data/files/sonata_logo.png', 'Dummy', 'Dummy product', null, null, 'dummy_category');
 
         $dummyProductsCount = 501;
 
@@ -91,9 +94,12 @@ class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
             $dummy->setVatRate(20);
             $dummy->setEnabled(true);
             $manager->persist($dummy);
+
             $this->setReference('dummy_product_'.$i, $dummy);
 
             $dummy->setImage($dummyMedia);
+
+
             $this->addProductToCategory($dummy, $dummyCategory, $manager);
             $this->addProductToCollection($dummy, $dummyCollection, $manager);
             $this->addProductDeliveries($dummy, $manager);
@@ -128,7 +134,7 @@ class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
 Original PHP plush based on Vincent Pontier PHP logo.
 Reference - http://www.flickr.com/photos/fullo/4703273699/in/pool-35237093722@N01/
 EOF
-, $bluePhpPlush, 'Francesco Fullone', 'CC BY-NC-SA 2.0');
+            , $bluePhpPlush, 'Francesco Fullone', 'CC BY-NC-SA 2.0', 'plushes_goodies_category');
         $this->addProductToCategory($bluePhpPlush, $plushesCategory, $manager);
         $this->addProductToCategory($bluePhpPlush, $goodiesCategory, $manager);
         $this->addProductDeliveries($bluePhpPlush, $manager);
@@ -159,7 +165,7 @@ EOF
 Green PHP plush based on Vincent Pontier PHP logo.
 Reference - http://www.flickr.com/photos/ztec/9204770134/in/photostream/
 EOF
-            , $greenPhpPlush, 'Loïc Doubinine', 'CC BY-NC-SA 2.0');
+            , $greenPhpPlush, 'Loïc Doubinine', 'CC BY-NC-SA 2.0', 'plushes_goodies_category');
         $this->addProductToCategory($greenPhpPlush, $plushesCategory, $manager);
         $this->addProductToCategory($greenPhpPlush, $goodiesCategory, $manager);
         $this->addProductDeliveries($greenPhpPlush, $manager);
@@ -190,7 +196,7 @@ EOF
 Orange PHP Plush based on Vincent Pontier PHP logo.
 Reference - http://www.kickstarter.com/projects/eliw/php-architect-orange-elephpant
 EOF
-            , $orangePhpPlush, 'http://www.phparch.com/', '/');
+            , $orangePhpPlush, 'http://www.phparch.com/', '/', 'plushes_goodies_category');
         $this->addProductToCategory($orangePhpPlush, $plushesCategory, $manager);
         $this->addProductToCategory($orangePhpPlush, $goodiesCategory, $manager);
         $this->addProductDeliveries($orangePhpPlush, $manager);
@@ -217,7 +223,7 @@ EOF
         $manager->persist($phpMug);
         $this->setReference('php_mug_goodie_product', $phpMug);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/php_mug.jpg', 'PHP mug', 'PHP mug', $phpMug);
+        $this->addMediaToProduct(__DIR__.'/../data/files/php_mug.jpg', 'PHP mug', 'PHP mug', $phpMug, null, null, 'sonata_mugs_category');
         $this->addProductToCategory($phpMug, $mugCategory, $manager);
         $this->addProductToCategory($phpMug, $goodiesCategory, $manager);
         $this->addProductDeliveries($phpMug, $manager);
@@ -245,7 +251,7 @@ EOF
         $manager->persist($phpTeeShirt);
         $this->setReference('php_teeshirt_goodie_product', $phpTeeShirt);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/php_tee_shirt.png', 'PHP tee-shirt', 'PHP tee-shirt', $phpTeeShirt);
+        $this->addMediaToProduct(__DIR__.'/../data/files/php_tee_shirt.png', 'PHP tee-shirt', 'PHP tee-shirt', $phpTeeShirt, null, null, 'sonata_clothes_category');
         $this->addProductToCategory($phpTeeShirt, $clothesCategory, $manager);
         $this->addProductToCategory($phpTeeShirt, $goodiesCategory, $manager);
         $this->addProductDeliveries($phpTeeShirt, $manager);
@@ -270,9 +276,9 @@ EOF
         $maximumAir->setVatRate(20);
         $maximumAir->setEnabled(false);
         $manager->persist($maximumAir);
-        $this->setReference('maximum_air_sonata_product', $maximumAir);
+        $this->setReference('maximum_air_product_catalog', $maximumAir);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/sonata_logo.png', 'Maximum Air Sonata Limited edition', 'Maximum Air Sonata Limited edition', $maximumAir);
+        $this->addMediaToProduct(__DIR__.'/../data/files/sonata_logo.png', 'Maximum Air Sonata Limited edition', 'Maximum Air Sonata Limited edition', $maximumAir, null, null, 'sonata_shoes_category');
         $this->addProductToCategory($maximumAir, $goodiesCategory, $manager);
         $this->addProductToCategory($maximumAir, $shoesCategory, $manager);
         $this->addProductDeliveries($maximumAir, $manager);
@@ -299,7 +305,7 @@ EOF
         $manager->persist($maximumAirUlt);
         $this->setReference('maximum_air_sonata_ultimate_product', $maximumAirUlt);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/sonata_logo.png', 'Maximum Air Sonata ULTIMATE edition', 'Maximum Air Sonata ULTIMATE edition', $maximumAirUlt);
+        $this->addMediaToProduct(__DIR__.'/../data/files/sonata_logo.png', 'Maximum Air Sonata ULTIMATE edition', 'Maximum Air Sonata ULTIMATE edition', $maximumAirUlt, null, null, 'sonata_shoes_category');
         $this->addProductToCategory($maximumAirUlt, $goodiesCategory, $manager);
         $this->addProductToCategory($maximumAirUlt, $shoesCategory, $manager);
         $this->addProductDeliveries($maximumAirUlt, $manager);
@@ -367,7 +373,7 @@ EOF
         $manager->persist($japanTravel);
         $this->setReference('travel_japan_product', $japanTravel);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/maha-japan/L9999744.jpg', 'Japan Travel', 'Japan Travel', $japanTravel);
+        $this->addMediaToProduct(__DIR__.'/../data/files/maha-japan/L9999744.jpg', 'Japan Travel', 'Japan Travel', $japanTravel, null, null, 'travels_category');
         $this->addJapanGallery($japanTravel);
         $this->addProductToCategory($japanTravel, $travelsCategory, $manager);
         $this->addProductToCategory($japanTravel, $this->getReference('travels_asia_category'), $manager);
@@ -499,7 +505,7 @@ EOF
         $manager->persist($quebecTravel);
         $this->setReference('travel_quebec_product', $quebecTravel);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/gilles-canada/IMG_3587.jpg', 'Quebec Travel', 'Quebec Travel', $quebecTravel);
+        $this->addMediaToProduct(__DIR__.'/../data/files/gilles-canada/IMG_3587.jpg', 'Quebec Travel', 'Quebec Travel', $quebecTravel, null, null, 'travels_category');
         $this->addCanadaGallery($quebecTravel);
         $this->addProductToCategory($quebecTravel, $travelsCategory, $manager);
         $this->addProductToCategory($quebecTravel, $this->getReference('travels_north_america_category'), $manager);
@@ -643,7 +649,7 @@ EOF
         $manager->persist($parisTravel);
         $this->setReference('travel_paris_product', $parisTravel);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/hugo-paris/IMG_3008.jpg', 'Paris Travel', 'Paris Travel', $parisTravel);
+        $this->addMediaToProduct(__DIR__.'/../data/files/hugo-paris/IMG_3008.jpg', 'Paris Travel', 'Paris Travel', $parisTravel, null, null, 'travels_category');
         $this->addParisGallery($parisTravel);
         $this->addProductToCategory($parisTravel, $travelsCategory, $manager);
         $this->addProductToCategory($parisTravel, $this->getReference('travels_europe_category'), $manager);
@@ -908,7 +914,7 @@ EOF
         $manager->persist($switzerlandTravel);
         $this->setReference('travel_switzerland_product', $switzerlandTravel);
 
-        $this->addMediaToProduct(__DIR__.'/../data/files/sylvain-switzerland/switzerland_2012-05-19_006.jpg', 'Switzerland Travel', 'Switzerland Travel', $switzerlandTravel);
+        $this->addMediaToProduct(__DIR__.'/../data/files/sylvain-switzerland/switzerland_2012-05-19_006.jpg', 'Switzerland Travel', 'Switzerland Travel', $switzerlandTravel, null, null, 'travels_category');
         $this->addSwitzerlandGallery($switzerlandTravel);
         $this->addProductToCategory($switzerlandTravel, $travelsCategory, $manager);
         $this->addProductToCategory($switzerlandTravel, $this->getReference('travels_europe_category'), $manager);
@@ -1102,9 +1108,9 @@ EOF
      * @param string           $author        A media author text
      * @param string           $copyright     A media copyright text
      */
-    protected function addMediaToProduct($mediaFilename, $name, $description, ProductInterface $product, $author = null, $copyright = null)
+    protected function addMediaToProduct($mediaFilename, $name, $description, ProductInterface $product, $author = null, $copyright = null, $categoryReference = 'products_category')
     {
-        $product->setImage($this->createMedia($mediaFilename, $name, $description, $author, $copyright));
+        $product->setImage($this->createMedia($mediaFilename, $name, $description, $author, $copyright, $categoryReference));
     }
 
     /**
@@ -1116,7 +1122,7 @@ EOF
      *
      * @return MediaInterface
      */
-    protected function createMedia($mediaFilename, $name, $description, $author = null, $copyright = null)
+    protected function createMedia($mediaFilename, $name, $description, $author = null, $copyright = null, $categoryReference = 'products_category')
     {
         $mediaManager = $this->getMediaManager();
 
@@ -1129,8 +1135,9 @@ EOF
         $media->setDescription($description);
         $media->setAuthorName($author);
         $media->setCopyright($copyright);
+        $media->setCategory($this->getReference($categoryReference));
 
-        $mediaManager->save($media, 'sonata_product', 'sonata.media.provider.image');
+        $mediaManager->save($media, 'product_catalog', 'sonata.media.provider.image');
 
         return $media;
     }
@@ -1144,7 +1151,7 @@ EOF
     {
         $gallery = $this->getGalleryManager()->create();
         $gallery->setName('Switzerland');
-        $gallery->setContext('sonata_product');
+        $gallery->setContext('product_catalog');
         $gallery->setDefaultFormat('preview');
         $gallery->setEnabled(true);
 
@@ -1160,8 +1167,10 @@ EOF
             $media->setName('Switzerland');
             $media->setAuthorName('Sylvain Deloux');
             $media->setCopyright('CC BY-NC-SA 4.0');
+            $media->setCategory($this->getReference('travels_switzerland_category'));
+            $media->setContext('product_catalog');
 
-            $this->getMediaManager()->save($media, 'sonata_product', 'sonata.media.provider.image');
+            $this->getMediaManager()->save($media, 'product_catalog', 'sonata.media.provider.image');
 
             $galleryHasMedia = new GalleryHasMedia();
             $galleryHasMedia->setMedia($media);
@@ -1185,7 +1194,7 @@ EOF
     {
         $gallery = $this->getGalleryManager()->create();
         $gallery->setName('Paris');
-        $gallery->setContext('sonata_product');
+        $gallery->setContext('product_catalog');
         $gallery->setDefaultFormat('preview');
         $gallery->setEnabled(true);
 
@@ -1193,16 +1202,20 @@ EOF
             ->name('*.jpg')
             ->in(__DIR__.'/../data/files/gilles-paris');
 
+        $a = 1;
+
         foreach ($files as $pos => $file) {
             $media = $this->getMediaManager()->create();
             $media->setBinaryContent($file);
             $media->setEnabled(true);
             $media->setDescription('Paris');
-            $media->setName('Paris');
+            $media->setName(sprintf('Paris %s', $a));
             $media->setAuthorName('Gilles Rosenbaum');
             $media->setCopyright('CC BY-NC-SA 4.0');
+            $media->setCategory($this->getReference('travels_paris_category'));
+            $media->setContext('product_catalog');
 
-            $this->getMediaManager()->save($media, 'sonata_product', 'sonata.media.provider.image');
+            $this->getMediaManager()->save($media, 'product_catalog', 'sonata.media.provider.image');
 
             $galleryHasMedia = new GalleryHasMedia();
             $galleryHasMedia->setMedia($media);
@@ -1210,22 +1223,28 @@ EOF
             $galleryHasMedia->setEnabled(true);
 
             $gallery->addGalleryHasMedias($galleryHasMedia);
+
+            $a++;
         }
 
         $files = Finder::create()
             ->name('*.jpg')
             ->in(__DIR__.'/../data/files/hugo-paris');
 
+        $b = 1;
+
         foreach ($files as $pos => $file) {
             $media = $this->getMediaManager()->create();
             $media->setBinaryContent($file);
             $media->setEnabled(true);
             $media->setDescription('Paris');
-            $media->setName('Paris');
+            $media->setName(sprintf('Paris %s', $b));
             $media->setAuthorName('Hugo Briand');
-            $media->setCopyright("Je soussigné Hugo Briand donne l'autorisation à Sonata-Project d'utiliser mes photos comme bon lui semblera");
+            $media->setCopyright('CC BY-NC-SA 4.0');
+            $media->setCategory($this->getReference('travels_paris_category'));
+            $media->setContext('product_catalog');
 
-            $this->getMediaManager()->save($media, 'sonata_product', 'sonata.media.provider.image');
+            $this->getMediaManager()->save($media, 'product_catalog', 'sonata.media.provider.image');
 
             $galleryHasMedia = new GalleryHasMedia();
             $galleryHasMedia->setMedia($media);
@@ -1233,6 +1252,8 @@ EOF
             $galleryHasMedia->setEnabled(true);
 
             $gallery->addGalleryHasMedias($galleryHasMedia);
+
+            $b++;
         }
 
         $this->getGalleryManager()->update($gallery);
@@ -1249,7 +1270,7 @@ EOF
     {
         $gallery = $this->getGalleryManager()->create();
         $gallery->setName('Canada');
-        $gallery->setContext('sonata_product');
+        $gallery->setContext('product_catalog');
         $gallery->setDefaultFormat('preview');
         $gallery->setEnabled(true);
 
@@ -1265,8 +1286,10 @@ EOF
             $media->setName('Canada');
             $media->setAuthorName('Gilles Rosenbaum');
             $media->setCopyright('CC BY-NC-SA 4.0');
+            $media->setCategory($this->getReference('travels_quebec_category'));
+            $media->setContext('product_catalog');
 
-            $this->getMediaManager()->save($media, 'sonata_product', 'sonata.media.provider.image');
+            $this->getMediaManager()->save($media, 'product_catalog', 'sonata.media.provider.image');
 
             $galleryHasMedia = new GalleryHasMedia();
             $galleryHasMedia->setMedia($media);
@@ -1287,9 +1310,11 @@ EOF
             $media->setDescription('Canada');
             $media->setName('Canada');
             $media->setAuthorName('Hugo Briand');
-            $media->setCopyright("Je soussigné Hugo Briand donne l'autorisation à Sonata-Project d'utiliser mes photos comme bon lui semblera");
+            $media->setCopyright('CC BY-NC-SA 4.0');
+            $media->setCategory($this->getReference('travels_quebec_category'));
+            $media->setContext('product_catalog');
 
-            $this->getMediaManager()->save($media, 'sonata_product', 'sonata.media.provider.image');
+            $this->getMediaManager()->save($media, 'product_catalog', 'sonata.media.provider.image');
 
             $galleryHasMedia = new GalleryHasMedia();
             $galleryHasMedia->setMedia($media);
@@ -1313,7 +1338,7 @@ EOF
     {
         $gallery = $this->getGalleryManager()->create();
         $gallery->setName('Japan');
-        $gallery->setContext('sonata_product');
+        $gallery->setContext('product_catalog');
         $gallery->setDefaultFormat('preview');
         $gallery->setEnabled(true);
 
@@ -1329,8 +1354,10 @@ EOF
             $media->setName('Japan');
             $media->setAuthorName('Maha Kanas');
             $media->setCopyright("CC BY-NC-SA 4.0");
+            $media->setCategory($this->getReference('travels_japan_category'));
+            $media->setContext('product_catalog');
 
-            $this->getMediaManager()->save($media, 'sonata_product', 'sonata.media.provider.image');
+            $this->getMediaManager()->save($media, 'product_catalog', 'sonata.media.provider.image');
 
             $galleryHasMedia = new GalleryHasMedia();
             $galleryHasMedia->setMedia($media);
@@ -1362,8 +1389,8 @@ EOF
 
         $gallery->setName($product->getSlug());
         $gallery->setEnabled(true);
-        $gallery->setDefaultFormat('sonata_product_preview');
-        $gallery->setContext('sonata_product');
+        $gallery->setDefaultFormat('product_catalog_preview');
+        $gallery->setContext('product_catalog');
 
         $this->setReference($galleryReference, $gallery);
 

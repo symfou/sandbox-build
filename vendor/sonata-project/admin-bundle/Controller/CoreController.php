@@ -37,11 +37,18 @@ class CoreController extends Controller
     }
 
     /**
+     * @param Request $request
+     *
      * @return string
      */
-    protected function getBaseTemplate()
+    protected function getBaseTemplate(Request $request = null)
     {
-        if ($this->getRequest()->isXmlHttpRequest()) {
+        // to be BC
+        if (null === $request) {
+            $request = $this->getRequest();
+        }
+
+        if ($request->isXmlHttpRequest()) {
             return $this->getAdminPool()->getTemplate('ajax');
         }
 
@@ -49,9 +56,11 @@ class CoreController extends Controller
     }
 
     /**
+     * @param Request $request
+     *
      * @return Response
      */
-    public function dashboardAction()
+    public function dashboardAction(Request $request)
     {
         $blocks = array(
             'top'    => array(),
@@ -66,7 +75,7 @@ class CoreController extends Controller
         }
 
         return $this->render($this->getAdminPool()->getTemplate('dashboard'), array(
-            'base_template'   => $this->getBaseTemplate(),
+            'base_template'   => $this->getBaseTemplate($request),
             'admin_pool'      => $this->container->get('sonata.admin.pool'),
             'blocks'          => $blocks
         ));
@@ -112,8 +121,8 @@ class CoreController extends Controller
 
             $response = new JsonResponse(array(
                 'results' => $results,
-                'page'    => $pager ? (int)$pager->getPage() : false,
-                'total'   => $pager ? (int)$pager->getNbResults() : false
+                'page'    => $pager ? (int) $pager->getPage() : false,
+                'total'   => $pager ? (int) $pager->getNbResults() : false
             ));
             $response->setPrivate();
 
@@ -121,7 +130,7 @@ class CoreController extends Controller
         }
 
         return $this->render($this->container->get('sonata.admin.pool')->getTemplate('search'), array(
-            'base_template' => $this->getBaseTemplate(),
+            'base_template' => $this->getBaseTemplate($request),
             'admin_pool'    => $this->container->get('sonata.admin.pool'),
             'query'         => $request->get('q'),
             'groups'        => $this->getAdminPool()->getDashboardGroups()

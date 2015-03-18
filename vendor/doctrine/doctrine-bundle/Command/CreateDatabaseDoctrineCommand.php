@@ -36,7 +36,6 @@ class CreateDatabaseDoctrineCommand extends DoctrineCommand
             ->setName('doctrine:database:create')
             ->setDescription('Creates the configured databases')
             ->addOption('connection', null, InputOption::VALUE_OPTIONAL, 'The connection to use for this command')
-            ->addOption('if-not-exists', null, InputOption::VALUE_NONE, 'Don\'t trigger an error, when the database already exists')
             ->setHelp(<<<EOT
 The <info>doctrine:database:create</info> command creates the default
 connections database:
@@ -57,7 +56,6 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $connection = $this->getDoctrineConnection($input->getOption('connection'));
-        $ifNotExists = $input->getOption('if-not-exists');
 
         $params = $connection->getParams();
         if (isset($params['master'])) {
@@ -79,14 +77,8 @@ EOT
 
         $error = false;
         try {
-            $shouldNotCreateDatabase = $ifNotExists && in_array($name, $tmpConnection->getSchemaManager()->listDatabases());
-
-            if ($shouldNotCreateDatabase) {
-                $output->writeln(sprintf('<info>Database for connection named <comment>%s</comment> already exists. Skipped.</info>'));
-            } else {
-                $tmpConnection->getSchemaManager()->createDatabase($name);
-                $output->writeln(sprintf('<info>Created database for connection named <comment>%s</comment></info>', $name));
-            }
+            $tmpConnection->getSchemaManager()->createDatabase($name);
+            $output->writeln(sprintf('<info>Created database for connection named <comment>%s</comment></info>', $name));
         } catch (\Exception $e) {
             $output->writeln(sprintf('<error>Could not create database for connection named <comment>%s</comment></error>', $name));
             $output->writeln(sprintf('<error>%s</error>', $e->getMessage()));

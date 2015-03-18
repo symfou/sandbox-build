@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introduction &mdash; Sonata ~ PageBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ PageBundle  documentation" href="../index.html"/>
+        <link rel="next" title="2. Installation" href="installation.html"/>
+        <link rel="prev" title="Page Bundle" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ PageBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-site">1.1. A Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-page">1.2. A Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-block">1.3. A Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-snapshot">1.4. A Snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-cache">1.5. A Cache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">2.2. Enable the Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">2.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#extend-the-bundle">2.4. Extend the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">3. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-a-default-site">3.1. Creating a default site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-default-pages">3.2. Creating default pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-default-snapshots">3.3. Creating default snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#add-or-edit-a-block">3.4. Add or Edit a Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#publish-a-snapshot">3.5. Publish a snapshot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_composer.html">4. Page Composer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_composer.html#configure">4.1. Configure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_composer.html#javascript">4.2. Javascript</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multisite.html">5. Multisite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-strategy">5.1. Host Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-by-locale-strategy">5.2. Host By Locale Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-and-path-strategy">5.3. Host and Path Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-and-path-by-locale-strategy">5.4. Host and Path By Locale Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="error_pages.html">6. Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">7. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#url">7.1. Url</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#container">7.2. Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#breadcrumbs">7.3. Breadcrumbs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#assets">7.4. Assets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">8. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#flush-commands">8.1. Flush commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#page-commands">8.2. Page commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#debug-commands">8.3. Debug Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">9. Advanced usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#ignore-options">9.1. Ignore options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#page-default-options">9.2. Page default options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_services.html">10. Pages Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_services.html#creating-a-new-page-service">10.1. Creating a new Page Service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">11. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">12. Varnish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="varnish.html#basic-configuration">12.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="varnish.html#using-esi">12.2. Using ESI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">13. Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#indexes">13.1. Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#snapshots">13.2. Snapshots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">14. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">14.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">14.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ PageBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>1. Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/introduction.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>This small introduction will try to explain the basics concepts behind the
+<tt class="docutils literal"><span class="pre">PageBundle</span></tt>. Since the version 2.1 of <tt class="docutils literal"><span class="pre">PageBundle</span></tt>, the Symfony CMF router
+chain is now integrated. This makes the solution compatible with other projects
+using this component : ezPublish, CMF project and more ...</p>
+<div class="section" id="a-site">
+<h2>1.1. A Site<a class="headerlink" href="#a-site" title="Permalink to this headline">¶</a></h2>
+<p>A <tt class="docutils literal"><span class="pre">Site</span></tt> is an entity linked to many Pages. The <tt class="docutils literal"><span class="pre">PageBundle</span></tt> can host many
+sites on a same project.</p>
+<p>Depending on the configuration a site can be represented by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a host : sonata-project.org or sonata-project.com</li>
+<li>a host + a path : sonata-project.org/uk or sonata-project.org/fr
+or sonata-project.com/uk</li>
+<li>a host and a locale (locale detected from the browser)</li>
+<li>a host, path and a locale (locale detected from the browser)</li>
+</ul>
+</div></blockquote>
+<p>The latter requires a specific <tt class="docutils literal"><span class="pre">RequestContext</span></tt> to work. This is done by
+changing the <tt class="docutils literal"><span class="pre">router</span></tt> service.</p>
+</div>
+<div class="section" id="a-page">
+<h2>1.2. A Page<a class="headerlink" href="#a-page" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt> is a special kind of CMS as it handles different types
+of pages. From within a Symfony2 application, actions are used to render a HTML
+response. When you need to add a new component (or block) inside an action, you
+need to edit the template. In the other hand, in the CMS world, users edit areas
+and manage content but it is not possible to have complex actions or workflows.</p>
+<p>It is very difficult to mix CMS page and Action page inside one and unique
+solution. The easiest way is to build the project with 2 backends, one for the
+CMS and one for the application.</p>
+<p>The <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt> tries to solve this problem by encapsulating action
+pages into the CMS. So actions can be handled as a CMS page with the same
+solution, and this allows to easily include external Symfony bundles.</p>
+<p>Page types:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">CMS</span> <span class="pre">Page</span></tt> : a standard CMS page with url</li>
+<li><tt class="docutils literal"><span class="pre">Hybrid</span> <span class="pre">Page</span></tt> : a page linked to a Symfony action, this can be any kind
+of url matched by the router.</li>
+<li><tt class="docutils literal"><span class="pre">Dynamic</span> <span class="pre">Page</span></tt> : a dynamic page is a hybrid page with parameters
+ie, /blog/{year}/{month}/{slug}</li>
+<li><tt class="docutils literal"><span class="pre">Internal</span> <span class="pre">Page</span></tt> : page shared across different pages, very useful for
+handling footer and header</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="a-block">
+<h2>1.3. A Block<a class="headerlink" href="#a-block" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt> does not know how to manage content, actually there is
+no content management. This part is delegated to services. The bundle only
+manages references to the service required by a page. Reference information is
+stored in a <tt class="docutils literal"><span class="pre">Block</span></tt>.</p>
+<p>A block is a small unit, it contains the following information:</p>
+<blockquote>
+<div><ul class="simple">
+<li>service id</li>
+<li>position</li>
+<li>settings used by the service</li>
+</ul>
+</div></blockquote>
+<p>Each block service must implement the <tt class="docutils literal"><span class="pre">Sonata\PageBundle\Block\BlockServiceInterface</span></tt>
+which defines a set of functions to create so the service can be integrated
+nicely with editing workflow. The important information is that a block service
+must always return a <tt class="docutils literal"><span class="pre">Response</span></tt> object.</p>
+<p>By default the <tt class="docutils literal"><span class="pre">SonataPageBundle</span></tt> is shipped with core block services:</p>
+<blockquote>
+<div><ul class="simple">
+<li>sonata.page.block.container      : Block container</li>
+<li>sonata.page.block.children_pages : Render a navigation panel</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="a-snapshot">
+<h2>1.4. A Snapshot<a class="headerlink" href="#a-snapshot" title="Permalink to this headline">¶</a></h2>
+<p>A <tt class="docutils literal"><span class="pre">Snapshot</span></tt> is a version of a <tt class="docutils literal"><span class="pre">Page</span></tt> used to render the page to the final user.
+So when an editor organizes <tt class="docutils literal"><span class="pre">Page</span></tt> and <tt class="docutils literal"><span class="pre">Block</span></tt> the final user does not see these
+modifications unless the editor creates a new snapshot of the page.</p>
+</div>
+<div class="section" id="a-cache">
+<h2>1.5. A Cache<a class="headerlink" href="#a-cache" title="Permalink to this headline">¶</a></h2>
+<p>There is a cache mechanism integrated into the bundle. Each block service is linked
+to a cache service.</p>
+<p>Depending on the block logic some cache backends are more suitable than others:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Container should use the <tt class="docutils literal"><span class="pre">sonata.page.cache.esi</span></tt> cache</li>
+<li>Users related block like basket summary or authentication area should
+use the <tt class="docutils literal"><span class="pre">sonata.page.cache.js_async</span></tt> cache.</li>
+</ul>
+</div></blockquote>
+<p>Of course if you don&#8217;t have a reverse proxy server you can use other caching
+solution such as memcached, mongo or apc.</p>
+<p>The <tt class="docutils literal"><span class="pre">sonata.cache.noop</span></tt> cache can be use if you don&#8217;t want caching!</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="2. Installation"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Page Bundle"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

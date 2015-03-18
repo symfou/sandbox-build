@@ -34,6 +34,10 @@
                 <source>btn_filter</source>
                 <target>Фильтровать</target>
             </trans-unit>
+            <trans-unit id="btn_advanced_filters">
+                <source>btn_advanced_filters</source>
+                <target>btn_advanced_filters</target>
+            </trans-unit>
             <trans-unit id="btn_update">
                 <source>btn_update</source>
                 <target>Сохранить</target>
@@ -314,9 +318,17 @@
                 <source>td_username</source>
                 <target>Автор</target>
             </trans-unit>
+            <trans-unit id="td_role">
+                <source>td_role</source>
+                <target>td_role</target>
+            </trans-unit>
             <trans-unit id="label_view_revision">
                 <source>label_view_revision</source>
                 <target>Просмотр изменений</target>
+            </trans-unit>
+            <trans-unit id="list_results_count_prefix">
+                <source>list_results_count_prefix</source>
+                <target>list_results_count_prefix</target>
             </trans-unit>
             <trans-unit id="list_results_count">
                 <source>list_results_count</source>
@@ -396,11 +408,15 @@
             </trans-unit>
             <trans-unit id="noscript_warning">
                 <source>noscript_warning</source>
-                <target>noscript_warning</target>
+                <target>В вашем браузере отключен Javascipt. Некоторые функции сайта будут недоступны.</target>
             </trans-unit>
             <trans-unit id="message_form_group_empty">
                 <source>message_form_group_empty</source>
-                <target>message_form_group_empty</target>
+                <target>Нет доступных полей</target>
+            </trans-unit>
+            <trans-unit id="link_filters">
+                <source>link_filters</source>
+                <target>Фильтры</target>
             </trans-unit>
         </body>
     </file>

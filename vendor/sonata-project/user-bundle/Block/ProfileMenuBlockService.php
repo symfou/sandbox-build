@@ -13,7 +13,7 @@ namespace Sonata\UserBundle\Block;
 
 use Knp\Menu\ItemInterface;
 use Knp\Menu\Provider\MenuProviderInterface;
-use Sonata\AdminBundle\Validator\ErrorElement;
+use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Block\Service\MenuBlockService;
 use Sonata\BlockBundle\Model\BlockInterface;
@@ -88,7 +88,10 @@ class ProfileMenuBlockService extends MenuBlockService
                     'attributes'         => array('class' => $settings['children_class']),
                 )
             );
-            $menu->setCurrentUri($settings['current_uri']);
+
+            if (method_exists($menu, 'setCurrentUri')) {
+                $menu->setCurrentUri($settings['current_uri']);
+            }
         }
 
         return $menu;

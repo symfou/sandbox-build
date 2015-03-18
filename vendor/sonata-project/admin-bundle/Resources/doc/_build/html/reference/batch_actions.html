@@ -1,0 +1,586 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>22. Batch actions &mdash; Sonata ~ AdminBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ AdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="23. Translation" href="translation.html"/>
+        <link rel="prev" title="21. Templates" href="templates.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ AdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#downloading-the-code">1.1. Downloading the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#selecting-and-downloading-a-storage-bundle">1.2. Selecting and downloading a storage bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enabling-sonataadminbundle-and-its-dependencies">1.3. Enabling SonataAdminBundle and its dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuring-sonataadminbundle-dependencies">1.4. Configuring SonataAdminBundle dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#cleaning-up">1.5. Cleaning up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting started with SonataAdminBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-1-define-sonataadminbundle-routes">2.1. Step 1: Define SonataAdminBundle routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-2-create-an-admin-class">2.2. Step 2: Create an Admin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-3-create-an-admin-service">2.3. Step 3: Create an Admin service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-4-configuration">2.4. Step 4: Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps-security">2.5. Next steps - Security</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration // Warning: this doc page is not up to date and will be removed soon.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration">3.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#full-configuration-options">3.2. Full Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">4. Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#the-admin-class">4.1. The Admin Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#crudcontroller">4.2. CRUDController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#fields-definition">4.3. Fields Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#templates">4.4. Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#managing-admin-service">4.5. Managing <tt class="docutils literal"><span class="pre">Admin</span></tt> Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#create-child-admins">4.6. Create child admins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">5. Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#blocks">5.1. Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#the-admin-list-block">5.2. The <tt class="docutils literal"><span class="pre">Admin</span></tt> list block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#configuring-the-admin-list">5.3. Configuring the <tt class="docutils literal"><span class="pre">Admin</span></tt> list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#adding-more-blocks">5.4. Adding more Blocks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">6. Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="search.html#customization">6.1. Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html#performance">6.2. Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="select2.html">7. Select2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#disable-select2">7.1. Disable select2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#disable-select2-on-some-form-elements">7.2. Disable select2 on some form elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#allowclear">7.3. AllowClear</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="knp_menu.html">8. KnpMenu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="knp_menu.html#add-a-custom-controller-entry-in-the-menu">8.1. Add a custom controller entry in the menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">9. Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#routing-definition">9.1. Routing Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#routing-usage">9.2. Routing usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#create-a-route">9.3. Create a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#removing-a-route">9.4. Removing a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#persistent-parameters">9.5. Persistent parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#changing-the-default-route-in-a-list-action">9.6. Changing the default route in a List Action</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_list.html">10. The List View</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#basic-configuration">10.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-fields-displayed-on-the-list-page">10.2. Customizing the fields displayed on the list page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-query-used-to-generate-the-list">10.3. Customizing the query used to generate the list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-sort-order">10.4. Customizing the sort order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#filters">10.5. Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_create_edit.html">11. Creating and Editing objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#basic-configuration">11.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#embedding-other-admins">11.2. Embedding other Admins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#customizing-just-one-of-the-actions">11.3. Customizing just one of the actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html">12. The Show action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#basic-configuration">12.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#customising-the-query-used-to-show-the-object-from-within-your-admin-class">12.2. Customising the query used to show the object from within your Admin class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html#setting-up-a-custom-show-template-very-useful">13. Setting up a custom show template (very useful)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action_delete.html">14. Deleting objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_delete.html#basic-configuration">14.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_export.html">15. The Export action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_export.html#basic-configuration">15.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="saving_hooks.html">16. Saving hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="saving_hooks.html#example-used-with-the-fos-userbundle">16.1. Example used with the FOS/UserBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_types.html">17. Form Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#admin-related-form-types">17.1. Admin related form types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#types-options">17.2. Types options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_help_message.html">18. Form Help Messages and Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#help-messages">18.1. Help Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#form-group-descriptions">18.2. Form Group Descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">19. Field Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="field_types.html#list-and-show-actions">19.1. List and Show Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_validation.html">20. Inline Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#troubleshooting">20.1. Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">21. Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#global-templates">21.1. Global Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#dashboard-template">21.2. Dashboard Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#crudcontroller-actions-templates">21.3. CRUDController Actions Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#row-templates">21.4. Row Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#other-templates">21.5. Other Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#configuring-templates">21.6. Configuring templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">22. Batch actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#defining-new-actions">22.1. Defining new actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-overriding-the-batch-selection-template">22.2. (Optional) Overriding the batch selection template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-overriding-the-default-relevancy-check-function">22.3. (Optional) Overriding the default relevancy check function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-executing-a-pre-batch-hook">22.4. (Optional) Executing a pre batch hook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-the-core-action-logic">22.5. Define the core action logic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">23. Translation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#translate-field-labels">23.1. Translate field labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">24. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#user-management">24.1. User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#security-handlers">24.2. Security handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#role-handler">24.3. Role handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#acl-and-friendsofsymfony-userbundle">24.4. ACL and FriendsOfSymfony/UserBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#acl-editor">24.5. ACL editor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">25. Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#configuration">25.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">26. Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configureevent">26.1. ConfigureEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#persistenceevent">26.2. PersistenceEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configurequeryevent">26.3. ConfigureQueryEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#blockevent">26.4. BlockEvent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">27. Advanced configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#service-configuration">27.1. Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#inherited-classes">27.2. Inherited classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#dropdowns-in-tab-menu">27.3. Dropdowns in Tab Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#disable-content-stretching">27.4. Disable content stretching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="console.html">28. Console/Command-Line Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="console.html#cache-create-cache-class">28.1. cache:create-cache-class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate">28.2. sonata:admin:generate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-list">28.3. sonata:admin:list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-explain">28.4. sonata:admin:explain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-setup-acl">28.5. sonata:admin:setup-acl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate-object-acl">28.6. sonata:admin:generate-object-acl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preview_mode.html">29. Preview Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preview_mode.html#simulating-front-end-rendering">29.1. Simulating front-end rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">30. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#the-tostring-method">30.1. The toString method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#large-filters-and-long-urls-problem">30.2. Large filters and long urls problem</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_file_uploads.html">1. Uploading and saving documents (including images) using DoctrineORM and SonataAdmin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#pre-requisites">1.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#the-recipe">1.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#notes">1.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_image_previews.html">2. Showing image previews</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#pre-requisites">2.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#the-recipe">2.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#notes">2.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_row_templates.html">3. Row templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_row_templates.html#the-recipe">3.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html">4. Sortable behavior in admin listing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#background">4.1. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#pre-requisites">4.2. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#the-recipe">4.3. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#further-work">4.4. Further work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_dynamic_form_modification.html">5. Modifying form fields dynamically depending on edited object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_custom_action.html">6. Creating a Custom Admin Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_custom_action.html#the-recipe">6.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_customizing_a_mosaic_list.html">7. Customizing a mosaic list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_overwrite_admin_configuration.html">8. Overwrite Admin Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html">9. Improve performance of large datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html#change-default-pager-to-simplepager">9.1. Change default Pager to SimplePager</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ AdminBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>22. Batch actions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/batch_actions.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="batch-actions">
+<h1>22. Batch actions<a class="headerlink" href="#batch-actions" title="Permalink to this headline">¶</a></h1>
+<p>Batch actions are actions triggered on a set of selected objects. By default,
+Admins have a <tt class="docutils literal"><span class="pre">delete</span></tt> action which allows you to remove several entries at once.</p>
+<div class="section" id="defining-new-actions">
+<h2>22.1. Defining new actions<a class="headerlink" href="#defining-new-actions" title="Permalink to this headline">¶</a></h2>
+<p>To create a new custom batch action which appears in the list view follow these steps:</p>
+<p>Override <tt class="docutils literal"><span class="pre">getBatchActions()</span></tt> in your <tt class="docutils literal"><span class="pre">Admin</span></tt> class to define the new batch actions
+by adding them to the <tt class="docutils literal"><span class="pre">$actions</span></tt> array. Each entry has two settings:</p>
+<ul class="simple">
+<li><strong>label</strong>: The name to use when offering this option to users, should be passed through the translator</li>
+<li><strong>ask_confirmation</strong>: defaults to true and means that the user will be asked
+for confirmation before the batch action is processed</li>
+</ul>
+<p>For example, lets define a new <tt class="docutils literal"><span class="pre">merge</span></tt> action which takes a number of source items and
+merges them onto a single target item. It should only be available when two conditions are met:</p>
+<ul class="simple">
+<li>the EDIT and DELETE routes exist for this Admin (have not been disabled)</li>
+<li>the logged in administrator has EDIT and DELETE permissions</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// In your Admin class</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">getBatchActions</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// retrieve the default batch actions (currently only delete)</span>
+    <span class="nv">$actions</span> <span class="o">=</span> <span class="k">parent</span><span class="o">::</span><span class="na">getBatchActions</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span>
+      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasRoute</span><span class="p">(</span><span class="s1">&#39;edit&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isGranted</span><span class="p">(</span><span class="s1">&#39;EDIT&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasRoute</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isGranted</span><span class="p">(</span><span class="s1">&#39;DELETE&#39;</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$actions</span><span class="p">[</span><span class="s1">&#39;merge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">trans</span><span class="p">(</span><span class="s1">&#39;action_merge&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(),</span> <span class="s1">&#39;SonataAdminBundle&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;ask_confirmation&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span>
+        <span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$actions</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="optional-overriding-the-batch-selection-template">
+<h2>22.2. (Optional) Overriding the batch selection template<a class="headerlink" href="#optional-overriding-the-batch-selection-template" title="Permalink to this headline">¶</a></h2>
+<p>A merge action requires two kinds of selection: a set of source objects to merge from
+and a target object to merge into. By default, batch_actions only let you select one set
+of objects to manipulate. We can override this behavior by changing our list template
+(<tt class="docutils literal"><span class="pre">list__batch.html.twig</span></tt>) and adding a radio button to choose the target object.</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="c">{# in Acme/ProjectBundle/Resources/views/CRUD/list__batch.html.twig #}</span>
+<span class="c">{# See SonataAdminBundle:CRUD:list__batch.html.twig for the current default template #}</span>
+
+<span class="cp">{%</span> <span class="k">extends</span> <span class="nv">admin.getTemplate</span><span class="o">(</span><span class="s1">&#39;base_list_field&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">field</span> <span class="cp">%}</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name=</span><span class="s">&quot;idx[]&quot;</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">admin.id</span><span class="o">(</span><span class="nv">object</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="c">{# the new radio #}</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;targetId&quot;</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">admin.id</span><span class="o">(</span><span class="nv">object</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="nt">/&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+<p>And add this:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1">// Acme/ProjectBundle/AcmeProjectBundle.php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">getParent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;SonataAdminBundle&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="http://symfony.com/doc/current/cookbook/bundles/inheritance.html">Symfony bundle overriding mechanism</a>
+for further explanation of overriding bundle templates.</p>
+</div>
+<div class="section" id="optional-overriding-the-default-relevancy-check-function">
+<h2>22.3. (Optional) Overriding the default relevancy check function<a class="headerlink" href="#optional-overriding-the-default-relevancy-check-function" title="Permalink to this headline">¶</a></h2>
+<p>By default, batch actions are not executed if no object was selected, and the user is notified of
+this lack of selection. If your custom batch action needs more complex logic to determine if
+an action can be performed or not, just define a <tt class="docutils literal"><span class="pre">batchAction&lt;MyAction&gt;IsRelevant</span></tt> method
+(e.g. <tt class="docutils literal"><span class="pre">batchActionMergeIsRelevant</span></tt>) in your <tt class="docutils literal"><span class="pre">CRUDController</span></tt> class. This check is performed
+before the user is asked for confirmation, to make sure there is actually something to confirm.</p>
+<p>This method may return three different values:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">true</span></tt>: The batch action is relevant and can be applied.</li>
+<li><tt class="docutils literal"><span class="pre">false</span></tt>: Same as above, with the default &#8220;action aborted, no model selected&#8221; notification message.</li>
+<li>a string: The batch action is not relevant given the current request parameters
+(for example the <tt class="docutils literal"><span class="pre">target</span></tt> is missing for a <tt class="docutils literal"><span class="pre">merge</span></tt> action).
+The returned string is a message displayed to the user.</li>
+</ul>
+</div></blockquote>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// In Acme/ProjectBundle/Controller/CRUDController.php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">batchActionMergeIsRelevant</span><span class="p">(</span><span class="k">array</span> <span class="nv">$selectedIds</span><span class="p">,</span> <span class="nv">$allEntitiesSelected</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// here you have access to all POST parameters, if you use some custom ones</span>
+    <span class="c1">// POST parameters are kept even after the confirmation page.</span>
+    <span class="nv">$parameterBag</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">;</span>
+
+    <span class="c1">// check that a target has been chosen</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$parameterBag</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;targetId&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;flash_batch_merge_no_target&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$targetId</span> <span class="o">=</span> <span class="nv">$parameterBag</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;targetId&#39;</span><span class="p">);</span>
+
+    <span class="c1">// if all entities are selected, a merge can be done</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$allEntitiesSelected</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// filter out the target from the selected models</span>
+    <span class="nv">$selectedIds</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$selectedIds</span><span class="p">,</span>
+        <span class="k">function</span><span class="p">(</span><span class="nv">$selectedId</span><span class="p">)</span> <span class="k">use</span><span class="p">(</span><span class="nv">$targetId</span><span class="p">){</span>
+            <span class="k">return</span> <span class="nv">$selectedId</span> <span class="o">!==</span> <span class="nv">$targetId</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="c1">// if at least one but not the target model is selected, a merge can be done.</span>
+    <span class="k">return</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$selectedIds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="optional-executing-a-pre-batch-hook">
+<h2>22.4. (Optional) Executing a pre batch hook<a class="headerlink" href="#optional-executing-a-pre-batch-hook" title="Permalink to this headline">¶</a></h2>
+<p>In your admin class you can create a <tt class="docutils literal"><span class="pre">preBatchAction</span></tt> method to execute something before doing the batch action.
+The main purpose of this method is to alter the query or the list of selected ids.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// In your Admin class</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">preBatchAction</span><span class="p">(</span><span class="nv">$actionName</span><span class="p">,</span> <span class="nx">ProxyQueryInterface</span> <span class="nv">$query</span><span class="p">,</span> <span class="k">array</span> <span class="o">&amp;</span> <span class="nv">$idx</span><span class="p">,</span> <span class="nv">$allElements</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// altering the query or the idx array</span>
+    <span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">();</span>
+
+    <span class="c1">// Doing something with the foo object</span>
+    <span class="c1">// ...</span>
+
+    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="define-the-core-action-logic">
+<h2>22.5. Define the core action logic<a class="headerlink" href="#define-the-core-action-logic" title="Permalink to this headline">¶</a></h2>
+<p>The method <tt class="docutils literal"><span class="pre">batchAction&lt;MyAction&gt;</span></tt> will be executed to process your batch in your <tt class="docutils literal"><span class="pre">CRUDController</span></tt> class. The selected
+objects are passed to this method through a query argument which can be used to retrieve them.
+If for some reason it makes sense to perform your batch action without the default selection
+method (for example you defined another way, at template level, to select model at a lower
+granularity), the passed query is <tt class="docutils literal"><span class="pre">null</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can check how to declare your own <tt class="docutils literal"><span class="pre">CRUDController</span></tt> class in the Architecture section.</p>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// In Acme/ProjectBundle/Controller/CRUDController.php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">batchActionMerge</span><span class="p">(</span><span class="nx">ProxyQueryInterface</span> <span class="nv">$selectedModelQuery</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">isGranted</span><span class="p">(</span><span class="s1">&#39;EDIT&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">isGranted</span><span class="p">(</span><span class="s1">&#39;DELETE&#39;</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">AccessDeniedException</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+    <span class="nv">$modelManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">getModelManager</span><span class="p">();</span>
+
+    <span class="nv">$target</span> <span class="o">=</span> <span class="nv">$modelManager</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">getClass</span><span class="p">(),</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;targetId&#39;</span><span class="p">));</span>
+
+    <span class="k">if</span><span class="p">(</span> <span class="nv">$target</span> <span class="o">===</span> <span class="k">null</span><span class="p">){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addFlash</span><span class="p">(</span><span class="s1">&#39;sonata_flash_info&#39;</span><span class="p">,</span> <span class="s1">&#39;flash_batch_merge_no_target&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span>
+          <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">getFilterParameters</span><span class="p">())</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$selectedModels</span> <span class="o">=</span> <span class="nv">$selectedModelQuery</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="c1">// do the merge work here</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$selectedModels</span> <span class="k">as</span> <span class="nv">$selectedModel</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$modelManager</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$selectedModel</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$modelManager</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="nv">$selectedModel</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addFlash</span><span class="p">(</span><span class="s1">&#39;sonata_flash_error&#39;</span><span class="p">,</span> <span class="s1">&#39;flash_batch_merge_error&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span>
+          <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">getFilterParameters</span><span class="p">())</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addFlash</span><span class="p">(</span><span class="s1">&#39;sonata_flash_success&#39;</span><span class="p">,</span> <span class="s1">&#39;flash_batch_merge_success&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span>
+      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">admin</span><span class="o">-&gt;</span><span class="na">getFilterParameters</span><span class="p">())</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="translation.html" class="btn btn-neutral float-right" title="23. Translation"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="templates.html" class="btn btn-neutral" title="21. Templates"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

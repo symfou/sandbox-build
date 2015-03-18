@@ -10,7 +10,7 @@
 
 namespace Sonata\AdminBundle\Util;
 
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class FormBuilderIterator extends \RecursiveArrayIterator
 {
@@ -22,11 +22,13 @@ class FormBuilderIterator extends \RecursiveArrayIterator
 
     protected $prefix;
 
+    protected $iterator;
+
     /**
-     * @param \Symfony\Component\Form\FormBuilder $formBuilder
-     * @param bool                                $prefix
+     * @param \Symfony\Component\Form\FormBuilderInterface $formBuilder
+     * @param bool                                         $prefix
      */
-    public function __construct(FormBuilder $formBuilder, $prefix = false)
+    public function __construct(FormBuilderInterface $formBuilder, $prefix = false)
     {
         $this->formBuilder = $formBuilder;
         $this->prefix      = $prefix ? $prefix : $formBuilder->getName();
@@ -36,11 +38,11 @@ class FormBuilderIterator extends \RecursiveArrayIterator
     /**
      * @static
      *
-     * @param \Symfony\Component\Form\FormBuilder $formBuilder
+     * @param \Symfony\Component\Form\FormBuilderInterface $formBuilder
      *
      * @return array
      */
-    private static function getKeys(FormBuilder $formBuilder)
+    private static function getKeys(FormBuilderInterface $formBuilder)
     {
         if (!self::$reflection) {
             self::$reflection = new \ReflectionProperty(get_class($formBuilder), 'children');

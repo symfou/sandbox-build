@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. Amazon S3 &mdash; Sonata ~ MediaBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ MediaBundle  documentation" href="../index.html"/>
+        <link rel="next" title="11. Extra" href="extra.html"/>
+        <link rel="prev" title="9. Advanced Configuration" href="advanced_configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ MediaBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#base-bundles">1.1. Base bundles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id1">1.2. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">2. Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#php-usage">2.1. PHP Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#twig-usage">2.2. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#thumbnails-for-files">2.3. Thumbnails for files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creating_a_provider_class.html">3. Creating a Media Provider: A Vimeo Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#media-entity">3.1. Media Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#case-study">3.2. Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#initialize-the-class">3.3. Initialize the class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#register-the-class-with-the-service-container">3.4. Register the Class with the Service Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#view-helper">3.5. View Helper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media_context.html">4. Media Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media_context.html#adminbundle-integration">4.1. <tt class="docutils literal"><span class="pre">AdminBundle</span></tt> Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">5. Usages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#saving-a-media-file">5.1. Saving a media file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#retrieving-metadata-information">5.2. Retrieving metadata information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form.html">6. Form Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form.html#media-type">6.1. Media Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">7. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#configuration-example">7.1. Configuration Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#creating-your-own-security-download-strategy">7.2. Creating your own Security Download Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">8. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#media-commands">8.1. Media commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">9. Advanced Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">10. Amazon S3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">10.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">11. Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">11.1. Pixlr Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">12. Sonata Notification Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">13. Liip Imagine Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">14. CKEditor Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">14.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">14.2. Medias in CKEditor with SonataFormatterBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">15. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">15.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">15.2. Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">15.3. Sending a media file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">16. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">16.1. Media Formats</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ MediaBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>10. Amazon S3</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/amazon_s3.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="amazon-s3">
+<h1>10. Amazon S3<a class="headerlink" href="#amazon-s3" title="Permalink to this headline">¶</a></h1>
+<p>In order to use Amazon S3, you will need to add the following dependency to your composer.json:</p>
+<blockquote>
+<div>composer require aws/aws-sdk-php</div></blockquote>
+<div class="section" id="configuration">
+<h2>10.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>This is a sample config file to enable amazon S3 as a filesystem &amp; provider:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>sonata_media:</dt>
+<dd><dl class="first last docutils">
+<dt>cdn:</dt>
+<dd><dl class="first last docutils">
+<dt>server:</dt>
+<dd>path: <a class="reference external" href="http://%s3_bucket_name%.s3-website-%s3_region%.amazonaws.com">http://%s3_bucket_name%.s3-website-%s3_region%.amazonaws.com</a></dd>
+</dl>
+</dd>
+<dt>providers:</dt>
+<dd><dl class="first last docutils">
+<dt>image:</dt>
+<dd>filesystem: sonata.media.filesystem.s3</dd>
+</dl>
+</dd>
+<dt>filesystem:</dt>
+<dd><dl class="first last docutils">
+<dt>s3:</dt>
+<dd>bucket:    %s3_bucket_name%
+accessKey: %s3_access_key%
+secretKey: %s3_secret_key%
+region:    %s3_region%</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="extra.html" class="btn btn-neutral float-right" title="11. Extra"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="advanced_configuration.html" class="btn btn-neutral" title="9. Advanced Configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

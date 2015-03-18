@@ -67,6 +67,8 @@ EOF
 
         $this->assertEquals('Some content', $this->filesystem->read('foo'));
         $this->assertEquals('Some content1', $this->filesystem->read('test/subdir/foo'));
+        $this->filesystem->delete('foo');
+        $this->filesystem->delete('test/subdir/foo');
     }
 
     /**
@@ -79,6 +81,7 @@ EOF
         $this->filesystem->write('foo', 'Some content updated', true);
 
         $this->assertEquals('Some content updated', $this->filesystem->read('foo'));
+        $this->filesystem->delete('foo');
     }
 
     /**
@@ -94,6 +97,8 @@ EOF
         $this->assertTrue($this->filesystem->has('foo'));
         $this->assertFalse($this->filesystem->has('test/somefile'));
         $this->assertFalse($this->filesystem->has('test/somefile'));
+
+        $this->filesystem->delete('foo');
     }
 
     /**
@@ -105,6 +110,8 @@ EOF
         $this->filesystem->write('foo', 'Some content');
 
         $this->assertGreaterThan(0, $this->filesystem->mtime('foo'));
+
+        $this->filesystem->delete('foo');
     }
 
     /**
@@ -172,5 +179,51 @@ EOF
         foreach (array('foo', 'bar', 'baz') as $key) {
             $this->assertContains($key, $actualKeys);
         }
+
+        $this->filesystem->delete('foo');
+        $this->filesystem->delete('bar');
+        $this->filesystem->delete('baz');
+    }
+
+    /**
+     * @test
+     * @group functional
+     */
+    public function shouldWorkWithHiddenFiles()
+    {
+        $this->filesystem->write('.foo', 'hidden');
+        $this->assertTrue($this->filesystem->has('.foo'));
+        $this->assertContains('.foo', $this->filesystem->keys());
+        $this->filesystem->delete('.foo');
+        $this->assertFalse($this->filesystem->has('.foo'));
+    }
+    
+    /**
+     * @test
+     * @group functional
+     */
+    public function shouldKeepFileObjectInRegister()
+    {
+        $FileObjectA = $this->filesystem->createFile('somefile');        
+        $FileObjectB = $this->filesystem->createFile('somefile');
+        
+        $this->assertTrue($FileObjectA === $FileObjectB);
+    }
+    
+    /**
+     * @test
+     * @group functional
+     */
+    public function shouldWrtieToSameFile()
+    {
+        $FileObjectA = $this->filesystem->createFile('somefile');
+        $FileObjectA->setContent('ABC');
+        
+        $FileObjectB = $this->filesystem->createFile('somefile');
+        $FileObjectB->setContent('DEF');
+        
+        $this->assertEquals('DEF', $FileObjectB->getContent());
+        
+        $this->filesystem->delete('somefile');
     }
 }

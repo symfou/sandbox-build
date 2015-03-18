@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Use CKEditor to select medias in SonataMediaBundle &mdash; Sonata ~ FormatterBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ FormatterBundle  documentation" href="../index.html"/>
+        <link rel="prev" title="5. Formatter Block" href="formatter_block.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ FormatterBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#configuration">2. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#form">3.1. Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#twig-formatter">3.2. Twig Formatter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatter_widget.html">4. Formatter Widget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#preview">4.1. Preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#how-to-use-it">4.2. How to use it ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#dynamic-input">4.3. Dynamic Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatter_widget.html#sonata-admin-integration">4.4. Sonata Admin Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatter_block.html">5. Formatter Block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formatter_block.html#installation">5.1. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">6. Use CKEditor to select medias in SonataMediaBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">6.1. Configuration</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ FormatterBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>6. Use CKEditor to select medias in SonataMediaBundle</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/ckeditor_medias.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="use-ckeditor-to-select-medias-in-sonatamediabundle">
+<span id="index-0"></span><h1>6. Use CKEditor to select medias in SonataMediaBundle<a class="headerlink" href="#use-ckeditor-to-select-medias-in-sonatamediabundle" title="Permalink to this headline">¶</a></h1>
+<p>When using <tt class="docutils literal"><span class="pre">richhtml</span></tt> formatting option with <tt class="docutils literal"><span class="pre">CKEditor</span></tt>, you can add a feature to select images directly
+from <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt> or even upload new medias from the editor in <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt> to add them to your content.</p>
+<p>It can be a quick way for editors to manage medias.</p>
+<div class="section" id="configuration">
+<h2>6.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>First of all, you have to define your <tt class="docutils literal"><span class="pre">IvoryCKEditorBundle</span></tt> (already embedded in <tt class="docutils literal"><span class="pre">SonataFormatterBundle</span></tt>) configuration.
+Be sure to have the <tt class="docutils literal"><span class="pre">ivory/ivory_ckeditor.yml</span></tt> configuration file available. It should contain something like this:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/ivory/ivory_ckeditor.yml</span>
+
+<span class="l-Scalar-Plain">ivory_ck_editor</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">default_config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">default</span>
+    <span class="l-Scalar-Plain">configs</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">filebrowserBrowseRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_browser</span>
+            <span class="l-Scalar-Plain">filebrowserImageBrowseRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_browser</span>
+            <span class="c1"># Display images by default when clicking the image dialog browse button</span>
+            <span class="l-Scalar-Plain">filebrowserImageBrowseRouteParameters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.provider.image</span>
+            <span class="l-Scalar-Plain">filebrowserUploadRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_upload</span>
+            <span class="l-Scalar-Plain">filebrowserUploadRouteParameters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.provider.file</span>
+            <span class="c1"># Upload file as image when sending a file from the image dialog</span>
+            <span class="l-Scalar-Plain">filebrowserImageUploadRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_upload</span>
+            <span class="l-Scalar-Plain">filebrowserImageUploadRouteParameters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.provider.image</span>
+                <span class="l-Scalar-Plain">context</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my-context</span> <span class="c1"># Optional, to upload in a custom context</span>
+</pre></div>
+</div>
+<p>You can provide custom routes and a custom context to match your needs.</p>
+<p>Second step, don&#8217;t forget to import this <tt class="docutils literal"><span class="pre">ivory/ivory_ckeditor.yml</span></tt> file in your <tt class="docutils literal"><span class="pre">app/config.yml</span></tt> like this:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config.yml</span>
+
+<span class="c1"># ...</span>
+
+<span class="c1"># Ivory CKEditor</span>
+<span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">resource</span><span class="p-Indicator">:</span> <span class="nv">ivory/ivory_ckeditor.yml</span> <span class="p-Indicator">}</span>
+</pre></div>
+</div>
+<p>This third step is optional. You can do it if you need to define some custom browsing and uploading templates.
+To do so, add these few lines in your <tt class="docutils literal"><span class="pre">sonata_formatter.yml</span></tt> file:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/sonata/sonata_formatter.yml</span>
+
+<span class="l-Scalar-Plain">sonata_formatter</span><span class="p-Indicator">:</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="l-Scalar-Plain">ckeditor</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">templates</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataFormatterBundle:Ckeditor:browser.html.twig&#39;</span>
+            <span class="l-Scalar-Plain">upload</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataFormatterBundle:Ckeditor:upload.html.twig&#39;</span>
+</pre></div>
+</div>
+<p>Last step takes place in your admin class. You just have to specify the <tt class="docutils literal"><span class="pre">ckeditor_context</span></tt> parameter to activate <tt class="docutils literal"><span class="pre">CKEditor</span></tt>.</p>
+<p>Here is an example to alter <cite>shortDescription</cite> field of the <cite>ProductAdmin</cite>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1">// BaseProductProvider.php</span>
+
+<span class="c1">// ...</span>
+
+<span class="nv">$formMapper</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;shortDescription&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_formatter_type&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;source_field&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;rawDescription&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;source_field_options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;attr&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;span10&#39;</span><span class="p">,</span> <span class="s1">&#39;rows&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">)),</span>
+    <span class="s1">&#39;format_field&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;descriptionFormatter&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;target_field&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ckeditor_context&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;event_dispatcher&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$formMapper</span><span class="o">-&gt;</span><span class="na">getFormBuilder</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getEventDispatcher</span><span class="p">()</span>
+<span class="p">));</span>
+</pre></div>
+</div>
+<p>And that&#8217;s it, enjoy browsing and uploading your medias using <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="formatter_block.html" class="btn btn-neutral" title="5. Formatter Block"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

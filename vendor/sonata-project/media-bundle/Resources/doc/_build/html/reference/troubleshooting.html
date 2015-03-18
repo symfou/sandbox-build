@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>16. Troubleshooting &mdash; Sonata ~ MediaBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ MediaBundle  documentation" href="../index.html"/>
+        <link rel="prev" title="15. API" href="api.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ MediaBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#base-bundles">1.1. Base bundles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id1">1.2. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">2. Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#php-usage">2.1. PHP Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#twig-usage">2.2. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#thumbnails-for-files">2.3. Thumbnails for files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creating_a_provider_class.html">3. Creating a Media Provider: A Vimeo Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#media-entity">3.1. Media Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#case-study">3.2. Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#initialize-the-class">3.3. Initialize the class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#register-the-class-with-the-service-container">3.4. Register the Class with the Service Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#view-helper">3.5. View Helper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media_context.html">4. Media Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media_context.html#adminbundle-integration">4.1. <tt class="docutils literal"><span class="pre">AdminBundle</span></tt> Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">5. Usages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#saving-a-media-file">5.1. Saving a media file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#retrieving-metadata-information">5.2. Retrieving metadata information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form.html">6. Form Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form.html#media-type">6.1. Media Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">7. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#configuration-example">7.1. Configuration Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#creating-your-own-security-download-strategy">7.2. Creating your own Security Download Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">8. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#media-commands">8.1. Media commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">9. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon_s3.html">10. Amazon S3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amazon_s3.html#configuration">10.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">11. Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">11.1. Pixlr Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">12. Sonata Notification Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">13. Liip Imagine Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">14. CKEditor Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">14.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">14.2. Medias in CKEditor with SonataFormatterBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">15. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">15.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">15.2. Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">15.3. Sending a media file</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">16. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#media-formats">16.1. Media Formats</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ MediaBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>16. Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/troubleshooting.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="troubleshooting">
+<h1>16. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="media-formats">
+<h2>16.1. Media Formats<a class="headerlink" href="#media-formats" title="Permalink to this headline">¶</a></h2>
+<p>You can define formats per provider type, there is something important that you should bear in mind, the quality for each format type should get a numeric value no higher than 100, this is the maximun value you should set. Do not confuse the value belonging to the format quality by the format height.</p>
+<p>#### Prevent this possible issue:</p>
+<p>&gt; <strong>imagepng(): gd-png error: compression level must be 0 through 9</strong></p>
+<p>#### Use case:</p>
+<p>For example, let&#8217;s suppose you got a format called hq, and you want to set 1920 as the width value in your format, then the quality should be 100 as maximun value. Don&#8217;t make the mistake of setting 1080 in the quality value.</p>
+<p>Please take a look at how the images are compressed by this function in the image class:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">/**</span>
+<span class="x"> * Internal</span>
+<span class="x"> *</span>
+<span class="x"> * Performs save or show operation using one of GD&#39;s image... functions</span>
+<span class="x"> *</span>
+<span class="x"> * @param string $format</span>
+<span class="x"> * @param array  $options</span>
+<span class="x"> * @param string $filename</span>
+<span class="x"> *</span>
+<span class="x"> * @throws InvalidArgumentException</span>
+<span class="x"> * @throws RuntimeException</span>
+<span class="x"> */</span>
+<span class="x">private function saveOrOutput($format, array $options, $filename = null)</span>
+<span class="x">{</span>
+<span class="x">    if (!$this-&gt;supported($format)) {</span>
+<span class="x">        throw new InvalidArgumentException(sprintf(</span>
+<span class="x">            &#39;Saving image in &quot;%s&quot; format is not supported, please use one &#39;.</span>
+<span class="x">            &#39;of the following extension: &quot;%s&quot;&#39;, $format,</span>
+<span class="x">            implode(&#39;&quot;, &quot;&#39;, $this-&gt;supported())</span>
+<span class="x">        ));</span>
+<span class="x">    }</span>
+
+<span class="x">    $save = &#39;image&#39;.$format;</span>
+<span class="x">    $args = array(&amp;$this-&gt;resource, $filename);</span>
+
+<span class="x">    if (($format === &#39;jpeg&#39; || $format === &#39;png&#39;) &amp;&amp;</span>
+<span class="x">        isset($options[&#39;quality&#39;])) {</span>
+<span class="x">        // Png compression quality is 0-9, so here we get the value from percent.</span>
+<span class="x">        // Beaware that compression level for png works the other way around.</span>
+<span class="x">        // For PNG 0 means no compression and 9 means highest compression level.</span>
+<span class="x">        if ($format === &#39;png&#39;) {</span>
+<span class="x">            $options[&#39;quality&#39;] = round((100 - $options[&#39;quality&#39;]) * 9 / 100);</span>
+<span class="x">        }</span>
+<span class="x">        $args[] = $options[&#39;quality&#39;];</span>
+<span class="x">    }</span>
+
+<span class="x">    if ($format === &#39;png&#39; &amp;&amp; isset($options[&#39;filters&#39;])) {</span>
+<span class="x">        $args[] = $options[&#39;filters&#39;];</span>
+<span class="x">    }</span>
+
+<span class="x">    if (($format === &#39;wbmp&#39; || $format === &#39;xbm&#39;) &amp;&amp;</span>
+<span class="x">        isset($options[&#39;foreground&#39;])) {</span>
+<span class="x">        $args[] = $options[&#39;foreground&#39;];</span>
+<span class="x">    }</span>
+
+<span class="x">    $this-&gt;setExceptionHandler();</span>
+
+<span class="x">    if (false === call_user_func_array($save, $args)) {</span>
+<span class="x">        throw new RuntimeException(&#39;Save operation failed&#39;);</span>
+<span class="x">    }</span>
+
+<span class="x">    $this-&gt;resetExceptionHandler();</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<p>Finally your settings in your sonataMedia parameters will look like this:</p>
+<div class="highlight-yaml"><div class="highlight"><pre># app/config/config.yml
+sonata_media:
+    # if you don&#39;t use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70  }
+                big:   { width: 500 , quality: 70  }
+                hq:    { width: 1920, quality: 100 }
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="15. API"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

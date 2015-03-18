@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>15. API &mdash; Sonata ~ MediaBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ MediaBundle  documentation" href="../index.html"/>
+        <link rel="next" title="16. Troubleshooting" href="troubleshooting.html"/>
+        <link rel="prev" title="11. Extra" href="extra.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ MediaBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#base-bundles">1.1. Base bundles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id1">1.2. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">2. Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#php-usage">2.1. PHP Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#twig-usage">2.2. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#thumbnails-for-files">2.3. Thumbnails for files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creating_a_provider_class.html">3. Creating a Media Provider: A Vimeo Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#media-entity">3.1. Media Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#case-study">3.2. Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#initialize-the-class">3.3. Initialize the class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#register-the-class-with-the-service-container">3.4. Register the Class with the Service Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#view-helper">3.5. View Helper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media_context.html">4. Media Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media_context.html#adminbundle-integration">4.1. <tt class="docutils literal"><span class="pre">AdminBundle</span></tt> Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">5. Usages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#saving-a-media-file">5.1. Saving a media file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#retrieving-metadata-information">5.2. Retrieving metadata information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form.html">6. Form Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form.html#media-type">6.1. Media Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">7. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#configuration-example">7.1. Configuration Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#creating-your-own-security-download-strategy">7.2. Creating your own Security Download Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">8. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#media-commands">8.1. Media commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">9. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon_s3.html">10. Amazon S3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amazon_s3.html#configuration">10.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">11. Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">11.1. Pixlr Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">12. Sonata Notification Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">13. Liip Imagine Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">14. CKEditor Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">14.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">14.2. Medias in CKEditor with SonataFormatterBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">15. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">15.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialization">15.2. Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sending-a-media-file">15.3. Sending a media file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">16. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">16.1. Media Formats</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ MediaBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>15. API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/api.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="api">
+<h1>15. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>SonataMediaBundle embeds a Controller to provide an API through FOSRestBundle, with its documentation provided by NelmioApiDocBundle.</p>
+<div class="section" id="setup">
+<h2>15.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to use it, you must first follow the installation instructions of both bundles:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/FriendsOfSymfony/FOSRestBundle">FOSRestBundle</a></li>
+<li><a class="reference external" href="https://github.com/nelmio/NelmioApiDocBundle">NelmioApiDocBundle</a></li>
+</ul>
+<p>Here&#8217;s the configuration we used, you may adapt it to your needs:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">fos_rest</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">param_fetcher_listener</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">body_listener</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">format_listener</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">view</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">view_response_listener</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">force</span>
+    <span class="l-Scalar-Plain">body_converter</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">validate</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+
+<span class="l-Scalar-Plain">sensio_framework_extra</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">view</span><span class="p-Indicator">:</span>    <span class="p-Indicator">{</span> <span class="nv">annotations</span><span class="p-Indicator">:</span> <span class="nv">false</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">router</span><span class="p-Indicator">:</span>  <span class="p-Indicator">{</span> <span class="nv">annotations</span><span class="p-Indicator">:</span> <span class="nv">true</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">request</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">converters</span><span class="p-Indicator">:</span> <span class="nv">true</span> <span class="p-Indicator">}</span>
+
+<span class="l-Scalar-Plain">twig</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">exception_controller</span><span class="p-Indicator">:</span> <span class="s">&#39;FOS\RestBundle\Controller\ExceptionController::showAction&#39;</span>
+</pre></div>
+</div>
+<p>In order to activate the API&#8217;s, you&#8217;ll also need to add this to your routing:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">NelmioApiDocBundle</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@NelmioApiDocBundle/Resources/config/routing.yml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">/api/doc</span>
+
+<span class="l-Scalar-Plain">sonata_api_media</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">rest</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">/api</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span>     <span class="s">&quot;@SonataMediaBundle/Resources/config/routing/api.xml&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serialization">
+<h2>15.2. Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;re using JMSSerializationBundle&#8217;s serializations groups to customize the inputs &amp; outputs.</p>
+<p>The taxonomy is as follows:
+* <tt class="docutils literal"><span class="pre">sonata_api_read</span></tt> is the group used to display entities
+* <tt class="docutils literal"><span class="pre">sonata_api_write</span></tt> is the group used for input entities (when used instead of forms)</p>
+<p>If you wish to customize the outputted data, feel free to setup your own serialization options by configuring JMSSerializer with those groups.</p>
+</div>
+<div class="section" id="sending-a-media-file">
+<h2>15.3. Sending a media file<a class="headerlink" href="#sending-a-media-file" title="Permalink to this headline">¶</a></h2>
+<p>Some providers (file or image for instance) require that you send a file upon the medium creation. To do so through the API, you will need to send the data as a <tt class="docutils literal"><span class="pre">multipart/form-data</span></tt> query.</p>
+<p>This would look like this for the cURL call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>curl <span class="s1">&#39;http://demo.sonata-project.org/api/media/providers/sonata.media.provider.image/media.json&#39;</span> -H <span class="s1">&#39;Authorization: Basic YWRtaW46YWRtaW4=&#39;</span> -H <span class="s1">&#39;Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryFhX9k2FPT3sQos00&#39;</span> -H <span class="s1">&#39;Accept: */*&#39;</span> --compressed
+</pre></div>
+</div>
+<p>And like this for the request body:</p>
+<div class="highlight-http"><div class="highlight"><pre>------WebKitFormBoundaryFhX9k2FPT3sQos00
+Content-Disposition: form-data; name=&quot;name&quot;
+
+medium name
+------WebKitFormBoundaryFhX9k2FPT3sQos00
+Content-Disposition: form-data; name=&quot;description&quot;
+
+medium description
+------WebKitFormBoundaryFhX9k2FPT3sQos00
+Content-Disposition: form-data; name=&quot;enabled&quot;
+
+1
+------WebKitFormBoundaryFhX9k2FPT3sQos00
+Content-Disposition: form-data; name=&quot;copyright&quot;
+
+copyright informations
+------WebKitFormBoundaryFhX9k2FPT3sQos00
+Content-Disposition: form-data; name=&quot;authorName&quot;
+
+medium author name
+------WebKitFormBoundaryFhX9k2FPT3sQos00
+Content-Disposition: form-data; name=&quot;cdnIsFlushable&quot;
+
+1
+------WebKitFormBoundaryFhX9k2FPT3sQos00
+Content-Disposition: form-data; name=&quot;binaryContent&quot;; filename=&quot;my-awesome-image.jpg&quot;
+Content-Type: image/jpeg
+
+
+------WebKitFormBoundaryFhX9k2FPT3sQos00--
+</pre></div>
+</div>
+<p>You may of course still use JSON body for creating a video media (you only have to set the <tt class="docutils literal"><span class="pre">binaryContent</span></tt> argument to the video URL).</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="16. Troubleshooting"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="extra.html" class="btn btn-neutral" title="11. Extra"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

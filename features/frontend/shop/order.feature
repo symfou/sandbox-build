@@ -21,7 +21,7 @@ Feature: Order
     And I should see "<vat>"
     And I should see "<total_vat>"
     Then I go to "shop/basket/step/delivery/address"
-    Then I go to "shop/user/address/edit/30"
+    Then I follow link "Edit" with class "btn btn-primary btn-xs pull-right"
     Then I fill in "sonata_customer_address_countryCode" with "FR"
     Then I press "Save your address"
     And I should see "Your address has been successfully saved!"

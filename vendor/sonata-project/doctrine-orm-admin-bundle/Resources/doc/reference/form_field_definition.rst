@@ -18,7 +18,7 @@ Example
     use Sonata\AdminBundle\Datagrid\DatagridMapper;
     use Sonata\AdminBundle\Datagrid\ListMapper;
     use Sonata\AdminBundle\Show\ShowMapper;
-    use Sonata\AdminBundle\Validator\ErrorElement;
+    use Sonata\CoreBundle\Validator\ErrorElement;
 
     class PostAdmin extends Admin
     {
@@ -244,4 +244,19 @@ Use code like:
     {
         $formMapper
            ->add('position','hidden',array('attr'=>array("hidden" => true)))
+    }
+
+To render child help messages you must use 'sonata_help' instead of 'help'. Example code:
+
+.. code-block:: php
+
+    <?php
+    class MediaAdmin extends Admin
+    {    
+        protected function configureFormFields(FormMapper $formMapper)
+        {
+            $formMapper
+               ->add('image', 'file', array('sonata_help' => 'help message rendered in parent sonata_type_collection'))
+            ;
+        }
     }

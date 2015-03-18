@@ -28,7 +28,7 @@ class FilterTest extends \PHPUnit_Framework_TestCase
             'label'         => 'foo',
             'field_type'    => 'integer',
             'field_options' => array('required' => true),
-            'field_name'    => 'name'
+            'field_name'    => 'name',
         );
 
         $filter->setOptions($options);
@@ -38,6 +38,7 @@ class FilterTest extends \PHPUnit_Framework_TestCase
 
         $expected = $options;
         $expected['foo'] = 'bar';
+        $expected['show_filter'] = null;
 
         $this->assertEquals($expected, $filter->getOptions());
         $this->assertEquals('name', $filter->getFieldName());
@@ -51,11 +52,36 @@ class FilterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('>', $filter->getCondition());
     }
 
+    public function testGetFieldOption()
+    {
+        $filter = new FooFilter();
+        $filter->initialize('name', array(
+            'field_options' => array('foo' => 'bar', 'baz' => 12345),
+        ));
+
+        $this->assertSame(array('foo' => 'bar', 'baz' => 12345), $filter->getFieldOptions());
+        $this->assertSame('bar', $filter->getFieldOption('foo'));
+        $this->assertSame(12345, $filter->getFieldOption('baz'));
+    }
+
+    public function testSetFieldOption()
+    {
+        $filter = new FooFilter();
+        $this->assertEquals(array('required' => false), $filter->getFieldOptions());
+
+        $filter->setFieldOption('foo', 'bar');
+        $filter->setFieldOption('baz', 12345);
+
+        $this->assertSame(array('foo' => 'bar', 'baz' => 12345), $filter->getFieldOptions());
+        $this->assertSame('bar', $filter->getFieldOption('foo'));
+        $this->assertSame(12345, $filter->getFieldOption('baz'));
+    }
+
     public function testInitialize()
     {
         $filter = new FooFilter();
         $filter->initialize('name', array(
-            'field_name' => 'bar'
+            'field_name' => 'bar',
         ));
 
         $this->assertEquals('name', $filter->getName());
@@ -139,7 +165,7 @@ class FilterTest extends \PHPUnit_Framework_TestCase
             'length'     => 200,
             'unique'     => true,
             'nullable'   => false,
-            'declared'   => 'Foo\Bar\User'
+            'declared'   => 'Foo\Bar\User',
         );
 
         $filter = new FooFilter();
@@ -152,17 +178,15 @@ class FilterTest extends \PHPUnit_Framework_TestCase
         $parentAssociationMapping = array(
             0 => array('fieldName'    => 'user',
                 'targetEntity' => 'Foo\Bar\User',
-                'joinColumns'  =>
-                array(
-                    0 =>
-                    array(
+                'joinColumns'  => array(
+                    0 => array(
                         'name'                 => 'user_id',
                         'referencedColumnName' => 'user_id',
-                    )
+                    ),
                 ),
                 'type'         => 2,
                 'mappedBy'     => null,
-            )
+            ),
         );
 
         $filter = new FooFilter();
@@ -191,13 +215,11 @@ class FilterTest extends \PHPUnit_Framework_TestCase
         $associationMapping = array(
             'fieldName'    => 'user',
             'targetEntity' => 'Foo\Bar\User',
-            'joinColumns'  =>
-            array(
-                0 =>
-                array(
+            'joinColumns'  => array(
+                0 => array(
                     'name'                 => 'user_id',
                     'referencedColumnName' => 'user_id',
-                )
+                ),
             ),
             'type'         => 2,
             'mappedBy'     => null,

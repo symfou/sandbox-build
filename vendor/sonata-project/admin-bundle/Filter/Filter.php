@@ -11,8 +11,6 @@
 
 namespace Sonata\AdminBundle\Filter;
 
-use Sonata\AdminBundle\Filter\FilterInterface;
-
 abstract class Filter implements FilterInterface
 {
     protected $name = null;
@@ -45,7 +43,8 @@ abstract class Filter implements FilterInterface
      */
     public function getFormName()
     {
-        /* Symfony default form class sadly can't handle
+        /*
+           Symfony default form class sadly can't handle
            form element with dots in its name (when data
            get bound, the default dataMapper is a PropertyPathMapper).
            So use this trick to avoid any issue.
@@ -88,6 +87,26 @@ abstract class Filter implements FilterInterface
     public function getFieldOptions()
     {
         return $this->getOption('field_options', array('required' => false));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFieldOption($name, $default = null)
+    {
+        if (isset($this->options['field_options'][$name]) && is_array($this->options['field_options'])) {
+            return $this->options['field_options'][$name];
+        }
+
+        return $default;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setFieldOption($name, $value)
+    {
+        $this->options['field_options'][$name] = $value;
     }
 
     /**
@@ -163,7 +182,11 @@ abstract class Filter implements FilterInterface
      */
     public function setOptions(array $options)
     {
-        $this->options = array_merge($this->getDefaultOptions(), $options);
+        $this->options = array_merge(
+            array('show_filter' => null),
+            $this->getDefaultOptions(),
+            $options
+        );
     }
 
     /**

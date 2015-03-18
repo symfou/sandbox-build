@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>11. Extra &mdash; Sonata ~ MediaBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ MediaBundle  documentation" href="../index.html"/>
+        <link rel="next" title="15. API" href="api.html"/>
+        <link rel="prev" title="10. Amazon S3" href="amazon_s3.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ MediaBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#base-bundles">1.1. Base bundles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id1">1.2. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">2. Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#php-usage">2.1. PHP Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#twig-usage">2.2. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#thumbnails-for-files">2.3. Thumbnails for files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creating_a_provider_class.html">3. Creating a Media Provider: A Vimeo Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#media-entity">3.1. Media Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#case-study">3.2. Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#initialize-the-class">3.3. Initialize the class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#register-the-class-with-the-service-container">3.4. Register the Class with the Service Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_a_provider_class.html#view-helper">3.5. View Helper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="media_context.html">4. Media Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="media_context.html#adminbundle-integration">4.1. <tt class="docutils literal"><span class="pre">AdminBundle</span></tt> Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">5. Usages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#saving-a-media-file">5.1. Saving a media file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#retrieving-metadata-information">5.2. Retrieving metadata information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form.html">6. Form Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form.html#media-type">6.1. Media Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">7. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#configuration-example">7.1. Configuration Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#creating-your-own-security-download-strategy">7.2. Creating your own Security Download Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">8. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#media-commands">8.1. Media commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">9. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon_s3.html">10. Amazon S3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amazon_s3.html#configuration">10.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">11. Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pixlr-integration">11.1. Pixlr Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#sonata-notification-bundle-integration">12. Sonata Notification Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#liip-imagine-bundle-integration">13. Liip Imagine Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ckeditor-integration">14. CKEditor Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">14.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#medias-in-ckeditor-with-sonataformatterbundle">14.2. Medias in CKEditor with SonataFormatterBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">15. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">15.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">15.2. Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">15.3. Sending a media file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">16. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">16.1. Media Formats</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ MediaBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>11. Extra</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/extra.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="extra">
+<h1>11. Extra<a class="headerlink" href="#extra" title="Permalink to this headline">¶</a></h1>
+<p>The SonataMediaBundle provides some integration with externals services. For now only Pixlr is available.</p>
+<div class="section" id="pixlr-integration">
+<h2>11.1. Pixlr Integration<a class="headerlink" href="#pixlr-integration" title="Permalink to this headline">¶</a></h2>
+<p>Edit the <tt class="docutils literal"><span class="pre">sonata_media</span></tt> configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/sonata_media.yml</span>
+<span class="l-Scalar-Plain">sonata_media</span><span class="p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l-Scalar-Plain">pixlr</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">secret</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">theSecretHash</span>
+        <span class="l-Scalar-Plain">referrer</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Application Name</span>
+</pre></div>
+</div>
+<p>Add the pixlr routing file</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/routing.yml</span>
+<span class="l-Scalar-Plain">sonata_media_pixlr</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&#39;@SonataMediaBundle/Resources/config/routing/pixlr.xml&#39;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/admin/media</span>
+</pre></div>
+</div>
+<p>And now, you can edit any pictures from the admin section.</p>
+</div>
+</div>
+<div class="section" id="sonata-notification-bundle-integration">
+<h1>12. Sonata Notification Bundle Integration<a class="headerlink" href="#sonata-notification-bundle-integration" title="Permalink to this headline">¶</a></h1>
+<p>The bundle provides a specific consumer to generate thumbnails through an asynchronous task. So there no processing
+time for the user after uploading a file.</p>
+<p>In order to use this feature, you need to install the Sonata Notification Bundle and change the thumbnail configuration
+for each provider:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_media</span><span class="p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.consumer.format</span>
+        <span class="l-Scalar-Plain">vimeo</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.consumer.format</span>
+        <span class="l-Scalar-Plain">youtube</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.consumer.format</span>
+        <span class="l-Scalar-Plain">dailymotion</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.consumer.format</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="liip-imagine-bundle-integration">
+<h1>13. Liip Imagine Bundle Integration<a class="headerlink" href="#liip-imagine-bundle-integration" title="Permalink to this headline">¶</a></h1>
+<p>The bundle provides a support for LiipImagineBundle through a specific Thumbnail service. The service generates a valid
+url handles by the bundle. The main advantage of LiipImagineBundle is that no thumbnail images will be stored along the
+uploaded image.</p>
+<p>The first step is to install the LiipImagineBundle, then you need to configure it by creating custom filter sets.
+Each set name must be composed of CONTEXTNAME_FORMATNAME, so for the context: default and the format: small, you must
+have a set named default_small.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">liip_imagine</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">filter_sets</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">default_small</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">quality</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">75</span>
+            <span class="l-Scalar-Plain">controller_action</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataMediaBundle:Media:liipImagineFilter&#39;</span>
+            <span class="l-Scalar-Plain">filters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">size</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">100</span><span class="p-Indicator">,</span> <span class="nv">70</span><span class="p-Indicator">],</span> <span class="nv">mode</span><span class="p-Indicator">:</span> <span class="nv">outbound</span> <span class="p-Indicator">}</span>
+
+
+        <span class="l-Scalar-Plain">default_big</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">quality</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">75</span>
+            <span class="l-Scalar-Plain">controller_action</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataMediaBundle:Media:liipImagineFilter&#39;</span>
+            <span class="l-Scalar-Plain">filters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">size</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">500</span><span class="p-Indicator">,</span> <span class="nv">70</span><span class="p-Indicator">],</span> <span class="nv">mode</span><span class="p-Indicator">:</span> <span class="nv">outbound</span> <span class="p-Indicator">}</span>
+</pre></div>
+</div>
+<p>You also need to alter the <tt class="docutils literal"><span class="pre">sonata_media</span></tt> configuration to use the <tt class="docutils literal"><span class="pre">sonata.media.thumbnail.liip_imagine</span></tt> thumbnail service</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_media</span><span class="p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+        <span class="c1"># ...</span>
+        <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.liip_imagine</span>
+        <span class="l-Scalar-Plain">vimeo</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.liip_imagine</span>
+        <span class="l-Scalar-Plain">youtube</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.liip_imagine</span>
+        <span class="l-Scalar-Plain">dailymotion</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">thumbnail</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">sonata.media.thumbnail.liip_imagine</span>
+
+
+    <span class="l-Scalar-Plain">cdn</span><span class="p-Indicator">:</span>
+        <span class="c1"># The CDN part must point to the base root of your application with a valid htaccess to match non existant</span>
+        <span class="c1"># file. The non existant image will be send to the SonataMediaBundle:Media:liipImagineFilter controller.</span>
+        <span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">http://mydomain.com</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">SonataMediaBundle:Media:liipImagineFilter</span></tt> is a specific controller to link the MediaBundle with LiipImagineBundle</p>
+</div>
+</div>
+<div class="section" id="ckeditor-integration">
+<h1>14. CKEditor Integration<a class="headerlink" href="#ckeditor-integration" title="Permalink to this headline">¶</a></h1>
+<p>There are two ways to integrate <tt class="docutils literal"><span class="pre">CKEditor</span></tt> with <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt>: first way is by using <tt class="docutils literal"><span class="pre">CoopTilleulsCKEditorSonataMediaBundle</span></tt> for just creating
+a simple HTML CKEditor field type and another for using <tt class="docutils literal"><span class="pre">SonataFormatterBundle</span></tt> that will let you choose field editor type.</p>
+<div class="section" id="medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">
+<h2>14.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle<a class="headerlink" href="#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle">CoopTilleulsCKEditorSonataMediaBundle</a> allows to browse and upload files managed by SonataMedia directly from the UI of the <a class="reference external" href="http://ckeditor.com/">CKEditor</a> WYSIWYG editor.</p>
+<p>To use this feature, follow <cite>CoopTilleulsCKEditorSonataMediaBundle installation instructions &lt;https://github.com/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle/blob/master/Resources/doc/install.md&gt;</cite>.</p>
+<p>Now, just create a field with ckeditor as type and your done:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">protected function configureFormFields(FormMapper $formMapper)</span>
+<span class="l-Scalar-Plain">{</span>
+    <span class="l-Scalar-Plain">$formMapper</span>
+        <span class="l-Scalar-Plain">-&gt;add(</span>
+            <span class="l-Scalar-Plain">&#39;mytext&#39;,</span>
+            <span class="l-Scalar-Plain">&#39;ckeditor&#39;,</span>
+            <span class="l-Scalar-Plain">array(</span>
+            <span class="l-Scalar-Plain">&#39;config&#39; =&gt; array(</span>
+                <span class="l-Scalar-Plain">&#39;toolbar&#39; =&gt; array(</span>
+                    <span class="l-Scalar-Plain">array(</span>
+                        <span class="l-Scalar-Plain">&#39;name&#39; =&gt; &#39;links&#39;,</span>
+                        <span class="l-Scalar-Plain">&#39;items&#39; =&gt; array(&#39;Link&#39;,&#39;Unlink&#39;),</span>
+                    <span class="l-Scalar-Plain">),</span>
+                    <span class="l-Scalar-Plain">array(</span>
+                        <span class="l-Scalar-Plain">&#39;name&#39; =&gt; &#39;insert&#39;,</span>
+                        <span class="l-Scalar-Plain">&#39;items&#39; =&gt; array(&#39;Image&#39;),</span>
+                    <span class="l-Scalar-Plain">),</span>
+                <span class="l-Scalar-Plain">)</span>
+            <span class="l-Scalar-Plain">);</span>
+        <span class="l-Scalar-Plain">);</span>
+<span class="l-Scalar-Plain">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="medias-in-ckeditor-with-sonataformatterbundle">
+<h2>14.2. Medias in CKEditor with SonataFormatterBundle<a class="headerlink" href="#medias-in-ckeditor-with-sonataformatterbundle" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/sonata-project/SonataFormatterBundle">SonataFormatterBundle</a> allows to browse and upload files managed by SonataMedia directly from the UI of the <a class="reference external" href="http://ckeditor.com/">CKEditor</a> WYSIWYG editor too.</p>
+<p>First of all, you have to define your <tt class="docutils literal"><span class="pre">IvoryCKEditorBundle</span></tt> (already embedded in <tt class="docutils literal"><span class="pre">SonataFormatterBundle</span></tt>) configurations like this:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">ivory_ck_editor</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">default_config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">default</span>
+    <span class="l-Scalar-Plain">configs</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">filebrowserBrowseRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_browser</span>
+            <span class="l-Scalar-Plain">filebrowserImageBrowseRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_browser</span>
+            <span class="c1"># Display images by default when clicking the image dialog browse button</span>
+            <span class="l-Scalar-Plain">filebrowserImageBrowseRouteParameters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.provider.image</span>
+            <span class="l-Scalar-Plain">filebrowserUploadRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_upload</span>
+            <span class="l-Scalar-Plain">filebrowserUploadRouteParameters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.provider.file</span>
+            <span class="c1"># Upload file as image when sending a file from the image dialog</span>
+            <span class="l-Scalar-Plain">filebrowserImageUploadRoute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin_sonata_media_media_ckeditor_upload</span>
+            <span class="l-Scalar-Plain">filebrowserImageUploadRouteParameters</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.media.provider.image</span>
+                <span class="l-Scalar-Plain">context</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my-context</span> <span class="c1"># Optional, to upload in a custom context</span>
+</pre></div>
+</div>
+<p>You can provide custom routes and a custom context to match your needs.</p>
+<p>Second step is optional but you can also define some custom browsing and upload templates with the following configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">sonata_formatter</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">ckeditor</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">templates</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataFormatterBundle:Ckeditor:browser.html.twig&#39;</span>
+            <span class="l-Scalar-Plain">upload</span><span class="p-Indicator">:</span> <span class="s">&#39;SonataFormatterBundle:Ckeditor:upload.html.twig&#39;</span>
+</pre></div>
+</div>
+<p>Last step takes place in your admin class, you just have to specify the <tt class="docutils literal"><span class="pre">ckeditor_context</span></tt> parameter.</p>
+<p>Here is an example:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">$formMapper-&gt;add(&#39;shortDescription&#39;, &#39;sonata_formatter_type&#39;, array(</span>
+<span class="x">    &#39;source_field&#39;         =&gt; &#39;rawDescription&#39;,</span>
+<span class="x">    &#39;source_field_options&#39; =&gt; array(&#39;attr&#39; =&gt; array(&#39;class&#39; =&gt; &#39;span10&#39;, &#39;rows&#39; =&gt; 20)),</span>
+<span class="x">    &#39;format_field&#39;         =&gt; &#39;descriptionFormatter&#39;,</span>
+<span class="x">    &#39;target_field&#39;         =&gt; &#39;description&#39;,</span>
+<span class="x">    &#39;ckeditor_context&#39;     =&gt; &#39;default&#39;,</span>
+<span class="x">    &#39;event_dispatcher&#39;     =&gt; $formMapper-&gt;getFormBuilder()-&gt;getEventDispatcher()</span>
+<span class="x">));</span>
+</pre></div>
+</div>
+<p>And that&#8217;s it, enjoy browsing and uploading your medias using <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="15. API"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="amazon_s3.html" class="btn btn-neutral" title="10. Amazon S3"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

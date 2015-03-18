@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>4. Your first block &mdash; Sonata ~ BlockBundle  documentation</title>
+
+
+
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+
+
+    <link rel="top" title="Sonata ~ BlockBundle  documentation" href="../index.html"/>
+        <link rel="next" title="5. Profiler" href="profiler.html"/>
+        <link rel="prev" title="3. Provided Blocks" href="provided_blocks.html"/>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ BlockBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">1.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">2. Twig Helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="provided_blocks.html">3. Provided Blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#emptyblockservice">3.1. EmptyBlockService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#textblockservice">3.2. TextBlockService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#rssblockservice">3.3. RssBlockService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provided_blocks.html#menublockservice">3.4. MenuBlockService</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">4. Your first block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-namespaces">4.1. First namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-settings">4.2. Default settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute">4.4. Execute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#template">4.5. Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service">4.6. Service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profiler.html">5. Profiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">6. Exception strategy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#filters">6.1. Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#renderers">6.2. Renderers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">7. Advanced usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#cache">7.1. Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#block-context-manager-context-cache">7.2. Block Context Manager - context cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#block-loading">7.3. Block loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#empty-block">7.4. Empty block</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">8. Cache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#cache-behavior">8.1. Cache Behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#block-ttl-computation">8.2. Block TTL computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#final-response-ttl-computation">8.3. Final Response TTL computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#cache-backends">8.4. Cache Backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache.html#cache-configuration">8.5. Cache configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">9. Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#implementation">9.1. Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#profiler-information">9.2. Profiler Information</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/rapid_prototyping.html">1. Rapid Prototyping with BlockBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbooks/rapid_prototyping.html#the-symfony-template-controller">1.1. The Symfony Template Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbooks/rapid_prototyping.html#the-template-block-service">1.2. The Template Block Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbooks/rapid_prototyping.html#example">1.3. Example</a></li>
+</ul>
+</li>
+</ul>
+
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ BlockBundle</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+
+    <li>4. Your first block</li>
+      <li class="wy-breadcrumbs-aside">
+
+          <a href="../_sources/reference/your_first_block.txt" rel="nofollow"> View page source</a>
+
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+
+  <div class="section" id="your-first-block">
+<span id="index-0"></span><h1>4. Your first block<a class="headerlink" href="#your-first-block" title="Permalink to this headline">¶</a></h1>
+<p>This quick tutorial explains how to create an <cite>RSS reader</cite> block.</p>
+<p>A <cite>block service</cite> is just a service which must implement the <tt class="docutils literal"><span class="pre">BlockServiceInterface</span></tt> interface. There is only one instance of a block service, however there are many block instances.</p>
+<div class="section" id="first-namespaces">
+<h2>4.1. First namespaces<a class="headerlink" href="#first-namespaces" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">BaseBlockService</span></tt> implements some basic methods defined by the interface.
+The current RSS block will extend this base class. The others <cite>use</cite> statements are required by the interface and remaining methods.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Sonata\BlockBundle\Block</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\OptionsResolver\OptionsResolverInterface</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\BlockBundle\Model\BlockInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\BlockBundle\Block\BlockContextInterface</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\CoreBundle\Validator\ErrorElement</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-settings">
+<h2>4.2. Default settings<a class="headerlink" href="#default-settings" title="Permalink to this headline">¶</a></h2>
+<p>A <cite>block service</cite> needs settings to work properly, so to ensure consistency, the service should define a <tt class="docutils literal"><span class="pre">setDefaultSettings</span></tt> method.
+In the current tutorial, the default settings are:</p>
+<ul class="simple">
+<li><cite>URL</cite>: the feed url,</li>
+<li><cite>title</cite>: the block title,</li>
+<li><cite>template</cite>: the template to render the block.</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">setDefaultSettings</span><span class="p">(</span><span class="nx">OptionsResolverInterface</span> <span class="nv">$resolver</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$resolver</span><span class="o">-&gt;</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;url&#39;</span>      <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;Insert the rss title&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;template&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SonataBlockBundle:Block:block_core_rss.html.twig&#39;</span><span class="p">,</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="form-edition">
+<h2>4.3. Form Edition<a class="headerlink" href="#form-edition" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">BlockBundle</span></tt> relies on the <tt class="docutils literal"><span class="pre">AdminBundle</span></tt> to manage form edition and keep a good consistency.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">buildEditForm</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">,</span> <span class="nx">BlockInterface</span> <span class="nv">$block</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$formMapper</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;settings&#39;</span><span class="p">,</span> <span class="s1">&#39;sonata_type_immutable_array&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;keys&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">)),</span>
+            <span class="k">array</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">)),</span>
+        <span class="p">)</span>
+    <span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The validation is done at runtime through a <tt class="docutils literal"><span class="pre">validateBlock</span></tt> method. You can call any Symfony2 assertions, like:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">validateBlock</span><span class="p">(</span><span class="nx">ErrorElement</span> <span class="nv">$errorElement</span><span class="p">,</span> <span class="nx">BlockInterface</span> <span class="nv">$block</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$errorElement</span>
+        <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;settings.url&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">(</span><span class="k">array</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">assertNotBlank</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;settings.title&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">assertNotNull</span><span class="p">(</span><span class="k">array</span><span class="p">())</span>
+            <span class="o">-&gt;</span><span class="na">assertNotBlank</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">assertMaxLength</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;limit&#39;</span> <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">sonata_type_immutable_array</span></tt> type is a specific <cite>form type</cite> which allows to edit an array.</p>
+</div>
+<div class="section" id="execute">
+<h2>4.4. Execute<a class="headerlink" href="#execute" title="Permalink to this headline">¶</a></h2>
+<p>The next step is the <cite>Execute</cite> method. This method must return a <tt class="docutils literal"><span class="pre">Response</span></tt> object, which is used to render the block.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">BlockContextInterface</span> <span class="nv">$blockContext</span><span class="p">,</span> <span class="nx">Response</span> <span class="nv">$response</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// merge settings</span>
+    <span class="nv">$settings</span> <span class="o">=</span> <span class="nv">$blockContext</span><span class="o">-&gt;</span><span class="na">getSettings</span><span class="p">();</span>
+
+    <span class="nv">$feeds</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$settings</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;http&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;user_agent&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sonata/RSS Reader&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">);</span>
+
+        <span class="c1">// retrieve contents with a specific stream context to avoid php errors</span>
+        <span class="nv">$content</span> <span class="o">=</span> <span class="o">@</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$settings</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">],</span> <span class="k">false</span><span class="p">,</span> <span class="nb">stream_context_create</span><span class="p">(</span><span class="nv">$options</span><span class="p">));</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$content</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// generate a simple xml element</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="nv">$feeds</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\SimpleXMLElement</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
+                <span class="nv">$feeds</span> <span class="o">=</span> <span class="nv">$feeds</span><span class="o">-&gt;</span><span class="na">channel</span><span class="o">-&gt;</span><span class="na">item</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// silently fail error</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">renderResponse</span><span class="p">(</span><span class="nv">$blockContext</span><span class="o">-&gt;</span><span class="na">getTemplate</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;feeds&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$feeds</span><span class="p">,</span>
+        <span class="s1">&#39;block&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$blockContext</span><span class="o">-&gt;</span><span class="na">getBlock</span><span class="p">(),</span>
+        <span class="s1">&#39;settings&#39;</span>  <span class="o">=&gt;</span> <span class="nv">$settings</span>
+    <span class="p">),</span> <span class="nv">$response</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="template">
+<h2>4.5. Template<a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, the block template is very simple. We loop through feeds, or if none are available, an error message is displayed.</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="nv">sonata_block.templates.block_base</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nb">block</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;h3 class=&quot;sonata-feed-title&quot;&gt;</span><span class="cp">{{</span> <span class="nv">settings.title</span> <span class="cp">}}</span><span class="x">&lt;/h3&gt;</span>
+
+<span class="x">    &lt;div class=&quot;sonata-feeds-container&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">feed</span> <span class="k">in</span> <span class="nv">feeds</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">            &lt;div&gt;</span>
+<span class="x">                &lt;strong&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">feed.link</span><span class="cp">}}</span><span class="x">&quot; rel=&quot;nofollow&quot; title=&quot;</span><span class="cp">{{</span> <span class="nv">feed.title</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">feed.title</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/strong&gt;</span>
+<span class="x">                &lt;div&gt;</span><span class="cp">{{</span> <span class="nv">feed.description</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x">&lt;/div&gt;</span>
+<span class="x">            &lt;/div&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">                No feeds available.</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="service">
+<h2>4.6. Service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h2>
+<p>We are almost done! Now, just declare the block as a service:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;sonata.block.service.rss&quot;</span> <span class="na">class=</span><span class="s">&quot;Sonata\BlockBundle\Block\Service\RssBlockService&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;sonata.block&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;argument&gt;</span>sonata.block.service.rss<span class="nt">&lt;/argument&gt;</span>
+    <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;templating&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</pre></div>
+</div>
+<p>and add it to Sonata configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">sonata_block</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">blocks</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">sonata.block.service.rss</span><span class="p-Indicator">:</span>
+<span class="c1">#           cache: sonata.cache.memcached</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+        <a href="profiler.html" class="btn btn-neutral float-right" title="5. Profiler"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+        <a href="provided_blocks.html" class="btn btn-neutral" title="3. Provided Blocks"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+    </div>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+
+
+
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+
+
+</body>
+</html>

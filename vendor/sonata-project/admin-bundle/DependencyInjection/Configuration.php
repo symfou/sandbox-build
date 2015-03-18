@@ -52,7 +52,7 @@ class Configuration implements ConfigurationInterface
                                 ->performNoDeepMerging()
                                 ->beforeNormalization()
                                     ->ifString()
-                                    ->then(function($v){ return array($v); })
+                                    ->then(function ($v) { return array($v); })
                                 ->end()
                                 ->prototype('scalar')->end()
                             ->end()
@@ -103,7 +103,43 @@ class Configuration implements ConfigurationInterface
                                     ->scalarNode('label_catalogue')->end()
                                     ->scalarNode('icon')->defaultValue('<i class="fa fa-folder"></i>')->end()
                                     ->arrayNode('items')
-                                        ->prototype('scalar')->end()
+                                        ->beforeNormalization()
+                                            ->ifArray()
+                                            ->then(function($items) {
+                                                foreach ($items as $key => $item) {
+                                                    if (is_array($item)) {
+                                                        if (!array_key_exists('label', $item) || !array_key_exists('route', $item)) {
+                                                            throw new \InvalidArgumentException('Expected either parameters "route" and "label" for array items');
+                                                        }
+
+                                                        if (!array_key_exists('route_params', $item)){
+                                                            $items[$key]['route_params'] = array();
+                                                        }
+
+                                                        $items[$key]['admin'] = '';
+                                                    } else {
+                                                        $items[$key] = array(
+                                                            'admin'        => $item,
+                                                            'label'        => '',
+                                                            'route'        => '',
+                                                            'route_params' => array()
+                                                        );
+                                                    }
+                                                }
+
+                                                return $items;
+                                            })
+                                        ->end()
+                                        ->prototype('array')
+                                            ->children()
+                                                ->scalarNode('admin')->end()
+                                                ->scalarNode('label')->end()
+                                                ->scalarNode('route')->end()
+                                                ->arrayNode('route_params')
+                                                    ->prototype('scalar')->end()
+                                                ->end()
+                                            ->end()
+                                        ->end()
                                     ->end()
                                     ->arrayNode('item_adds')
                                         ->prototype('scalar')->end()
@@ -115,11 +151,20 @@ class Configuration implements ConfigurationInterface
                             ->end()
                         ->end()
                         ->arrayNode('blocks')
-                            ->defaultValue(array(array('position' => 'left', 'settings' => array(), 'type' => 'sonata.admin.block.admin_list')))
+                            ->defaultValue(array(array(
+                                'position' => 'left',
+                                'settings' => array(),
+                                'type'     => 'sonata.admin.block.admin_list',
+                                'roles'    => array()
+                            )))
                             ->prototype('array')
                                 ->fixXmlConfig('setting')
                                 ->children()
                                     ->scalarNode('type')->cannotBeEmpty()->end()
+                                    ->arrayNode('roles')
+                                        ->defaultValue(array())
+                                        ->prototype('scalar')->end()
+                                    ->end()
                                     ->arrayNode('settings')
                                         ->useAttributeAsKey('id')
                                         ->prototype('variable')->defaultValue(array())->end()
@@ -131,22 +176,39 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-
                 ->arrayNode('admin_services')
-                    ->useAttributeAsKey('id')
                     ->prototype('array')
                         ->children()
-                            ->scalarNode('model_manager')->end()
-                            ->scalarNode('form_contractor')->end()
-                            ->scalarNode('show_builder')->end()
-                            ->scalarNode('list_builder')->end()
-                            ->scalarNode('datagrid_builder')->end()
-                            ->scalarNode('translator')->end()
-                            ->scalarNode('configuration_pool')->end()
-                            ->scalarNode('router')->end()
-                            ->scalarNode('validator')->end()
-                            ->scalarNode('security_handler')->end()
-                            ->scalarNode('label')->end()
+                            ->scalarNode('model_manager')->defaultValue(null)->end()
+                            ->scalarNode('form_contractor')->defaultValue(null)->end()
+                            ->scalarNode('show_builder')->defaultValue(null)->end()
+                            ->scalarNode('list_builder')->defaultValue(null)->end()
+                            ->scalarNode('datagrid_builder')->defaultValue(null)->end()
+                            ->scalarNode('translator')->defaultValue(null)->end()
+                            ->scalarNode('configuration_pool')->defaultValue(null)->end()
+                            ->scalarNode('route_generator')->defaultValue(null)->end()
+                            ->scalarNode('validator')->defaultValue(null)->end()
+                            ->scalarNode('security_handler')->defaultValue(null)->end()
+                            ->scalarNode('label')->defaultValue(null)->end()
+                            ->scalarNode('menu_factory')->defaultValue(null)->end()
+                            ->scalarNode('route_builder')->defaultValue(null)->end()
+                            ->scalarNode('label_translator_strategy')->defaultValue(null)->end()
+                            ->scalarNode('pager_type')->defaultValue(null)->end()
+                            ->arrayNode('templates')
+                                ->addDefaultsIfNotSet()
+                                ->children()
+                                    ->arrayNode('form')
+                                        ->prototype('scalar')->end()
+                                    ->end()
+                                    ->arrayNode('filter')
+                                        ->prototype('scalar')->end()
+                                    ->end()
+                                    ->arrayNode('view')
+                                        ->useAttributeAsKey('id')
+                                        ->prototype('scalar')->end()
+                                    ->end()
+                                ->end()
+                            ->end()
                         ->end()
                     ->end()
                 ->end()
@@ -178,10 +240,14 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('batch')->defaultValue('SonataAdminBundle:CRUD:list__batch.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('batch_confirmation')->defaultValue('SonataAdminBundle:CRUD:batch_confirmation.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('inner_list_row')->defaultValue('SonataAdminBundle:CRUD:list_inner_row.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('outer_list_rows_mosaic')->defaultValue('SonataAdminBundle:CRUD:list_outer_rows_mosaic.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('outer_list_rows_list')->defaultValue('SonataAdminBundle:CRUD:list_outer_rows_list.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('outer_list_rows_tree')->defaultValue('SonataAdminBundle:CRUD:list_outer_rows_tree.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('base_list_field')->defaultValue('SonataAdminBundle:CRUD:base_list_field.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('pager_links')->defaultValue('SonataAdminBundle:Pager:links.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('pager_results')->defaultValue('SonataAdminBundle:Pager:results.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('tab_menu_template')->defaultValue('SonataAdminBundle:Core:tab_menu_template.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('knp_menu_template')->defaultValue('SonataAdminBundle:Menu:sonata_menu.html.twig')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
 
@@ -190,33 +256,36 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->arrayNode('stylesheets')
                             ->defaultValue(array(
-                                'bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css',
-                                'bundles/sonataadmin/vendor/AdminLTE/css/font-awesome.min.css',
-                                'bundles/sonataadmin/vendor/AdminLTE/css/ionicons.min.css',
-                                'bundles/sonataadmin/vendor/AdminLTE/css/AdminLTE.css',
+                                'bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css',
+                                'bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css',
+                                'bundles/sonatacore/vendor/ionicons/css/ionicons.min.css',
+                                'bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css',
+                                'bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css',
+                                'bundles/sonataadmin/vendor/iCheck/skins/flat/blue.css',
 
                                 'bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
 
                                 'bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css',
 
-                                'bundles/sonataadmin/vendor/select2/select2.css',
-                                'bundles/sonataadmin/vendor/select2/select2-bootstrap.css',
+                                'bundles/sonatacore/vendor/select2/select2.css',
+                                'bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css',
 
                                 'bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css',
 
                                 'bundles/sonataadmin/css/styles.css',
-                                'bundles/sonataadmin/css/layout.css'
+                                'bundles/sonataadmin/css/layout.css',
+                                'bundles/sonataadmin/css/tree.css',
                             ))
                             ->prototype('scalar')->end()
                         ->end()
                         ->arrayNode('javascripts')
                             ->defaultValue(array(
-                                'bundles/sonataadmin/vendor/jquery/dist/jquery.min.js',
+                                'bundles/sonatacore/vendor/jquery/dist/jquery.min.js',
                                 'bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js',
 
                                 'bundles/sonatacore/vendor/moment/min/moment.min.js',
 
-                                'bundles/sonataadmin/vendor/bootstrap/dist/js/bootstrap.min.js',
+                                'bundles/sonatacore/vendor/bootstrap/dist/js/bootstrap.min.js',
 
                                 'bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
 
@@ -228,10 +297,14 @@ class Configuration implements ConfigurationInterface
 
                                 'bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js',
 
-                                'bundles/sonataadmin/vendor/select2/select2.min.js',
+                                'bundles/sonatacore/vendor/select2/select2.min.js',
 
-                                'bundles/sonataadmin/App.js',
+                                'bundles/sonataadmin/vendor/admin-lte/dist/js/app.min.js',
+                                'bundles/sonataadmin/vendor/iCheck/icheck.min.js',
+                                'bundles/sonataadmin/vendor/slimScroll/jquery.slimscroll.min.js',
+
                                 'bundles/sonataadmin/Admin.js',
+                                'bundles/sonataadmin/treeview.js',
                             ))
                             ->prototype('scalar')->end()
                         ->end()

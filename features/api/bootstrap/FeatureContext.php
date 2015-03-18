@@ -31,11 +31,17 @@ class FeatureContext extends BehatContext
     private $baseUrl;
 
     /**
+     * @var string
+     */
+    private $filesPath;
+
+    /**
      * {@inheritdoc}
      */
     public function __construct(array $parameters)
     {
-        $this->baseUrl = $parameters['base_url'];
+        $this->baseUrl   = $parameters['base_url'];
+        $this->filesPath = $parameters['files_path'];
 
         $this->useContext('api', new WebApiContext($this->baseUrl));
     }
@@ -99,28 +105,85 @@ class FeatureContext extends BehatContext
     }
 
     /**
-     * @Then /^store the XML response identifier as "(.*)"$/
+     * @Then /^store the ([jJ][sS][oO][nN]|[xX][mM][lL]) response identifier as "(.*)"$/
      */
-    public function storeTheResponseIdentifier($alias)
+    public function storeTheResponseIdentifier($objectType, $alias)
     {
-        /** @var \Buzz\Message\Response $response */
-        $response = $this->getSubcontext('api')->getBrowser()->getLastResponse();
-        $responseContent = $response->getContent();
 
-        $data = simplexml_load_string($responseContent);
+        $responseContent = $this->getSubcontext('api')->getBrowser()->getLastResponse()->getContent();
 
-        if (false === $data) {
-            throw new Exception(sprintf('Response was not XML : "%s"', $responseContent));
+        $objectType = strtolower($objectType);
+
+        switch($objectType) {
+            case 'xml':
+                $data = simplexml_load_string($responseContent);
+
+                if (false === $data) {
+                    throw new Exception(sprintf('Response was not XML : "%s"', $responseContent));
+                }
+
+                $identifier = $data->attributes()->id;
+
+                if (null === $identifier) {
+                    $data = current($data);
+                    $identifier = $data->attributes()->id;
+                }
+
+                $this->identifiers[$alias] = current($identifier);
+                break;
+            case 'json':
+                $data = json_decode($responseContent);
+
+                if (false === $data) {
+                    throw new Exception(sprintf('Response was not json : "%s"', $responseContent));
+                }
+
+                $this->identifiers[$alias] = $data->id;
+
+                break;
         }
+    }
 
-        $identifier = $data->attributes()->id;
+    /**
+     * Post and Put an basketelement return a basket. This method store the identifier of the first basketelement
+     * of the basket.
+     *
+     * @Then /^store the ([jJ][sS][oO][nN]|[xX][mM][lL]) response basketelement identifier as "(.*)"$/
+     */
+    public function storeTheResponseBasketelementIdentifier($objectType, $alias)
+    {
 
-        if (null === $identifier) {
-            $data = current($data);
-            $identifier = $data->attributes()->id;
+        $responseContent = $this->getSubcontext('api')->getBrowser()->getLastResponse()->getContent();
+
+        $objectType = strtolower($objectType);
+
+        switch($objectType) {
+            case 'xml':
+                $data = simplexml_load_string($responseContent);
+
+                if (false === $data) {
+                    throw new Exception(sprintf('Response was not XML : "%s"', $responseContent));
+                }
+
+                $element = $data->basket_elements->entry;
+                $identifier = $element->attributes()->id;
+                $this->identifiers[$alias] = current($identifier);
+
+                break;
+            case 'json':
+                $data = json_decode($responseContent);
+
+                if (false === $data) {
+                    throw new Exception(sprintf('Response was not json : "%s"', $responseContent));
+                }
+
+                $aElements = $data->basket_elements;
+                $firstElement = array_shift($aElements);
+                $identifier = $firstElement->id;
+                $this->identifiers[$alias] = $identifier;
+
+                break;
         }
-
-        $this->identifiers[$alias] = current($identifier);
     }
 
     /**
@@ -455,13 +518,71 @@ TABLE
         /** @var \Guzzle\Http\Message\Response $response */
         $response = $context->getBrowser()->getLastResponse();
 
-        if ("bytes" !== $response->getHeader('Accept-Ranges')) {
-            throw new Exception(sprintf('Response Accept-Ranges header not bytes: "%s"', $response->getHeader('Accept-Ranges')));
-        }
-
         if (false === strpos($response->getHeader('Content-Disposition'), 'attachment')) {
             throw new Exception(sprintf('Response Content-Disposition header not attachment: "%s"', $response->getHeader('Content-Disposition')));
         }
     }
+
+    /**
+     * Send a request which body is the binary given by path
+     *
+     * @When /^(?:I )?send a ([A-Z]+) request to "([^"]*)" with the binary "([^"]*)"$/
+     */
+    public function iSendARequestWithTheBinary($method, $url, $path)
+    {
+        if ($this->filesPath) {
+            $fullPath = rtrim(realpath($this->filesPath), DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR.$path;
+            if (is_file($fullPath)) {
+                $path = $fullPath;
+            }
+        }
+
+        if (($content = file_get_contents($path)) === false) {
+            throw new \Exception(sprintf('Unable to get the content of the binary %s', $path));
+        }
+
+        $headers = array(
+            'Content-type'   => 'application/octet-stream',
+            'Content-Length' => filesize($path),
+            'Authorization'  => 'Basic YWRtaW46YWRtaW4=',
+        );
+
+        $this->sendRequestWithIdentifiers($method, $url, $headers, $content);
+    }
+
+    /**
+     * Send an http request after replacing url parameters by actual values
+     *
+     * @When /^(?:I )?send a ([A-Z]+) request containing identifier to "([^"]*)"$/
+     */
+    public function iSendAGetRequestContainingIdentifierTo($method, $url)
+    {
+        $headers = array(
+            'Authorization' => 'Basic YWRtaW46YWRtaW4=',
+        );
+
+        $this->sendRequestWithIdentifiers($method, $url, $headers);
+    }
+
+    /**
+     * @param string $method
+     * @param string $url
+     * @param array  $headers
+     * @param string $content
+     *
+     * @throws Exception
+     */
+    protected function sendRequestWithIdentifiers($method, $url, $headers = array(), $content = '')
+    {
+        if (!in_array($method, array('GET', 'PUT', 'POST', 'DELETE', 'PATCH'))) {
+            throw new \Exception(sprintf('Undefined method %s', $method));
+        }
+
+        $url = $this->baseUrl.$this->replaceIdentifiers($url);
+        $url = str_replace('//api', '/api', $url);
+
+        $this->getSubcontext('api')->getBrowser()->{strtolower($method)}($url, $headers, $content);
+    }
 }
+
  

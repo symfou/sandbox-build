@@ -1,0 +1,1103 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>24. Security &mdash; Sonata ~ AdminBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ AdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="25. Extensions" href="extensions.html"/>
+        <link rel="prev" title="23. Translation" href="translation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ AdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#downloading-the-code">1.1. Downloading the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#selecting-and-downloading-a-storage-bundle">1.2. Selecting and downloading a storage bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enabling-sonataadminbundle-and-its-dependencies">1.3. Enabling SonataAdminBundle and its dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuring-sonataadminbundle-dependencies">1.4. Configuring SonataAdminBundle dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#cleaning-up">1.5. Cleaning up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting started with SonataAdminBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-1-define-sonataadminbundle-routes">2.1. Step 1: Define SonataAdminBundle routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-2-create-an-admin-class">2.2. Step 2: Create an Admin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-3-create-an-admin-service">2.3. Step 3: Create an Admin service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-4-configuration">2.4. Step 4: Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps-security">2.5. Next steps - Security</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration // Warning: this doc page is not up to date and will be removed soon.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration">3.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#full-configuration-options">3.2. Full Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">4. Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#the-admin-class">4.1. The Admin Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#crudcontroller">4.2. CRUDController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#fields-definition">4.3. Fields Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#templates">4.4. Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#managing-admin-service">4.5. Managing <tt class="docutils literal"><span class="pre">Admin</span></tt> Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#create-child-admins">4.6. Create child admins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">5. Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#blocks">5.1. Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#the-admin-list-block">5.2. The <tt class="docutils literal"><span class="pre">Admin</span></tt> list block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#configuring-the-admin-list">5.3. Configuring the <tt class="docutils literal"><span class="pre">Admin</span></tt> list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#adding-more-blocks">5.4. Adding more Blocks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">6. Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="search.html#customization">6.1. Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html#performance">6.2. Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="select2.html">7. Select2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#disable-select2">7.1. Disable select2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#disable-select2-on-some-form-elements">7.2. Disable select2 on some form elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select2.html#allowclear">7.3. AllowClear</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="knp_menu.html">8. KnpMenu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="knp_menu.html#add-a-custom-controller-entry-in-the-menu">8.1. Add a custom controller entry in the menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">9. Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#routing-definition">9.1. Routing Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#routing-usage">9.2. Routing usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#create-a-route">9.3. Create a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#removing-a-route">9.4. Removing a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#persistent-parameters">9.5. Persistent parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#changing-the-default-route-in-a-list-action">9.6. Changing the default route in a List Action</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_list.html">10. The List View</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#basic-configuration">10.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-fields-displayed-on-the-list-page">10.2. Customizing the fields displayed on the list page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-query-used-to-generate-the-list">10.3. Customizing the query used to generate the list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-sort-order">10.4. Customizing the sort order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#filters">10.5. Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_create_edit.html">11. Creating and Editing objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#basic-configuration">11.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#embedding-other-admins">11.2. Embedding other Admins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#customizing-just-one-of-the-actions">11.3. Customizing just one of the actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html">12. The Show action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#basic-configuration">12.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#customising-the-query-used-to-show-the-object-from-within-your-admin-class">12.2. Customising the query used to show the object from within your Admin class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html#setting-up-a-custom-show-template-very-useful">13. Setting up a custom show template (very useful)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action_delete.html">14. Deleting objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_delete.html#basic-configuration">14.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_export.html">15. The Export action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_export.html#basic-configuration">15.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="saving_hooks.html">16. Saving hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="saving_hooks.html#example-used-with-the-fos-userbundle">16.1. Example used with the FOS/UserBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_types.html">17. Form Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#admin-related-form-types">17.1. Admin related form types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#types-options">17.2. Types options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_help_message.html">18. Form Help Messages and Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#help-messages">18.1. Help Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#form-group-descriptions">18.2. Form Group Descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">19. Field Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="field_types.html#list-and-show-actions">19.1. List and Show Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_validation.html">20. Inline Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#troubleshooting">20.1. Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">21. Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#global-templates">21.1. Global Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#dashboard-template">21.2. Dashboard Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#crudcontroller-actions-templates">21.3. CRUDController Actions Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#row-templates">21.4. Row Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#other-templates">21.5. Other Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#configuring-templates">21.6. Configuring templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch_actions.html">22. Batch actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#defining-new-actions">22.1. Defining new actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-overriding-the-batch-selection-template">22.2. (Optional) Overriding the batch selection template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-overriding-the-default-relevancy-check-function">22.3. (Optional) Overriding the default relevancy check function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-executing-a-pre-batch-hook">22.4. (Optional) Executing a pre batch hook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#define-the-core-action-logic">22.5. Define the core action logic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">23. Translation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#translate-field-labels">23.1. Translate field labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">24. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#user-management">24.1. User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-handlers">24.2. Security handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#role-handler">24.3. Role handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acl-and-friendsofsymfony-userbundle">24.4. ACL and FriendsOfSymfony/UserBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acl-editor">24.5. ACL editor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">25. Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#configuration">25.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">26. Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configureevent">26.1. ConfigureEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#persistenceevent">26.2. PersistenceEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configurequeryevent">26.3. ConfigureQueryEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#blockevent">26.4. BlockEvent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">27. Advanced configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#service-configuration">27.1. Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#inherited-classes">27.2. Inherited classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#dropdowns-in-tab-menu">27.3. Dropdowns in Tab Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#disable-content-stretching">27.4. Disable content stretching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="console.html">28. Console/Command-Line Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="console.html#cache-create-cache-class">28.1. cache:create-cache-class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate">28.2. sonata:admin:generate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-list">28.3. sonata:admin:list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-explain">28.4. sonata:admin:explain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-setup-acl">28.5. sonata:admin:setup-acl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate-object-acl">28.6. sonata:admin:generate-object-acl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preview_mode.html">29. Preview Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preview_mode.html#simulating-front-end-rendering">29.1. Simulating front-end rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">30. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#the-tostring-method">30.1. The toString method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#large-filters-and-long-urls-problem">30.2. Large filters and long urls problem</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_file_uploads.html">1. Uploading and saving documents (including images) using DoctrineORM and SonataAdmin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#pre-requisites">1.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#the-recipe">1.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#notes">1.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_image_previews.html">2. Showing image previews</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#pre-requisites">2.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#the-recipe">2.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#notes">2.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_row_templates.html">3. Row templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_row_templates.html#the-recipe">3.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html">4. Sortable behavior in admin listing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#background">4.1. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#pre-requisites">4.2. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#the-recipe">4.3. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#further-work">4.4. Further work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_dynamic_form_modification.html">5. Modifying form fields dynamically depending on edited object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_custom_action.html">6. Creating a Custom Admin Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_custom_action.html#the-recipe">6.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_customizing_a_mosaic_list.html">7. Customizing a mosaic list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_overwrite_admin_configuration.html">8. Overwrite Admin Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html">9. Improve performance of large datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html#change-default-pager-to-simplepager">9.1. Change default Pager to SimplePager</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ AdminBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>24. Security</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/security.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="security">
+<h1>24. Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="user-management">
+<h2>24.1. User management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
+<p>By default, the SonataAdminBundle does not come with any user management,
+however it is most likely the application requires such a feature. The Sonata
+Project includes a <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> which integrates the <tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt>.</p>
+<p>The <tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt> adds support for a database-backed user system in Symfony2.
+It provides a flexible framework for user management that aims to handle common
+tasks such as user login, registration and password retrieval.</p>
+<p>The <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> is just a thin wrapper to include the <tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt>
+into the <tt class="docutils literal"><span class="pre">AdminBundle</span></tt>. The <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> includes:</p>
+<ul class="simple">
+<li>A default login area</li>
+<li>A default <tt class="docutils literal"><span class="pre">user_block</span></tt> template which is used to display the current user
+and the logout link</li>
+<li>2 Admin classes: User and Group</li>
+<li>A default class for User and Group.</li>
+</ul>
+<p>There is a little magic in the <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt>: if the bundle detects the
+<tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> class, then the default <tt class="docutils literal"><span class="pre">user_block</span></tt> template will be
+changed to use the one provided by the <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt>.</p>
+<p>The install process is available on the dedicated
+<a class="reference external" href="http://sonata-project.org/bundles/user/master/doc/reference/installation.html">SonataUserBundle&#8217;s documentation area</a>.</p>
+</div>
+<div class="section" id="security-handlers">
+<h2>24.2. Security handlers<a class="headerlink" href="#security-handlers" title="Permalink to this headline">¶</a></h2>
+<p>The security part is managed by a <tt class="docutils literal"><span class="pre">SecurityHandler</span></tt>, the bundle comes with 3 handlers</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sonata.admin.security.handler.role</span></tt>: ROLES to handle permissions</li>
+<li><tt class="docutils literal"><span class="pre">sonata.admin.security.handler.acl</span></tt>: ACL and ROLES to handle permissions</li>
+<li><tt class="docutils literal"><span class="pre">sonata.admin.security.handler.noop</span></tt>: always returns true, can be used
+with the Symfony2 firewall</li>
+</ul>
+<p>The default value is <tt class="docutils literal"><span class="pre">sonata.admin.security.handler.noop</span></tt>, if you want to
+change the default value you can set the <tt class="docutils literal"><span class="pre">security_handler</span></tt> to
+<tt class="docutils literal"><span class="pre">sonata.admin.security.handler.acl</span></tt> or <tt class="docutils literal"><span class="pre">sonata.admin.security.handler.role</span></tt>.</p>
+<p>To quickly secure an admin the role security can be used. It allows to specify
+the actions a user can do with the admin. The ACL security system is more advanced
+and allows to secure the objects. For people using the previous ACL
+implementation, you can switch the <tt class="docutils literal"><span class="pre">security_handler</span></tt> to the role security handler.</p>
+<div class="section" id="configuration">
+<h3>24.2.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Only the security handler is required to determine which type of security to use.
+The other parameters are set as default, change them if needed.</p>
+<p>Using roles:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">handler</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.admin.security.handler.role</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>Using ACL:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">handler</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.admin.security.handler.acl</span>
+        <span class="c1"># acl security information</span>
+        <span class="l-Scalar-Plain">information</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">GUEST</span><span class="p-Indicator">:</span>    <span class="p-Indicator">[</span><span class="nv">VIEW</span><span class="p-Indicator">,</span> <span class="nv">LIST</span><span class="p-Indicator">]</span>
+            <span class="l-Scalar-Plain">STAFF</span><span class="p-Indicator">:</span>    <span class="p-Indicator">[</span><span class="nv">EDIT</span><span class="p-Indicator">,</span> <span class="nv">LIST</span><span class="p-Indicator">,</span> <span class="nv">CREATE</span><span class="p-Indicator">]</span>
+            <span class="l-Scalar-Plain">EDITOR</span><span class="p-Indicator">:</span>   <span class="p-Indicator">[</span><span class="nv">OPERATOR</span><span class="p-Indicator">,</span> <span class="nv">EXPORT</span><span class="p-Indicator">]</span>
+            <span class="l-Scalar-Plain">ADMIN</span><span class="p-Indicator">:</span>    <span class="p-Indicator">[</span><span class="nv">MASTER</span><span class="p-Indicator">]</span>
+        <span class="c1"># permissions not related to an object instance and also to be available when objects do not exist</span>
+        <span class="c1"># the DELETE admin permission means the user is allowed to batch delete objects</span>
+        <span class="l-Scalar-Plain">admin_permissions</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">CREATE</span><span class="p-Indicator">,</span> <span class="nv">LIST</span><span class="p-Indicator">,</span> <span class="nv">DELETE</span><span class="p-Indicator">,</span> <span class="nv">UNDELETE</span><span class="p-Indicator">,</span> <span class="nv">EXPORT</span><span class="p-Indicator">,</span> <span class="nv">OPERATOR</span><span class="p-Indicator">,</span> <span class="nv">MASTER</span><span class="p-Indicator">]</span>
+        <span class="c1"># permission related to the objects</span>
+        <span class="l-Scalar-Plain">object_permissions</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">VIEW</span><span class="p-Indicator">,</span> <span class="nv">EDIT</span><span class="p-Indicator">,</span> <span class="nv">DELETE</span><span class="p-Indicator">,</span> <span class="nv">UNDELETE</span><span class="p-Indicator">,</span> <span class="nv">OPERATOR</span><span class="p-Indicator">,</span> <span class="nv">MASTER</span><span class="p-Indicator">,</span> <span class="nv">OWNER</span><span class="p-Indicator">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>Later, we will explain how to set up ACL with the
+<tt class="docutils literal"><span class="pre">FriendsOfSymfony/UserBundle</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="role-handler">
+<h2>24.3. Role handler<a class="headerlink" href="#role-handler" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">sonata.admin.security.handler.role</span></tt> allows you to operate finely on the
+actions that can be done (depending on the entity class), without requiring to set up ACL.</p>
+<div class="section" id="id1">
+<h3>24.3.1. Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>First, activate the role security handler as described above.</p>
+<p>Each time an user tries to do an action in the admin, Sonata checks if he is
+either a super admin (<tt class="docutils literal"><span class="pre">ROLE_SUPER_ADMIN</span></tt>) <strong>or</strong> has the permission.</p>
+<p>The permissions are:</p>
+<ul class="simple">
+<li>LIST: view the list of objects</li>
+<li>VIEW: view the detail of one object</li>
+<li>CREATE: create a new object</li>
+<li>EDIT: update an existing object</li>
+<li>DELETE: delete an existing object</li>
+<li>EXPORT (for the native Sonata export links)</li>
+</ul>
+<p>Each permission is relative to an admin: if you try to get a list in FooAdmin (declared as <tt class="docutils literal"><span class="pre">sonata.admin.demo.foo</span></tt>
+service), Sonata will check if the user has the <tt class="docutils literal"><span class="pre">ROLE_SONATA_ADMIN_DEMO_FOO_EDIT</span></tt> role.</p>
+<p>So our <tt class="docutils literal"><span class="pre">security.yml</span></tt> file may look to something like this:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">...</span>
+    <span class="l-Scalar-Plain">role_hierarchy</span><span class="p-Indicator">:</span>
+        <span class="c1"># for convenience, I decided to gather Sonata roles here</span>
+        <span class="l-Scalar-Plain">ROLE_SONATA_FOO_READER</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_ADMIN_DEMO_FOO_LIST</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_ADMIN_DEMO_FOO_VIEW</span>
+        <span class="l-Scalar-Plain">ROLE_SONATA_FOO_EDITOR</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_ADMIN_DEMO_FOO_CREATE</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_ADMIN_DEMO_FOO_EDIT</span>
+        <span class="l-Scalar-Plain">ROLE_SONATA_FOO_ADMIN</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_ADMIN_DEMO_FOO_DELETE</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_ADMIN_DEMO_FOO_EXPORT</span>
+        <span class="c1"># those are the roles I will use (less verbose)</span>
+        <span class="l-Scalar-Plain">ROLE_STAFF</span><span class="p-Indicator">:</span>             <span class="p-Indicator">[</span><span class="nv">ROLE_USER</span><span class="p-Indicator">,</span> <span class="nv">ROLE_SONATA_FOO_READER</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">ROLE_ADMIN</span><span class="p-Indicator">:</span>             <span class="p-Indicator">[</span><span class="nv">ROLE_STAFF</span><span class="p-Indicator">,</span> <span class="nv">ROLE_SONATA_FOO_EDITOR</span><span class="p-Indicator">,</span> <span class="nv">ROLE_SONATA_FOO_ADMIN</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">ROLE_SUPER_ADMIN</span><span class="p-Indicator">:</span>       <span class="p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p-Indicator">,</span> <span class="nv">ROLE_ALLOWED_TO_SWITCH</span><span class="p-Indicator">]</span>
+
+    <span class="c1"># set access_strategy to unanimous, else you may have unexpected behaviors</span>
+    <span class="l-Scalar-Plain">access_decision_manager</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">strategy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">unanimous</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>Note that we also set <tt class="docutils literal"><span class="pre">access_strategy</span></tt> to unanimous.
+It means that if one voter (for example Sonata) refuses access, access will be denied.
+For more information on this subject, please see <a class="reference external" href="http://symfony.com/doc/2.2/cookbook/security/voters.html#changing-the-access-decision-strategy">changing the access decision strategy</a>
+in the Symfony documentation.</p>
+</div>
+<div class="section" id="usage">
+<h3>24.3.2. Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p>You can now test if a user is authorized from an Admin class:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">if ($this-&gt;isGranted(&#39;LIST&#39;)) {</span>
+<span class="x">    ...</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<p>From a controller extending <tt class="docutils literal"><span class="pre">Sonata\AdminBundle\Controller\CRUDController</span></tt>:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">if ($this-&gt;admin-&gt;isGranted(&#39;LIST&#39;)) {</span>
+<span class="x">    ...</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<p>Or from a Twig template:</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">&#39;VIEW&#39;</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;p&gt;Hello there!&lt;/p&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Note that you do not have to re-specify the prefix.</p>
+<p>Sonata checks those permissions for the action it handles internally.
+Of course you will have to recheck them in your own code.</p>
+<p>Yon can also create your own permissions, for example <tt class="docutils literal"><span class="pre">EMAIL</span></tt>
+(which will turn into role <tt class="docutils literal"><span class="pre">ROLE_SONATA_ADMIN_DEMO_FOO_EMAIL</span></tt>).</p>
+</div>
+<div class="section" id="going-further">
+<h3>24.3.3. Going further<a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h3>
+<p>Because Sonata role handler supplements Symfony2 security, but does not override it, you are free to do more advanced operations.
+For example, you can <a class="reference external" href="http://symfony.com/doc/2.2/cookbook/security/voters.html">create your own voter</a></p>
+</div>
+<div class="section" id="customizing-the-handler-behavior">
+<h3>24.3.4. Customizing the handler behavior<a class="headerlink" href="#customizing-the-handler-behavior" title="Permalink to this headline">¶</a></h3>
+<p>If you want to change the handler behavior (for example, to pass the current object to voters), extend
+<tt class="docutils literal"><span class="pre">Sonata\AdminBundle\Security\Handler\RoleSecurityHandler</span></tt>, and override the <tt class="docutils literal"><span class="pre">isGranted</span></tt> method.</p>
+<p>Then declare your handler as a service:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>XML</em><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;parameters&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;acme.demo.security.handler.role.class&quot;</span> <span class="nt">&gt;</span>Acme\DemoBundle\Security\Handler\RoleSecurityHandler<span class="nt">&lt;/parameter&gt;</span>
+<span class="nt">&lt;/parameters&gt;</span>
+<span class="nt">&lt;services&gt;</span>
+    <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;acme.demo.security.handler.role&quot;</span> <span class="na">class=</span><span class="s">&quot;%acme.demo.security.handler.role.class%&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;security.context&quot;</span> <span class="na">on-invalid=</span><span class="s">&quot;null&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;collection&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;argument&gt;</span>ROLE_SUPER_ADMIN<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/argument&gt;</span>
+    <span class="nt">&lt;/service&gt;</span>
+...
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>And specify it as Sonata security handler on your configuration:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">handler</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">acme.demo.security.handler.role</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="acl-and-friendsofsymfony-userbundle">
+<h2>24.4. ACL and FriendsOfSymfony/UserBundle<a class="headerlink" href="#acl-and-friendsofsymfony-userbundle" title="Permalink to this headline">¶</a></h2>
+<p>If you want an easy way to handle users, please use:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a>: handles
+users and groups stored in RDBMS or MongoDB</li>
+<li><a class="reference external" href="https://github.com/sonata-project/SonataUserBundle">SonataUserBundle</a>: integrates the
+<tt class="docutils literal"><span class="pre">FriendsOfSymfony/UserBundle</span></tt> with the <tt class="docutils literal"><span class="pre">AdminBundle</span></tt></li>
+</ul>
+<p>The security integration is a work in progress and has some known issues:</p>
+<ul class="simple">
+<li>ACL permissions are immutables</li>
+<li>A listener must be implemented that creates the object Access Control List
+with the required rules if objects are created outside the Admin</li>
+</ul>
+<div class="section" id="id2">
+<h3>24.4.1. Configuration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Before you can use <tt class="docutils literal"><span class="pre">FriendsOfSymfony/FOSUserBundle</span></tt> you need to set it up as
+described in the documentation of the bundle. In step 4 you need to create a
+User class (in a custom UserBundle). Do it as follows:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Acme\UserBundle\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\UserBundle\Entity\BaseUser</span> <span class="k">as</span> <span class="nx">BaseUser</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity</span>
+<span class="sd"> * @ORM\Table(name=&quot;fos_user&quot;)</span>
+<span class="sd">\*/</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">BaseUser</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Id</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     * @ORM\GeneratedValue(strategy=&quot;AUTO&quot;)</span>
+<span class="sd">     \*/</span>
+    <span class="k">protected</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
+        <span class="c1">// your own logic</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In your <tt class="docutils literal"><span class="pre">app/config/config.yml</span></tt> you then need to put the following:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">fos_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">orm</span>
+    <span class="l-Scalar-Plain">firewall_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">main</span>
+    <span class="l-Scalar-Plain">user_class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Acme\UserBundle\Entity\User</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>The following configuration for the SonataUserBundle defines:</p>
+<ul class="simple">
+<li>the <tt class="docutils literal"><span class="pre">FriendsOfSymfony/FOSUserBundle</span></tt> as a security provider</li>
+<li>the login form for authentication</li>
+<li>the access control: resources with related required roles, the important
+part is the admin configuration</li>
+<li>the <tt class="docutils literal"><span class="pre">acl</span></tt> option to enable the ACL.</li>
+<li>the <tt class="docutils literal"><span class="pre">AdminPermissionMap</span></tt> defines the permissions of the Admin class</li>
+</ul>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># src/Acme/MyBundle/Resources/config/services.yml</span>
+
+<span class="l-Scalar-Plain">parameters</span><span class="p-Indicator">:</span>
+    <span class="c1"># ... other parameters</span>
+    <span class="l-Scalar-Plain">security.acl.permission.map.class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sonata\AdminBundle\Security\Acl\Permission\AdminPermissionMap</span>
+    <span class="c1"># optionally use a custom MaskBuilder</span>
+    <span class="c1">#sonata.admin.security.mask.builder.class: Sonata\AdminBundle\Security\Acl\Permission\MaskBuilder</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>In <tt class="docutils literal"><span class="pre">app/config/security.yml</span></tt>:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">fos_userbundle</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fos_user.user_manager</span>
+
+    <span class="l-Scalar-Plain">firewalls</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">main</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">pattern</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">.*</span>
+            <span class="l-Scalar-Plain">form-login</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">fos_userbundle</span>
+                <span class="l-Scalar-Plain">login_path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/login</span>
+                <span class="l-Scalar-Plain">use_forward</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">false</span>
+                <span class="l-Scalar-Plain">check_path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/login_check</span>
+                <span class="l-Scalar-Plain">failure_path</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">null</span>
+            <span class="l-Scalar-Plain">logout</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">true</span>
+            <span class="l-Scalar-Plain">anonymous</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">true</span>
+
+    <span class="l-Scalar-Plain">access_control</span><span class="p-Indicator">:</span>
+        <span class="c1"># The WDT has to be allowed to anonymous users to avoid requiring the login with the AJAX request</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/wdt/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/profiler/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+
+        <span class="c1"># AsseticBundle paths used when using the controller for assets</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/js/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/css/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+
+        <span class="c1"># URL of FOSUserBundle which need to be available to anonymous users</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/login$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/login_check$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span> <span class="c1"># for the case of a failed login</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/new$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/check-confirmation-email$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/confirm/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/confirmed$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/request-reset-password$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/send-resetting-email$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/check-resetting-email$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/user/reset-password/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+
+        <span class="c1"># Secured part of the site</span>
+        <span class="c1"># This config requires being logged for the whole site and having the admin role for the admin part.</span>
+        <span class="c1"># Change these rules to adapt them to your needs</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/admin/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">ROLE_ADMIN</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/.*</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+
+
+    <span class="l-Scalar-Plain">role_hierarchy</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">ROLE_ADMIN</span><span class="p-Indicator">:</span>       <span class="p-Indicator">[</span><span class="nv">ROLE_USER</span><span class="p-Indicator">,</span> <span class="nv">ROLE_SONATA_ADMIN</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">ROLE_SUPER_ADMIN</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p-Indicator">,</span> <span class="nv">ROLE_ALLOWED_TO_SWITCH</span><span class="p-Indicator">]</span>
+
+    <span class="l-Scalar-Plain">acl</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">connection</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">default</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li>Install the ACL tables <tt class="docutils literal"><span class="pre">php</span> <span class="pre">app/console</span> <span class="pre">init:acl</span></tt></li>
+<li>Create a new root user:</li>
+</ul>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># php app/console fos:user:create --super-admin</span>
+    Please choose a username:root
+    Please choose an email:root@domain.com
+    Please choose a password:root
+    Created user root
+</pre></div>
+</div>
+<p>If you have Admin classes, you can install or update the related CRUD ACL rules:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># php app/console sonata:admin:setup-acl</span>
+Starting ACL AdminBundle configuration
+&gt; install ACL <span class="k">for </span>sonata.media.admin.media
+   - add role: ROLE_SONATA_MEDIA_ADMIN_MEDIA_GUEST, permissions: <span class="o">[</span><span class="s2">&quot;VIEW&quot;</span>,<span class="s2">&quot;LIST&quot;</span><span class="o">]</span>
+   - add role: ROLE_SONATA_MEDIA_ADMIN_MEDIA_STAFF, permissions: <span class="o">[</span><span class="s2">&quot;EDIT&quot;</span>,<span class="s2">&quot;LIST&quot;</span>,<span class="s2">&quot;CREATE&quot;</span><span class="o">]</span>
+   - add role: ROLE_SONATA_MEDIA_ADMIN_MEDIA_EDITOR, permissions: <span class="o">[</span><span class="s2">&quot;OPERATOR&quot;</span>,<span class="s2">&quot;EXPORT&quot;</span><span class="o">]</span>
+   - add role: ROLE_SONATA_MEDIA_ADMIN_MEDIA_ADMIN, permissions: <span class="o">[</span><span class="s2">&quot;MASTER&quot;</span><span class="o">]</span>
+... skipped ...
+</pre></div>
+</div>
+<p>If you already have objects, you can generate the object ACL rules for each
+object of an admin:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">$ </span>php app/console sonata:admin:generate-object-acl
+</pre></div>
+</div>
+<p>Optionally, you can specify an object owner, and step through each admin. See
+the help of the command for more information.</p>
+<p>If you try to access to the admin class you should see the login form, just
+log in with the <tt class="docutils literal"><span class="pre">root</span></tt> user.</p>
+<p>An Admin is displayed in the dashboard (and menu) when the user has the role
+<tt class="docutils literal"><span class="pre">LIST</span></tt>. To change this override the <tt class="docutils literal"><span class="pre">showIn</span></tt> method in the Admin class.</p>
+</div>
+<div class="section" id="roles-and-access-control-lists">
+<h3>24.4.2. Roles and Access control lists<a class="headerlink" href="#roles-and-access-control-lists" title="Permalink to this headline">¶</a></h3>
+<p>A user can have several roles when working with an application. Each Admin class
+has several roles, and each role specifies the permissions of the user for the
+<tt class="docutils literal"><span class="pre">Admin</span></tt> class. Or more specifically, what the user can do with the domain object(s)
+the <tt class="docutils literal"><span class="pre">Admin</span></tt> class is created for.</p>
+<p>By default each <tt class="docutils literal"><span class="pre">Admin</span></tt> class contains the following roles, override the
+property <tt class="docutils literal"><span class="pre">$securityInformation</span></tt> to change this:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">ROLE_SONATA_..._GUEST</span></tt></dt>
+<dd><p class="first last">a guest that is allowed to <tt class="docutils literal"><span class="pre">VIEW</span></tt> an object and a <tt class="docutils literal"><span class="pre">LIST</span></tt> of objects;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">ROLE_SONATA_..._STAFF</span></tt></dt>
+<dd><p class="first last">probably the biggest part of the users, a staff user  has the same permissions
+as guests and is additionally allowed to <tt class="docutils literal"><span class="pre">EDIT</span></tt> and <tt class="docutils literal"><span class="pre">CREATE</span></tt> new objects;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">ROLE_SONATA_..._EDITOR</span></tt></dt>
+<dd><p class="first last">an editor is granted all access and, compared to the staff users, is allowed to <tt class="docutils literal"><span class="pre">DELETE</span></tt>;</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">ROLE_SONATA_..._ADMIN</span></tt></dt>
+<dd><p class="first last">an administrative user is granted all access and on top of that, the user is allowed to grant other users access.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Owner:</p>
+<ul class="simple">
+<li>when an object is created, the currently logged in user is set as owner for
+that object and is granted all access for that object;</li>
+<li>this means the user owning the object is always allowed to <tt class="docutils literal"><span class="pre">DELETE</span></tt> the
+object, even when they only have the staff role.</li>
+</ul>
+<p>Vocabulary used for Access Control Lists:</p>
+<ul>
+<li><p class="first"><strong>Role:</strong> a user role;</p>
+</li>
+<li><p class="first"><strong>ACL:</strong> a list of access rules, the Admin uses 2 types:</p>
+</li>
+<li><p class="first"><strong>Admin ACL:</strong> created from the Security information of the Admin class
+for  each admin and shares the Access Control Entries that specify what
+the  user can do (permissions) with the admin</p>
+</li>
+<li><p class="first"><strong>Object ACL:</strong> also created from the security information of the <tt class="docutils literal"><span class="pre">Admin</span></tt>
+class however created for each object, it uses 2 scopes:</p>
+<ul class="simple">
+<li><strong>Class-Scope:</strong> the class scope contains the rules that are valid
+for all object of a certain class;</li>
+<li><strong>Object-Scope:</strong> specifies the owner;</li>
+</ul>
+</li>
+<li><p class="first"><strong>Sid:</strong> Security identity, an ACL role for the Class-Scope ACL and the
+user for the Object-Scope ACL;</p>
+</li>
+<li><p class="first"><strong>Oid:</strong> Object identity, identifies the ACL, for the admin ACL this is
+the admin code, for the object ACL this is the object id;</p>
+</li>
+<li><p class="first"><strong>ACE:</strong> a role (or sid) and its permissions;</p>
+</li>
+<li><p class="first"><strong>Permission:</strong> this tells what the user is allowed to do with the Object
+identity;</p>
+</li>
+<li><p class="first"><strong>Bitmask:</strong> a permission can have several bitmasks, each bitmask
+represents a permission. When permission <tt class="docutils literal"><span class="pre">VIEW</span></tt> is requested and it
+contains the <tt class="docutils literal"><span class="pre">VIEW</span></tt> and <tt class="docutils literal"><span class="pre">EDIT</span></tt> bitmask and the user only has the
+<tt class="docutils literal"><span class="pre">EDIT</span></tt> permission, then the permission <tt class="docutils literal"><span class="pre">VIEW</span></tt> is granted.</p>
+</li>
+<li><p class="first"><strong>PermissionMap:</strong> configures the bitmasks for each permission, to change
+the default mapping create a voter for the domain class of the Admin.</p>
+<p>There can be many voters that may have different permission maps. However,
+prevent that multiple voters vote on the same class with overlapping bitmasks.</p>
+</li>
+</ul>
+<p>See the cookbook article &#8220;<a class="reference external" href="http://symfony.com/doc/current/cookbook/security/acl_advanced.html#pre-authorization-decisions.">Advanced ACL concepts</a>&#8221;
+for the meaning of the different permissions.</p>
+</div>
+<div class="section" id="how-is-access-granted">
+<h3>24.4.3. How is access granted?<a class="headerlink" href="#how-is-access-granted" title="Permalink to this headline">¶</a></h3>
+<p>In the application the security context is asked if access is granted for a role
+or a permission (<tt class="docutils literal"><span class="pre">admin.isGranted</span></tt>):</p>
+<ul class="simple">
+<li><strong>Token:</strong> a token identifies a user between requests;</li>
+<li><strong>Voter:</strong> sort of judge that returns if access is granted of denied, if the
+voter should not vote for a case, it returns abstain;</li>
+<li><strong>AccessDecisionManager:</strong> decides if access is granted or denied according
+a specific strategy. It grants access if at least one (affirmative strategy),
+all (unanimous strategy) or more then half (consensus strategy) of the
+counted votes granted access;</li>
+<li><strong>RoleVoter:</strong> votes for all attributes stating with <tt class="docutils literal"><span class="pre">ROLE_</span></tt> and grants
+access if the user has this role;</li>
+<li><strong>RoleHierarchyVoter:</strong> when the role <tt class="docutils literal"><span class="pre">ROLE_SONATA_ADMIN</span></tt> is voted for,
+it also votes &#8220;granted&#8221; if the user has the role <tt class="docutils literal"><span class="pre">ROLE_SUPER_ADMIN</span></tt>;</li>
+<li><strong>AclVoter:</strong> grants access for the permissions of the <tt class="docutils literal"><span class="pre">Admin</span></tt> class if
+the user has the permission, the user has a permission that is included in
+the bitmasks of the permission requested to vote for or the user owns the
+object.</li>
+</ul>
+</div>
+<div class="section" id="create-a-custom-voter-or-a-custom-permission-map">
+<h3>24.4.4. Create a custom voter or a custom permission map<a class="headerlink" href="#create-a-custom-voter-or-a-custom-permission-map" title="Permalink to this headline">¶</a></h3>
+<p>In some occasions you need to create a custom voter or a custom permission map
+because for example you want to restrict access using extra rules:</p>
+<ul>
+<li><p class="first">create a custom voter class that extends the <tt class="docutils literal"><span class="pre">AclVoter</span></tt></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Acme\DemoBundle\Security\Authorization\Voter</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">FOS\UserBundle\Model\UserInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Core\Authentication\Token\TokenInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\Security\Acl\Voter\AclVoter</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserAclVoter</span> <span class="k">extends</span> <span class="nx">AclVoter</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">    * {@InheritDoc}</span>
+<span class="sd">    */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">supportsClass</span><span class="p">(</span><span class="nv">$class</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// support the Class-Scope ACL for votes with the custom permission map</span>
+        <span class="c1">// return $class === &#39;Sonata\UserBundle\Admin\Entity\UserAdmin&#39; || $is_subclass_of($class, &#39;FOS\UserBundle\Model\UserInterface&#39;);</span>
+        <span class="c1">// if you use php &gt;=5.3.7 you can check the inheritance with is_a($class, &#39;Sonata\UserBundle\Admin\Entity\UserAdmin&#39;);</span>
+        <span class="c1">// support the Object-Scope ACL</span>
+        <span class="k">return</span> <span class="nb">is_subclass_of</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="s1">&#39;FOS\UserBundle\Model\UserInterface&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">supportsAttribute</span><span class="p">(</span><span class="nv">$attribute</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$attribute</span> <span class="o">===</span> <span class="s1">&#39;EDIT&#39;</span> <span class="o">||</span> <span class="nv">$attribute</span> <span class="o">===</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">vote</span><span class="p">(</span><span class="nx">TokenInterface</span> <span class="nv">$token</span><span class="p">,</span> <span class="nv">$object</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$attributes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">supportsClass</span><span class="p">(</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$object</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">ACCESS_ABSTAIN</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$attributes</span> <span class="k">as</span> <span class="nv">$attribute</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">supportsAttribute</span><span class="p">(</span><span class="nv">$attribute</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">$object</span> <span class="nx">instanceof</span> <span class="nx">UserInterface</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">isSuperAdmin</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">isSuperAdmin</span><span class="p">())</span> <span class="p">{</span>
+                    <span class="c1">// deny a non super admin user to edit a super admin user</span>
+                    <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">ACCESS_DENIED</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// use the parent vote with the custom permission map:</span>
+        <span class="c1">// return parent::vote($token, $object, $attributes);</span>
+        <span class="c1">// otherwise leave the permission voting to the AclVoter that is using the default permission map</span>
+        <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="na">ACCESS_ABSTAIN</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">optionally create a custom permission map, copy to start the
+<tt class="docutils literal"><span class="pre">Sonata\AdminBundle\Security\Acl\Permission\AdminPermissionMap.php</span></tt> to
+your bundle</p>
+</li>
+<li><p class="first">declare the voter and permission map as a service</p>
+<blockquote>
+<div><div class="configuration-block">
+<ul class="simple">
+<li><em>XML</em><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- src/Acme/DemoBundle/Resources/config/services.xml --&gt;</span>
+
+<span class="nt">&lt;parameters&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;security.acl.user_voter.class&quot;</span><span class="nt">&gt;</span>Acme\DemoBundle\Security\Authorization\Voter\UserAclVoter<span class="nt">&lt;/parameter&gt;</span>
+    <span class="c">&lt;!-- &lt;parameter key=&quot;security.acl.user_permission.map.class&quot;&gt;Acme\DemoBundle\Security\Acl\Permission\UserAdminPermissionMap&lt;/parameter&gt; --&gt;</span>
+<span class="nt">&lt;/parameters&gt;</span>
+
+<span class="nt">&lt;services&gt;</span>
+    <span class="c">&lt;!-- &lt;service id=&quot;security.acl.user_permission.map&quot; class=&quot;%security.acl.permission.map.class%&quot; public=&quot;false&quot;&gt;&lt;/service&gt; --&gt;</span>
+
+    <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;security.acl.voter.user_permissions&quot;</span> <span class="na">class=</span><span class="s">&quot;%security.acl.user_voter.class%&quot;</span> <span class="na">public=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;monolog.logger&quot;</span> <span class="na">channel=</span><span class="s">&quot;security&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;security.acl.provider&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;security.acl.object_identity_retrieval_strategy&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;security.acl.security_identity_retrieval_strategy&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;security.acl.permission.map&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;logger&quot;</span> <span class="na">on-invalid=</span><span class="s">&quot;null&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;security.voter&quot;</span> <span class="na">priority=</span><span class="s">&quot;255&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/service&gt;</span>
+<span class="nt">&lt;/services&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">change the access decision strategy to <tt class="docutils literal"><span class="pre">unanimous</span></tt></p>
+<blockquote>
+<div><div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">access_decision_manager</span><span class="p-Indicator">:</span>
+        <span class="c1"># Strategy can be: affirmative, unanimous or consensus</span>
+        <span class="l-Scalar-Plain">strategy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">unanimous</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">to make this work the permission needs to be checked using the Object ACL</p>
+<ul>
+<li><p class="first">modify the template (or code) where applicable:</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">admin.isGranted</span><span class="o">(</span><span class="s1">&#39;EDIT&#39;</span><span class="o">,</span> <span class="nv">user_object</span><span class="o">)</span> <span class="cp">%}</span> <span class="c">{# ... #}</span> <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">because the object ACL permission is checked, the ACL for the object must
+have been created, otherwise the <tt class="docutils literal"><span class="pre">AclVoter</span></tt> will deny <tt class="docutils literal"><span class="pre">EDIT</span></tt> access
+for a non super admin user trying to edit another non super admin user.
+This is automatically done when the object is created using the Admin.
+If objects are also created outside the Admin, have a look at the
+<tt class="docutils literal"><span class="pre">createSecurityObject</span></tt> method in the <tt class="docutils literal"><span class="pre">AclSecurityHandler</span></tt>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>24.4.5. Usage<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Every time you create a new <tt class="docutils literal"><span class="pre">Admin</span></tt> class, you should start with the command
+<tt class="docutils literal"><span class="pre">php</span> <span class="pre">app/console</span> <span class="pre">sonata:admin:setup-acl</span></tt> so the ACL database will be updated
+with the latest roles and permissions.</p>
+<p>In the templates, or in your code, you can use the Admin method <tt class="docutils literal"><span class="pre">isGranted()</span></tt>:</p>
+<ul>
+<li><p class="first">check for an admin that the user is allowed to <tt class="docutils literal"><span class="pre">EDIT</span></tt>:</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="c">{# use the admin security method  #}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">admin.isGranted</span><span class="o">(</span><span class="s1">&#39;EDIT&#39;</span><span class="o">)</span> <span class="cp">%}</span> <span class="c">{# ... #}</span> <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="c">{# or use the default is_granted symfony helper, the following will give the same result #}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">&#39;ROLE_SUPER_ADMIN&#39;</span><span class="o">)</span> <span class="k">or</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">&#39;EDIT&#39;</span><span class="o">,</span> <span class="nv">admin</span><span class="o">)</span> <span class="cp">%}</span> <span class="c">{# ... #}</span> <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">check for an admin that the user is allowed to <tt class="docutils literal"><span class="pre">DELETE</span></tt>, the object is added
+to also check if the object owner is allowed to <tt class="docutils literal"><span class="pre">DELETE</span></tt>:</p>
+<div class="highlight-html+jinja"><div class="highlight"><pre><span class="c">{# use the admin security method  #}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">admin.isGranted</span><span class="o">(</span><span class="s1">&#39;DELETE&#39;</span><span class="o">,</span> <span class="nv">object</span><span class="o">)</span> <span class="cp">%}</span> <span class="c">{# ... #}</span> <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="c">{# or use the default is_granted symfony helper, the following will give the same result #}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">&#39;ROLE_SUPER_ADMIN&#39;</span><span class="o">)</span> <span class="k">or</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">&#39;DELETE&#39;</span><span class="o">,</span> <span class="nv">object</span><span class="o">)</span> <span class="cp">%}</span> <span class="c">{# ... #}</span> <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="list-filtering">
+<h3>24.4.6. List filtering<a class="headerlink" href="#list-filtering" title="Permalink to this headline">¶</a></h3>
+<p>List filtering using ACL is available as a third party bundle:
+<a class="reference external" href="https://github.com/coopTilleuls/CoopTilleulsAclSonataAdminExtensionBundle">CoopTilleulsAclSonataAdminExtensionBundle</a>.
+When enabled, the logged in user will only see the objects for which it has the <cite>VIEW</cite> right (or superior).</p>
+</div>
+</div>
+<div class="section" id="acl-editor">
+<h2>24.5. ACL editor<a class="headerlink" href="#acl-editor" title="Permalink to this headline">¶</a></h2>
+<p>SonataAdminBundle provides a user-friendly ACL editor
+interface.
+It will be automatically available if the <tt class="docutils literal"><span class="pre">sonata.admin.security.handler.acl</span></tt>
+security handler is used and properly configured.</p>
+<p>The ACL editor is only available for users with <cite>OWNER</cite> or <cite>MASTER</cite> permissions
+on the object instance.
+The <cite>OWNER</cite> and <cite>MASTER</cite> permissions can only be edited by an user with the
+<cite>OWNER</cite> permission on the object instance.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/acl_editor.png"><img alt="The ACL editor" src="../_images/acl_editor.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="user-list-customization">
+<h3>24.5.1. User list customization<a class="headerlink" href="#user-list-customization" title="Permalink to this headline">¶</a></h3>
+<p>By default, the ACL editor allows to set permissions for all users managed by
+<tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt>.</p>
+<p>To customize displayed user override
+<cite>SonataAdminBundleControllerCRUDController::getAclUsers()</cite>. This method must
+return an iterable collection of users.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">/**</span>
+<span class="x"> * {@InheritDoc}</span>
+<span class="x"> */</span>
+<span class="x">protected function getAclUsers()</span>
+<span class="x">{</span>
+<span class="x">    $userManager = $container-&gt;get(&#39;fos_user.user_manager&#39;);</span>
+
+<span class="x">    // Display only kevin and anne</span>
+<span class="x">    $users[] = $userManager-&gt;findUserByUsername(&#39;kevin&#39;);</span>
+<span class="x">    $users[] = $userManager-&gt;findUserByUsername(&#39;anne&#39;);</span>
+
+<span class="x">    return new \ArrayIterator($users);</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="role-list-customization">
+<h3>24.5.2. Role list customization<a class="headerlink" href="#role-list-customization" title="Permalink to this headline">¶</a></h3>
+<p>By default, the ACL editor allows to set permissions for all roles.</p>
+<p>To customize displayed role override
+<cite>SonataAdminBundleControllerCRUDController::getAclRoles()</cite>. This method must
+return an iterable collection of roles.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">/**</span>
+<span class="x"> * {@InheritDoc}</span>
+<span class="x"> */</span>
+<span class="x">protected function getAclRoles()</span>
+<span class="x">{</span>
+<span class="x">    // Display only ROLE_BAPTISTE and ROLE_HELENE</span>
+<span class="x">    $roles = array(&#39;ROLE_BAPTISTE&#39;, &#39;ROLE_HELENE&#39;);</span>
+
+<span class="x">    return new \ArrayIterator($roles);</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-user-manager">
+<h3>24.5.3. Custom user manager<a class="headerlink" href="#custom-user-manager" title="Permalink to this headline">¶</a></h3>
+<p>If your project does not use <cite>FOSUserBundle</cite>, you can globally configure another
+service to use when retrieving your users.</p>
+<ul class="simple">
+<li>Create a service with a method called <cite>findUsers()</cite> returning an iterable
+collection of users</li>
+<li>Update your admin configuration to reference your service name</li>
+</ul>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">acl_user_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_user_manager</span> <span class="c1"># The name of your service</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="extensions.html" class="btn btn-neutral float-right" title="25. Extensions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="translation.html" class="btn btn-neutral" title="23. Translation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

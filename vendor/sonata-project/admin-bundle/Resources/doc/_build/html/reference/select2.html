@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. Select2 &mdash; Sonata ~ AdminBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ AdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="8. KnpMenu" href="knp_menu.html"/>
+        <link rel="prev" title="6. Search" href="search.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ AdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#downloading-the-code">1.1. Downloading the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#selecting-and-downloading-a-storage-bundle">1.2. Selecting and downloading a storage bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enabling-sonataadminbundle-and-its-dependencies">1.3. Enabling SonataAdminBundle and its dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuring-sonataadminbundle-dependencies">1.4. Configuring SonataAdminBundle dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#cleaning-up">1.5. Cleaning up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting started with SonataAdminBundle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-1-define-sonataadminbundle-routes">2.1. Step 1: Define SonataAdminBundle routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-2-create-an-admin-class">2.2. Step 2: Create an Admin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-3-create-an-admin-service">2.3. Step 3: Create an Admin service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#step-4-configuration">2.4. Step 4: Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps-security">2.5. Next steps - Security</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration // Warning: this doc page is not up to date and will be removed soon.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration">3.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#full-configuration-options">3.2. Full Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">4. Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#the-admin-class">4.1. The Admin Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#crudcontroller">4.2. CRUDController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#fields-definition">4.3. Fields Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#templates">4.4. Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#managing-admin-service">4.5. Managing <tt class="docutils literal"><span class="pre">Admin</span></tt> Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#create-child-admins">4.6. Create child admins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">5. Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#blocks">5.1. Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#the-admin-list-block">5.2. The <tt class="docutils literal"><span class="pre">Admin</span></tt> list block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#configuring-the-admin-list">5.3. Configuring the <tt class="docutils literal"><span class="pre">Admin</span></tt> list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#adding-more-blocks">5.4. Adding more Blocks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">6. Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="search.html#customization">6.1. Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html#performance">6.2. Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">7. Select2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#disable-select2">7.1. Disable select2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disable-select2-on-some-form-elements">7.2. Disable select2 on some form elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#allowclear">7.3. AllowClear</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="knp_menu.html">8. KnpMenu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="knp_menu.html#add-a-custom-controller-entry-in-the-menu">8.1. Add a custom controller entry in the menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">9. Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#routing-definition">9.1. Routing Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#routing-usage">9.2. Routing usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#create-a-route">9.3. Create a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#removing-a-route">9.4. Removing a route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#persistent-parameters">9.5. Persistent parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html#changing-the-default-route-in-a-list-action">9.6. Changing the default route in a List Action</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_list.html">10. The List View</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#basic-configuration">10.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-fields-displayed-on-the-list-page">10.2. Customizing the fields displayed on the list page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-query-used-to-generate-the-list">10.3. Customizing the query used to generate the list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#customizing-the-sort-order">10.4. Customizing the sort order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_list.html#filters">10.5. Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_create_edit.html">11. Creating and Editing objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#basic-configuration">11.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#embedding-other-admins">11.2. Embedding other Admins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_create_edit.html#customizing-just-one-of-the-actions">11.3. Customizing just one of the actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html">12. The Show action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#basic-configuration">12.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action_show.html#customising-the-query-used-to-show-the-object-from-within-your-admin-class">12.2. Customising the query used to show the object from within your Admin class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_show.html#setting-up-a-custom-show-template-very-useful">13. Setting up a custom show template (very useful)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action_delete.html">14. Deleting objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_delete.html#basic-configuration">14.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action_export.html">15. The Export action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action_export.html#basic-configuration">15.1. Basic configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="saving_hooks.html">16. Saving hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="saving_hooks.html#example-used-with-the-fos-userbundle">16.1. Example used with the FOS/UserBundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_types.html">17. Form Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#admin-related-form-types">17.1. Admin related form types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_types.html#types-options">17.2. Types options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="form_help_message.html">18. Form Help Messages and Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#help-messages">18.1. Help Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_help_message.html#form-group-descriptions">18.2. Form Group Descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">19. Field Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="field_types.html#list-and-show-actions">19.1. List and Show Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conditional_validation.html">20. Inline Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditional_validation.html#troubleshooting">20.1. Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">21. Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#global-templates">21.1. Global Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#dashboard-template">21.2. Dashboard Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#crudcontroller-actions-templates">21.3. CRUDController Actions Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#row-templates">21.4. Row Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#other-templates">21.5. Other Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#configuring-templates">21.6. Configuring templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch_actions.html">22. Batch actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#defining-new-actions">22.1. Defining new actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-overriding-the-batch-selection-template">22.2. (Optional) Overriding the batch selection template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-overriding-the-default-relevancy-check-function">22.3. (Optional) Overriding the default relevancy check function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#optional-executing-a-pre-batch-hook">22.4. (Optional) Executing a pre batch hook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch_actions.html#define-the-core-action-logic">22.5. Define the core action logic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">23. Translation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#translate-field-labels">23.1. Translate field labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">24. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#user-management">24.1. User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#security-handlers">24.2. Security handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#role-handler">24.3. Role handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#acl-and-friendsofsymfony-userbundle">24.4. ACL and FriendsOfSymfony/UserBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#acl-editor">24.5. ACL editor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">25. Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#configuration">25.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">26. Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configureevent">26.1. ConfigureEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#persistenceevent">26.2. PersistenceEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#configurequeryevent">26.3. ConfigureQueryEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#blockevent">26.4. BlockEvent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">27. Advanced configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#service-configuration">27.1. Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#inherited-classes">27.2. Inherited classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#dropdowns-in-tab-menu">27.3. Dropdowns in Tab Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#disable-content-stretching">27.4. Disable content stretching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="console.html">28. Console/Command-Line Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="console.html#cache-create-cache-class">28.1. cache:create-cache-class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate">28.2. sonata:admin:generate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-list">28.3. sonata:admin:list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-explain">28.4. sonata:admin:explain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-setup-acl">28.5. sonata:admin:setup-acl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html#sonata-admin-generate-object-acl">28.6. sonata:admin:generate-object-acl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preview_mode.html">29. Preview Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preview_mode.html#simulating-front-end-rendering">29.1. Simulating front-end rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">30. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#the-tostring-method">30.1. The toString method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#large-filters-and-long-urls-problem">30.2. Large filters and long urls problem</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_file_uploads.html">1. Uploading and saving documents (including images) using DoctrineORM and SonataAdmin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#pre-requisites">1.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#the-recipe">1.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_file_uploads.html#notes">1.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_image_previews.html">2. Showing image previews</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#pre-requisites">2.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#the-recipe">2.2. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_image_previews.html#notes">2.3. Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_row_templates.html">3. Row templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_row_templates.html#the-recipe">3.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html">4. Sortable behavior in admin listing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#background">4.1. Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#pre-requisites">4.2. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#the-recipe">4.3. The recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_sortable_listing.html#further-work">4.4. Further work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_dynamic_form_modification.html">5. Modifying form fields dynamically depending on edited object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_custom_action.html">6. Creating a Custom Admin Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_custom_action.html#the-recipe">6.1. The recipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_customizing_a_mosaic_list.html">7. Customizing a mosaic list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_overwrite_admin_configuration.html">8. Overwrite Admin Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html">9. Improve performance of large datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_improve_performance_large_datasets.html#change-default-pager-to-simplepager">9.1. Change default Pager to SimplePager</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ AdminBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>7. Select2</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/select2.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="select2">
+<h1>7. Select2<a class="headerlink" href="#select2" title="Permalink to this headline">¶</a></h1>
+<p>The admin comes with <a class="reference external" href="http://ivaynberg.github.io/select2/">select2</a> integration
+since version 2.2.6. Select2 is a jQuery based replacement for select boxes.
+It supports searching, remote data sets, and infinite scrolling of results.</p>
+<p>The select2 is enabled on all <tt class="docutils literal"><span class="pre">select</span></tt> form elements by default.</p>
+<div class="section" id="disable-select2">
+<h2>7.1. Disable select2<a class="headerlink" href="#disable-select2" title="Permalink to this headline">¶</a></h2>
+<p>If you don&#8217;t want to use select2 in your admin, you can disable it in <tt class="docutils literal"><span class="pre">config.yml</span></tt>.</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">options</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">use_select2</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">false</span> <span class="c1"># disable select2</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you disable select2, autocomplete form types will stop working.</p>
+</div>
+</div>
+<div class="section" id="disable-select2-on-some-form-elements">
+<h2>7.2. Disable select2 on some form elements<a class="headerlink" href="#disable-select2-on-some-form-elements" title="Permalink to this headline">¶</a></h2>
+<p>To disable select2 on some <tt class="docutils literal"><span class="pre">select</span></tt> form element, set data attribute <tt class="docutils literal"><span class="pre">data-sonata-select2=&quot;false&quot;</span></tt> to this form element.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">-&gt;add(&#39;category&#39;, &#39;sonata_type_model&#39;,</span>
+<span class="x">    array(</span>
+<span class="x">        &#39;attr&#39;=&gt;array(&#39;data-sonata-select2&#39;=&gt;&#39;false&#39;)</span>
+<span class="x">    )</span>
+<span class="x">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="allowclear">
+<h2>7.3. AllowClear<a class="headerlink" href="#allowclear" title="Permalink to this headline">¶</a></h2>
+<p>Select2 parameter <tt class="docutils literal"><span class="pre">allowClear</span></tt> is handled automatically by admin. But if you want
+to overload the default functionality, you can set data attribute <tt class="docutils literal"><span class="pre">data-sonata-select2-allow-clear=&quot;true&quot;</span></tt>
+to enable <tt class="docutils literal"><span class="pre">allowClear</span></tt> or <tt class="docutils literal"><span class="pre">data-sonata-select2-allow-clear=&quot;false&quot;</span></tt> to disable the <tt class="docutils literal"><span class="pre">allowClear</span></tt> parameter.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">-&gt;add(&#39;category&#39;, &#39;sonata_type_model&#39;,</span>
+<span class="x">    array(</span>
+<span class="x">        &#39;attr&#39;=&gt;array(&#39;data-sonata-select2-allow-clear&#39;=&gt;&#39;false&#39;)</span>
+<span class="x">    )</span>
+<span class="x">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="knp_menu.html" class="btn btn-neutral float-right" title="8. KnpMenu"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="search.html" class="btn btn-neutral" title="6. Search"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
