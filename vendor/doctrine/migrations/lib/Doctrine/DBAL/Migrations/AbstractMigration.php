@@ -92,12 +92,13 @@ abstract class AbstractMigration
     }
 
     /**
-     * Get custom migration name
+     * Get migration description
      *
      * @return string
      */
-    public function getName()
+    public function getDescription()
     {
+        return '';
     }
 
     /**

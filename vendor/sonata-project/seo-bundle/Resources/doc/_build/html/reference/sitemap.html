@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Sitemap &mdash; Sonata ~ SeoBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ SeoBundle  documentation" href="../index.html"/>
+        <link rel="prev" title="5. Social blocks" href="social_blocks.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ SeoBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">1.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">2. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-the-page-title">2.1. Render the page title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-page-metadata">2.2. Render page metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-html-attributes">2.3. Render HTML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-head-attributes">2.4. Render head attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-canonical-link">2.5. Render canonical link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-alternates-languages">2.6. Render alternates languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-oembed-links-http-www-oembed-com">2.7. Render oEmbed links (http://www.oembed.com/)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="breadcrumb.html">4. Breadcrumb</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="breadcrumb.html#create-your-own-breadcrumb">4.1. Create your own breadcrumb</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="social_blocks.html">5. Social blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="social_blocks.html#twitter-embed-tweet">5.1. Twitter Embed Tweet</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">6. Sitemap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#service-definition">6.1. Service Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raw-performance-with-query">6.2. Raw Performance with Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-example">6.3. Configuration example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">6.4. Usage</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ SeoBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>6. Sitemap</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/sitemap.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="sitemap">
+<h1>6. Sitemap<a class="headerlink" href="#sitemap" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">SonataSeoBundle</span></tt> provides a support for static sitemap generation. You can either create services or provide raw SQL queries.</p>
+<div class="section" id="service-definition">
+<h2>6.1. Service Definition<a class="headerlink" href="#service-definition" title="Permalink to this headline">¶</a></h2>
+<p>The service must implement the <tt class="docutils literal"><span class="pre">SourceIteratorInterface</span></tt> from the <tt class="docutils literal"><span class="pre">sonata-project/exporter</span></tt> library. The iterator will be used to generate the file. The iterator must not store all data as property to avoid memory issue. Data must be fetch one by one using a buffered connection (from mysql and not php which is not default behavior).</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">class MyCustomSitemapIterator implements SourceIteratorInterface</span>
+<span class="x">{</span>
+<span class="x">    protected $key;</span>
+
+<span class="x">    protected $stop;</span>
+
+<span class="x">    protected $current;</span>
+
+<span class="x">    public function __construct($stop = 1000)</span>
+<span class="x">    {</span>
+<span class="x">        $this-&gt;stop = $stop;</span>
+<span class="x">    }</span>
+
+<span class="x">    public function current()</span>
+<span class="x">    {</span>
+<span class="x">        return $this-&gt;current;</span>
+<span class="x">    }</span>
+
+<span class="x">    public function next()</span>
+<span class="x">    {</span>
+<span class="x">        $this-&gt;key++;</span>
+<span class="x">        $this-&gt;current = array(</span>
+<span class="x">            &#39;permalink&#39;  =&gt; &#39;/the/path/to/target&#39;,</span>
+<span class="x">            &#39;lastmod&#39;    =&gt; &#39;&#39;,</span>
+<span class="x">            &#39;changefreq&#39; =&gt; &#39;weekly&#39;,</span>
+<span class="x">            &#39;priority&#39;   =&gt; 0.5</span>
+<span class="x">        )</span>
+<span class="x">    }</span>
+
+<span class="x">    public function key()</span>
+<span class="x">    {</span>
+<span class="x">        return $this-&gt;key;</span>
+<span class="x">    }</span>
+
+<span class="x">    public function valid()</span>
+<span class="x">    {</span>
+<span class="x">        return $this-&gt;key &lt; $this-&gt;stop;</span>
+<span class="x">    }</span>
+
+<span class="x">    public function rewind()</span>
+<span class="x">    {</span>
+<span class="x">        $this-&gt;key = 0;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="raw-performance-with-query">
+<h2>6.2. Raw Performance with Query<a class="headerlink" href="#raw-performance-with-query" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>You will need to configure:</dt>
+<dd><ul class="first last simple">
+<li>a Doctrine connection</li>
+<li>a route</li>
+<li>default parameters used by the route</li>
+<li>the query which must contains all informations required by a sitemap: lastmod, changefreq and priority</li>
+</ul>
+</dd>
+</dl>
+<p>The url is generated by using <tt class="docutils literal"><span class="pre">route</span></tt> and <tt class="docutils literal"><span class="pre">parameters</span></tt> settings.</p>
+<p>For performance reasons and memory usage there is no model hydrated while generating the sitemap. So if the sitemap requires
+specific rules, they must be expressed in the <tt class="docutils literal"><span class="pre">WHERE</span></tt> condition. The query must select fields to be used in the route.</p>
+<p>The following code is an extract of the query required to generate a valid sitemap for the <tt class="docutils literal"><span class="pre">SonataNewsBundle</span></tt></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span>
+    <span class="n">CONCAT_WS</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">created_at</span><span class="p">),</span> <span class="k">MONTH</span><span class="p">(</span><span class="n">created_at</span><span class="p">),</span> <span class="k">DAY</span><span class="p">(</span><span class="n">created_at</span><span class="p">),</span> <span class="n">slug</span><span class="p">)</span> <span class="k">as</span> <span class="n">permalink</span> <span class="p">,</span>
+    <span class="n">updated_at</span> <span class="k">as</span> <span class="n">lastmod</span><span class="p">,</span>
+    <span class="s1">&#39;weekly&#39;</span> <span class="k">as</span> <span class="n">changefreq</span><span class="p">,</span>
+    <span class="s1">&#39;0.5&#39;</span> <span class="k">as</span> <span class="n">priority</span>
+<span class="k">FROM</span> <span class="n">news__post</span>
+<span class="k">WHERE</span>
+        <span class="n">enabled</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">AND</span> <span class="p">(</span><span class="n">publication_date_start</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">OR</span> <span class="n">publication_date_start</span> <span class="o">&lt;=</span> <span class="n">NOW</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Please note: the <tt class="docutils literal"><span class="pre">changefreq</span></tt> and the <tt class="docutils literal"><span class="pre">priority</span></tt> fields are optional.</p>
+</div>
+<div class="section" id="configuration-example">
+<h2>6.3. Configuration example<a class="headerlink" href="#configuration-example" title="Permalink to this headline">¶</a></h2>
+<p>Sitemap configuration obviously depends on the bundle, page types &amp; custom routes you choose to expose.
+Here is a full example coming from the [Sonata Sandbox demo website](<a class="reference external" href="https://github.com/sonata-project/sandbox">https://github.com/sonata-project/sandbox</a>)</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">app.my_custom_sitemap_service</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MyCustomSitemapIterator</span>
+
+<span class="l-Scalar-Plain">sonata_seo</span><span class="p-Indicator">:</span>
+    <span class="c1"># ...</span>
+    <span class="l-Scalar-Plain">sitemap</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">app.my_custom_sitemap_service</span>
+
+        <span class="l-Scalar-Plain">doctrine_orm</span><span class="p-Indicator">:</span>
+            <span class="c1"># media</span>
+            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">image</span><span class="p-Indicator">],</span> <span class="nv">connection</span><span class="p-Indicator">:</span> <span class="nv">doctrine.dbal.default_connection</span><span class="p-Indicator">,</span> <span class="nv">route</span><span class="p-Indicator">:</span> <span class="nv">sonata_media_view</span><span class="p-Indicator">,</span>       <span class="nv">parameters</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span><span class="nv">id</span><span class="p-Indicator">:</span> <span class="nv">null</span><span class="p-Indicator">},</span>                               <span class="nv">query</span><span class="p-Indicator">:</span> <span class="s">&quot;SELECT</span><span class="nv"> </span><span class="s">id,</span><span class="nv"> </span><span class="s">updated_at</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">lastmod,</span><span class="nv"> </span><span class="s">&#39;weekly&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">changefreq,</span><span class="nv"> </span><span class="s">&#39;0.5&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">priority</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">media__media</span><span class="nv"> </span><span class="s">WHERE</span><span class="nv"> </span><span class="s">enabled</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">true&quot;</span> <span class="p-Indicator">}</span>
+            <span class="c1"># blog post</span>
+            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">group</span><span class="p-Indicator">:</span> <span class="s">&quot;news&quot;</span><span class="p-Indicator">,</span>  <span class="nv">connection</span><span class="p-Indicator">:</span> <span class="nv">doctrine.dbal.default_connection</span><span class="p-Indicator">,</span> <span class="nv">route</span><span class="p-Indicator">:</span> <span class="nv">sonata_news_view</span><span class="p-Indicator">,</span>        <span class="nv">parameters</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span><span class="nv">permalink</span><span class="p-Indicator">:</span> <span class="nv">null</span><span class="p-Indicator">},</span>                        <span class="nv">query</span><span class="p-Indicator">:</span> <span class="s">&quot;SELECT</span><span class="nv"> </span><span class="s">CONCAT_WS(&#39;/&#39;,</span><span class="nv"> </span><span class="s">YEAR(created_at),</span><span class="nv"> </span><span class="s">MONTH(created_at),</span><span class="nv"> </span><span class="s">DAY(created_at),</span><span class="nv"> </span><span class="s">slug)</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">permalink</span><span class="nv"> </span><span class="s">,</span><span class="nv"> </span><span class="s">updated_at</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">lastmod,</span><span class="nv"> </span><span class="s">&#39;weekly&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">changefreq,</span><span class="nv"> </span><span class="s">&#39;0.5&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">priority</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">news__post</span><span class="nv"> </span><span class="s">WHERE</span><span class="nv"> </span><span class="s">enabled</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">(publication_date_start</span><span class="nv"> </span><span class="s">IS</span><span class="nv"> </span><span class="s">NULL</span><span class="nv"> </span><span class="s">OR</span><span class="nv"> </span><span class="s">publication_date_start</span><span class="nv"> </span><span class="s">&lt;=</span><span class="nv"> </span><span class="s">NOW())&quot;</span> <span class="p-Indicator">}</span>
+            <span class="c1"># page - works only for one site, please adapt the code if required</span>
+            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span>                 <span class="nv">connection</span><span class="p-Indicator">:</span> <span class="nv">doctrine.dbal.default_connection</span><span class="p-Indicator">,</span> <span class="nv">route</span><span class="p-Indicator">:</span> <span class="nv">page_slug</span><span class="p-Indicator">,</span>               <span class="nv">parameters</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span><span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">null</span><span class="p-Indicator">},</span>                             <span class="nv">query</span><span class="p-Indicator">:</span> <span class="s">&quot;SELECT</span><span class="nv"> </span><span class="s">url</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">path,</span><span class="nv"> </span><span class="s">updated_at</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">lastmod,</span><span class="nv"> </span><span class="s">&#39;weekly&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">changefreq,</span><span class="nv"> </span><span class="s">&#39;0.5&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">priority</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">page__snapshot</span><span class="nv"> </span><span class="s">WHERE</span><span class="nv"> </span><span class="s">route_name</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">&#39;page_slug&#39;</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">enabled</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">(publication_date_start</span><span class="nv"> </span><span class="s">IS</span><span class="nv"> </span><span class="s">NULL</span><span class="nv"> </span><span class="s">OR</span><span class="nv"> </span><span class="s">publication_date_start</span><span class="nv"> </span><span class="s">&lt;=</span><span class="nv"> </span><span class="s">NOW())&quot;</span> <span class="p-Indicator">}</span>
+            <span class="c1"># product categories</span>
+            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span>                 <span class="nv">connection</span><span class="p-Indicator">:</span> <span class="nv">doctrine.dbal.default_connection</span><span class="p-Indicator">,</span> <span class="nv">route</span><span class="p-Indicator">:</span> <span class="nv">sonata_catalog_category</span><span class="p-Indicator">,</span> <span class="nv">parameters</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span><span class="nv">category_id</span><span class="p-Indicator">:</span> <span class="nv">null</span><span class="p-Indicator">,</span> <span class="nv">category_slug</span><span class="p-Indicator">:</span> <span class="nv">null</span><span class="p-Indicator">},</span> <span class="nv">query</span><span class="p-Indicator">:</span> <span class="s">&quot;SELECT</span><span class="nv"> </span><span class="s">id</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">category_id,</span><span class="nv"> </span><span class="s">slug</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">category_slug,</span><span class="nv"> </span><span class="s">updated_at</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">lastmod,</span><span class="nv"> </span><span class="s">&#39;weekly&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">changefreq,</span><span class="nv"> </span><span class="s">&#39;0.5&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">priority</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">classification__category</span><span class="nv"> </span><span class="s">WHERE</span><span class="nv"> </span><span class="s">enabled</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">true&quot;</span> <span class="p-Indicator">}</span>
+            <span class="c1"># products</span>
+            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span>                 <span class="nv">connection</span><span class="p-Indicator">:</span> <span class="nv">doctrine.dbal.default_connection</span><span class="p-Indicator">,</span> <span class="nv">route</span><span class="p-Indicator">:</span> <span class="nv">sonata_product_view</span><span class="p-Indicator">,</span>     <span class="nv">parameters</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span><span class="nv">productId</span><span class="p-Indicator">:</span> <span class="nv">null</span><span class="p-Indicator">,</span> <span class="nv">slug</span><span class="p-Indicator">:</span> <span class="nv">null</span><span class="p-Indicator">},</span>            <span class="nv">query</span><span class="p-Indicator">:</span> <span class="s">&quot;SELECT</span><span class="nv"> </span><span class="s">id</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">productId,</span><span class="nv"> </span><span class="s">slug,</span><span class="nv"> </span><span class="s">updated_at</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">lastmod,</span><span class="nv"> </span><span class="s">&#39;weekly&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">changefreq,</span><span class="nv"> </span><span class="s">&#39;0.5&#39;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">priority</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">product__product</span><span class="nv"> </span><span class="s">WHERE</span><span class="nv"> </span><span class="s">enabled</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">true&quot;</span> <span class="p-Indicator">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>6.4. Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Generate the sitemap:</p>
+<div class="highlight-python"><div class="highlight"><pre>php app/console sonata:seo:sitemap web sonata-project.org
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The command will generate all files in a temporary folder to avoid issue will files are indexed. Once the files are generated then the files will be copied to the <tt class="docutils literal"><span class="pre">web</span></tt> folder. The <tt class="docutils literal"><span class="pre">sonata-project.org</span></tt> argument will be used to prefix url with the provided domain.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="social_blocks.html" class="btn btn-neutral" title="5. Social blocks"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

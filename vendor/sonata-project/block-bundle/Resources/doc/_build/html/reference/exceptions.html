@@ -73,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="your_first_block.html">4. Your first block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#first-namespaces">4.1. First namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#default-settings">4.2. Default settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-editing">4.3. Form Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#execute">4.4. Execute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#template">4.5. Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#service">4.6. Service</a></li>
@@ -156,20 +156,16 @@ A default strategy can be defined for all block types but a specific strategy ca
 <h2>6.1. Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <p>The role of an <cite>exception filter</cite> is to define which exceptions should be handled and which should be ignored silently. There are currently 4 filters available:</p>
 <ul class="simple">
-<li><cite>Debug only</cite>: only handle exceptions when in debug mode (default),</li>
-<li><cite>Ignore block exception</cite>: only handle exceptions that don&#8217;t implement <tt class="docutils literal"><span class="pre">BlockExceptionInterface</span></tt>,</li>
-<li><cite>Keep all</cite>: handle all exceptions,</li>
-<li><cite>Keep none</cite>: ignore all exceptions.</li>
+<li><tt class="docutils literal"><span class="pre">debug_only</span></tt>: only handle exceptions when in debug mode (default),</li>
+<li><tt class="docutils literal"><span class="pre">ignore_block_exception</span></tt>: only handle exceptions that don&#8217;t implement <tt class="docutils literal"><span class="pre">BlockExceptionInterface</span></tt>,</li>
+<li><tt class="docutils literal"><span class="pre">keep_all</span></tt>: handle all exceptions,</li>
+<li><tt class="docutils literal"><span class="pre">keep__none</span></tt>: ignore all exceptions.</li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><cite>Debug only</cite> is the <cite>default</cite> filter.</p>
-</div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Use the last filter <tt class="docutils literal"><span class="pre">Keep</span> <span class="pre">none</span></tt> with care!</p>
+<p class="last">Use the <tt class="docutils literal"><span class="pre">keep__none</span></tt> filter with care!</p>
 </div>
-<p>These filters may be modified or completed with others filters in the configuration file:</p>
+<p>These filters may be modified or combined with other filters in the configuration file:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
 
 <span class="l-Scalar-Plain">sonata_block</span><span class="p-Indicator">:</span>
@@ -197,9 +193,9 @@ A default strategy can be defined for all block types but a specific strategy ca
 <h2>6.2. Renderers<a class="headerlink" href="#renderers" title="Permalink to this headline">¶</a></h2>
 <p>The role of an <cite>exception renderer</cite> is to define what to do with the exceptions that have passed the filter. There are currently 3 kind of renderer available:</p>
 <ul class="simple">
-<li><cite>inline</cite>: renders a <cite>Twig</cite> template within the rendering workflow with minimal information regarding the exception,</li>
-<li><cite>inline_debug</cite>: renders a twig template with the full debug exception information from Symfony,</li>
-<li><cite>throw</cite>: throws the exception to let the framework handle the exception.</li>
+<li><tt class="docutils literal"><span class="pre">inline</span></tt>: renders a <cite>Twig</cite> template within the rendering workflow with minimal information regarding the exception,</li>
+<li><tt class="docutils literal"><span class="pre">inline_debug</span></tt>: renders a twig template with the full debug exception information from Symfony,</li>
+<li><tt class="docutils literal"><span class="pre">throw</span></tt>: throws the exception to let the framework handle the exception.</li>
 </ul>
 <p>These filters may be modified or completed with other filters in the configuration file:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="c1">#config.yml</span>
@@ -213,7 +209,7 @@ A default strategy can be defined for all block types but a specific strategy ca
             <span class="l-Scalar-Plain">throw</span><span class="p-Indicator">:</span>                  <span class="l-Scalar-Plain">sonata.block.exception.renderer.throw</span>
 </pre></div>
 </div>
-<p>A <cite>default renderer</cite> may be configured to apply, by default, to all block types. If you wish to customize a renderer on a particular block type, you may also add the following option in the configuration file:</p>
+<p>A <cite>default renderer</cite> will be applied to all block types. If you wish to use a different renderer on a particular block type, you should add the following option in the configuration file:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
 
 <span class="l-Scalar-Plain">sonata_block</span><span class="p-Indicator">:</span>

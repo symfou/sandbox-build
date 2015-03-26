@@ -73,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="your_first_block.html">4. Your first block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#first-namespaces">4.1. First namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#default-settings">4.2. Default settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-editing">4.3. Form Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#execute">4.4. Execute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#template">4.5. Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#service">4.6. Service</a></li>
@@ -149,6 +149,7 @@
             
   <div class="section" id="twig-helpers">
 <span id="index-0"></span><h1>2. Twig Helpers<a class="headerlink" href="#twig-helpers" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><span class="pre">SonataBlockBundle</span></tt> provides several Twig helper functions to allow easier interaction with blocks:</p>
 <p>Render a block from its instance:</p>
 <div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_block_render</span><span class="o">(</span><span class="nb">block</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
@@ -156,7 +157,7 @@
 <p>Render a block  by providing the block&#8217;s type and options:</p>
 <div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_block_render</span><span class="o">({</span> <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="s1">&#39;sonata.block.service.rss&#39;</span> <span class="o">},</span> <span class="o">{</span>
     <span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;Sonata Project\&#39;s Feeds&#39;</span><span class="o">,</span>
-    <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;http://sonata-project.org/blog/archive.rss&#39;</span>
+    <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;https://sonata-project.org/blog/archive.rss&#39;</span>
 <span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
@@ -177,7 +178,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Review the <cite>Events</cite> section for more information: <a class="reference internal" href="events.html"><em>Events</em></a></p>
 </div>
-<p>Render a block related to javascripts and stylesheets for the current page implies the helpers to be called at the end of the page:</p>
+<p>Rendering a block related to javascripts and stylesheets for the current page implies the helpers to be called at the end of the page:</p>
 <div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_block_include_stylesheets</span><span class="o">(</span><span class="s1">&#39;screen&#39;</span><span class="o">,</span> <span class="nv">app.request.basePath</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="nv">sonata_block_include_javascripts</span><span class="o">(</span><span class="s1">&#39;screen&#39;</span><span class="o">,</span> <span class="nv">app.request.basePath</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>

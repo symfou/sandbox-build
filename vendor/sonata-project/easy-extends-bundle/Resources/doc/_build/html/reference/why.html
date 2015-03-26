@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Make your Symfony2 bundle extendable &mdash; Sonata ~ AdminBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ AdminBundle  documentation" href="../index.html"/>
+        <link rel="prev" title="2. Installation" href="installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ AdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3. Make your Symfony2 bundle extendable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lets-have-a-quick-symfony2-and-doctrine-tour">3.1. Let’s have a quick Symfony2 and Doctrine tour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lets-start-to-mix-these-points-together">3.2. Let’s start to mix these points together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-this-problem-be-solved-with-the-alternate-syntax">3.3. Can this problem be solved with the Alternate syntax?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-pragmatic-way-to-solve-this-issue">3.4. A pragmatic way to solve this issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-make-your-bundle-easy-extendable">3.5. How to make your bundle easy extendable?</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ AdminBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>3. Make your Symfony2 bundle extendable</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/why.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="make-your-symfony2-bundle-extendable">
+<span id="index-0"></span><h1>3. Make your Symfony2 bundle extendable<a class="headerlink" href="#make-your-symfony2-bundle-extendable" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This post is not part of the Symfony2 documentation; it is just a state about how things work now (end of 2010)
+between Doctrine2 and Symfony2. It is not a complaint about the architecture, it just exposes how I solve a
+recurrent problem I have.</p>
+</div>
+<div class="section" id="lets-have-a-quick-symfony2-and-doctrine-tour">
+<h2>3.1. Let’s have a quick Symfony2 and Doctrine tour<a class="headerlink" href="#lets-have-a-quick-symfony2-and-doctrine-tour" title="Permalink to this headline">¶</a></h2>
+<p>A quick Doctrine tour:</p>
+<ul class="simple">
+<li><cite>Doctrine2</cite> entities are plain PHP objects; there is no database layer information. An <tt class="docutils literal"><span class="pre">Comment::post_id</span></tt> property is part of the database layer and not part of the domain layer. So a <tt class="docutils literal"><span class="pre">comment</span></tt> entity will have a <tt class="docutils literal"><span class="pre">post</span></tt> property and not a <tt class="docutils literal"><span class="pre">post_id</span></tt> property.</li>
+<li><cite>Doctrine2</cite> entities are mapped through mapping information: <cite>yaml</cite>, <cite>xml</cite>, <cite>annotation</cite> or php code. There is one mapping per class, so if <cite>Blog</cite> extends <cite>SuperBlog</cite>, which extends <cite>SuperEntity</cite>, you will have 3 classes and so 3 information mappings and you will be able to use 3 different tables to save these entities,</li>
+<li>A mapped entity is final (from Doctrine2 point of view), it cannot be extended unless you create a new mapping definition for the new child class,</li>
+<li>Each entity is linked to a <cite>ClassMetadata</cite> information which contains all the mapping information and the final class name,</li>
+<li>An entity can extend a <cite>SuperClass</cite>. A <cite>SuperClass</cite> is just a mapping definition, a <cite>SuperClass</cite> cannot be persisted.</li>
+</ul>
+<p>A quick <cite>Symfony2</cite> bundle tour:</p>
+<ul>
+<li><p class="first">There are two types of bundles:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Application Bundle (AB),</li>
+<li>Vendor Bundle (VB), that should not be modified inside a project.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">The AB directory is where developers implement the project requirements,</p>
+</li>
+<li><p class="first">An AB can overwrite almost everything from a VB, example: you can redefine a VB template at the AB level.</p>
+</li>
+</ul>
+<p>A namespace tour:</p>
+<ul class="simple">
+<li>“a namespace is an abstract container providing context for the items” (<a class="reference external" href="http://en.wikipedia.org/wiki/Namespace">Source</a>),</li>
+<li>An entity is defined by a namespace,</li>
+<li>A bundle is defined by a namespace,</li>
+<li>A VB and AB are defined with two different namespaces.</li>
+</ul>
+</div>
+<div class="section" id="lets-start-to-mix-these-points-together">
+<h2>3.2. Let’s start to mix these points together<a class="headerlink" href="#lets-start-to-mix-these-points-together" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If an AB bundle A wants to use an entity from a VB bundle B, the fully qualify namespace must be used,</li>
+<li>If a developer wants to add a new property into a VB entity, the developer needs to create a new child entity with a custom mapping.</li>
+</ul>
+<p>At this point, you have 2 entities with 2 different namespaces. The VB bundle’s code refers to its own namespace to
+instantiate the model, BUT ... how ... you just create a new entity. Your VB will be unable to use this new model ... too bad.</p>
+</div>
+<div class="section" id="can-this-problem-be-solved-with-the-alternate-syntax">
+<h2>3.3. Can this problem be solved with the Alternate syntax?<a class="headerlink" href="#can-this-problem-be-solved-with-the-alternate-syntax" title="Permalink to this headline">¶</a></h2>
+<p>There is actually a start of a solution, the <tt class="docutils literal"><span class="pre">DoctrineBundle</span></tt> allows us to use an alternate syntax, ie (<tt class="docutils literal"><span class="pre">BlogBundle:Blog</span></tt> instead of <tt class="docutils literal"><span class="pre">Bundle\BlogBundle\Entity\Blog</span></tt>).
+As you can guess this syntax only works for string, inside a query for instance.</p>
+<p>So if you want to instantiate a new model, you need first to get the <cite>ClassMetadata</cite> instance, retrieve the class
+name and create the model. It’s not really nice and creates a dependency to the class metadata.</p>
+<p>Last issue, the entity’s mapping association required fully qualifies namespace: no alternate syntax. (I suppose,
+this last point can be fixed).</p>
+<p>At this point, we are stuck with no solution to fully extend a bundle. (Don’t take this for granted; this might
+change in a near future, as Symfony2 is not complete yet)</p>
+</div>
+<div class="section" id="a-pragmatic-way-to-solve-this-issue">
+<h2>3.4. A pragmatic way to solve this issue<a class="headerlink" href="#a-pragmatic-way-to-solve-this-issue" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to solve this problem is to use global namespace inside your VB, the global namespace is the only
+namespace allowed  <tt class="docutils literal"><span class="pre">Application\YourBundle\Entity</span></tt>.</p>
+<p>So, inside your mapping definition or inside your VB code, you will use one final namespace: <tt class="docutils literal"><span class="pre">problem</span> <span class="pre">solved</span></tt>.
+How to achieve this:</p>
+<ul class="simple">
+<li>Declare only SuperClass inside a VB, don’t use final entity,</li>
+<li>Call your entity <tt class="docutils literal"><span class="pre">BaseXXXX</span></tt> and make it abstract, change the properties from private to protected,</li>
+<li>The same goes for a repository,</li>
+<li>Always use <tt class="docutils literal"><span class="pre">Application\YourBundle\Entity\XXXX</span></tt> inside your code.</li>
+</ul>
+<p>Of course, you need to create for each VB bundle:</p>
+<ul class="simple">
+<li>a valid structure inside the Application directory,</li>
+<li>a valid entity mapping definition,</li>
+<li>a model inside the entity folder.</li>
+</ul>
+<p>The last part is quite inefficient without an efficient tool to generate for you this structure: <tt class="docutils literal"><span class="pre">EasyExtendsBundle</span></tt> to the rescue.</p>
+</div>
+<div class="section" id="how-to-make-your-bundle-easy-extendable">
+<h2>3.5. How to make your bundle easy extendable?<a class="headerlink" href="#how-to-make-your-bundle-easy-extendable" title="Permalink to this headline">¶</a></h2>
+<p>Mainly all you need is to follow instructions in previous paragraph:</p>
+<ul class="simple">
+<li>Declare you entity/repository as described above,</li>
+<li>Use your entity/repository as described above,</li>
+<li>Before generation you also need &#8220;skeleton&#8221; file that will describe AB entity. Skeleton file can either <cite>xml</cite> or <cite>yml</cite>. For fully working example see <tt class="docutils literal"><span class="pre">SonataMediaBundle</span></tt>.</li>
+</ul>
+<p>At last you can run:</p>
+<div class="highlight-bash"><div class="highlight"><pre>php app/console sonata:easy-extends:generate YourVBBundleName
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that the <cite>&#8211;dest</cite> option allows you to choose the target directory, such as <cite>src</cite>. Default destination is <cite>app/</cite>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="2. Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

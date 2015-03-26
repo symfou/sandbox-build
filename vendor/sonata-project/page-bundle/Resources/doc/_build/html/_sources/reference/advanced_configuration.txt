@@ -6,7 +6,7 @@ Full configuration options (config.yml file):
 .. code-block:: yaml
 
     #
-    # more information can be found here http://sonata-project.org/bundles/page
+    # more information can be found here https://sonata-project.org/bundles/page
     #
     symfony_cmf_routing_extra:
         chain:
@@ -24,6 +24,8 @@ Full configuration options (config.yml file):
             - ^(.*)admin(.*)   # ignore admin route, ie route containing 'admin'
             - ^_(.*)           # ignore symfony routes
 
+        # Generates a snapshot when a page is saved (from the admin)
+        direct_publication: false # or %kernel.debug% if you want to publish in dev mode (but not in prod)
         ignore_routes:
             - sonata_page_cache_esi
             - sonata_page_cache_ssi
@@ -53,13 +55,12 @@ Full configuration options (config.yml file):
             stylesheets:
                 # Defaults:
                 - bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css
-                - bundles/sonatapage/default.css
-                - bundles/sonatapage/page.css
+                - bundles/sonatapage/sonata-page.front.min.css
             javascripts:
                 # Defaults:
                 - bundles/sonataadmin/vendor/jquery/dist/jquery.min.js
                 - bundles/sonataadmin/vendor/bootstrap/dist/js/bootstrap.min.js
-                - bundles/sonatapage/page.js
+                - bundles/sonatapage/sonata-page.front.min.js
 
         page_defaults:
             homepage: {decorate: false}

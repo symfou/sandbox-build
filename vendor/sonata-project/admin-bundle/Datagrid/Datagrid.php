@@ -138,6 +138,7 @@ class Datagrid implements DatagridInterface
                 $maxPerPage = $this->values['_per_page'];
             }
         }
+
         $this->pager->setMaxPerPage($maxPerPage);
 
         $page = 1;

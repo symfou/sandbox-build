@@ -82,10 +82,6 @@
                 <source>filter.label_name</source>
                 <target>Name</target>
             </trans-unit>
-            <trans-unit id="form.label_category">
-                <source>form.label_category</source>
-                <target>form.label_category</target>
-            </trans-unit>
             <trans-unit id="filter.label_provider_reference">
                 <source>filter.label_provider_reference</source>
                 <target>Medienanbieter Referenz</target>
@@ -376,11 +372,11 @@
             </trans-unit>
             <trans-unit id="list.label_description">
                 <source>list.label_description</source>
-                <target>list.label_description</target>
+                <target>Beschreibung</target>
             </trans-unit>
             <trans-unit id="list.label_size">
                 <source>list.label_size</source>
-                <target>list.label_size</target>
+                <target>Größe</target>
             </trans-unit>
             <trans-unit id="warning_no_category">
                 <source>warning_no_category</source>

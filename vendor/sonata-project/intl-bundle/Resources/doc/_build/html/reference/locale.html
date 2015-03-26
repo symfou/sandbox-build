@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Locale Helper &mdash; Sonata ~ IntlBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ IntlBundle  documentation" href="../index.html"/>
+        <link rel="next" title="4. Datetime Helper" href="datetime.html"/>
+        <link rel="prev" title="2. Configuration" href="configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ IntlBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#user-timezone-detector">2.1. User timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#locale-timezone-detector">2.2. Locale timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configure-timezone-detectors">2.3. Configure timezone detectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#default-timezone">2.4. Default timezone</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3. Locale Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#detection">3.1. Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#twig-usage">3.2. Twig usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datetime.html">4. Datetime Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#twig-usage">4.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#php-usage">4.2. PHP usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="number.html">5. Number Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="number.html#twig-usage">5.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html#php-usage">5.2. PHP usage</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/create_custom_timezone_detector.html">1. Add a custom timezone detector</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ IntlBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>3. Locale Helper</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/locale.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="locale-helper">
+<h1>3. Locale Helper<a class="headerlink" href="#locale-helper" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>The locale helper provides functions to display:</dt>
+<dd><ul class="first last simple">
+<li>country name from the ISO code</li>
+<li>language name from the ISO code</li>
+<li>locale name from the ISO code</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="detection">
+<h2>3.1. Detection<a class="headerlink" href="#detection" title="Permalink to this headline">¶</a></h2>
+<p>The SonataIntlBundle provides a service to automatically detect the user&#8217;s locale.
+<tt class="docutils literal"><span class="pre">sonata.intl.locale_detector</span></tt> will be session-based if you&#8217;re using Symfony &lt; 2.1.x ; request-based otherwise.</p>
+<p>You&#8217;ll need to handle the locale setting however (in request or session, depending on your Symfony version).</p>
+</div>
+<div class="section" id="twig-usage">
+<h2>3.2. Twig usage<a class="headerlink" href="#twig-usage" title="Permalink to this headline">¶</a></h2>
+<p>By default, if the second argument is not set then the current locale value is
+retrieved by using the request instance.</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="s1">&#39;FR&#39;</span> <span class="o">|</span> <span class="nf">country</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; France (if the current locale in session is &#39;fr&#39;) #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="s1">&#39;FR&#39;</span> <span class="o">|</span> <span class="nf">country</span><span class="o">(</span><span class="s1">&#39;de&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; Frankreich (force the locale) #}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="s1">&#39;fr&#39;</span> <span class="o">|</span> <span class="nf">language</span> <span class="cp">}}</span><span class="x"> =&gt; </span><span class="c">{# français (if the current locale in session is &#39;fr&#39;) #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="s1">&#39;fr&#39;</span> <span class="o">|</span> <span class="nf">language</span><span class="o">(</span><span class="s1">&#39;en&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; French (force the locale) #}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="s1">&#39;fr&#39;</span> <span class="o">|</span> <span class="nf">locale</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; français (if the current locale in session is &#39;fr&#39;) #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="s1">&#39;fr&#39;</span> <span class="o">|</span> <span class="nf">locale</span><span class="o">(</span><span class="s1">&#39;en&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; French (force the locale) #}</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="datetime.html" class="btn btn-neutral float-right" title="4. Datetime Helper"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuration.html" class="btn btn-neutral" title="2. Configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

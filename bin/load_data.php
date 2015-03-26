@@ -61,7 +61,7 @@ function execute_commands($commands, $output)
                $output->write($data, false, OutputInterface::OUTPUT_RAW);
             }
 
-            $output->writeln("You the error is coming from the sandbox,");
+            $output->writeln("If the error is coming from the sandbox,");
             $output->writeln("please report the issue to https://github.com/sonata-project/sandbox/issues");
             return false;
         }
@@ -80,9 +80,9 @@ if (defined('PHP_BINARY')) {
 }
 
 $output->writeln(<<<SONATA
-                                        __
-               _________   ____  ____ _/ /______
-              / ___/ __ \ / __ \/ __ / __/ __  /
+                                       __
+               _________  ____  _____ / /______
+              / ___/ __ \/ __ \/ __  / __/ __  /
              (__  ) /_/ / / / / /_/ / /_/ /_/ /
             /____/\____/_/ /_/\__,_/\__/\__,_/
 

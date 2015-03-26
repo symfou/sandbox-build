@@ -73,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="your_first_block.html">4. Your first block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#first-namespaces">4.1. First namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#default-settings">4.2. Default settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-editing">4.3. Form Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#execute">4.4. Execute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#template">4.5. Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#service">4.6. Service</a></li>
@@ -152,42 +152,43 @@
 <p>This happens when a block is rendered:</p>
 <ul class="simple">
 <li>A block is loaded based on the configuration passed to <tt class="docutils literal"><span class="pre">sonata_block_render</span></tt>,</li>
-<li>If caching is configured, the cache is checked and content is returned if found,</li>
-<li>Each block model also has a block service, the execute method of it is called:<ul>
-<li>You can put here logic like in a controller,</li>
-<li>It calls a template,</li>
-<li>The result is a <cite>Response</cite> object.</li>
+<li>If caching is configured, the cache is checked</li>
+<li>If cache exists and has content, the content is returned</li>
+<li>Each block model also has a block service, and its <tt class="docutils literal"><span class="pre">execute</span></tt> method is caled:<ul>
+<li>You can logic into block service&#8217;s <tt class="docutils literal"><span class="pre">execute</span></tt> method, like in a controller,</li>
+<li>It renders a template,</li>
+<li>It returns a <cite>Response</cite> object.</li>
 </ul>
 </li>
 </ul>
 <div class="section" id="cache">
 <h2>7.1. Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">SonataBlockBundle</span></tt> integrated with the <a class="reference external" href="https://github.com/sonata-project/SonataCacheBundle">SonataCacheBundle</a> provides several caching solutions.
-Have a look at the available adapters in the <tt class="docutils literal"><span class="pre">SonataCacheBundle</span></tt> to see all options.</p>
+<p>The <tt class="docutils literal"><span class="pre">SonataBlockBundle</span></tt> is integrated with the <a class="reference external" href="https://github.com/sonata-project/SonataCacheBundle">SonataCacheBundle</a>, which provides several caching solutions.
+Have a look at the available adapters in the <a class="reference external" href="https://github.com/sonata-project/SonataCacheBundle">SonataCacheBundle</a> to see all options.</p>
 </div>
 <div class="section" id="block-context-manager-context-cache">
 <h2>7.2. Block Context Manager - context cache<a class="headerlink" href="#block-context-manager-context-cache" title="Permalink to this headline">¶</a></h2>
-<p>When using <cite>Varnish</cite>, <cite>Ssi</cite> or <cite>Js</cite> cache, the settings passed here are lost:</p>
+<p>When using <tt class="docutils literal"><span class="pre">Varnish</span></tt>, <tt class="docutils literal"><span class="pre">Ssi</span></tt> or <cite>Js``</cite> cache, the settings passed here are lost:</p>
 <div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_block_render</span><span class="o">({</span> <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="s1">&#39;sonata.block.service.rss&#39;</span> <span class="o">},</span> <span class="o">{</span>
     <span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;Sonata Project\&#39;s Feeds&#39;</span><span class="o">,</span>
-    <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;http://sonata-project.org/blog/archive.rss&#39;</span>
+    <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;https://sonata-project.org/blog/archive.rss&#39;</span>
 <span class="o">})</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>Taking Js as example, an url is generated and added to some javascript. This javascript is injected in the page. When the page is loaded, the javascript calls the url to retrieve the block content.</p>
-<p>The default <tt class="docutils literal"><span class="pre">BlockContextManager</span></tt> automatically adds settings passed from the template to the <tt class="docutils literal"><span class="pre">extra_cache_keys</span></tt> with the key <tt class="docutils literal"><span class="pre">context</span></tt>.
-This allows cache adapters to rebuild a <tt class="docutils literal"><span class="pre">BlockContext</span></tt> if implemented.</p>
-<p>Still in the Js example, the cache keys can be added to the url as query parameters.
-When the url is called from the javascript, the cache adapter handles the request. It retrieves the settings from the <tt class="docutils literal"><span class="pre">context</span></tt> parameter and passes it to the <tt class="docutils literal"><span class="pre">BlockContextManager</span></tt> while creating a new <tt class="docutils literal"><span class="pre">BlockContext</span></tt>.
+<p>Taking <tt class="docutils literal"><span class="pre">Js</span></tt> as example, a URL is generated and added to some javascript. This javascript is injected into the page. When the page is loaded, the javascript calls the URL to retrieve the block content.</p>
+<p>The default <tt class="docutils literal"><span class="pre">BlockContextManager</span></tt> automatically adds settings passed from the template to the <tt class="docutils literal"><span class="pre">extra_cache_keys</span></tt> with the key <tt class="docutils literal"><span class="pre">context`.</span>
+<span class="pre">This</span> <span class="pre">allows</span> <span class="pre">cache</span> <span class="pre">adapters</span> <span class="pre">to</span> <span class="pre">rebuild</span> <span class="pre">a</span> <span class="pre">``BlockContext</span></tt> if implemented.</p>
+<p>Still in the <tt class="docutils literal"><span class="pre">Js</span></tt> example, the cache keys can be added to the URL as query parameters.
+When the URL is called from the javascript, the cache adapter handles the request. It retrieves the settings from the <tt class="docutils literal"><span class="pre">context</span></tt> parameter and passes it to the <tt class="docutils literal"><span class="pre">BlockContextManager</span></tt> while creating a new <tt class="docutils literal"><span class="pre">BlockContext</span></tt>.
 This ensures the <tt class="docutils literal"><span class="pre">BlockContext</span></tt> is the same as when it was created from a template helper call without cache enabled.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The settings are exposed because they are added to the url as parameters, secure the url if needed.</p>
+<p class="last">The settings are exposed because they are added to the URL as parameters, secure the URL if needed.</p>
 </div>
 </div>
 <div class="section" id="block-loading">
 <h2>7.3. Block loading<a class="headerlink" href="#block-loading" title="Permalink to this headline">¶</a></h2>
-<p>Block models are loaded by a chain loader, add your own loader by tagging a service with <tt class="docutils literal"><span class="pre">sonata.block.loader&quot;</span></tt> and implement <tt class="docutils literal"><span class="pre">Sonata\BlockBundle\Block\BlockLoaderInterface</span></tt> in the loader class.</p>
+<p>Block models are loaded by a chain loader. You should be able to add your own loader by tagging a service with <tt class="docutils literal"><span class="pre">sonata.block.loader&quot;</span></tt> and implementing <tt class="docutils literal"><span class="pre">Sonata\BlockBundle\Block\BlockLoaderInterface</span></tt> in the loader class.</p>
 </div>
 <div class="section" id="empty-block">
 <h2>7.4. Empty block<a class="headerlink" href="#empty-block" title="Permalink to this headline">¶</a></h2>

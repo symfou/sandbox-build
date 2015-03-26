@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introduction &mdash; Sonata ~ AdminBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ AdminBundle  documentation" href="../index.html"/>
+        <link rel="next" title="2. Installation" href="installation.html"/>
+        <link rel="prev" title="EasyExtends Bundle" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ AdminBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why.html">3. Make your Symfony2 bundle extendable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="why.html#lets-have-a-quick-symfony2-and-doctrine-tour">3.1. Let’s have a quick Symfony2 and Doctrine tour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="why.html#lets-start-to-mix-these-points-together">3.2. Let’s start to mix these points together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="why.html#can-this-problem-be-solved-with-the-alternate-syntax">3.3. Can this problem be solved with the Alternate syntax?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="why.html#a-pragmatic-way-to-solve-this-issue">3.4. A pragmatic way to solve this issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="why.html#how-to-make-your-bundle-easy-extendable">3.5. How to make your bundle easy extendable?</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ AdminBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>1. Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/introduction.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="introduction">
+<span id="index-0"></span><h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><span class="pre">SonataEasyExtendsBundle</span></tt> is a prototype for generating a valid bundle structure from a <cite>Vendor</cite> Bundle.
+The tool is started with the simple command line: <tt class="docutils literal"><span class="pre">sonata:easy-extends:generate</span></tt>.</p>
+<p>The command line will generate:</p>
+<ul class="simple">
+<li>all required directories for one bundle (controller, config, doctrine, views, ...),</li>
+<li>the mapping and entity files from those defined in the CPB. The <cite>SuperClass</cite> must be prefixed by <tt class="docutils literal"><span class="pre">BaseXXXXXX</span></tt>,</li>
+<li>the table name from the bundle name + entity name. For instance, <tt class="docutils literal"><span class="pre">blog__post</span></tt>, where blog is the BlogBundle and Post the entity name.</li>
+</ul>
+<p>You can optionally define a <tt class="docutils literal"><span class="pre">--dest</span></tt> option to the command with the target directory for the extended bundle creation.
+By default, this is set to <tt class="docutils literal"><span class="pre">app</span></tt> but you should probably set it to <tt class="docutils literal"><span class="pre">src</span></tt>.</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="2. Installation"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="EasyExtends Bundle"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

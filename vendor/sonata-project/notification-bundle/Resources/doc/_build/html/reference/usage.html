@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Usage &mdash; Sonata ~ NotificationBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ NotificationBundle  documentation" href="../index.html"/>
+        <link rel="next" title="4. Multiple queues" href="multiple_queues.html"/>
+        <link rel="prev" title="2. Installation" href="installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ NotificationBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">2.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#extending-the-bundle">2.2. Extending the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">3. Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#calling-an-existing-consumer">3.1. Calling an existing consumer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-consumer">3.2. Custom consumer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_queues.html">4. Multiple queues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multiple_queues.html#rabbitmq">4.1. RabbitMQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiple_queues.html#doctrine">4.2. Doctrine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">5. Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#monitoring-process-supervisord">5.1. Monitoring process : Supervisord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#clean-up-messages">5.2. Clean up messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#restart-erroneous-messages">5.3. Restart erroneous messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#create-and-publish-messages">5.4. Create and publish messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">6. Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">7. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">8. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">8.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">8.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ NotificationBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>3. Usage</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/usage.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="usage">
+<h1>3. Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="calling-an-existing-consumer">
+<h2>3.1. Calling an existing consumer<a class="headerlink" href="#calling-an-existing-consumer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1">// retrieve the notification backend</span>
+<span class="nv">$backend</span> <span class="o">=</span> <span class="nv">$container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;sonata.notification.backend&#39;</span><span class="p">);</span>
+
+<span class="c1">// create and publish a message</span>
+<span class="nv">$backend</span><span class="o">-&gt;</span><span class="na">createAndPublish</span><span class="p">(</span><span class="s1">&#39;mailer&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;from&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;no-reply@sonata-project.org&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;No Reply&#39;</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;to&#39;</span>   <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;myuser@example.org&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My User&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;myuser1@example.org&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My User 1&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;html&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;b&gt;hello&lt;/b&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;hello&#39;</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;subject&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Contact form&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-consumer">
+<h2>3.2. Custom consumer<a class="headerlink" href="#custom-consumer" title="Permalink to this headline">¶</a></h2>
+<p>In order to create a consumer, you have to take these two steps :</p>
+<ul class="simple">
+<li>Create a consumer class</li>
+<li>Define the consumer in the service container</li>
+</ul>
+<p>The consumer class must implement the <tt class="docutils literal"><span class="pre">ConsumerInterface</span></tt> interface, which defines
+only one method <tt class="docutils literal"><span class="pre">process</span></tt>. The <tt class="docutils literal"><span class="pre">process</span></tt> method will receive a <tt class="docutils literal"><span class="pre">ConsumerEvent</span></tt> as an
+argument. The <tt class="docutils literal"><span class="pre">ConsumerEvent</span></tt> object is a standard Symfony Event from the <tt class="docutils literal"><span class="pre">EventDispatcher</span></tt>
+Component. So it is possible to stop the event propagation from the consumer.</p>
+<p>The current example does not mean to be used in production, however it is a good example on creating
+a logger consumer.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Sonata\NotificationBundle\Consumer</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sonata\NotificationBundle\Model\MessageInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Log\LoggerInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\NotificationBundle\Exception\InvalidParameterException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">LoggerConsumer</span> <span class="k">implements</span> <span class="nx">ConsumerInterface</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$logger</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$types</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;emerg&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;alert&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;crit&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;err&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;warn&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;notice&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;info&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+    <span class="p">);</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @param \Symfony\Component\HttpKernel\Log\LoggerInterface $logger</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * {@inheritdoc}</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">process</span><span class="p">(</span><span class="nx">ConsumerEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">types</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">InvalidParameterException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="nb">call_user_func</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="p">,</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">)),</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The last step is to register the service as a consumer in the service container. This must be done by using
+a custom tag : <tt class="docutils literal"><span class="pre">sonata.notification.consumer</span></tt> with a <tt class="docutils literal"><span class="pre">type</span></tt>. The <tt class="docutils literal"><span class="pre">type</span></tt> value is the name used when a
+message is receive or created.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+
+<span class="nt">&lt;container</span> <span class="na">xmlns=</span><span class="s">&quot;http://symfony.com/schema/dic/services&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;services&gt;</span>
+        <span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;sonata.notification.consumer.logger&quot;</span> <span class="na">class=</span><span class="s">&quot;Sonata\NotificationBundle\Consumer\LoggerConsumer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;sonata.notification.consumer&quot;</span> <span class="na">type=</span><span class="s">&quot;logger&quot;</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;argument</span> <span class="na">type=</span><span class="s">&quot;service&quot;</span> <span class="na">id=</span><span class="s">&quot;logger&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/service&gt;</span>
+    <span class="nt">&lt;/services&gt;</span>
+<span class="nt">&lt;/container&gt;</span>
+</pre></div>
+</div>
+<p>Now you can use the created service to send a message to the symfony logger.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;sonata.notification.backend&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">createAndPublish</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;level&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello world!&#39;</span>
+<span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multiple_queues.html" class="btn btn-neutral float-right" title="4. Multiple queues"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="2. Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

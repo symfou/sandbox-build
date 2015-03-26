@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Configuration &mdash; Sonata ~ IntlBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ IntlBundle  documentation" href="../index.html"/>
+        <link rel="next" title="3. Locale Helper" href="locale.html"/>
+        <link rel="prev" title="1. Installation" href="installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ IntlBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">2. Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#user-timezone-detector">2.1. User timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#locale-timezone-detector">2.2. Locale timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-timezone-detectors">2.3. Configure timezone detectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-timezone">2.4. Default timezone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="locale.html">3. Locale Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="locale.html#detection">3.1. Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale.html#twig-usage">3.2. Twig usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datetime.html">4. Datetime Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#twig-usage">4.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#php-usage">4.2. PHP usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="number.html">5. Number Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="number.html#twig-usage">5.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html#php-usage">5.2. PHP usage</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/create_custom_timezone_detector.html">1. Add a custom timezone detector</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ IntlBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>2. Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/configuration.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="configuration">
+<h1>2. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>To display dates, this bundle uses timezone detectors to get the
+current timezone.</p>
+<div class="section" id="user-timezone-detector">
+<h2>2.1. User timezone detector<a class="headerlink" href="#user-timezone-detector" title="Permalink to this headline">¶</a></h2>
+<p>If the SonataUserBundle is enabled, it returns the timezone from the
+<tt class="docutils literal"><span class="pre">Sonata\UserBundle\Model\User::getTimezone()</span></tt> method.</p>
+</div>
+<div class="section" id="locale-timezone-detector">
+<h2>2.2. Locale timezone detector<a class="headerlink" href="#locale-timezone-detector" title="Permalink to this headline">¶</a></h2>
+<p>The timezone is guessed from the current request locale. You can
+configure the locale / timezone mapping in the configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_intl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">locales</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">fr</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Europe/Paris</span>
+            <span class="l-Scalar-Plain">en_UK</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Europe/London</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-timezone-detectors">
+<h2>2.3. Configure timezone detectors<a class="headerlink" href="#configure-timezone-detectors" title="Permalink to this headline">¶</a></h2>
+<p>By default, <tt class="docutils literal"><span class="pre">user</span></tt> then <tt class="docutils literal"><span class="pre">locale</span></tt> timezone detectors are used. You
+can change this in the config:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_intl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">detectors</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.intl.timezone_detector.user</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sonata.intl.timezone_detector.locale</span>
+</pre></div>
+</div>
+<p><strong>IMPORTANT</strong> In order to guess the timezone, the detectors will be
+called <strong>in the order they are declared</strong>.</p>
+</div>
+<div class="section" id="default-timezone">
+<h2>2.4. Default timezone<a class="headerlink" href="#default-timezone" title="Permalink to this headline">¶</a></h2>
+<p>If no timezone was returned by any detector, a default one will be
+returned (from the <tt class="docutils literal"><span class="pre">date_default_timezone_get()</span></tt> method, configurable
+in the <tt class="docutils literal"><span class="pre">php.ini</span></tt> file).</p>
+<p>You can override this default timezone in the configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_intl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Europe/Paris</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="locale.html" class="btn btn-neutral float-right" title="3. Locale Helper"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="1. Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

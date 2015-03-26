@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Number Helper &mdash; Sonata ~ IntlBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ IntlBundle  documentation" href="../index.html"/>
+        <link rel="next" title="1. Add a custom timezone detector" href="../cookbooks/create_custom_timezone_detector.html"/>
+        <link rel="prev" title="4. Datetime Helper" href="datetime.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ IntlBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#user-timezone-detector">2.1. User timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#locale-timezone-detector">2.2. Locale timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configure-timezone-detectors">2.3. Configure timezone detectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#default-timezone">2.4. Default timezone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="locale.html">3. Locale Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="locale.html#detection">3.1. Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale.html#twig-usage">3.2. Twig usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datetime.html">4. Datetime Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#twig-usage">4.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#php-usage">4.2. PHP usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">5. Number Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#twig-usage">5.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#php-usage">5.2. PHP usage</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/create_custom_timezone_detector.html">1. Add a custom timezone detector</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ IntlBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>5. Number Helper</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/number.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="number-helper">
+<h1>5. Number Helper<a class="headerlink" href="#number-helper" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>The number helper provides functions to format:</dt>
+<dd><ul class="first last simple">
+<li>currency</li>
+<li>decimal</li>
+<li>scientific</li>
+<li>duration</li>
+<li>spellout</li>
+<li>percent</li>
+<li>ordinal</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="twig-usage">
+<h2>5.1. Twig usage<a class="headerlink" href="#twig-usage" title="Permalink to this headline">¶</a></h2>
+<p>By default, if the second argument is not set then the current locale value is
+retrieved by using the request instance.</p>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="m">10.49</span><span class="o">|</span><span class="nf">number_format_currency</span><span class="o">(</span><span class="s1">&#39;EUR&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; 10,49 € #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="m">10.15459</span><span class="o">|</span><span class="nf">number_format_decimal</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; 10,155 #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="m">1000</span><span class="o">|</span><span class="nf">number_format_scientific</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; 1E3 #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="m">1000000</span><span class="o">|</span><span class="nf">number_format_duration</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; 1 000 000 #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="m">42</span><span class="o">|</span><span class="nf">number_format_spellout</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; quarante-deux #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="m">1.999</span><span class="o">|</span><span class="nf">number_format_percent</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; 200 % #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="m">1</span><span class="o">|</span><span class="nf">number_format_ordinal</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; 1ᵉʳ #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="o">(-</span><span class="m">1.1337</span><span class="o">)|</span><span class="nf">number_format_decimal</span><span class="o">({</span><span class="s1">&#39;fraction_digits&#39;</span><span class="o">:</span> <span class="m">2</span><span class="o">},</span> <span class="o">{</span><span class="s1">&#39;negative_prefix&#39;</span><span class="o">:</span> <span class="s1">&#39;MINUS&#39;</span><span class="o">})</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# =&gt; MINUS1,34 #}</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="php-usage">
+<h2>5.2. PHP usage<a class="headerlink" href="#php-usage" title="Permalink to this headline">¶</a></h2>
+<p>When defining your admin list / view, you can also provide extra parameters, for example :</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">$list-&gt;add(&#39;amount&#39;, &#39;decimal&#39;, array(</span>
+<span class="x">    &#39;attributes&#39; =&gt; array(&#39;fraction_digits&#39; =&gt; 2),</span>
+<span class="x">    &#39;textAttributes&#39; =&gt; array(&#39;negative_prefix&#39; =&gt; &#39;MINUS&#39;),</span>
+<span class="x">))</span>
+
+<span class="x">$show-&gt;add(&#39;price&#39;, &#39;currency&#39;, array(</span>
+<span class="x">    &#39;currency&#39; =&gt; &#39;EUR&#39;,</span>
+<span class="x">    &#39;locale&#39; =&gt; &#39;fr&#39;,</span>
+<span class="x">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cookbooks/create_custom_timezone_detector.html" class="btn btn-neutral float-right" title="1. Add a custom timezone detector"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="datetime.html" class="btn btn-neutral" title="4. Datetime Helper"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

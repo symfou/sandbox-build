@@ -6,13 +6,13 @@ Prerequisites
 PHP 5.3 and Symfony 2 are needed to make this bundle work ; there are also some
 Sonata dependencies that need to be installed and configured beforehand:
 
-    - `SonataCacheBundle <http://sonata-project.org/bundles/cache>`_
-    - `SonataBlockBundle <http://sonata-project.org/bundles/block>`_
-    - `SonataSeoBundle <http://sonata-project.org/bundles/seo>`_
-    - `SonataEasyExtendsBundle <http://sonata-project.org/bundles/easy-extends>`_
-    - `SonataNotificationBundle <http://sonata-project.org/bundles/notification>`_
-    - `SonataAdminBundle <http://sonata-project.org/bundles/admin>`_
-    - `SonataDoctrineORMAdminBundle <http://sonata-project.org/bundles/doctrine-orm-admin>`_
+    - `SonataCacheBundle <https://sonata-project.org/bundles/cache>`_
+    - `SonataBlockBundle <https://sonata-project.org/bundles/block>`_
+    - `SonataSeoBundle <https://sonata-project.org/bundles/seo>`_
+    - `SonataEasyExtendsBundle <https://sonata-project.org/bundles/easy-extends>`_
+    - `SonataNotificationBundle <https://sonata-project.org/bundles/notification>`_
+    - `SonataAdminBundle <https://sonata-project.org/bundles/admin>`_
+    - `SonataDoctrineORMAdminBundle <https://sonata-project.org/bundles/doctrine-orm-admin>`_
 
 You will also need a SymfonyCmf Bundle to make the routing work depending on which Symfony version you are using:
 
@@ -32,12 +32,15 @@ Add the dependant bundles to the vendor/bundles directory:
 .. code-block:: bash
 
     php composer.phar require sonata-project/page-bundle --no-update
+    php composer.phar require sonata-project/datagrid-bundle 2.2.*@dev --no-update #for SonataPageBundle > 2.3.6
     php composer.phar require sonata-project/doctrine-orm-admin-bundle --no-update
     php composer.phar update
 
 .. note::
 
-    The SonataAdminBundle and SonataDoctrineORMAdminBundle must be installed, please refer to `the dedicated documentation for more information <http://sonata-project.org/bundles/admin>`_.
+    The SonataAdminBundle and SonataDoctrineORMAdminBundle must be installed, please refer to `the dedicated documentation for more information <https://sonata-project.org/bundles/admin>`_.
+
+    The `SonataDatagridBundle <https://github.com/sonata-project/SonataDatagridBundle>`_ must be added in ``composer.json`` for SonataPageBundle versions above 2.3.6
 
 Next, be sure to enable the ``Page`` and ``EasyExtends`` bundles in your application kernel:
 
@@ -60,11 +63,16 @@ Before we can go on with generating our Application files trough the ``EasyExten
 .. code-block:: yaml
 
     sonata_page:
-        multisite: host
+        slugify_method:   sonata.core.slugify.cocur # old BC value is sonata.core.slugify.native
+        multisite:        host
         default_template: default # template key from templates section, used as default for
         templates:
             default:  { path: 'SonataPageBundle::layout.html.twig',          name: 'default' }
             2columns: { path: 'SonataPageBundle::2columns_layout.html.twig', name: '2 columns layout' }
+
+        # Generates a snapshot when a page is saved (from the admin)
+        direct_publication: false # or %kernel.debug% if you want to publish in dev mode (but not in prod)
+
 
 Configuration
 -------------
@@ -140,10 +148,12 @@ configuration file.
                 - bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.js
                 - bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js
                 - bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js
+                - bundles/sonatapage/sonata-page.back.min.js
 
             stylesheets:
                 - bundles/sonataadmin/vendor/AdminLTE/css/font-awesome.min.css
                 - bundles/sonataadmin/vendor/jqueryui/themes/flick/jquery-ui.min.css
+                - bundles/sonatapage/sonata-page.back.min.css
 
 Add block context manager:
 

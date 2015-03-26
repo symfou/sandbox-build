@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Datetime Helper &mdash; Sonata ~ IntlBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ IntlBundle  documentation" href="../index.html"/>
+        <link rel="next" title="5. Number Helper" href="number.html"/>
+        <link rel="prev" title="3. Locale Helper" href="locale.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ IntlBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#user-timezone-detector">2.1. User timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#locale-timezone-detector">2.2. Locale timezone detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configure-timezone-detectors">2.3. Configure timezone detectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#default-timezone">2.4. Default timezone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="locale.html">3. Locale Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="locale.html#detection">3.1. Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale.html#twig-usage">3.2. Twig usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">4. Datetime Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#twig-usage">4.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#php-usage">4.2. PHP usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="number.html">5. Number Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="number.html#twig-usage">5.1. Twig usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html#php-usage">5.2. PHP usage</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/create_custom_timezone_detector.html">1. Add a custom timezone detector</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ IntlBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>4. Datetime Helper</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/datetime.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="datetime-helper">
+<h1>4. Datetime Helper<a class="headerlink" href="#datetime-helper" title="Permalink to this headline">¶</a></h1>
+<p>The DateTime helper provides functions to format:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a date :  <tt class="docutils literal"><span class="pre">format_date</span></tt></li>
+<li>time   : <tt class="docutils literal"><span class="pre">format_time</span></tt></li>
+<li>date and time : <tt class="docutils literal"><span class="pre">format_datetime</span></tt></li>
+</ul>
+</div></blockquote>
+<div class="section" id="twig-usage">
+<h2>4.1. Twig usage<a class="headerlink" href="#twig-usage" title="Permalink to this headline">¶</a></h2>
+<p>You can format a compatible date with 4 methods, a date can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a <tt class="docutils literal"><span class="pre">DateTime</span></tt> object</li>
+<li>a timestamp : <tt class="docutils literal"><span class="pre">375930000</span></tt></li>
+<li>a date string : <tt class="docutils literal"><span class="pre">'1981-11-30'</span></tt></li>
+</ul>
+</div></blockquote>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">date_time_object</span> <span class="o">|</span> <span class="nf">format_date</span> <span class="cp">}}</span><span class="x"> =&gt; &#39;1 févr. 2011&#39;</span>
+<span class="cp">{{</span> <span class="nv">date_time_object</span> <span class="o">|</span> <span class="nf">format_time</span> <span class="cp">}}</span><span class="x"> =&gt; &#39;19:55:26&#39;</span>
+<span class="cp">{{</span> <span class="nv">date_time_object</span> <span class="o">|</span> <span class="nf">format_datetime</span> <span class="cp">}}</span><span class="x"> =&gt; &#39;1 févr. 2011 19:55:26&#39;</span>
+</pre></div>
+</div>
+<p>By default the helpers methods use the current user&#8217;s locale to display
+information. Of course this behavior can be controlled from within the template
+by providing extra parameters :</p>
+<ul class="simple">
+<li>pattern : the pattern to use to render the date</li>
+<li>the locale</li>
+<li>the timezone to use if date is not a <tt class="docutils literal"><span class="pre">DateTime</span></tt> instance</li>
+<li>(<tt class="docutils literal"><span class="pre">format_date</span></tt> and <tt class="docutils literal"><span class="pre">format_datetime</span></tt> only) the date type to use if no pattern
+were provided: the given value must be one of <tt class="docutils literal"><span class="pre">\IntlDateFormatter::{SHORT,</span> <span class="pre">MEDIUM,</span> <span class="pre">LONG,</span> <span class="pre">FULL}</span></tt>
+or <tt class="docutils literal"><span class="pre">null</span></tt> (if <tt class="docutils literal"><span class="pre">null</span></tt>, defaults to <tt class="docutils literal"><span class="pre">\IntlDateFormatter::MEDIUM</span></tt>)</li>
+<li>(<tt class="docutils literal"><span class="pre">format_time</span></tt> and <tt class="docutils literal"><span class="pre">format_datetime</span></tt> only) the time type to use if no pattern
+were provided: the given value must be one of <tt class="docutils literal"><span class="pre">\IntlDateFormatter::{SHORT,</span> <span class="pre">MEDIUM,</span> <span class="pre">LONG,</span> <span class="pre">FULL}</span></tt>
+or <tt class="docutils literal"><span class="pre">null</span></tt> (if <tt class="docutils literal"><span class="pre">null</span></tt>, defaults to <tt class="docutils literal"><span class="pre">\IntlDateFormatter::MEDIUM</span></tt>)</li>
+</ul>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">date_time_object</span> <span class="o">|</span> <span class="nf">format_date</span><span class="o">(</span><span class="nv">null</span><span class="o">,</span> <span class="s1">&#39;fr&#39;</span><span class="o">,</span> <span class="s1">&#39;Europe/Paris&#39;</span><span class="o">,</span> <span class="nv">constant</span><span class="o">(</span><span class="s1">&#39;IntlDateFormatter::LONG&#39;</span><span class="o">))</span> <span class="cp">}}</span><span class="x"> =&gt; &#39;1 février 2011&#39;</span>
+<span class="cp">{{</span> <span class="nv">date_time_object</span> <span class="o">|</span> <span class="nf">format_time</span><span class="o">(</span><span class="nv">null</span><span class="o">,</span> <span class="s1">&#39;fr&#39;</span><span class="o">,</span> <span class="s1">&#39;Europe/Paris&#39;</span><span class="o">,</span> <span class="nv">constant</span><span class="o">(</span><span class="s1">&#39;IntlDateFormatter::SHORT&#39;</span><span class="o">))</span> <span class="cp">}}</span><span class="x"> =&gt; &#39;19:55&#39;</span>
+<span class="cp">{{</span> <span class="nv">date_time_object</span> <span class="o">|</span> <span class="nf">format_datetime</span><span class="o">(</span><span class="nv">null</span><span class="o">,</span> <span class="s1">&#39;fr&#39;</span><span class="o">,</span> <span class="s1">&#39;Europe/Paris&#39;</span><span class="o">,</span>
+    <span class="nv">constant</span><span class="o">(</span><span class="s1">&#39;IntlDateFormatter::LONG&#39;</span><span class="o">),</span> <span class="nv">constant</span><span class="o">(</span><span class="s1">&#39;IntlDateFormatter::SHORT&#39;</span><span class="o">))</span> <span class="cp">}}</span><span class="x"> =&gt; &#39;1 février 2011 19:55&#39;</span>
+<span class="cp">{{</span> <span class="nv">date_time_object</span> <span class="o">|</span> <span class="nf">format_</span><span class="o">[</span><span class="nv">date</span><span class="o">|</span><span class="nf">time</span><span class="o">|</span><span class="nf">datetime</span><span class="o">](</span><span class="s1">&#39;dd MMM Y G&#39;</span><span class="o">,</span> <span class="s1">&#39;fr&#39;</span><span class="o">,</span> <span class="s1">&#39;Europe/Paris&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> =&gt; &#39;01 février 2011 ap. J.-C.&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">More information about patterns can be found here:
+<a class="reference external" href="http://userguide.icu-project.org/formatparse/datetime">http://userguide.icu-project.org/formatparse/datetime</a></p>
+</div>
+</div>
+<div class="section" id="php-usage">
+<h2>4.2. PHP usage<a class="headerlink" href="#php-usage" title="Permalink to this headline">¶</a></h2>
+<p>When defining your admin list / view, you can also provide extra parameters, for example :</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">$list-&gt;add(&#39;createdAt&#39;, &#39;date&#39;, array(</span>
+<span class="x">    &#39;pattern&#39; =&gt; &#39;dd MMM Y G&#39;,</span>
+<span class="x">    &#39;locale&#39; =&gt; &#39;fr&#39;,</span>
+<span class="x">    &#39;timezone&#39; =&gt; &#39;Europe/Paris&#39;,</span>
+<span class="x">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="number.html" class="btn btn-neutral float-right" title="5. Number Helper"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="locale.html" class="btn btn-neutral" title="3. Locale Helper"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

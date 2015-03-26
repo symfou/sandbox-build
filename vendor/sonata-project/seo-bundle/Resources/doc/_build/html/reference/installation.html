@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Installation &mdash; Sonata ~ SeoBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ SeoBundle  documentation" href="../index.html"/>
+        <link rel="next" title="2. Twig Helpers" href="twig_helpers.html"/>
+        <link rel="prev" title="SEO Bundle" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ SeoBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">1.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">2. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-the-page-title">2.1. Render the page title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-page-metadata">2.2. Render page metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-html-attributes">2.3. Render HTML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-head-attributes">2.4. Render head attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-canonical-link">2.5. Render canonical link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-alternates-languages">2.6. Render alternates languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#render-oembed-links-http-www-oembed-com">2.7. Render oEmbed links (http://www.oembed.com/)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="breadcrumb.html">4. Breadcrumb</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="breadcrumb.html#create-your-own-breadcrumb">4.1. Create your own breadcrumb</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="social_blocks.html">5. Social blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="social_blocks.html#twitter-embed-tweet">5.1. Twitter Embed Tweet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sitemap.html">6. Sitemap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#service-definition">6.1. Service Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#raw-performance-with-query">6.2. Raw Performance with Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#configuration-example">6.3. Configuration example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#usage">6.4. Usage</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ SeoBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>1. Installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/installation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="installation">
+<h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>To begin, require the bundle via Composer:</p>
+<div class="highlight-python"><div class="highlight"><pre>php composer.phar require sonata-project/seo-bundle
+</pre></div>
+</div>
+<p>Now, add the new <cite>SeoBundle</cite> Bundle to the kernel</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">registerbundles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">Sonata\SeoBundle\SonataSeoBundle</span><span class="p">(),</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="configuration">
+<h2>1.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>To use the <tt class="docutils literal"><span class="pre">SeoBundle</span></tt>, add the following lines to your application configuration
+file.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">sonata_seo</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">sonata.seo.page.default</span>
+    <span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">UTF-8</span>
+    <span class="l-Scalar-Plain">page</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">Sonata Project</span>
+        <span class="l-Scalar-Plain">metas</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">foo bar</span>
+                <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">The description</span>
+                <span class="l-Scalar-Plain">robots</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">index, follow</span>
+
+            <span class="l-Scalar-Plain">property</span><span class="p-Indicator">:</span>
+                <span class="c1"># Facebook application settings</span>
+                <span class="c1">#&#39;fb:app_id&#39;:          XXXXXX</span>
+                <span class="c1">#&#39;fb:admins&#39;:          admin1, admin2</span>
+
+                <span class="c1"># Open Graph information</span>
+                <span class="c1"># see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/</span>
+                <span class="s">&#39;og:site_name&#39;</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">Sonata Project Sandbox</span>
+                <span class="s">&#39;og:description&#39;</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">A demo of the some rich bundles for your Symfony2 projects</span>
+
+            <span class="l-Scalar-Plain">http-equiv</span><span class="p-Indicator">:</span>
+                <span class="s">&#39;Content-Type&#39;</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">text/html; charset=utf-8</span>
+                <span class="c1">#&#39;X-Ua-Compatible&#39;:      IE=EmulateIE7</span>
+
+            <span class="l-Scalar-Plain">charset</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">UTF-8</span><span class="p-Indicator">:</span>    <span class="s">&#39;&#39;</span>
+
+        <span class="l-Scalar-Plain">head</span><span class="p-Indicator">:</span>
+            <span class="s">&#39;xmlns&#39;</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">http://www.w3.org/1999/xhtml</span>
+            <span class="s">&#39;xmlns:og&#39;</span><span class="p-Indicator">:</span>           <span class="l-Scalar-Plain">http://opengraphprotocol.org/schema/</span>
+            <span class="c1">#&#39;xmlns:fb&#39;:           &quot;http://www.facebook.com/2008/fbml&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="twig_helpers.html" class="btn btn-neutral float-right" title="2. Twig Helpers"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="SEO Bundle"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

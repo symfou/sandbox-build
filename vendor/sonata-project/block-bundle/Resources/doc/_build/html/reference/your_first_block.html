@@ -6,33 +6,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <title>4. Your first block &mdash; Sonata ~ BlockBundle  documentation</title>
+  
 
+  
+  
 
-
-
-
-
+  
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
+  
+  
+    
 
+  
 
-
-
-
-
-
-
+  
+  
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
 
-
-
+  
     <link rel="top" title="Sonata ~ BlockBundle  documentation" href="../index.html"/>
         <link rel="next" title="5. Profiler" href="profiler.html"/>
-        <link rel="prev" title="3. Provided Blocks" href="provided_blocks.html"/>
+        <link rel="prev" title="3. Provided Blocks" href="provided_blocks.html"/> 
 
-
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
@@ -41,7 +41,7 @@
 
   <div class="wy-grid-for-nav">
 
-
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         <a href="../index.html" class="fa fa-home"> Sonata ~ BlockBundle</a>
@@ -55,8 +55,8 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-
-
+        
+        
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">1.1. Configuration</a></li>
@@ -73,7 +73,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">4. Your first block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#first-namespaces">4.1. First namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-settings">4.2. Default settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#form-editing">4.3. Form Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#execute">4.4. Execute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#template">4.5. Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#service">4.6. Service</a></li>
@@ -115,38 +115,38 @@
 </li>
 </ul>
 
-
+        
       </div>
       &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-
+      
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
         <a href="../index.html">Sonata ~ BlockBundle</a>
       </nav>
 
 
-
+      
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
-
+      
     <li>4. Your first block</li>
       <li class="wy-breadcrumbs-aside">
-
+        
           <a href="../_sources/reference/your_first_block.txt" rel="nofollow"> View page source</a>
-
+        
       </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
-
+            
   <div class="section" id="your-first-block">
 <span id="index-0"></span><h1>4. Your first block<a class="headerlink" href="#your-first-block" title="Permalink to this headline">¶</a></h1>
 <p>This quick tutorial explains how to create an <cite>RSS reader</cite> block.</p>
@@ -154,7 +154,7 @@
 <div class="section" id="first-namespaces">
 <h2>4.1. First namespaces<a class="headerlink" href="#first-namespaces" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">BaseBlockService</span></tt> implements some basic methods defined by the interface.
-The current RSS block will extend this base class. The others <cite>use</cite> statements are required by the interface and remaining methods.</p>
+The current RSS block will extend this base class. The other <cite>use</cite> statements are required by the interface&#8217;s remaining methods.</p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">namespace</span> <span class="nx">Sonata\BlockBundle\Block</span><span class="p">;</span>
@@ -167,6 +167,7 @@ The current RSS block will extend this base class. The others <cite>use</cite> s
 
 <span class="k">use</span> <span class="nx">Sonata\AdminBundle\Form\FormMapper</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Sonata\CoreBundle\Validator\ErrorElement</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sonata\BlockBundle\Block\BaseBlockService</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -191,9 +192,9 @@ In the current tutorial, the default settings are:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="form-edition">
-<h2>4.3. Form Edition<a class="headerlink" href="#form-edition" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">BlockBundle</span></tt> relies on the <tt class="docutils literal"><span class="pre">AdminBundle</span></tt> to manage form edition and keep a good consistency.</p>
+<div class="section" id="form-editing">
+<h2>4.3. Form Editing<a class="headerlink" href="#form-editing" title="Permalink to this headline">¶</a></h2>
+<p>In order to allow editing forms, the <tt class="docutils literal"><span class="pre">BlockBundle</span></tt> relies on the <tt class="docutils literal"><span class="pre">AdminBundle</span></tt>.</p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
 <span class="k">public</span> <span class="k">function</span> <span class="nf">buildEditForm</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">,</span> <span class="nx">BlockInterface</span> <span class="nv">$block</span><span class="p">)</span>
 <span class="p">{</span>
@@ -227,15 +228,15 @@ In the current tutorial, the default settings are:</p>
 </div>
 <div class="section" id="execute">
 <h2>4.4. Execute<a class="headerlink" href="#execute" title="Permalink to this headline">¶</a></h2>
-<p>The next step is the <cite>Execute</cite> method. This method must return a <tt class="docutils literal"><span class="pre">Response</span></tt> object, which is used to render the block.</p>
+<p>The next step is to implement the <cite>execute</cite> method. This method must return a <tt class="docutils literal"><span class="pre">Response</span></tt> object, which is used to render the block.</p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">BlockContextInterface</span> <span class="nv">$blockContext</span><span class="p">,</span> <span class="nx">Response</span> <span class="nv">$response</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// merge settings</span>
     <span class="nv">$settings</span> <span class="o">=</span> <span class="nv">$blockContext</span><span class="o">-&gt;</span><span class="na">getSettings</span><span class="p">();</span>
-
     <span class="nv">$feeds</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+
     <span class="k">if</span> <span class="p">(</span><span class="nv">$settings</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span> <span class="p">{</span>
         <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
             <span class="s1">&#39;http&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -299,31 +300,32 @@ In the current tutorial, the default settings are:</p>
 <span class="nt">&lt;/service&gt;</span>
 </pre></div>
 </div>
-<p>and add it to Sonata configuration:</p>
+<p>Or using YAML:</p>
+<p>Then, add the service to Sonata configuration:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
 
 <span class="l-Scalar-Plain">sonata_block</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">blocks</span><span class="p-Indicator">:</span>
-        <span class="l-Scalar-Plain">sonata.block.service.rss</span><span class="p-Indicator">:</span>
-<span class="c1">#           cache: sonata.cache.memcached</span>
+        <span class="l-Scalar-Plain">sonata.block.service.rss</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
 </pre></div>
 </div>
+<p>If you want to set up caching, take a look at the CacheBundle support documentation: <a class="reference internal" href="cache.html"><em>Cache</em></a>.</p>
 </div>
 </div>
 
 
           </div>
           <footer>
-
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-
+      
         <a href="profiler.html" class="btn btn-neutral float-right" title="5. Profiler"/>Next <span class="fa fa-arrow-circle-right"></span></a>
-
-
+      
+      
         <a href="provided_blocks.html" class="btn btn-neutral" title="3. Provided Blocks"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-
+      
     </div>
-
+  
 
   <hr/>
 
@@ -341,10 +343,10 @@ In the current tutorial, the default settings are:</p>
     </section>
 
   </div>
+  
 
 
-
-
+  
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
@@ -359,21 +361,21 @@ In the current tutorial, the default settings are:</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
 
+  
 
-
-
-
+  
+  
     <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
 
-
-
-
+  
+  
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-
+   
 
 </body>
 </html>

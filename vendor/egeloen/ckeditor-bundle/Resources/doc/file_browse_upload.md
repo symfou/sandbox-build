@@ -59,13 +59,13 @@ To use it, just read this [documentation](https://github.com/helios-ag/FMElfinde
 
 ### [CoopTilleulsCKEditorSonataMediaBundle](https://github.com/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle/)
 
-The CoopTilleulsCKEditorSonataMediaBundle provides [SonataMedia](http://sonata-project.org/bundles/media) integration with CKEditor and IvoryCKEditorBundle.
+The CoopTilleulsCKEditorSonataMediaBundle provides [SonataMedia](https://sonata-project.org/bundles/media) integration with CKEditor and IvoryCKEditorBundle.
 
 Read [installation instructions](https://github.com/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle/blob/master/Resources/doc/install.md).
 
 The working example:
 
-Install and configure [SonataMediaBundle](http://sonata-project.org/bundles/media/master/doc/index.html).
+Install and configure [SonataMediaBundle](https://sonata-project.org/bundles/media/master/doc/index.html).
 
 Add CoopTilleulsCKEditorSonataMediaBundle in your `composer.json` file:
 

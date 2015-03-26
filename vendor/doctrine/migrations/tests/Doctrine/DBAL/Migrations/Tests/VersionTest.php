@@ -22,14 +22,16 @@ class VersionTest extends MigrationTestCase
     }
 
     /**
-     * Create migration with custom name
+     * Create migration with description
      */
     public function testCreateVersionWithCustomName()
     {
-        $versionName = 'CustomVersionName';
-        $version = new Version(new Configuration($this->getSqliteConnection()), '003',
-            'Doctrine\DBAL\Migrations\Tests\VersionTest_MigrationCustom');
+        $versionName = '003';
+        $versionDescription = 'My super migration';
+        $version = new Version(new Configuration($this->getSqliteConnection()), $versionName,
+            'Doctrine\DBAL\Migrations\Tests\VersionTest_MigrationDescription');
         $this->assertEquals($versionName, $version->getVersion());
+        $this->assertEquals($versionDescription, $version->getMigration()->getDescription());
     }
 }
 
@@ -39,19 +41,19 @@ class VersionTest extends MigrationTestCase
 class VersionTest_Migration extends AbstractMigration
 {
     public function down(Schema $schema) {}
-    public function up(Schema $schema) {}
+    public function up(Schema $schema)   {}
 }
 
 /**
- * Migration with custom name
+ * Migration with description
  */
-class VersionTest_MigrationCustom extends AbstractMigration
+class VersionTest_MigrationDescription extends AbstractMigration
 {
-    public function getName()
+    public function getDescription()
     {
-        return 'CustomVersionName';
+        return 'My super migration';
     }
 
     public function down(Schema $schema) {}
-    public function up(Schema $schema) {}
+    public function up(Schema $schema)   {}
 }

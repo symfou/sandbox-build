@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. API &mdash; Sonata ~ NotificationBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ NotificationBundle  documentation" href="../index.html"/>
+        <link rel="prev" title="7. Advanced Configuration" href="advanced_configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ NotificationBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">2.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#extending-the-bundle">2.2. Extending the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#calling-an-existing-consumer">3.1. Calling an existing consumer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#custom-consumer">3.2. Custom consumer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_queues.html">4. Multiple queues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multiple_queues.html#rabbitmq">4.1. RabbitMQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiple_queues.html#doctrine">4.2. Doctrine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">5. Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#monitoring-process-supervisord">5.1. Monitoring process : Supervisord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#clean-up-messages">5.2. Clean up messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#restart-erroneous-messages">5.3. Restart erroneous messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#create-and-publish-messages">5.4. Create and publish messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">6. Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">7. Advanced Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">8. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">8.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialization">8.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ NotificationBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>8. API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/api.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="api">
+<h1>8. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>SonataNotificationBundle embeds a Controller to provide an API through FOSRestBundle, with its documentation provided by NelmioApiDocBundle.</p>
+<div class="section" id="setup">
+<h2>8.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to use it, you must first follow the installation instructions of both bundles:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/FriendsOfSymfony/FOSRestBundle">FOSRestBundle</a></li>
+<li><a class="reference external" href="https://github.com/nelmio/NelmioApiDocBundle">NelmioApiDocBundle</a></li>
+</ul>
+<p>Here&#8217;s the configuration we used, you may adapt it to your needs:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">fos_rest</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">param_fetcher_listener</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">body_listener</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">format_listener</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">view</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">view_response_listener</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">force</span>
+    <span class="l-Scalar-Plain">body_converter</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">validate</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+
+<span class="l-Scalar-Plain">sensio_framework_extra</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">view</span><span class="p-Indicator">:</span>    <span class="p-Indicator">{</span> <span class="nv">annotations</span><span class="p-Indicator">:</span> <span class="nv">false</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">router</span><span class="p-Indicator">:</span>  <span class="p-Indicator">{</span> <span class="nv">annotations</span><span class="p-Indicator">:</span> <span class="nv">true</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">request</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">converters</span><span class="p-Indicator">:</span> <span class="nv">true</span> <span class="p-Indicator">}</span>
+
+<span class="l-Scalar-Plain">twig</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">exception_controller</span><span class="p-Indicator">:</span> <span class="s">&#39;FOS\RestBundle\Controller\ExceptionController::showAction&#39;</span>
+</pre></div>
+</div>
+<p>In order to activate the API&#8217;s, you&#8217;ll also need to add this to your routing:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">NelmioApiDocBundle</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@NelmioApiDocBundle/Resources/config/routing.yml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">/api/doc</span>
+
+<span class="l-Scalar-Plain">sonata_api_notification</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">rest</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">/api</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span>     <span class="s">&quot;@SonataNotificationBundle/Resources/config/routing/api.xml&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serialization">
+<h2>8.2. Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;re using JMSSerializationBundle&#8217;s serializations groups to customize the inputs &amp; outputs.</p>
+<p>The taxonomy is as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sonata_api_read</span></tt> is the group used to display entities</li>
+<li><tt class="docutils literal"><span class="pre">sonata_api_write</span></tt> is the group used for input entities (when used instead of forms)</li>
+</ul>
+<p>If you wish to customize the outputted data, feel free to setup your own serialization options by configuring JMSSerializer with those groups.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="advanced_configuration.html" class="btn btn-neutral" title="7. Advanced Configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

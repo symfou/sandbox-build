@@ -73,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="your_first_block.html">4. Your first block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#first-namespaces">4.1. First namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#default-settings">4.2. Default settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-editing">4.3. Form Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#execute">4.4. Execute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#template">4.5. Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#service">4.6. Service</a></li>
@@ -149,8 +149,19 @@
             
   <div class="section" id="installation">
 <span id="index-0"></span><h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>To begin, add the dependent bundles to the vendor/bundles directory. Add the following lines to the deps file:</p>
+<p>The easiest way to install <tt class="docutils literal"><span class="pre">SonataBlockBundle</span></tt> is to require it with Composer:</p>
 <div class="highlight-bash"><div class="highlight"><pre>php composer.phar require sonata-project/block-bundle
+</pre></div>
+</div>
+<p>Alternatively, you could add a dependency into your <cite>composer.json</cite> file:</p>
+<div class="highlight-json"><div class="highlight"><pre>{
+    ...
+
+    &quot;require&quot;: {
+        ...
+        &quot;sonata-project/block-bundle&quot;: &quot;~2.2&quot;
+    }
+}
 </pre></div>
 </div>
 <p>Now, add the bundle to the kernel:</p>
@@ -170,9 +181,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Some features provided by this Bundle require the <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt>.
+<p>Some features provided by this bundle require the <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt>.
 Please add an explicit required dependency to your project&#8217;s <cite>composer.json</cite> to
-the <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt> with the version listed in the suggestion of this Bundle.</p>
+the <tt class="docutils literal"><span class="pre">SonataAdminBundle</span></tt> with the version listed in the suggestions of this Bundle.</p>
 <div class="section" id="configuration">
 <h2>1.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>To use the <tt class="docutils literal"><span class="pre">BlockBundle</span></tt>, add the following lines to your application configuration file:</p>

@@ -73,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="your_first_block.html">4. Your first block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#first-namespaces">4.1. First namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#default-settings">4.2. Default settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-editing">4.3. Form Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#execute">4.4. Execute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#template">4.5. Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#service">4.6. Service</a></li>
@@ -149,8 +149,8 @@
             
   <div class="section" id="events">
 <span id="index-0"></span><h1>9. Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
-<p>Sometime, you might want to create an area where a block can be added, depending on some external settings. A good example is
-a <cite>Comment mechanism</cite>. You might want to create a <tt class="docutils literal"><span class="pre">CommentBundle</span></tt> to render a <cite>comment thread</cite> on different pages. The comment area can used <a class="reference external" href="http://disqus.com">Disqus</a> or your own solution.
+<p>Sometimes you might want to create an area where a block can be added, depending on some external settings. A good example is
+a <cite>Comment mechanism</cite>. You might want to create a <tt class="docutils literal"><span class="pre">CommentBundle</span></tt> to render a <cite>comment thread</cite> on different pages. The comment area can use <a class="reference external" href="http://disqus.com">Disqus</a> or your own solution.
 As part of a full stack solution, you don&#8217;t know which solution is going to be used. However, you know where the comment area will be located.</p>
 <p>The <cite>Event mechanism</cite> implemented in the <tt class="docutils literal"><span class="pre">SonataBlockBundle</span></tt> tries to address this situation, and to provide a clean syntax:</p>
 <div class="highlight-jinja"><div class="highlight"><pre><span class="c">{# post.twig.html #}</span><span class="x"></span>
@@ -168,17 +168,17 @@ If there is no block, then the helper will return an empty string.</p>
 So, the current the name will be <tt class="docutils literal"><span class="pre">sonata.block.event.blog.comment</span></tt>.</p>
 <div class="configuration-block">
 <ul class="simple">
-<li><em>XML</em><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;discus.comment&quot;</span> <span class="na">class=</span><span class="s">&quot;Sonata\CommentBundle\Event\Discus&quot;</span><span class="nt">&gt;</span>
+<li><em>XML</em><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;disqus.comment&quot;</span> <span class="na">class=</span><span class="s">&quot;Sonata\CommentBundle\Event\Discus&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;kernel.event_listener&quot;</span> <span class="na">event=</span><span class="s">&quot;sonata.block.blog.comment&quot;</span> <span class="na">method=</span><span class="s">&quot;onBlock&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/service&gt;</span>
 </pre></div>
 </div>
 </li>
 <li><em>YAML</em><div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">discus.comment</span><span class="p-Indicator">:</span>
-        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sonata\CommentBundle\Event\Discus&quot;</span>
+    <span class="l-Scalar-Plain">disqus.comment</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sonata\CommentBundle\Event\Disqus&quot;</span>
         <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
-            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="nv">kernel.event_listener</span><span class="p-Indicator">,</span> <span class="nv">event</span><span class="p-Indicator">:</span> <span class="nv">sonata.block.blog.comment</span><span class="p-Indicator">,</span> <span class="nv">method</span><span class="p-Indicator">:</span> <span class="nv">onBlock</span><span class="p-Indicator">}</span>
+            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="nv">kernel.event_listener</span><span class="p-Indicator">,</span> <span class="nv">event</span><span class="p-Indicator">:</span> <span class="nv">sonata.block.blog.comment</span><span class="p-Indicator">,</span> <span class="nv">method</span><span class="p-Indicator">:</span> <span class="nv">onBlock</span> <span class="p-Indicator">}</span>
 </pre></div>
 </div>
 </li>
@@ -189,7 +189,7 @@ So, the current the name will be <tt class="docutils literal"><span class="pre">
 
 <span class="x">use Sonata\BlockBundle\Model\Block;</span>
 
-<span class="x">class Discus</span>
+<span class="x">class Disqus</span>
 <span class="x">{</span>
 <span class="x">    /**</span>
 <span class="x">     * @param  BlockEvent</span>

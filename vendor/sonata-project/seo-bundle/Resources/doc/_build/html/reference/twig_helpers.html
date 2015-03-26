@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Twig Helpers &mdash; Sonata ~ SeoBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ SeoBundle  documentation" href="../index.html"/>
+        <link rel="next" title="3. Usage" href="usage.html"/>
+        <link rel="prev" title="1. Installation" href="installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ SeoBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">1.1. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">2. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#render-the-page-title">2.1. Render the page title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-page-metadata">2.2. Render page metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-html-attributes">2.3. Render HTML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-head-attributes">2.4. Render head attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-canonical-link">2.5. Render canonical link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-alternates-languages">2.6. Render alternates languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-oembed-links-http-www-oembed-com">2.7. Render oEmbed links (http://www.oembed.com/)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="breadcrumb.html">4. Breadcrumb</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="breadcrumb.html#create-your-own-breadcrumb">4.1. Create your own breadcrumb</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="social_blocks.html">5. Social blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="social_blocks.html#twitter-embed-tweet">5.1. Twitter Embed Tweet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sitemap.html">6. Sitemap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#service-definition">6.1. Service Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#raw-performance-with-query">6.2. Raw Performance with Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#configuration-example">6.3. Configuration example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sitemap.html#usage">6.4. Usage</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ SeoBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>2. Twig Helpers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/twig_helpers.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="twig-helpers">
+<h1>2. Twig Helpers<a class="headerlink" href="#twig-helpers" title="Permalink to this headline">¶</a></h1>
+<p>Here are the Twig helpers you can use in your layout:</p>
+<div class="section" id="render-the-page-title">
+<h2>2.1. Render the page title<a class="headerlink" href="#render-the-page-title" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_seo_title</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This will render the page title as follows:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;title&gt;</span>My custom title<span class="nt">&lt;/title&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="render-page-metadata">
+<h2>2.2. Render page metadata<a class="headerlink" href="#render-page-metadata" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_seo_metadatas</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This will render page metadata as follows:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;my-meta-name&quot;</span> <span class="na">content=</span><span class="s">&quot;my-value&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="render-html-attributes">
+<h2>2.3. Render HTML attributes<a class="headerlink" href="#render-html-attributes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_seo_html_attributes</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This will render page HTML attributes as follows: <tt class="docutils literal"><span class="pre">my-attribute=&quot;my-value&quot;</span></tt></p>
+</div>
+<div class="section" id="render-head-attributes">
+<h2>2.4. Render head attributes<a class="headerlink" href="#render-head-attributes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_seo_head_attributes</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This will render page head attributes as follows: <tt class="docutils literal"><span class="pre">my-attribute=&quot;my-value&quot;</span></tt></p>
+</div>
+<div class="section" id="render-canonical-link">
+<h2>2.5. Render canonical link<a class="headerlink" href="#render-canonical-link" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_seo_link_canonical</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This will render the page canonical link as follows:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;canonical&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.example.com/&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="render-alternates-languages">
+<h2>2.6. Render alternates languages<a class="headerlink" href="#render-alternates-languages" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_seo_lang_alternates</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This will render page alternate languages as follows:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;alternate&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.example.com/en&quot;</span> <span class="na">hreflang=</span><span class="s">&quot;en&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="render-oembed-links-http-www-oembed-com">
+<h2>2.7. Render oEmbed links (<a class="reference external" href="http://www.oembed.com/">http://www.oembed.com/</a>)<a class="headerlink" href="#render-oembed-links-http-www-oembed-com" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-jinja"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">sonata_seo_oembed_links</span><span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This will render oEmbed links as follows:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;alternate&quot;</span> <span class="na">type=</span><span class="s">&quot;application/json+oembed&quot;</span> <span class="na">href=</span><span class="s">&quot;http://flickr.com/services/oembed?url=http%3A%2F%2Fflickr.com%2Fphotos%2Fbees%2F2362225867%2F&amp;format=json&quot;</span> <span class="na">title=</span><span class="s">&quot;Bacon Lollys oEmbed Profile&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage.html" class="btn btn-neutral float-right" title="3. Usage"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="1. Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

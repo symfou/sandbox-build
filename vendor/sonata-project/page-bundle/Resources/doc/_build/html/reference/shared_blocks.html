@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Shared Blocks &mdash; Sonata ~ PageBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ PageBundle  documentation" href="../index.html"/>
+        <link rel="next" title="6. Multisite" href="multisite.html"/>
+        <link rel="prev" title="4. Page Composer" href="page_composer.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ PageBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-site">1.1. A Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-page">1.2. A Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-block">1.3. A Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-snapshot">1.4. A Snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-cache">1.5. A Cache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">2.2. Enable the Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">2.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#extend-the-bundle">2.4. Extend the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">3. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-a-default-site">3.1. Creating a default site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-default-pages">3.2. Creating default pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#creating-default-snapshots">3.3. Creating default snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#add-or-edit-a-block">3.4. Add or Edit a Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#publish-a-snapshot">3.5. Publish a snapshot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_composer.html">4. Page Composer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_composer.html#configure">4.1. Configure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_composer.html#javascript">4.2. Javascript</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">5. Shared Blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-shared-blocks-in-your-pages">5.1. Using shared blocks in your pages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multisite.html">6. Multisite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-strategy">6.1. Host Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-by-locale-strategy">6.2. Host By Locale Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-and-path-strategy">6.3. Host and Path Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisite.html#host-and-path-by-locale-strategy">6.4. Host and Path By Locale Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="error_pages.html">7. Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twig_helpers.html">8. Twig Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#url">8.1. Url</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#container">8.2. Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#breadcrumbs">8.3. Breadcrumbs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twig_helpers.html#assets">8.4. Assets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">9. Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#flush-commands">9.1. Flush commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#page-commands">9.2. Page commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line.html#debug-commands">9.3. Debug Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">10. Advanced usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#ignore-options">10.1. Ignore options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html#page-default-options">10.2. Page default options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_services.html">11. Pages Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_services.html#creating-a-new-page-service">11.1. Creating a new Page Service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">12. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">13. Varnish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="varnish.html#basic-configuration">13.1. Basic configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="varnish.html#using-esi">13.2. Using ESI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">14. Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#indexes">14.1. Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#snapshots">14.2. Snapshots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">15. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">15.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">15.2. Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assets.html">16. Assets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="assets.html#compiling-sources">16.1. Compiling sources</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ PageBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>5. Shared Blocks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/shared_blocks.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="shared-blocks">
+<h1>5. Shared Blocks<a class="headerlink" href="#shared-blocks" title="Permalink to this headline">¶</a></h1>
+<p>By default, the blocks you create to populate your pages are tied to their page.
+It means the same block cannot be reused in several pages.</p>
+<p>The <tt class="docutils literal"><span class="pre">SharedBlockAdmin</span></tt> class provides a way to deal with this limitation.
+It allows you to manage free blocks that are not linked to pages or to parent blocks just as you usually do with classic page blocks.
+This way, shared blocks are common to all your sites.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changes on a shared block are automatically echoed on all pages which are using it.</p>
+</div>
+<div class="section" id="using-shared-blocks-in-your-pages">
+<h2>5.1. Using shared blocks in your pages<a class="headerlink" href="#using-shared-blocks-in-your-pages" title="Permalink to this headline">¶</a></h2>
+<p>After creating a shared block, you can reference it in your pages by adding a &#8220;Shared Block&#8221; block.
+When configuring this block, you will be asked to select a shared block to use.</p>
+<p>When your page will be rendered, the referenced shared block will be displayed in its current state.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multisite.html" class="btn btn-neutral float-right" title="6. Multisite"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="page_composer.html" class="btn btn-neutral" title="4. Page Composer"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

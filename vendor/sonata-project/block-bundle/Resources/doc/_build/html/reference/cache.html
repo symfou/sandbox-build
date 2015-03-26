@@ -73,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="your_first_block.html">4. Your first block</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#first-namespaces">4.1. First namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#default-settings">4.2. Default settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-edition">4.3. Form Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="your_first_block.html#form-editing">4.3. Form Editing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#execute">4.4. Execute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#template">4.5. Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="your_first_block.html#service">4.6. Service</a></li>
@@ -154,7 +154,7 @@ Why a <cite>Response</cite> object ? It is a simple element, which contains the 
 As the block returns a <cite>Response</cite> object, it is possible to send it to the client, this use case can be quite useful for some cache backends (esi, ssi or js).</p>
 <div class="section" id="cache-behavior">
 <h2>8.1. Cache Behavior<a class="headerlink" href="#cache-behavior" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">BlockBundle</span></tt> assumes that a block can be cached by default, so if a cache backend is configured, the block response will be stored.
+<p>The <tt class="docutils literal"><span class="pre">BlockBundle</span></tt> assumes that a block can be cached by default, so if a cache backend is configured, the block response will be cached.
 The default <cite>TTL</cite> is <cite>86400</cite> seconds. Now, there are many ways to control this behavior:</p>
 <ul class="simple">
 <li>set a <tt class="docutils literal"><span class="pre">TTL</span></tt> setting inside the block, so if <tt class="docutils literal"><span class="pre">ttl</span></tt> equals 0, then no cache will be available for the block and its parents,</li>
@@ -204,7 +204,7 @@ The default <cite>TTL</cite> is <cite>86400</cite> seconds. Now, there are many 
 </div>
 <div class="section" id="block-ttl-computation">
 <h2>8.2. Block TTL computation<a class="headerlink" href="#block-ttl-computation" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">BlockBundle</span></tt> uses the <cite>TTL</cite> value from the <cite>Response</cite> object to compute the final <cite>TTL</cite> value. As block can have children, the smallest <cite>TTL</cite> need to be used in parent block responses.
+<p>The <tt class="docutils literal"><span class="pre">BlockBundle</span></tt> uses the <cite>TTL</cite> value from the <cite>Response</cite> object to compute the final <cite>TTL</cite> value. As blocks can have children, the smallest <cite>TTL</cite> need to be used in parent block responses.
 This job is done by the <tt class="docutils literal"><span class="pre">BlockRenderer</span></tt> class, this service stores a state with the last response and compares the TTL with the current response.
 The state is reset when the block does not have any parent.</p>
 <p>The cache mechanism will use the <cite>TTL</cite> to set a valid value when the response is stored into the cache backend.</p>
@@ -216,8 +216,8 @@ This can be done by using a different mechanism.</p>
 </div>
 <div class="section" id="final-response-ttl-computation">
 <h2>8.3. Final Response TTL computation<a class="headerlink" href="#final-response-ttl-computation" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">BlockRendered</span></tt> stores a global state for the smallest ttl available, there is another service used to store the smallest
-<tt class="docutils literal"><span class="pre">ttl</span></tt> for the page: <tt class="docutils literal"><span class="pre">HttpCacheHandler</span></tt>. Why two services ? This has been done to add an extra layer of control.</p>
+<p>The <tt class="docutils literal"><span class="pre">BlockRendered</span></tt> stores a global state for the smallest TTL available, there is another service used to store the smallest
+TTL for the page: <tt class="docutils literal"><span class="pre">HttpCacheHandler</span></tt>. Why two services? This has been done to add an extra layer of control.</p>
 <p>The <tt class="docutils literal"><span class="pre">HttpCacheHandler::updateMetadata</span></tt> is called by the templating helper when the response is retrieved, then an event listener is registered to alter the final Response.</p>
 <p>The service can be configured using the <tt class="docutils literal"><span class="pre">http_cache_handler</span></tt> key.</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_block</span><span class="p-Indicator">:</span>
@@ -231,7 +231,7 @@ This can be done by using a different mechanism.</p>
 <div class="section" id="cache-backends">
 <h2>8.4. Cache Backends<a class="headerlink" href="#cache-backends" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">sonata.cache.mongo</span></tt>: use mongodb to store cache element, this is a nice backend as you can remove some cache element by
+<li><tt class="docutils literal"><span class="pre">sonata.cache.mongo</span></tt>: use mongodb to store cache element. This is a nice backend as you can remove a cache element by
 only one value. (remove all block where profile.media.id == 3 is used.)</li>
 <li><tt class="docutils literal"><span class="pre">sonata.cache.memcached</span></tt>: use memcached as a backend, shared across multiple hosts</li>
 <li><tt class="docutils literal"><span class="pre">sonata.cache.apc</span></tt>: use apc from PHP runtime, cannot be shared across multiple hosts, and it is not suitable to store high volume of data</li>
@@ -247,7 +247,7 @@ only one value. (remove all block where profile.media.id == 3 is used.)</li>
         <span class="l-Scalar-Plain">cache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.cache.memcached</span>
 </pre></div>
 </div>
-<p>Please make sure the memcached backend is configured in the <tt class="docutils literal"><span class="pre">sonata_cache</span></tt> definition:</p>
+<p>Also, make sure the memcached backend is configured in the <tt class="docutils literal"><span class="pre">sonata_cache</span></tt> definition:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_cache</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">caches</span><span class="p-Indicator">:</span>
         <span class="l-Scalar-Plain">memcached</span><span class="p-Indicator">:</span>
