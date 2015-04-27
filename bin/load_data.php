@@ -10,7 +10,7 @@
  */
 
 if (!is_file('composer.json')) {
-    throw new \RuntimeException('This script must be started from the project root folder');
+    throw new \RuntimeException('Can\'t find a composer.json file. Make sure to start this script from the project root folder');
 }
 
 $rootDir = __DIR__ . '/..';
@@ -43,40 +43,41 @@ if (!is_file(__DIR__.'/../app/config/parameters.yml')) {
 function execute_commands($commands, $output)
 {
     foreach($commands as $command) {
-        list($command, $message) = $command;
-
+        list($command, $message, $allowFailure) = $command;
 
         $output->write(sprintf(' - %\'.-70s', $message));
-        $p = new \Symfony\Component\Process\Process($command);
-        $p->setTimeout(null);
         $return = array();
-        $p->run(function($type, $data) use (&$return) {
-            $return[] = $data;
-        });
+        if (is_callable($command)) {
+            $success = $command($output);
+        } else {
+            $p = new \Symfony\Component\Process\Process($command);
+            $p->setTimeout(null);
+            $p->run(function($type, $data) use (&$return) {
+                $return[] = $data;
+            });
 
-        if (!$p->isSuccessful()) {
+            $success = $p->isSuccessful();
+        }
+
+        if (!$success && !$allowFailure) {
             $output->writeln('<error>KO</error>');
-            $output->writeln(sprintf('<error>Fail to run: %s</error>', $command));
+            $output->writeln(sprintf('<error>Fail to run: %s</error>', is_callable($command) ? '[closure]' : $command));
             foreach($return as $data) {
                $output->write($data, false, OutputInterface::OUTPUT_RAW);
             }
 
             $output->writeln("If the error is coming from the sandbox,");
             $output->writeln("please report the issue to https://github.com/sonata-project/sandbox/issues");
-            return false;
-        }
 
-        $output->writeln("<info>OK</info>");
+            return false;
+        } else if (!$success) {
+            $output->writeln("<info>!!</info>");
+        } else {
+            $output->writeln("<info>OK</info>");
+        }
     }
 
     return true;
-}
-
-// find out the default php runtime
-$bin = 'php';
-
-if (defined('PHP_BINARY')) {
-    $bin = PHP_BINARY;
 }
 
 $output->writeln(<<<SONATA
@@ -93,23 +94,36 @@ $output->writeln("<info>Resetting demo, this can take a few minutes</info>");
 $fs->remove(sprintf('%s/web/uploads/media', $rootDir));
 $fs->mkdir(sprintf('%s/web/uploads/media', $rootDir));
 
-$fs->copy(__DIR__.'/../src/Sonata/Bundle/DemoBundle/DataFixtures/data/robots.txt', __DIR__.'/../web/robots.txt', true);
+// find out the default php runtime
+$bin = sprintf("%s -d memory_limit=-1", defined('PHP_BINARY') ? PHP_BINARY: 'php');
+
+
+if (extension_loaded('xdebug')) {
+    $output->writeln("<error>WARNING, xdebug is enabled in the cli, this can drastically slowing down all PHP scripts</error>");
+}
 
 $success = execute_commands(array(
-    array($bin . ' ./bin/sonata-check.php','Checking Sonata Project\'s requirements'),
-    array('rm -rf ./app/cache/*','Cleaning the cache'),
-    array($bin . ' ./app/console cache:warmup --env=prod --no-debug','Warming up the production cache'),
-    array($bin . ' ./app/console cache:create-cache-class --env=prod --no-debug','Creating the class cache'),
-    array($bin . ' ./app/console doctrine:database:drop --force','Dropping the database'),
-    array($bin . ' ./app/console doctrine:database:create','Creating the database'),
-    array($bin . ' ./app/console doctrine:schema:update --force','Creating the database\'s schema'),
-    array($bin . '  -d memory_limit=1024M -d max_execution_time=600 ./app/console doctrine:fixtures:load --verbose --env=dev --no-debug','Loading fixtures'),
-    array($bin . ' ./app/console sonata:news:sync-comments-count','SonataNewsBundle: updating comments count'),
-    array($bin . ' ./app/console sonata:page:update-core-routes --site=all --no-debug','SonataPageBundle: updating core route'),
-    array($bin . ' ./app/console sonata:page:create-snapshots --site=all --no-debug','SonataPageBundle: creating snapshots from pages'),
-    array($bin . ' ./app/console assets:install --symlink web','Configure assets'),
-    array($bin . ' ./app/console sonata:admin:setup-acl','Security: setting up ACL'),
-    array($bin . '  -d memory_limit=1024M ./app/console sonata:admin:generate-object-acl','Security: generating object ACL'),
+    array($bin . ' ./bin/sonata-check.php','Checking Sonata Project\'s requirements', false),
+    array(function(OutputInterface $output) use ($fs) {
+        $fs->remove("app/cache/prod");
+        $fs->remove("app/cache/dev");
+
+        return true;
+    }, 'Deleting prod and dev cache folders', false),
+    array(function(OutputInterface $output) use ($fs) {
+        return $fs->exists("app/config/parameters.yml");
+    }, 'Check for app/config/parameters.yml file', false),
+    array($bin . ' ./app/console cache:create-cache-class --env=prod --no-debug','Creating the class cache', false),
+    array($bin . ' ./app/console doctrine:database:drop --force','Dropping the database', true),
+    array($bin . ' ./app/console doctrine:database:create','Creating the database', false),
+    array($bin . ' ./app/console doctrine:schema:update --force','Creating the database\'s schema', false),
+    array($bin . '  -d max_execution_time=600 ./app/console doctrine:fixtures:load --verbose --env=dev --no-debug','Loading fixtures', false),
+    array($bin . ' ./app/console sonata:news:sync-comments-count','Sonata - News: updating comments count', false),
+    array($bin . ' ./app/console sonata:page:update-core-routes --site=all --no-debug','Sonata - Page: updating core route', false),
+    array($bin . ' ./app/console sonata:page:create-snapshots --site=all --no-debug','Sonata - Page: creating snapshots from pages', false),
+    array($bin . ' ./app/console assets:install --symlink web','Configure assets', false),
+    array($bin . ' ./app/console sonata:admin:setup-acl','Security: setting up ACL', false),
+    array($bin . ' ./app/console sonata:admin:generate-object-acl','Security: generating object ACL', false),
 ), $output);
 
 if (!$success) {

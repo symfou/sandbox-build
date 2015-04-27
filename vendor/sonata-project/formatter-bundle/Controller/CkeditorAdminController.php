@@ -34,10 +34,6 @@ class CkeditorAdminController extends BaseMediaAdminController
             throw new AccessDeniedException();
         }
 
-        if ($listMode = $this->getRequest()->get('_list_mode')) {
-            $this->admin->setListMode($listMode);
-        }
-
         $datagrid = $this->admin->getDatagrid();
 
         $filters = $this->getRequest()->get('filter');

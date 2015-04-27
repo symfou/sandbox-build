@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Order &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../index.html"/>
+        <link rel="up" title="Sonata e-commerce Architecture" href="index.html"/>
+        <link rel="next" title="Payment" href="payment.html"/>
+        <link rel="prev" title="Basket" href="basket.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bundles/index.html"> Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/order.html">Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/payment/index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"> Architecture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Sonata e-commerce Architecture</a> &raquo;</li>
+      
+    <li>Order</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/architecture/order.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="order">
+<span id="index-0"></span><h1>Order<a class="headerlink" href="#order" title="Permalink to this headline">¶</a></h1>
+<p>Click on the image to view a bigger version.</p>
+<a class="reference internal image-reference" href="../../_images/dcOrder.svg"><img alt="Order Class Diagram" src="../../_images/dcOrder.svg" width="75%" /></a>
+<p>We tried to avoid as much relations as possible in the <cite>Order</cite>, so we would not be dependent of <cite>Product</cite> changes. (For instance, if you make an <cite>Order</cite> with a <cite>Product</cite> at a given <cite>Price</cite>, then the <cite>Price</cite> changes, you want to keep your old price in your <cite>Order</cite>). This is why the product is &#8220;serialized&#8221; in the order element (see the field <tt class="docutils literal"><span class="pre">rawProduct</span></tt>).</p>
+<p>The <cite>Order&#8217;s</cite> locale is also set (to the <cite>Basket</cite> locale, which is set to the customer locale, which is set to the current locale on the customer&#8217;s registration, but you may customize that in the <tt class="docutils literal"><span class="pre">BasketTransformer</span></tt>). This locale is used to display the <cite>Order</cite>. More details in <a class="reference internal" href="index.html"><em>Sonata e-commerce Architecture</em></a>.</p>
+<div class="section" id="order-statuses">
+<h2>Order Statuses<a class="headerlink" href="#order-statuses" title="Permalink to this headline">¶</a></h2>
+<p>An <cite>Order</cite> or an <cite>OrderElement</cite> may have the following statuses:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">interface</span> <span class="nx">OrderInterface</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">STATUS_OPEN</span>       <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// created but not validated</span>
+    <span class="k">const</span> <span class="no">STATUS_PENDING</span>    <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// waiting from action from the user</span>
+    <span class="k">const</span> <span class="no">STATUS_VALIDATED</span>  <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// the order is validated does not mean the payment is ok</span>
+    <span class="k">const</span> <span class="no">STATUS_CANCELLED</span>  <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// the order is cancelled</span>
+    <span class="k">const</span> <span class="no">STATUS_ERROR</span>      <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// the order has an error</span>
+    <span class="k">const</span> <span class="no">STATUS_STOPPED</span>    <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// use if the subscription has been cancelled/stopped</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Regarding the <cite>Payment</cite> statuses, here are the possible values:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">interface</span> <span class="nx">TransactionInterface</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">STATUS_ORDER_UNKNOWN</span>    <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// the order is unknown</span>
+    <span class="k">const</span> <span class="no">STATUS_OPEN</span>             <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// created but not validated</span>
+    <span class="k">const</span> <span class="no">STATUS_PENDING</span>          <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// the bank send a &#39;pending-like&#39; status, so the payment is not validated, but the user payed</span>
+    <span class="k">const</span> <span class="no">STATUS_VALIDATED</span>        <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// the bank confirm the payment</span>
+    <span class="k">const</span> <span class="no">STATUS_CANCELLED</span>        <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  <span class="c1">// the user cancelled the payment</span>
+    <span class="k">const</span> <span class="no">STATUS_UNKNOWN</span>          <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>  <span class="c1">// the bank sent a unknown code ...</span>
+    <span class="k">const</span> <span class="no">STATUS_ERROR_VALIDATION</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>  <span class="c1">// something wrong happen when the bank validate the postback</span>
+    <span class="k">const</span> <span class="no">STATUS_WRONG_CALLBACK</span>   <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// something wrong is sent from the bank. hack or the bank change something ...</span>
+    <span class="k">const</span> <span class="no">STATUS_WRONG_REQUEST</span>    <span class="o">=</span> <span class="mi">11</span><span class="p">;</span> <span class="c1">// the callback request is not valid</span>
+    <span class="k">const</span> <span class="no">STATUS_ORDER_NOT_OPEN</span>   <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// the order is not open (so a previous transaction already alter the order)</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, the values for the <cite>Delivery</cite> statuses:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">interface</span> <span class="nx">ServiceDeliveryInterface</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">STATUS_OPEN</span>       <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">// Not processed yet</span>
+    <span class="k">const</span> <span class="no">STATUS_PENDING</span>    <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>    <span class="c1">// Packing</span>
+    <span class="k">const</span> <span class="no">STATUS_SENT</span>       <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>    <span class="c1">// In transit</span>
+    <span class="k">const</span> <span class="no">STATUS_CANCELLED</span>  <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>    <span class="c1">// Delivery cancelled</span>
+    <span class="k">const</span> <span class="no">STATUS_COMPLETED</span>  <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>    <span class="c1">// Delivered</span>
+    <span class="k">const</span> <span class="no">STATUS_RETURNED</span>   <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>    <span class="c1">// Returned to sender</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Feel free to add your own statuses in your implementations; but remember to override the corresponding <tt class="docutils literal"><span class="pre">getStatusList</span></tt> static methods.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="payment.html" class="btn btn-neutral float-right" title="Payment"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basket.html" class="btn btn-neutral" title="Basket"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -29,7 +29,7 @@
 
   
     <link rel="top" title="Sonata ~ MediaBundle  documentation" href="../index.html"/>
-        <link rel="next" title="10. Extra" href="extra.html"/>
+        <link rel="next" title="10. Amazon S3" href="amazon_s3.html"/>
         <link rel="prev" title="8. Command Line Tools" href="command_line.html"/> 
 
   
@@ -100,25 +100,29 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">9. Advanced Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html">10. Extra</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">10.1. Pixlr Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon_s3.html">10. Amazon S3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amazon_s3.html#configuration">10.1. Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">11. Sonata Notification Bundle Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">12. Liip Imagine Bundle Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">13. CKEditor Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">13.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">13.2. Medias in CKEditor with SonataFormatterBundle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">11. Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">11.1. Pixlr Integration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">14. API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#setup">14.1. Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">14.2. Serialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">14.3. Sending a media file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">12. Sonata Notification Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">13. Liip Imagine Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">14. CKEditor Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">14.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">14.2. Medias in CKEditor with SonataFormatterBundle</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">15. Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">15.1. Media Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">15. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">15.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">15.2. Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">15.3. Sending a media file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">16. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">16.1. Media Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -164,6 +168,7 @@
         media:              Application\Sonata\MediaBundle\Entity\Media
         gallery:            Application\Sonata\MediaBundle\Entity\Gallery
         gallery_has_media:  Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+        category:           Application\Sonata\ClassificationBundle\Entity\Category
 
     default_context: default
     contexts:
@@ -217,6 +222,12 @@
             site_id:
             password:
             username:
+
+        cloudfront:
+            path:       http://xxxxxxxxxxxxxx.cloudfront.net/uploads/media
+            distribution_id:
+            key:
+            secret:
 
         fallback:
             master:     sonata.media.cdn.panther
@@ -326,7 +337,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="extra.html" class="btn btn-neutral float-right" title="10. Extra"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="amazon_s3.html" class="btn btn-neutral float-right" title="10. Amazon S3"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="command_line.html" class="btn btn-neutral" title="8. Command Line Tools"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -6,11 +6,11 @@ use Doctrine\ORM\Events;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\Tests\Models\Company\CompanyFixContract;
 use Doctrine\Tests\Models\Company\CompanyFlexContract;
-
+use Doctrine\Tests\Models\Cache\City;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-
-require_once __DIR__ . '/../../TestInit.php';
+use Doctrine\Tests\Models\DDC2825\ExplicitSchemaAndTable;
+use Doctrine\Tests\Models\DDC2825\SchemaAndTableInTableName;
 
 abstract class AbstractMappingDriverTest extends \Doctrine\Tests\OrmTestCase
 {
@@ -75,6 +75,19 @@ abstract class AbstractMappingDriverTest extends \Doctrine\Tests\OrmTestCase
         return $class;
     }
 
+    public function testEntityIndexFlagsAndPartialIndexes()
+    {
+        $class = $this->createClassMetadata('Doctrine\Tests\ORM\Mapping\Comment');
+
+        $this->assertEquals(array(
+            0 => array(
+                'columns' => array('content'),
+                'flags' => array('fulltext'),
+                'options' => array('where' => 'content IS NOT NULL'),
+            )
+        ), $class->table['indexes']);
+    }
+
     /**
      * @depends testEntityTableNameAndInheritance
      * @param ClassMetadata $class
@@ -85,7 +98,7 @@ abstract class AbstractMappingDriverTest extends \Doctrine\Tests\OrmTestCase
             'ClassMetadata should have uniqueConstraints key in table property when Unique Constraints are set.');
 
         $this->assertEquals(array(
-            "search_idx" => array("columns" => array("name", "user_email"))
+            "search_idx" => array("columns" => array("name", "user_email"), 'options' => array('where' => 'name IS NOT NULL'))
         ), $class->table['uniqueConstraints']);
 
         return $class;
@@ -893,6 +906,60 @@ abstract class AbstractMappingDriverTest extends \Doctrine\Tests\OrmTestCase
         $this->assertEquals(Events::postLoad, $postLoad['method']);
         $this->assertEquals(Events::preFlush, $preFlush['method']);
     }
+
+    /**
+     * @group DDC-2183
+     */
+    public function testSecondLevelCacheMapping()
+    {
+        $em      = $this->_getTestEntityManager();
+        $factory = $this->createClassMetadataFactory($em);
+        $class   = $factory->getMetadataFor(City::CLASSNAME);
+        $this->assertArrayHasKey('usage', $class->cache);
+        $this->assertArrayHasKey('region', $class->cache);
+        $this->assertEquals(ClassMetadata::CACHE_USAGE_READ_ONLY, $class->cache['usage']);
+        $this->assertEquals('doctrine_tests_models_cache_city', $class->cache['region']);
+
+        $this->assertArrayHasKey('state', $class->associationMappings);
+        $this->assertArrayHasKey('cache', $class->associationMappings['state']);
+        $this->assertArrayHasKey('usage', $class->associationMappings['state']['cache']);
+        $this->assertArrayHasKey('region', $class->associationMappings['state']['cache']);
+        $this->assertEquals(ClassMetadata::CACHE_USAGE_READ_ONLY, $class->associationMappings['state']['cache']['usage']);
+        $this->assertEquals('doctrine_tests_models_cache_city__state', $class->associationMappings['state']['cache']['region']);
+
+        $this->assertArrayHasKey('attractions', $class->associationMappings);
+        $this->assertArrayHasKey('cache', $class->associationMappings['attractions']);
+        $this->assertArrayHasKey('usage', $class->associationMappings['attractions']['cache']);
+        $this->assertArrayHasKey('region', $class->associationMappings['attractions']['cache']);
+        $this->assertEquals(ClassMetadata::CACHE_USAGE_READ_ONLY, $class->associationMappings['attractions']['cache']['usage']);
+        $this->assertEquals('doctrine_tests_models_cache_city__attractions', $class->associationMappings['attractions']['cache']['region']);
+    }
+
+    /**
+     * @group DDC-2825
+     * @group 881
+     */
+    public function testSchemaDefinitionViaExplicitTableSchemaAnnotationProperty()
+    {
+        /* @var $metadata \Doctrine\ORM\Mapping\ClassMetadata */
+        $metadata = $this->createClassMetadataFactory()->getMetadataFor(ExplicitSchemaAndTable::CLASSNAME);
+
+        $this->assertSame('explicit_schema', $metadata->getSchemaName());
+        $this->assertSame('explicit_table', $metadata->getTableName());
+    }
+
+    /**
+     * @group DDC-2825
+     * @group 881
+     */
+    public function testSchemaDefinitionViaSchemaDefinedInTableNameInTableAnnotationProperty()
+    {
+        /* @var $metadata \Doctrine\ORM\Mapping\ClassMetadata */
+        $metadata = $this->createClassMetadataFactory()->getMetadataFor(SchemaAndTableInTableName::CLASSNAME);
+
+        $this->assertSame('implicit_schema', $metadata->getSchemaName());
+        $this->assertSame('implicit_table', $metadata->getTableName());
+    }
 }
 
 /**
@@ -900,7 +967,7 @@ abstract class AbstractMappingDriverTest extends \Doctrine\Tests\OrmTestCase
  * @HasLifecycleCallbacks
  * @Table(
  *  name="cms_users",
- *  uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"name", "user_email"})},
+ *  uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"name", "user_email"}, options={"where": "name IS NOT NULL"})},
  *  indexes={@Index(name="name_idx", columns={"name"}), @Index(name="0", columns={"user_email"})},
  *  options={"foo": "bar", "baz": {"key": "val"}}
  * )
@@ -1084,7 +1151,7 @@ class User
            'orderBy' => NULL,
           ));
         $metadata->table['uniqueConstraints'] = array(
-            'search_idx' => array('columns' => array('name', 'user_email')),
+            'search_idx' => array('columns' => array('name', 'user_email'), 'options'=> array('where' => 'name IS NOT NULL')),
         );
         $metadata->table['indexes'] = array(
             'name_idx' => array('columns' => array('name')), 0 => array('columns' => array('user_email'))
@@ -1240,3 +1307,36 @@ class DDC807SubClasse2 {}
 class Address {}
 class Phonenumber {}
 class Group {}
+
+/**
+ * @Entity
+ * @Table(indexes={@Index(columns={"content"}, flags={"fulltext"}, options={"where": "content IS NOT NULL"})})
+ */
+class Comment
+{
+    /**
+     * @Column(type="text")
+     */
+    private $content;
+
+    public static function loadMetadata(ClassMetadataInfo $metadata)
+    {
+        $metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
+        $metadata->setPrimaryTable(array(
+            'indexes' => array(
+                array('columns' => array('content'), 'flags' => array('fulltext'), 'options' => array('where' => 'content IS NOT NULL'))
+            )
+        ));
+
+        $metadata->mapField(array(
+            'fieldName' => 'content',
+            'type' => 'text',
+            'scale' => 0,
+            'length' => NULL,
+            'unique' => false,
+            'nullable' => false,
+            'precision' => 0,
+            'columnName' => 'content',
+        ));
+    }
+}

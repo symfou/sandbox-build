@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Product &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../index.html"/>
+        <link rel="up" title="Sonata e-commerce Architecture" href="index.html"/>
+        <link rel="next" title="Currency" href="currency.html"/>
+        <link rel="prev" title="Sonata e-commerce Architecture" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bundles/index.html"> Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/order.html">Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/payment/index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"> Architecture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Sonata e-commerce Architecture</a> &raquo;</li>
+      
+    <li>Product</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/architecture/product.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="product">
+<span id="index-0"></span><h1>Product<a class="headerlink" href="#product" title="Permalink to this headline">¶</a></h1>
+<p>A <tt class="docutils literal"><span class="pre">Product</span></tt> defines the data related to one entry in the persistence layer. An application can have different types of product. A <cite>Product</cite> is always linked to a <tt class="docutils literal"><span class="pre">ProductProvider</span></tt>.</p>
+<p>The link between the <tt class="docutils literal"><span class="pre">Product</span></tt> and the <tt class="docutils literal"><span class="pre">ProductProvider</span></tt> is done through the configuration file (see <tt class="docutils literal"><span class="pre">app/config/sonata/sonata_product.yml</span></tt> under <tt class="docutils literal"><span class="pre">sonata_product</span></tt> namespace in the sandbox).</p>
+<p>A <tt class="docutils literal"><span class="pre">ProductProvider</span></tt> is responsible of the <tt class="docutils literal"><span class="pre">Product</span></tt> lifecycle across the application:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Compute prices</li>
+<li>Forms manager: front and backend</li>
+<li>Add a <cite>Product</cite> into the <cite>Basket</cite></li>
+<li>Create an <tt class="docutils literal"><span class="pre">OrderElement</span></tt> upon the <tt class="docutils literal"><span class="pre">Product</span></tt> information</li>
+<li>Create variations</li>
+</ul>
+</div></blockquote>
+<p>A <tt class="docutils literal"><span class="pre">ProductManager</span></tt> is responsible of the <tt class="docutils literal"><span class="pre">Product</span></tt> lifecycle with the database:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Retrieve a <cite>Product</cite> type</li>
+<li>Save/Delete a <cite>Product</cite> type</li>
+<li>Find a <cite>Product</cite> type</li>
+</ul>
+</div></blockquote>
+<p>A <tt class="docutils literal"><span class="pre">ProductSetManager</span></tt> is responsible of retrieving a set of different products, or specific products (it overrides the <tt class="docutils literal"><span class="pre">ProductManager</span></tt>).</p>
+<p>A <tt class="docutils literal"><span class="pre">ProductFinder</span></tt> is responsible for finding matching products related to a given one. It will noticeably be used for cross-selling &amp; up-selling matches.</p>
+<p>Each <cite>Product</cite> prototype has its own type (defined in <tt class="docutils literal"><span class="pre">ProductType</span></tt> property).
+You can use <tt class="docutils literal"><span class="pre">Sonata\Component\Product\Pool</span></tt> to retrieve related <tt class="docutils literal"><span class="pre">ProductProvider</span></tt> and <tt class="docutils literal"><span class="pre">ProductManager</span></tt> instances.</p>
+<div class="section" id="product-variations">
+<h2>Product Variations<a class="headerlink" href="#product-variations" title="Permalink to this headline">¶</a></h2>
+<p>A <tt class="docutils literal"><span class="pre">Product</span></tt> can be duplicated. For instance, you can have a <tt class="docutils literal"><span class="pre">Product</span></tt> variated in many
+colors but all the others parameters are the same.</p>
+<p>The <tt class="docutils literal"><span class="pre">ProductProvider</span></tt> is responsible of the variation creation.</p>
+<p>The variations are related to a parent <tt class="docutils literal"><span class="pre">Product</span></tt>. When you edit some data in your parent
+<tt class="docutils literal"><span class="pre">Product</span></tt>, you can synchronize them with the <tt class="docutils literal"><span class="pre">ProductProvider</span></tt>.</p>
+<p>A product and its variations can be synchronized : each field of the master product (except <tt class="docutils literal"><span class="pre">id</span></tt>, <tt class="docutils literal"><span class="pre">parent</span></tt> and the variation fields) is copied
+from the master product to its variations.
+The &#8220;variation fields&#8221; are used to differentiate the variations. Each of these fields can&#8217;t be modified from the parent product since they are &#8220;children specific&#8221;.</p>
+</div>
+<div class="section" id="product-template">
+<h2>Product Template<a class="headerlink" href="#product-template" title="Permalink to this headline">¶</a></h2>
+<p>Here are the blocks you can override in the product template.</p>
+<p>The product sheet is based on the main <tt class="docutils literal"><span class="pre">product</span></tt> block, which is divided in 2 blocks:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">product_left</span></tt> block, which includes:<ul>
+<li><tt class="docutils literal"><span class="pre">product_carousel</span></tt> block displays the gallery associated with the product or just the main image of the product.</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">product_right</span></tt> block, which includes:<ul>
+<li><tt class="docutils literal"><span class="pre">product_title</span></tt> block displays the product title,</li>
+<li><tt class="docutils literal"><span class="pre">product_properties</span></tt> block displays various information about the product (price, ...) in the blocks listed below:<ul>
+<li><tt class="docutils literal"><span class="pre">product_generic_properties</span></tt> block displays generic information about the product (non variation fields):<ul>
+<li><tt class="docutils literal"><span class="pre">product_unit_price</span></tt> block displays the unit price of the product,</li>
+<li><tt class="docutils literal"><span class="pre">product_reference</span></tt> block displays the reference (aka SKU) of the product,</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">product_description_short</span></tt> block shows the short description of the product,</li>
+<li><tt class="docutils literal"><span class="pre">product_errors</span></tt> block shows the product page errors (unavailable stock, ...),</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">product_variations_form_block</span></tt> blocks displays a form allowing to select the variation based variated properties (see <a class="reference internal" href="#block-variations-form"><em>sonata.product.block.variations_form</em></a> for more information).</li>
+<li><tt class="docutils literal"><span class="pre">product_delivery</span></tt> block displays product delivery information (to override by default),</li>
+<li><tt class="docutils literal"><span class="pre">product_basket</span></tt> block displays the &#8220;Add to basket&#8221; form (rendered by <tt class="docutils literal"><span class="pre">SonataBasketBundle:Basket:add_product_form.html.twig</span></tt> template).</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>Also, to allow the display of variations, a javascript block has been implemented :</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">product_javascript_init</span></tt> block to register javascript functions related to products</li>
+</ul>
+</dd>
+</dl>
+<p>Additionally, you can override those template blocks:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">product_cross</span></tt> block is used as a container to encapsulate the following :<ul>
+<li><tt class="docutils literal"><span class="pre">product_cross_selling</span></tt> block that includes cross-selling block (rendered by <tt class="docutils literal"><span class="pre">SonataProductBundle:Product:view_similar.html.twig</span></tt> template).</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">product_full_description</span></tt> block is used to render the full description of the product</li>
+<li><tt class="docutils literal"><span class="pre">product_comment</span></tt> block is used to render comments related to the product</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="product-helpers">
+<h2>Product Helpers<a class="headerlink" href="#product-helpers" title="Permalink to this headline">¶</a></h2>
+<p>Some Twig helpers are available for your templates:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sonata_product_provider</span></tt> gives you the related <tt class="docutils literal"><span class="pre">ProductProvider</span></tt> for a given <tt class="docutils literal"><span class="pre">Product</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">sonata_product_has_variations</span></tt> returns true or false if the <tt class="docutils literal"><span class="pre">Product</span></tt> has variations.</li>
+<li><tt class="docutils literal"><span class="pre">sonata_product_has_enabled_variations</span></tt> returns true or false if the <tt class="docutils literal"><span class="pre">Product</span></tt> has enabled variations.</li>
+<li><tt class="docutils literal"><span class="pre">sonata_product_cheapest_variation</span></tt> returns cheapest variation, based on its price.</li>
+<li><tt class="docutils literal"><span class="pre">sonata_product_cheapest_variation_price</span></tt> returns the price of the cheapest variation.</li>
+<li><tt class="docutils literal"><span class="pre">sonata_product_price</span></tt> calculates the price of a <tt class="docutils literal"><span class="pre">Product</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">sonata_product_stock</span></tt> gets the available stock of a <tt class="docutils literal"><span class="pre">Product</span></tt>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="product-block-services">
+<h2>Product Block Services<a class="headerlink" href="#product-block-services" title="Permalink to this headline">¶</a></h2>
+<p>Some <cite>SonataBlock</cite> services are available as well:</p>
+<div class="section" id="sonata-product-block-variations-form">
+<span id="block-variations-form"></span><h3>sonata.product.block.variations_form<a class="headerlink" href="#sonata-product-block-variations-form" title="Permalink to this headline">¶</a></h3>
+<p>Renders the variations_form. A <tt class="docutils literal"><span class="pre">Product</span></tt> argument is needed.</p>
+<dl class="docutils">
+<dt>Options:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">variations_properties</span></tt> is an array of properties you wish to display.</li>
+<li><tt class="docutils literal"><span class="pre">form_route</span></tt> and <tt class="docutils literal"><span class="pre">form_route_parameters</span></tt> are used to generate the URL to submit the variation form.</li>
+<li><tt class="docutils literal"><span class="pre">form_field_options</span></tt> allows you to give an array of options to the form field generated. Note that this parameter will be applied to every form fields (their type is &#8220;choice&#8221;. See <a class="reference external" href="http://symfony.com/doc/current/reference/forms/types/choice.html">Symfony Choice Form Type</a> for a list of available parameters.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="sonata-product-block-recent-products">
+<h3>sonata.product.block.recent_products<a class="headerlink" href="#sonata-product-block-recent-products" title="Permalink to this headline">¶</a></h3>
+<p>Renders the latest added products. By default, the number of displayed products is set to 5, but you may override this setting using the setting key name <tt class="docutils literal"><span class="pre">number</span></tt>.</p>
+</div>
+<div class="section" id="sonata-product-block-categories-menu">
+<h3>sonata.product.block.categories_menu<a class="headerlink" href="#sonata-product-block-categories-menu" title="Permalink to this headline">¶</a></h3>
+<p>Displays a KnpMenu rendering the <cite>Product</cite> categories. It is rendered using the template <tt class="docutils literal"><span class="pre">SonataBlockBundle:Block:block_side_menu_template.html.twig</span></tt> that you might want to override.</p>
+</div>
+<div class="section" id="sonata-product-block-filters-menu">
+<h3>sonata.product.block.filters_menu<a class="headerlink" href="#sonata-product-block-filters-menu" title="Permalink to this headline">¶</a></h3>
+<p>Displays a <a class="reference external" href="https://github.com/KnpLabs/KnpMenuBundle/blob/1.1.x/Resources/doc/index.md">KnpMenu</a> rendering the currently selected product type filters (work in progress).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="currency.html" class="btn btn-neutral float-right" title="Currency"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Sonata e-commerce Architecture"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -100,25 +100,29 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">9. Advanced Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html">10. Extra</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">10.1. Pixlr Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon_s3.html">10. Amazon S3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amazon_s3.html#configuration">10.1. Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">11. Sonata Notification Bundle Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">12. Liip Imagine Bundle Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">13. CKEditor Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">13.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">13.2. Medias in CKEditor with SonataFormatterBundle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html">11. Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#pixlr-integration">11.1. Pixlr Integration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">14. API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#setup">14.1. Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">14.2. Serialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">14.3. Sending a media file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#sonata-notification-bundle-integration">12. Sonata Notification Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#liip-imagine-bundle-integration">13. Liip Imagine Bundle Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra.html#ckeditor-integration">14. CKEditor Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-cooptilleulsckeditorsonatamediabundle">14.1. Medias in CKEditor with CoopTilleulsCKEditorSonataMediaBundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra.html#medias-in-ckeditor-with-sonataformatterbundle">14.2. Medias in CKEditor with SonataFormatterBundle</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">15. Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">15.1. Media Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">15. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">15.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">15.2. Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#sending-a-media-file">15.3. Sending a media file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">16. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#media-formats">16.1. Media Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -182,9 +186,9 @@ how media assets are going to be store on the filesystem.</p>
 <h2>3.1. Media Entity<a class="headerlink" href="#media-entity" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Media</span></tt> entity comes with common media fields: <tt class="docutils literal"><span class="pre">size</span></tt>, <tt class="docutils literal"><span class="pre">length</span></tt>,
 <tt class="docutils literal"><span class="pre">width</span></tt> and <tt class="docutils literal"><span class="pre">height</span></tt>. However the provider might require you to add more
-information. As it not possible to store all of the possible information
+information. As it is not possible to store all of the possible information
 into database columns, the provider class can use the <tt class="docutils literal"><span class="pre">provider_metadata</span></tt>
-field to store metadata as a serialize array.</p>
+field to store metadata as a serialized array.</p>
 <p>The <tt class="docutils literal"><span class="pre">Media</span></tt> entity has 3 other provider fields:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">provider_name</span></tt>: the service name linked to the media</li>

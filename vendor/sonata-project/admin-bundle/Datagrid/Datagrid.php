@@ -18,6 +18,12 @@ use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * Class Datagrid
+ *
+ * @package Sonata\AdminBundle\Datagrid
+ * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ */
 class Datagrid implements DatagridInterface
 {
     /**
@@ -138,7 +144,6 @@ class Datagrid implements DatagridInterface
                 $maxPerPage = $this->values['_per_page'];
             }
         }
-
         $this->pager->setMaxPerPage($maxPerPage);
 
         $page = 1;

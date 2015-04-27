@@ -51,11 +51,11 @@ class ProxyQuery implements ProxyQueryInterface
         if ($this->getSortBy()) {
             $sortBy = $this->getSortBy();
             if (strpos($sortBy, '.') === false) { // add the current alias
-                $sortBy = $queryBuilder->getRootAlias() . '.' . $sortBy;
+                $sortBy = $queryBuilder->getRootAlias().'.'.$sortBy;
             }
             $queryBuilder->addOrderBy($sortBy, $this->getSortOrder());
         } else {
-            $queryBuilder->resetDQLPart( 'orderBy' );
+            $queryBuilder->resetDQLPart('orderBy');
         }
 
         return $this->getFixedQueryBuilder($queryBuilder)->getQuery()->execute($params, $hydrationMode);
@@ -76,16 +76,30 @@ class ProxyQuery implements ProxyQueryInterface
         // step 1 : retrieve the targeted class
         $from  = $queryBuilderId->getDQLPart('from');
         $class = $from[0]->getFrom();
+        $metadata = $queryBuilderId->getEntityManager()->getMetadataFactory()->getMetadataFor($class);
 
-        // step 2 : retrieve the column id
-        $idName = current($queryBuilderId->getEntityManager()->getMetadataFactory()->getMetadataFor($class)->getIdentifierFieldNames());
+        // step 2 : retrieve identifier columns
+        $idNames = $metadata->getIdentifierFieldNames();
 
-        // step 3 : retrieve the different subjects id
-        $select = sprintf('%s.%s', $queryBuilderId->getRootAlias(), $idName);
+        // step 3 : retrieve the different subjects ids
+        $selects = array();
+        $idxSelect = '';
+        foreach ($idNames as $idName) {
+            $select = sprintf('%s.%s', $queryBuilderId->getRootAlias(), $idName);
+            // Put the ID select on this array to use it on results QB
+            $selects[$idName] = $select;
+            // Use IDENTITY if id is a relation too. See: http://doctrine-orm.readthedocs.org/en/latest/reference/dql-doctrine-query-language.html
+            // Should work only with doctrine/orm: ~2.2
+            $idSelect = $select;
+            if ($metadata->hasAssociation($idName)) {
+                $idSelect = sprintf('IDENTITY(%s) as %s', $idSelect, $idName);
+            }
+            $idxSelect .= ($idxSelect !== '' ? ', ' : '') . $idSelect;
+        }
         $queryBuilderId->resetDQLPart('select');
-        $queryBuilderId->add('select', 'DISTINCT ' . $select);
+        $queryBuilderId->add('select', 'DISTINCT '.$idxSelect);
 
-        // for SELECT DISTINCT, ORDER BY expressions must appear in select list
+        // for SELECT DISTINCT, ORDER BY expressions must appear in idxSelect list
         /* Consider
             SELECT DISTINCT x FROM tab ORDER BY y;
         For any particular x-value in the table there might be many different y
@@ -95,24 +109,29 @@ class ProxyQuery implements ProxyQueryInterface
         if ($this->getSortBy()) {
             $sortBy = $this->getSortBy();
             if (strpos($sortBy, '.') === false) { // add the current alias
-                $sortBy = $queryBuilderId->getRootAlias() . '.' . $sortBy;
+                $sortBy = $queryBuilderId->getRootAlias().'.'.$sortBy;
             }
             $sortBy .= ' AS __order_by';
             $queryBuilderId->addSelect($sortBy);
         }
 
         $results    = $queryBuilderId->getQuery()->execute(array(), Query::HYDRATE_ARRAY);
-        $idx        = array();
+        $idxMatrix  = array();
         foreach ($results as $id) {
-            $idx[] = $id[$idName];
+            foreach ($idNames as $idName) {
+                $idxMatrix[$idName][] = $id[$idName];
+            }
         }
 
         // step 4 : alter the query to match the targeted ids
-        if (count($idx) > 0) {
-            $queryBuilder->andWhere(sprintf('%s IN (:sonata_ids)', $select));
-            $queryBuilder->setParameter('sonata_ids', $idx);
-            $queryBuilder->setMaxResults(null);
-            $queryBuilder->setFirstResult(null);
+        foreach ($idxMatrix as $idName => $idx) {
+            if (count($idx) > 0) {
+                $idxParamName = sprintf('%s_idx', $idName);
+                $queryBuilder->andWhere(sprintf('%s IN (:%s)', $selects[$idName], $idxParamName));
+                $queryBuilder->setParameter($idxParamName, $idx);
+                $queryBuilder->setMaxResults(null);
+                $queryBuilder->setFirstResult(null);
+            }
         }
 
         return $queryBuilder;
@@ -140,7 +159,7 @@ class ProxyQuery implements ProxyQueryInterface
     public function setSortBy($parentAssociationMappings, $fieldMapping)
     {
         $alias        = $this->entityJoin($parentAssociationMappings);
-        $this->sortBy = $alias . '.' . $fieldMapping['fieldName'];
+        $this->sortBy = $alias.'.'.$fieldMapping['fieldName'];
 
         return $this;
     }
@@ -250,8 +269,25 @@ class ProxyQuery implements ProxyQueryInterface
 
         $newAlias = 's';
 
+        $joinedEntities = $this->queryBuilder->getDQLPart('join');
+
         foreach ($associationMappings as $associationMapping) {
-            $newAlias .= '_' . $associationMapping['fieldName'];
+
+             // Do not add left join to already joined entities with custom query
+             foreach ($joinedEntities as $joinExprList) {
+                 foreach ($joinExprList as $joinExpr) {
+                     $newAliasTmp = $joinExpr->getAlias();
+
+                     if (sprintf('%s.%s', $alias, $associationMapping['fieldName']) === $joinExpr->getJoin()) {
+                         $this->entityJoinAliases[] = $newAliasTmp;
+                         $alias = $newAliasTmp;
+
+                         continue 3;
+                     }
+                 }
+             }
+
+            $newAlias .= '_'.$associationMapping['fieldName'];
             if (!in_array($newAlias, $this->entityJoinAliases)) {
                 $this->entityJoinAliases[] = $newAlias;
                 $this->queryBuilder->leftJoin(sprintf('%s.%s', $alias, $associationMapping['fieldName']), $newAlias);

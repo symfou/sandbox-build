@@ -2,10 +2,12 @@
 
 namespace Doctrine\Tests\Mocks;
 
+use Doctrine\Common\Collections\Criteria;
+
 /**
  * EntityPersister implementation used for mocking during tests.
  */
-class EntityPersisterMock extends \Doctrine\ORM\Persisters\BasicEntityPersister
+class EntityPersisterMock extends \Doctrine\ORM\Persisters\Entity\BasicEntityPersister
 {
     /**
      * @var array
@@ -53,7 +55,10 @@ class EntityPersisterMock extends \Doctrine\ORM\Persisters\BasicEntityPersister
         if ( ! is_null($this->mockIdGeneratorType) && $this->mockIdGeneratorType == \Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_IDENTITY
                 || $this->class->isIdGeneratorIdentity()) {
             $id = $this->identityColumnValueCounter++;
-            $this->postInsertIds[$id] = $entity;
+            $this->postInsertIds[] = array(
+                'generatedId' => $id,
+                'entity' => $entity,
+            );
             return $id;
         }
         return null;
@@ -88,7 +93,7 @@ class EntityPersisterMock extends \Doctrine\ORM\Persisters\BasicEntityPersister
     /**
      * {@inheritdoc}
      */
-    public function exists($entity, array $extraConditions = array())
+    public function exists($entity, Criteria $extraConditions = null)
     {
         $this->existsCalled = true;
     }

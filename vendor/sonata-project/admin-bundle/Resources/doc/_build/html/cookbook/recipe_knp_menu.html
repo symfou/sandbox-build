@@ -236,6 +236,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">2. KnpMenu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#add-a-custom-controller-entry-in-the-menu">2.1. Add a custom controller entry in the menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-menu-provider">2.2. Using a menu provider</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="recipe_file_uploads.html">3. Uploading and saving documents (including images) using DoctrineORM and SonataAdmin</a><ul>
@@ -308,30 +309,33 @@
             
   <div class="section" id="knpmenu">
 <h1>2. KnpMenu<a class="headerlink" href="#knpmenu" title="Permalink to this headline">¶</a></h1>
-<p>The admin comes with <a class="reference external" href="https://github.com/KnpLabs/KnpMenu">KnpMenu</a> integration
-It integrates a menu with the KnpMenu library. This menu can be a SonataAdmin service or a route of a custom controller.</p>
+<p>The admin comes with <a class="reference external" href="https://github.com/KnpLabs/KnpMenu">KnpMenu</a> integration.
+It integrates a menu with the KnpMenu library. This menu can be a SonataAdmin service, a menu created with a Knp menu provider or a route of a custom controller.</p>
 <div class="section" id="add-a-custom-controller-entry-in-the-menu">
 <h2>2.1. Add a custom controller entry in the menu<a class="headerlink" href="#add-a-custom-controller-entry-in-the-menu" title="Permalink to this headline">¶</a></h2>
 <p>To add a custom controller entry in the admin menu:</p>
-<p>Create your controller</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">/**</span>
-<span class="x"> * @Route(&quot;/blog&quot;, name=&quot;blog_home&quot;)</span>
-<span class="x"> */</span>
-<span class="x">public function blogAction()</span>
+<p>Create your controller:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">class BlogController</span>
 <span class="x">{</span>
-<span class="x">    // ...</span>
-<span class="x">}</span>
+<span class="x">    /**</span>
+<span class="x">     * @Route(&quot;/blog&quot;, name=&quot;blog_home&quot;)</span>
+<span class="x">     */</span>
+<span class="x">    public function blogAction()</span>
+<span class="x">    {</span>
+<span class="x">        // ...</span>
+<span class="x">    }</span>
 
-<span class="x">/**</span>
-<span class="x"> * @Route(&quot;/blog/article/{articleId}&quot;, name=&quot;blog_article&quot;)</span>
-<span class="x"> */</span>
-<span class="x">public function ArticleAction($articleId)</span>
-<span class="x">{</span>
-<span class="x">    // ...</span>
+<span class="x">    /**</span>
+<span class="x">     * @Route(&quot;/blog/article/{articleId}&quot;, name=&quot;blog_article&quot;)</span>
+<span class="x">     */</span>
+<span class="x">    public function ArticleAction($articleId)</span>
+<span class="x">    {</span>
+<span class="x">        // ...</span>
+<span class="x">    }</span>
 <span class="x">}</span>
 </pre></div>
 </div>
-<p>Add the controller route as an item of the menu</p>
+<p>Add the controller route as an item of the menu:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># Default configuration for &quot;SonataAdminBundle&quot;</span>
 <span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">dashboard</span><span class="p-Indicator">:</span>
@@ -349,7 +353,7 @@ It integrates a menu with the KnpMenu library. This menu can be a SonataAdmin se
                 <span class="l-Scalar-Plain">...</span>
 </pre></div>
 </div>
-<p>Also you can override the template of knp_menu used by sonata. The default one is <cite>SonataAdminBundle:Menu:sonata_menu.html.twig</cite>:</p>
+<p>You can also override the template of knp_menu used by sonata. The default one is <cite>SonataAdminBundle:Menu:sonata_menu.html.twig</cite>:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># Default configuration for &quot;SonataAdminBundle&quot;</span>
 <span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">templates</span><span class="p-Indicator">:</span>
@@ -357,7 +361,37 @@ It integrates a menu with the KnpMenu library. This menu can be a SonataAdmin se
     <span class="l-Scalar-Plain">...</span>
 </pre></div>
 </div>
-<p>And voilà, now you have a new menu group which contains an entry to sonata_admin_id, to your blog and to a specific article.</p>
+<p>And voilà, now you have a menu group which contains a link to a sonata admin via its id, to your blog and to a specific article.</p>
+</div>
+<div class="section" id="using-a-menu-provider">
+<h2>2.2. Using a menu provider<a class="headerlink" href="#using-a-menu-provider" title="Permalink to this headline">¶</a></h2>
+<p>As seen above, the main way to declare your menu is by declaring items in your sonata admin config file. In some case you may have to create a more complexe menu depending on your business logic. This is possible by using a menu provider to populate a whole menu group. This is done with the <tt class="docutils literal"><span class="pre">provider</span></tt> config value.</p>
+<p>Tthe following configuration uses a menu provider to populate the menu group <tt class="docutils literal"><span class="pre">my_group</span></tt>:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_admin</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">dashboard</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">groups</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">my_group</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span>        <span class="s">&#39;MyBundle:MyMenuProvider:getMyMenu&#39;</span>
+                <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span>            <span class="s">&#39;&lt;i</span><span class="nv"> </span><span class="s">class=&quot;fa</span><span class="nv"> </span><span class="s">fa-edit&quot;&gt;&lt;/i&gt;&#39;</span>
+</pre></div>
+</div>
+<p>With KnpMenuBundle you can create a custom menu by using a builder class or by declaring it as a service. Please see the <a class="reference external" href="http://symfony.com/doc/current/bundles/KnpMenuBundle/index.html#create-your-first-menu">Knp documentation</a> for further information.</p>
+<p>In sonata, whatever the implementation you choose, you only have to provide the menu alias to the provider config key:</p>
+<ul>
+<li><p class="first">If you are using a builder class, your menu alias should be something like <tt class="docutils literal"><span class="pre">MyBundle:MyMenuProvider:getMyMenu</span></tt>.</p>
+</li>
+<li><dl class="first docutils">
+<dt>If you are using a service, your menu alias is the alias set in the <tt class="docutils literal"><span class="pre">knp_menu.menu</span></tt> tag. In the following example this is <tt class="docutils literal"><span class="pre">my_menu_alias</span></tt>:</dt>
+<dd><div class="first last highlight-xml"><div class="highlight"><pre><span class="nt">&lt;service</span> <span class="na">id=</span><span class="s">&quot;my_menu_provider&quot;</span> <span class="na">class=</span><span class="s">&quot;MyBundle/MyDirectory/MyMenuProvider&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tag</span> <span class="na">name=</span><span class="s">&quot;knp_menu.menu&quot;</span> <span class="na">alias=</span><span class="s">&quot;my_menu_alias&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Please note that when using the provider option, you can&#8217;t set the menu label via the configuration. It is done in your custom menu.</p>
 </div>
 </div>
 

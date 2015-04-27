@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. API &mdash; Sonata ~ UserBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ UserBundle  documentation" href="../index.html"/>
+        <link rel="prev" title="6. Profile Edition" href="profile_edition.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ UserBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">2.2. Enable the Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">2.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#using-the-roles">2.4. Using the roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#extending-the-bundle">2.5. Extending the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">3. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two_step_validation.html">4. Two-step Validation (with Google Authenticator)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="two_step_validation.html#installation">4.1. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_dashboard.html">5. User Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#dashboard">5.2. Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#block">5.3. Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#menu-factory">5.4. Menu Factory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profile_edition.html">6. Profile Edition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profile_edition.html#sonata-profile-configuration">6.1. Sonata Profile Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_edition.html#actions">6.2. Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">7. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">7.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialization">7.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ UserBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>7. API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/api.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="api">
+<span id="index-0"></span><h1>7. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> embeds <cite>Controllers</cite> to provide an <cite>API</cite> through <cite>FOSRestBundle</cite>, with its documentation provided by <tt class="docutils literal"><span class="pre">NelmioApiDocBundle</span></tt>.</p>
+<div class="section" id="setup">
+<h2>7.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to use it, you must first follow the installation instructions of both bundles:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/FriendsOfSymfony/FOSRestBundle">FOSRestBundle</a></li>
+<li><a class="reference external" href="https://github.com/nelmio/NelmioApiDocBundle">NelmioApiDocBundle</a></li>
+</ul>
+<p>Here&#8217;s the configuration we used, you may adapt it to your needs:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">fos_rest</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">param_fetcher_listener</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">body_listener</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">format_listener</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">view</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">view_response_listener</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">force</span>
+    <span class="l-Scalar-Plain">body_converter</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">validate</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+
+<span class="l-Scalar-Plain">sensio_framework_extra</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">view</span><span class="p-Indicator">:</span>    <span class="p-Indicator">{</span> <span class="nv">annotations</span><span class="p-Indicator">:</span> <span class="nv">false</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">router</span><span class="p-Indicator">:</span>  <span class="p-Indicator">{</span> <span class="nv">annotations</span><span class="p-Indicator">:</span> <span class="nv">true</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">request</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">converters</span><span class="p-Indicator">:</span> <span class="nv">true</span> <span class="p-Indicator">}</span>
+
+<span class="l-Scalar-Plain">twig</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">exception_controller</span><span class="p-Indicator">:</span> <span class="s">&#39;FOS\RestBundle\Controller\ExceptionController::showAction&#39;</span>
+</pre></div>
+</div>
+<p>In order to activate the API&#8217;s, you&#8217;ll also need to add this to your routing:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">NelmioApiDocBundle</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@NelmioApiDocBundle/Resources/config/routing.yml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">/api/doc</span>
+
+<span class="l-Scalar-Plain">sonata_api_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">rest</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">/api/user</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span>     <span class="s">&quot;@SonataUserBundle/Resources/config/routing/api.xml&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serialization">
+<h2>7.2. Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;re using <tt class="docutils literal"><span class="pre">JMSSerializationBundle's</span></tt> serializations groups to customize the inputs &amp; outputs.</p>
+<p>The taxonomy is as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sonata_api_read</span></tt> is the group used to display entities</li>
+<li><tt class="docutils literal"><span class="pre">sonata_api_write</span></tt> is the group used for input entities (when used instead of forms)</li>
+</ul>
+<p>If you wish to customize the outputted data, feel free to setup your own serialization options by configuring <cite>JMSSerializer</cite> with those groups.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="profile_edition.html" class="btn btn-neutral" title="6. Profile Edition"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -236,6 +236,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_knp_menu.html">2. KnpMenu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_knp_menu.html#add-a-custom-controller-entry-in-the-menu">2.1. Add a custom controller entry in the menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_knp_menu.html#using-a-menu-provider">2.2. Using a menu provider</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_file_uploads.html">3. Uploading and saving documents (including images) using DoctrineORM and SonataAdmin</a><ul>
@@ -325,6 +326,39 @@ is</strong>. Check out the <tt class="docutils literal"><span class="pre">issues
 <li>targeting submodel fields using dot-separated notation</li>
 <li>(Note, if this is very similar to the form documentation it can be combined)</li>
 </ul>
+<div class="section" id="group-options">
+<h3>9.1.1. Group options<a class="headerlink" href="#group-options" title="Permalink to this headline">¶</a></h3>
+<p>When adding a group to your show page, you may specify some options for the group itself.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">collapsed</span></tt>: unused at the moment</li>
+<li><tt class="docutils literal"><span class="pre">class</span></tt>: the class for your group in the admin; by default, the value is set to <tt class="docutils literal"><span class="pre">col-md-12</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">fields</span></tt>: the fields in your group (you should NOT override this unless you know what you&#8217;re doing).</li>
+<li><tt class="docutils literal"><span class="pre">box_class</span></tt>: the class for your group box in the admin; by default, the value is set to <tt class="docutils literal"><span class="pre">box</span> <span class="pre">box-primary</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">description</span></tt>: to complete</li>
+<li><tt class="docutils literal"><span class="pre">translation_domain</span></tt>: to complete</li>
+</ul>
+<p>To specify options, do as follow:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nx">MyAdmin</span> <span class="k">extends</span> <span class="nx">Admin</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">configureShowFields</span><span class="p">(</span><span class="nx">ShowMapper</span> <span class="nv">$showMapper</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$showMapper</span>
+            <span class="o">-&gt;</span><span class="na">tab</span><span class="p">(</span><span class="s1">&#39;General&#39;</span><span class="p">)</span> <span class="c1">// the tab call is optional</span>
+                <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;Addresses&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;class&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;col-md-8&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;box_class&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;box box-solid box-danger&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Lorem ipsum&#39;</span><span class="p">,</span>
+                <span class="p">))</span>
+                    <span class="c1">// ...</span>
+                <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+            <span class="o">-&gt;</span><span class="na">end</span><span class="p">()</span>
+        <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="customising-the-query-used-to-show-the-object-from-within-your-admin-class">
 <h2>9.2. Customising the query used to show the object from within your Admin class<a class="headerlink" href="#customising-the-query-used-to-show-the-object-from-within-your-admin-class" title="Permalink to this headline">¶</a></h2>

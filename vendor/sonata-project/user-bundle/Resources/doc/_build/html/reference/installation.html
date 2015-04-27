@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Installation &mdash; Sonata ~ UserBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ UserBundle  documentation" href="../index.html"/>
+        <link rel="next" title="3. Advanced Configuration" href="advanced_configuration.html"/>
+        <link rel="prev" title="1. Introduction" href="introduction.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ UserBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-the-bundle">2.2. Enable the Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">2.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-roles">2.4. Using the roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extending-the-bundle">2.5. Extending the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">3. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two_step_validation.html">4. Two-step Validation (with Google Authenticator)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="two_step_validation.html#installation">4.1. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_dashboard.html">5. User Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#dashboard">5.2. Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#block">5.3. Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#menu-factory">5.4. Menu Factory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profile_edition.html">6. Profile Edition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profile_edition.html#sonata-profile-configuration">6.1. Sonata Profile Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_edition.html#actions">6.2. Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">7. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">7.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">7.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ UserBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>2. Installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/installation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="installation">
+<span id="index-0"></span><h1>2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>2.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>PHP 5.3 and Symfony 2 are needed to make this bundle work; there are also some Sonata dependencies that need to be installed and configured beforehand:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://sonata-project.org/bundles/admin">SonataAdminBundle</a></li>
+<li><a class="reference external" href="https://sonata-project.org/bundles/easy-extends">SonataEasyExtendsBundle</a></li>
+</ul>
+</div></blockquote>
+<p>You will need to install those in their 2.0 branches (or master if they don&#8217;t
+have a similar branch). Follow also their configuration step; you will find everything you need in their own installation chapter.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If a dependency is already installed somewhere in your project or in
+another dependency, you won&#8217;t need to install it again.</p>
+</div>
+</div>
+<div class="section" id="enable-the-bundle">
+<h2>2.2. Enable the Bundle<a class="headerlink" href="#enable-the-bundle" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>php composer.phar require sonata-project/user-bundle --no-update
+php composer.phar require sonata-project/doctrine-orm-admin-bundle  --no-update <span class="c"># optional</span>
+php composer.phar update
+</pre></div>
+</div>
+<p>Next, be sure to enable the bundles in your and <tt class="docutils literal"><span class="pre">AppKernel.php</span></tt> file:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// app/AppKernel.php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">registerbundles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">Sonata\CoreBundle\SonataCoreBundle</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">Sonata\BlockBundle\SonataBlockBundle</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">Sonata\EasyExtendsBundle\SonataEasyExtendsBundle</span><span class="p">(),</span>
+        <span class="c1">// ...</span>
+        <span class="c1">// You have 2 options to initialize the SonataUserBundle in your AppKernel,</span>
+        <span class="c1">// you can select which bundle SonataUserBundle extends</span>
+        <span class="c1">// Most of the cases, you&#39;ll want to extend FOSUserBundle though ;)</span>
+        <span class="c1">// extend the ``FOSUserBundle``</span>
+        <span class="k">new</span> <span class="nx">FOS\UserBundle\FOSUserBundle</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">Sonata\UserBundle\SonataUserBundle</span><span class="p">(</span><span class="s1">&#39;FOSUserBundle&#39;</span><span class="p">),</span>
+        <span class="c1">// OR</span>
+        <span class="c1">// the bundle will NOT extend ``FOSUserBundle``</span>
+        <span class="k">new</span> <span class="nx">Sonata\UserBundle\SonataUserBundle</span><span class="p">(),</span>
+        <span class="c1">// ...</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>2.3. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>When using ACL, the <tt class="docutils literal"><span class="pre">UserBundle</span></tt> can prevent <cite>normal</cite> user to change settings of <cite>super-admin</cite> users, to enable this add to the configuration:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">sonata_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">security_acl</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">manager_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">orm</span> <span class="c1"># can be orm or mongodb</span>
+
+<span class="l-Scalar-Plain">sonata_block</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">blocks</span><span class="p-Indicator">:</span>
+        <span class="c1">#...</span>
+        <span class="l-Scalar-Plain">sonata.user.block.menu</span><span class="p-Indicator">:</span>    <span class="c1"># used to display the menu in profile pages</span>
+        <span class="l-Scalar-Plain">sonata.user.block.account</span><span class="p-Indicator">:</span> <span class="c1"># used to display menu option (login option)</span>
+        <span class="l-Scalar-Plain">sonata.block.service.text</span><span class="p-Indicator">:</span> <span class="c1"># used to if you plan to use Sonata user routes</span>
+
+<span class="c1"># app/config/security.yml</span>
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="c1"># [...]</span>
+    <span class="l-Scalar-Plain">acl</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">connection</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">default</span>
+</pre></div>
+</div>
+<div class="section" id="doctrine-configuration">
+<h3>2.3.1. Doctrine Configuration<a class="headerlink" href="#doctrine-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Add these config lines</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">fos_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">orm</span> <span class="c1"># can be orm or odm</span>
+    <span class="l-Scalar-Plain">firewall_name</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">main</span>
+    <span class="l-Scalar-Plain">user_class</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">Sonata\UserBundle\Entity\BaseUser</span>
+
+
+    <span class="l-Scalar-Plain">group</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">group_class</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">Sonata\UserBundle\Entity\BaseGroup</span>
+        <span class="l-Scalar-Plain">group_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.user.orm.group_manager</span>                    <span class="c1"># If you&#39;re using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)</span>
+
+    <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">user_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.user.orm.user_manager</span>                      <span class="c1"># If you&#39;re using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)</span>
+
+<span class="l-Scalar-Plain">doctrine</span><span class="p-Indicator">:</span>
+
+    <span class="l-Scalar-Plain">dbal</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">types</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">json</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sonata\Doctrine\Types\JsonType</span>
+</pre></div>
+</div>
+<p>And these in the config mapping definition (or enable <a class="reference external" href="http://symfony.com/doc/2.0/reference/configuration/doctrine.html#configuration-overview">auto_mapping</a>):</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">doctrine</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">orm</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">entity_managers</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">mappings</span><span class="p-Indicator">:</span>
+                    <span class="l-Scalar-Plain">ApplicationSonataUserBundle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+                    <span class="l-Scalar-Plain">SonataUserBundle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+                    <span class="l-Scalar-Plain">FOSUserBundle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>                                    <span class="c1"># If SonataUserBundle extends it</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-custom-sonatauser-controllers-and-templates-instead-of-fosuser-ones">
+<h3>2.3.2. Use custom SonataUser controllers and templates instead of FOSUser ones<a class="headerlink" href="#use-custom-sonatauser-controllers-and-templates-instead-of-fosuser-ones" title="Permalink to this headline">¶</a></h3>
+<p>If you wish to use custom <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> templates and controllers instead of <tt class="docutils literal"><span class="pre">FOSUser</span></tt> ones, you will have to update your <tt class="docutils literal"><span class="pre">routing.yml</span></tt> file as follows:</p>
+<p>Replace:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">fos_user_security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/security.xml&quot;</span>
+
+<span class="l-Scalar-Plain">fos_user_resetting</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/resetting.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/resetting</span>
+
+<span class="l-Scalar-Plain">fos_user_profile</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/profile.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+
+<span class="l-Scalar-Plain">fos_user_register</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/registration.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/register</span>
+
+<span class="l-Scalar-Plain">fos_user_change_password</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/change_password.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+</pre></div>
+</div>
+<p>With:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_user_security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@SonataUserBundle/Resources/config/routing/sonata_security_1.xml&quot;</span>
+
+<span class="l-Scalar-Plain">sonata_user_resetting</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/resetting</span>
+
+<span class="l-Scalar-Plain">sonata_user_profile</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+
+<span class="l-Scalar-Plain">sonata_user_register</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@SonataUserBundle/Resources/config/routing/sonata_registration_1.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/register</span>
+
+<span class="l-Scalar-Plain">sonata_user_change_password</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integrating-the-bundle-into-the-sonata-admin-bundle">
+<h3>2.3.3. Integrating the bundle into the Sonata Admin Bundle<a class="headerlink" href="#integrating-the-bundle-into-the-sonata-admin-bundle" title="Permalink to this headline">¶</a></h3>
+<p>Add the related security routing information:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/routing.yml</span>
+
+<span class="l-Scalar-Plain">sonata_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&#39;@SonataUserBundle/Resources/config/routing/admin_security.xml&#39;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/admin</span>
+</pre></div>
+</div>
+<p>Then, add a new custom firewall handlers for the admin:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">role_hierarchy</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">ROLE_ADMIN</span><span class="p-Indicator">:</span>       <span class="p-Indicator">[</span><span class="nv">ROLE_USER</span><span class="p-Indicator">,</span> <span class="nv">ROLE_SONATA_ADMIN</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">ROLE_SUPER_ADMIN</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p-Indicator">,</span> <span class="nv">ROLE_ALLOWED_TO_SWITCH</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">SONATA</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT</span>  <span class="c1"># if you are using acl then this line must be commented</span>
+
+    <span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">fos_userbundle</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fos_user.user_manager</span>
+
+    <span class="l-Scalar-Plain">firewalls</span><span class="p-Indicator">:</span>
+        <span class="c1"># Disabling the security for the web debug toolbar, the profiler and Assetic.</span>
+        <span class="l-Scalar-Plain">dev</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">pattern</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">^/(_(profiler|wdt)|css|images|js)/</span>
+            <span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+
+        <span class="c1"># -&gt; custom firewall for the admin area of the URL</span>
+        <span class="l-Scalar-Plain">admin</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">pattern</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">/admin(.*)</span>
+            <span class="l-Scalar-Plain">context</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">user</span>
+            <span class="l-Scalar-Plain">form_login</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">fos_userbundle</span>
+                <span class="l-Scalar-Plain">login_path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/admin/login</span>
+                <span class="l-Scalar-Plain">use_forward</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">false</span>
+                <span class="l-Scalar-Plain">check_path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/admin/login_check</span>
+                <span class="l-Scalar-Plain">failure_path</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">null</span>
+            <span class="l-Scalar-Plain">logout</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>           <span class="l-Scalar-Plain">/admin/logout</span>
+            <span class="l-Scalar-Plain">anonymous</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">true</span>
+
+        <span class="c1"># -&gt; end custom configuration</span>
+
+        <span class="c1"># default login area for standard users</span>
+
+        <span class="c1"># This firewall is used to handle the public login area</span>
+        <span class="c1"># This part is handled by the FOS User Bundle</span>
+        <span class="l-Scalar-Plain">main</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">pattern</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">.*</span>
+            <span class="l-Scalar-Plain">context</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">user</span>
+            <span class="l-Scalar-Plain">form_login</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">fos_userbundle</span>
+                <span class="l-Scalar-Plain">login_path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/login</span>
+                <span class="l-Scalar-Plain">use_forward</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">false</span>
+                <span class="l-Scalar-Plain">check_path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/login_check</span>
+                <span class="l-Scalar-Plain">failure_path</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">null</span>
+            <span class="l-Scalar-Plain">logout</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">true</span>
+            <span class="l-Scalar-Plain">anonymous</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>The last part is to define 3 new access control rules:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">access_control</span><span class="p-Indicator">:</span>
+        <span class="c1"># URL of FOSUserBundle which need to be available to anonymous users</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/login$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/register</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/resetting</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+
+        <span class="c1"># Admin login page needs to be access without credential</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/admin/login$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/admin/logout$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/admin/login_check$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+
+        <span class="c1"># Secured part of the site</span>
+        <span class="c1"># This config requires being logged for the whole site and having the admin role for the admin part.</span>
+        <span class="c1"># Change these rules to adapt them to your needs</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/admin/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">ROLE_ADMIN</span><span class="p-Indicator">,</span> <span class="nv">ROLE_SONATA_ADMIN</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/.*</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-the-roles">
+<h2>2.4. Using the roles<a class="headerlink" href="#using-the-roles" title="Permalink to this headline">¶</a></h2>
+<p>Each admin has its own roles, use the user form to assign them to other users.
+The available roles to assign to others are limited to the roles available to the user editing the form.</p>
+</div>
+<div class="section" id="extending-the-bundle">
+<h2>2.5. Extending the Bundle<a class="headerlink" href="#extending-the-bundle" title="Permalink to this headline">¶</a></h2>
+<p>At this point, the bundle is functional, but not quite ready yet. You need to generate the correct entities for the media:</p>
+<div class="highlight-bash"><div class="highlight"><pre>php app/console sonata:easy-extends:generate SonataUserBundle -d src
+</pre></div>
+</div>
+<p>If you specify no parameter, the files are generated in <tt class="docutils literal"><span class="pre">app/Application/SonataUserBundle</span></tt> but you can specify the path with <tt class="docutils literal"><span class="pre">--dest=src</span></tt></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The command will generate domain objects in an <tt class="docutils literal"><span class="pre">Application</span></tt> namespace.
+So you can point entities&#8217; associations to a global and common namespace.
+This will make Entities sharing easier as your models will allow to
+point to a global namespace. For instance the user will be
+<tt class="docutils literal"><span class="pre">Application\Sonata\UserBundle\Entity\User</span></tt>.</p>
+</div>
+<p>Now, add the new <tt class="docutils literal"><span class="pre">Application</span></tt> Bundle into the kernel:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// AppKernel.php</span>
+
+<span class="k">class</span> <span class="nc">AppKernel</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">registerbundles</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="c1">// Application Bundles</span>
+            <span class="c1">// ...</span>
+            <span class="k">new</span> <span class="nx">Application\Sonata\UserBundle\ApplicationSonataUserBundle</span><span class="p">(),</span>
+            <span class="c1">// ...</span>
+
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And configure <tt class="docutils literal"><span class="pre">FosUserBundle</span></tt> to use the newly generated <tt class="docutils literal"><span class="pre">User</span></tt> and <tt class="docutils literal"><span class="pre">Group</span></tt>
+classes:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">fos_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">orm</span> <span class="c1"># can be orm or odm</span>
+    <span class="l-Scalar-Plain">firewall_name</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">main</span>
+    <span class="l-Scalar-Plain">user_class</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">Application\Sonata\UserBundle\Entity\User</span>
+
+
+    <span class="l-Scalar-Plain">group</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">group_class</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">Application\Sonata\UserBundle\Entity\Group</span>
+        <span class="l-Scalar-Plain">group_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.user.orm.group_manager</span>                    <span class="c1"># If you&#39;re using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)</span>
+
+    <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">user_manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.user.orm.user_manager</span>                      <span class="c1"># If you&#39;re using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)</span>
+
+<span class="l-Scalar-Plain">doctrine</span><span class="p-Indicator">:</span>
+
+    <span class="l-Scalar-Plain">dbal</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">types</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">json</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sonata\Doctrine\Types\JsonType</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced_configuration.html" class="btn btn-neutral float-right" title="3. Advanced Configuration"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="1. Introduction"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

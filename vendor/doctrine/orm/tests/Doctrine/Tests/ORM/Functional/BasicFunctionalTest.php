@@ -11,8 +11,6 @@ use Doctrine\Tests\Models\CMS\CmsGroup;
 use Doctrine\Tests\Models\CMS\CmsArticle;
 use Doctrine\Tests\Models\CMS\CmsComment;
 
-require_once __DIR__ . '/../../TestInit.php';
-
 class BasicFunctionalTest extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     protected function setUp()
@@ -1046,10 +1044,9 @@ class BasicFunctionalTest extends \Doctrine\Tests\OrmFunctionalTestCase
         $this->_em->clear('Doctrine\Tests\Models\CMS\CmsUser');
 
         $this->assertEquals(\Doctrine\ORM\UnitOfWork::STATE_DETACHED, $unitOfWork->getEntityState($user));
-
+        $this->assertEquals(\Doctrine\ORM\UnitOfWork::STATE_DETACHED, $unitOfWork->getEntityState($article1));
+        $this->assertEquals(\Doctrine\ORM\UnitOfWork::STATE_DETACHED, $unitOfWork->getEntityState($article2));
         $this->assertEquals(\Doctrine\ORM\UnitOfWork::STATE_MANAGED, $unitOfWork->getEntityState($address));
-        $this->assertEquals(\Doctrine\ORM\UnitOfWork::STATE_MANAGED, $unitOfWork->getEntityState($article1));
-        $this->assertEquals(\Doctrine\ORM\UnitOfWork::STATE_MANAGED, $unitOfWork->getEntityState($article2));
 
         $this->_em->clear();
 
@@ -1291,9 +1288,14 @@ class BasicFunctionalTest extends \Doctrine\Tests\OrmFunctionalTestCase
         $user->status = 'developer';
         $user->address = $user;
 
+        $this->setExpectedException(
+            'Doctrine\ORM\ORMInvalidArgumentException',
+            'Expected value of type "Doctrine\Tests\Models\CMS\CmsAddress" for association field '
+            . '"Doctrine\Tests\Models\CMS\CmsUser#$address", got "Doctrine\Tests\Models\CMS\CmsUser" instead.'
+        );
+
         $this->_em->persist($user);
 
-        $this->setExpectedException("Doctrine\ORM\ORMException", "Found entity of type Doctrine\Tests\Models\CMS\CmsUser on association Doctrine\Tests\Models\CMS\CmsUser#address, but expecting Doctrine\Tests\Models\CMS\CmsAddress");
         $this->_em->flush();
     }
 }

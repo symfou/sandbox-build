@@ -2,8 +2,6 @@
 
 namespace Doctrine\Tests\ORM\Functional;
 
-require_once __DIR__ . '/../../TestInit.php';
-
 /**
  * Tests basic operations on entities with default values.
  *
@@ -23,6 +21,9 @@ class DefaultValuesTest extends \Doctrine\Tests\OrmFunctionalTestCase
         }
     }
 
+    /**
+     * @group non-cacheable
+     */
     public function testSimpleDetachMerge() {
         $user = new DefaultValueUser;
         $user->name = 'romanb';

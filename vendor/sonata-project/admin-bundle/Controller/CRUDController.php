@@ -27,6 +27,12 @@ use Sonata\AdminBundle\Util\AdminObjectAclData;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Psr\Log\NullLogger;
 
+/**
+ * Class CRUDController
+ *
+ * @package Sonata\AdminBundle\Controller
+ * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ */
 class CRUDController extends Controller
 {
     /**
@@ -66,7 +72,7 @@ class CRUDController extends Controller
     /**
      * Returns true if the request is a XMLHttpRequest.
      *
-     * @param Reqeust $request
+     * @param Request $request
      *
      * @return bool True if the request is an XMLHttpRequest, false otherwise
      */
@@ -319,7 +325,7 @@ class CRUDController extends Controller
             $this->validateCsrfToken('sonata.delete', $request);
 
             $objectName = $this->admin->toString($object);
-
+            
             try {
                 $this->admin->delete($object);
 
@@ -636,6 +642,21 @@ class CRUDController extends Controller
 
         if (false === $this->admin->isGranted('CREATE')) {
             throw new AccessDeniedException();
+        }
+
+        $class = new \ReflectionClass($this->admin->hasActiveSubClass() ? $this->admin->getActiveSubClass() : $this->admin->getClass());
+
+        if ($class->isAbstract()) {
+            return $this->render(
+                'SonataAdminBundle:CRUD:select_subclass.html.twig',
+                array(
+                    'base_template' => $this->getBaseTemplate(),
+                    'admin'         => $this->admin,
+                    'action'        => 'create',
+                ),
+                null,
+                $request
+            );
         }
 
         $object = $this->admin->getNewInstance();

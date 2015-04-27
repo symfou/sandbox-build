@@ -10,6 +10,7 @@ use Doctrine\Tests\Mocks\ConnectionMock;
 use Doctrine\Tests\Mocks\EntityManagerMock;
 use Doctrine\Tests\Mocks\UnitOfWorkMock;
 use Doctrine\Tests\Mocks\DriverMock;
+use Doctrine\Common\Proxy\AbstractProxyFactory;
 
 /**
  * Test the proxy generator. Its work is generating on-the-fly subclasses of a given model, which implement the Proxy pattern.
@@ -47,14 +48,14 @@ class ProxyFactoryTest extends \Doctrine\Tests\OrmTestCase
         $this->emMock = EntityManagerMock::create($this->connectionMock);
         $this->uowMock = new UnitOfWorkMock($this->emMock);
         $this->emMock->setUnitOfWork($this->uowMock);
-        $this->proxyFactory = new ProxyFactory($this->emMock, sys_get_temp_dir(), 'Proxies', true);
+        $this->proxyFactory = new ProxyFactory($this->emMock, sys_get_temp_dir(), 'Proxies', AbstractProxyFactory::AUTOGENERATE_ALWAYS);
     }
 
     public function testReferenceProxyDelegatesLoadingToThePersister()
     {
         $identifier = array('id' => 42);
         $proxyClass = 'Proxies\__CG__\Doctrine\Tests\Models\ECommerce\ECommerceFeature';
-        $persister = $this->getMock('Doctrine\ORM\Persisters\BasicEntityPersister', array('load'), array(), '', false);
+        $persister = $this->getMock('Doctrine\ORM\Persisters\Entity\BasicEntityPersister', array('load'), array(), '', false);
         $this->uowMock->setEntityPersister('Doctrine\Tests\Models\ECommerce\ECommerceFeature', $persister);
 
         $proxy = $this->proxyFactory->getProxy('Doctrine\Tests\Models\ECommerce\ECommerceFeature', $identifier);
@@ -87,7 +88,7 @@ class ProxyFactoryTest extends \Doctrine\Tests\OrmTestCase
      */
     public function testFailedProxyLoadingDoesNotMarkTheProxyAsInitialized()
     {
-        $persister = $this->getMock('Doctrine\ORM\Persisters\BasicEntityPersister', array('load'), array(), '', false);
+        $persister = $this->getMock('Doctrine\ORM\Persisters\Entity\BasicEntityPersister', array('load'), array(), '', false);
         $this->uowMock->setEntityPersister('Doctrine\Tests\Models\ECommerce\ECommerceFeature', $persister);
 
         /* @var $proxy \Doctrine\Common\Proxy\Proxy */
@@ -114,7 +115,7 @@ class ProxyFactoryTest extends \Doctrine\Tests\OrmTestCase
      */
     public function testFailedProxyCloningDoesNotMarkTheProxyAsInitialized()
     {
-        $persister = $this->getMock('Doctrine\ORM\Persisters\BasicEntityPersister', array('load'), array(), '', false);
+        $persister = $this->getMock('Doctrine\ORM\Persisters\Entity\BasicEntityPersister', array('load'), array(), '', false);
         $this->uowMock->setEntityPersister('Doctrine\Tests\Models\ECommerce\ECommerceFeature', $persister);
 
         /* @var $proxy \Doctrine\Common\Proxy\Proxy */

@@ -11,7 +11,6 @@
 
 namespace Sonata\Bundle\DemoBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -19,7 +18,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Sonata\PageBundle\Model\SiteInterface;
 use Sonata\PageBundle\Model\PageInterface;
 
-use Symfony\Cmf\Bundle\RoutingBundle\Tests\Unit\Doctrine\Orm\ContentRepositoryTest;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -87,6 +85,14 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
 
     public function createSubSite()
     {
+        if (!$this->container->hasParameter('sonata.fixtures.page.create_subsite')) {
+            return;
+        }
+
+        if ($this->container->getParameter('sonata.fixtures.page.create_subsite') !== true) {
+            return;
+        }
+
         $site = $this->getSiteManager()->create();
 
         $site->setHost('localhost');

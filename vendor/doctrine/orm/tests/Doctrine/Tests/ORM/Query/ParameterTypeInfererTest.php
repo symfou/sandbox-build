@@ -23,14 +23,12 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Type;
 use PDO;
 
-require_once __DIR__ . '/../../TestInit.php';
-
 class ParameterTypeInfererTest extends \Doctrine\Tests\OrmTestCase
 {
 
     public function providerParameterTypeInferer()
     {
-         return array(
+         $data = array(
             array(1,                 Type::INTEGER),
             array("bar",             PDO::PARAM_STR),
             array("1",               PDO::PARAM_STR),
@@ -41,6 +39,12 @@ class ParameterTypeInfererTest extends \Doctrine\Tests\OrmTestCase
             array(array(),           Connection::PARAM_STR_ARRAY),
             array(true,              Type::BOOLEAN),
         );
+
+        if (PHP_VERSION_ID >= 50500) {
+            $data[] = array(new \DateTimeImmutable(), Type::DATETIME);
+        }
+
+        return $data;
     }
 
     /**

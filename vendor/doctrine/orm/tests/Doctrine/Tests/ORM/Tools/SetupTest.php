@@ -5,8 +5,6 @@ namespace Doctrine\Tests\ORM\Tools;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\Common\Cache\ArrayCache;
 
-require_once __DIR__ . '/../../TestInit.php';
-
 class SetupTest extends \Doctrine\Tests\OrmTestCase
 {
     private $originalAutoloaderCount;
@@ -39,7 +37,7 @@ class SetupTest extends \Doctrine\Tests\OrmTestCase
 
     public function testDirectoryAutoload()
     {
-        Setup::registerAutoloadDirectory(__DIR__ . "/../../../../../lib/vendor/doctrine-common/lib");
+        Setup::registerAutoloadDirectory(__DIR__ . "/../../../../../vendor/doctrine/common/lib");
 
         $this->assertEquals($this->originalAutoloaderCount + 2, count(spl_autoload_functions()));
     }
@@ -86,6 +84,21 @@ class SetupTest extends \Doctrine\Tests\OrmTestCase
     {
         $cache = new ArrayCache();
         $config = Setup::createAnnotationMetadataConfiguration(array(), true, null, $cache);
+
+        $this->assertSame($cache, $config->getResultCacheImpl());
+        $this->assertSame($cache, $config->getMetadataCacheImpl());
+        $this->assertSame($cache, $config->getQueryCacheImpl());
+    }
+
+    /**
+     * @group DDC-3190
+     */
+    public function testConfigureCacheCustomInstance()
+    {
+        $cache = $this->getMock('Doctrine\Common\Cache\Cache');
+        $cache->expects($this->never())->method('setNamespace');
+
+        $config = Setup::createConfiguration(array(), true, $cache);
 
         $this->assertSame($cache, $config->getResultCacheImpl());
         $this->assertSame($cache, $config->getMetadataCacheImpl());

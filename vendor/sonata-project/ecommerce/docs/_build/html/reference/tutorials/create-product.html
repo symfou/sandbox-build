@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create a product &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../index.html"/>
+        <link rel="up" title="Introduction" href="index.html"/>
+        <link rel="next" title="Basic options for product providers" href="product-provider-options.html"/>
+        <link rel="prev" title="Create a collection" href="create-collection.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bundles/index.html"> Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/order.html">Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/payment/index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html"> Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture/index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture/index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture/api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture/api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"> Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction</a> &raquo;</li>
+      
+    <li>Create a product</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/tutorials/create-product.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="create-a-product">
+<span id="index-0"></span><h1>Create a product<a class="headerlink" href="#create-a-product" title="Permalink to this headline">¶</a></h1>
+<p>Before we start adding any products, we will have to create a <em>prototype</em>. A <em>prototype</em> is mandatory for any product definition. It can be compared to its skeleton in the application.</p>
+<p>In our case, we will need two kind of items:</p>
+<ul class="simple">
+<li>a bowl prototype that will have no specific options,</li>
+<li>a spoon, which can provide various sizes.</li>
+</ul>
+<p>In order to create these 2 prototypes, a command has been implemented to quickly generate the required files.</p>
+<div class="section" id="product-without-variation">
+<h2>Product without variation<a class="headerlink" href="#product-without-variation" title="Permalink to this headline">¶</a></h2>
+<p>We will start with the easiest kind of product: the <em>bowl prototype</em>. This step will be splitted in two parts:</p>
+<ul class="simple">
+<li>configuration via <em>files&#8217;</em> edition, to provide every required element</li>
+<li>configuration via the <em>backoffice</em>, to create the product itself</li>
+</ul>
+<div class="section" id="configuration-files-edition">
+<h3>Configuration - files&#8217; edition<a class="headerlink" href="#configuration-files-edition" title="Permalink to this headline">¶</a></h3>
+<p>Run the following command to create the files:</p>
+<div class="highlight-bash"><div class="highlight"><pre>php app/console sonata:product:generate Bowl sonata.ecommerce_demo.product.bowl
+</pre></div>
+</div>
+<p>The required base files will be created in <tt class="docutils literal"><span class="pre">src/Application/Sonata/ProductBundle</span></tt>.
+To finalize the installation, we have to define the missing parameters like the type itself and the related manager. These data have to be provided in <tt class="docutils literal"><span class="pre">src/Application/Sonata/ProductBundle/Resources/config/product.yml</span></tt>.</p>
+<div class="highlight-yaml"><div class="highlight"><pre># src/Application/Sonata/ProductBundle/Resources/config/product.yml
+
+services:
+    sonata.ecommerce_demo.product.bowl.manager:
+        class: Sonata\ProductBundle\Entity\ProductManager
+        arguments:
+            - Application\Sonata\ProductBundle\Entity\Bowl
+            - @sonata.product.entity_manager
+
+    sonata.ecommerce_demo.product.bowl.type:
+        class: Application\Sonata\ProductBundle\Provider\BowlProductProvider
+        arguments:
+            - @serializer
+</pre></div>
+</div>
+<p>Don&#8217;t forget to load this file by adding the following lines in the <tt class="docutils literal"><span class="pre">app/config/config.yml</span></tt></p>
+<div class="highlight-yaml"><div class="highlight"><pre># app/config/config.yml
+
+imports:
+    - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
+</pre></div>
+</div>
+<p>And finally, add in the <tt class="docutils literal"><span class="pre">app/config/sonata/sonata_product.yml</span></tt> the following data:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/sonata/sonata_product.yml</span>
+
+<span class="l-Scalar-Plain">sonata_product</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">products</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">sonata.ecommerce_demo.product.bowl</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.ecommerce_demo.product.bowl.type</span>
+            <span class="l-Scalar-Plain">manager</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sonata.ecommerce_demo.product.bowl.manager</span>
+</pre></div>
+</div>
+<p>This being done, edit the <tt class="docutils literal"><span class="pre">src/Application/Sonata/ProductBundle/Entity/Bowl.php</span></tt> to make it inherits the <tt class="docutils literal"><span class="pre">Product</span></tt> class.</p>
+</div>
+<div class="section" id="configuration-backoffice">
+<h3>Configuration - Backoffice<a class="headerlink" href="#configuration-backoffice" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have all the required files, we can process the creation of the <cite>Product</cite> itself.
+Go to the <em>admin dashboard</em> and select <em>Product</em> in the <em>e-commerce</em> menu. After clicking on <tt class="docutils literal"><span class="pre">Add</span> <span class="pre">new</span></tt> on the top right of the page, a list with 3 items type should be displayed:</p>
+<ul class="simple">
+<li>sonata.ecommerce_demo.product.goodie</li>
+<li>sonata.ecommerce_demo.product.training</li>
+<li>sonata.ecommerce_demo.product.bowl</li>
+</ul>
+<p>In the first tab, note that the VAT type of field must be a percent.
+The <em>goodie</em> and <em>training</em> are part of the original sandbox so we will select the <em>bowl</em> one.</p>
+<p>Now switch to the <em>Categories</em> tab, and attach our product to the correct category, &#8220;Dishes&#8221; in our case. Don&#8217;t forget to enable the relation by checking the checkbox.</p>
+<p>We will repeat the same process in the &#8220;Collection&#8221; tab using the &#8220;Bowls&#8221; collection that we have previously created.</p>
+<p>Since the delivery part is covered in a whole chapter, we won&#8217;t provide any information about it for now.</p>
+<p>You should now be able to browse your first product on the frontoffice!</p>
+</div>
+</div>
+<div class="section" id="product-with-variation-s">
+<h2>Product with variation(s)<a class="headerlink" href="#product-with-variation-s" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Configuration - files&#8217; edition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>In order to create a <cite>Product</cite> with a variation (a <cite>spoon</cite> in our example), we will have to repeat the same steps as explained in the previous section, in the <em>Configuration - files&#8217; edition</em> part. For the purpose of this example, we will use <tt class="docutils literal"><span class="pre">Spoon</span></tt> as entity name and <tt class="docutils literal"><span class="pre">sonata.ecommerce_demo.product.spoon</span></tt> as service name.</p>
+<p>Once you&#8217;ve completed the whole process, we will now learn how to add variable fields. In our case, it will be the size. To do so, add the &#8220;size&#8221; property in the entity (<tt class="docutils literal"><span class="pre">src/Application/Sonata/ProductBundle/Entity/Spoon.php</span></tt>):</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">// src/Application/Sonata/ProductBundle/Entity/Spoon.php</span>
+
+<span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @var string</span>
+<span class="sd"> */</span>
+<span class="k">protected</span> <span class="nv">$size</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @param string $size</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">setSize</span><span class="p">(</span><span class="nv">$size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">=</span> <span class="nv">$size</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @return string</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">getSize</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Still in the same file, we will provide a list of possible values for this field by adding the size list:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">// src/Application/Sonata/ProductBundle/Entity/Spoon.php</span>
+
+<span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">const</span> <span class="no">SIZE_TSP</span> <span class="o">=</span> <span class="s1">&#39;Small (Tea spoon)&#39;</span><span class="p">;</span>
+<span class="k">const</span> <span class="no">SIZE_S</span> <span class="o">=</span> <span class="s1">&#39;Medium (Spoon)&#39;</span><span class="p">;</span>
+<span class="k">const</span> <span class="no">SIZE_TBSP</span> <span class="o">=</span> <span class="s1">&#39;Large (Tablespoon)&#39;</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @return array</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSizeList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">static</span><span class="o">::</span><span class="na">SIZE_TSP</span> <span class="o">=&gt;</span> <span class="k">static</span><span class="o">::</span><span class="na">SIZE_TSP</span><span class="p">,</span>
+        <span class="k">static</span><span class="o">::</span><span class="na">SIZE_S</span> <span class="o">=&gt;</span> <span class="k">static</span><span class="o">::</span><span class="na">SIZE_S</span><span class="p">,</span>
+        <span class="k">static</span><span class="o">::</span><span class="na">SIZE_TBSP</span> <span class="o">=&gt;</span> <span class="k">static</span><span class="o">::</span><span class="na">SIZE_TBSP</span><span class="p">,</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, we have to add this field in our entity. Considering you are using Doctrine ORM, you should add the following line in <tt class="docutils literal"><span class="pre">src/Application/Sonata/ProductBundle/Resources/config/doctrine/Jersey.orm.xml</span></tt>:</p>
+<div class="highlight-xml"><div class="highlight"><pre>// src/Application/Sonata/ProductBundle/Resources/config/doctrine/Jersey.orm.xml
+
+<span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;size&quot;</span> <span class="na">column=</span><span class="s">&quot;size&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span> <span class="na">length=</span><span class="s">&quot;50&quot;</span> <span class="na">nullable=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Finally, tell our app that we will be using the &#8220;size&#8221; field as a variation. To define this, in the <tt class="docutils literal"><span class="pre">app/config/sonata/sonata_product.yml</span></tt>, after the manager definition line of our prototype, add the following code:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/sonata/sonata_product.yml</span>
+
+<span class="l-Scalar-Plain">variations</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">fields</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">size</span><span class="p-Indicator">]</span>
+</pre></div>
+</div>
+<p>As the variation is stored as a real field in our model, we now have to update our database&#8217;s schema. Run the following command to control everything is fine:</p>
+<div class="highlight-bash"><div class="highlight"><pre>php app/console doctrine:schema:update --dump-sql
+</pre></div>
+</div>
+<p>And if everything is ok, perform to the modification:</p>
+<div class="highlight-bash"><div class="highlight"><pre>php app/console doctrine:schema:update --force
+</pre></div>
+</div>
+<p>If you go back to the <em>product creation</em> page, you should be able to see our provider and display its page without any error. Though, the size field is not available yet. We have to enable it manually by overriding the <tt class="docutils literal"><span class="pre">SpoonProductProvider::buildEditForm()</span></tt> method.
+You first should add the usage of <tt class="docutils literal"><span class="pre">Application\Sonata\ProductBundle\Entity\Spoon</span></tt> class:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">buildEditForm</span><span class="p">(</span><span class="nx">FormMapper</span> <span class="nv">$formMapper</span><span class="p">,</span> <span class="nv">$isVariation</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">parent</span><span class="o">::</span><span class="na">buildEditForm</span><span class="p">(</span><span class="nv">$formMapper</span><span class="p">,</span> <span class="nv">$isVariation</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$isVariation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$formMapper</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;Product&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;choices&#39;</span>            <span class="o">=&gt;</span> <span class="nx">Spoon</span><span class="o">::</span><span class="na">getSizeList</span><span class="p">(),</span>
+                <span class="s1">&#39;translation_domain&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ApplicationSonataProductBundle&#39;</span><span class="p">,</span>
+            <span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">end</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once we have done this, we should still have no error but the <em>size</em> field shouldn&#8217;t be available yet. It&#8217;s simply because we first have to create a <em>base product</em> and each of its variations will be <em>real products</em>.</p>
+<p>You can picture this as an abstract class (the <em>base product</em>) extended by many concrete classes (one per variation). Let&#8217;s do this !</p>
+</div>
+<div class="section" id="id2">
+<h3>Configuration - Backoffice<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Repeat the same steps as indicated for products with no variations. Once you have completed this step, you should be able to browse the created product, without any variation yet.</p>
+<p>This is the default behavior : as long as you enable a product supposed to have any variations, it will be displayed if <strong>none</strong> are provided. If you have one disabled, the product will be considered as disabled. But let&#8217;s get back to our product.</p>
+<p>Go to the <em>list page</em>. Check the checkbox in front of our recently created product (&#8220;Mommy&#8217;s tea spoon&#8221;) and in the dropdown menu select and validate the &#8220;Create a variation&#8221; option. You should be prompted to confirm the variation creation. As you can see, the created variation is disabled by default so we need to first edit it, and then enable it. You might have noticed that the product is not available in the frontend anymore as explained previously. The &#8220;edit&#8221; page should now look a bit different : less fields, but we have the &#8220;size&#8221; one !</p>
+<p>Once you have edited the product and enabled it, it should now appear in the frontoffice. Congratulations, you have created your first variation !</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="product-provider-options.html" class="btn btn-neutral float-right" title="Basic options for product providers"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="create-collection.html" class="btn btn-neutral" title="Create a collection"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

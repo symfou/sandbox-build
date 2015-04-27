@@ -4,8 +4,6 @@ namespace Doctrine\Tests\ORM\Functional;
 
 use Doctrine\Tests\Models\Company\CompanyManager;
 
-require_once __DIR__ . '/../../TestInit.php';
-
 /**
  * Functional Query tests.
  *
@@ -300,6 +298,23 @@ class QueryDqlFunctionTest extends \Doctrine\Tests\OrmFunctionalTestCase
                 ->getArrayResult();
 
         $this->assertTrue(strtotime($arg[0]['add']) > 0);
+    }
+
+    public function testDateAddSecond()
+    {
+        $dql     = "SELECT CURRENT_TIMESTAMP() now, DATE_ADD(CURRENT_TIMESTAMP(), 10, 'second') AS add FROM Doctrine\Tests\Models\Company\CompanyManager m";
+        $query   = $this->_em->createQuery($dql)->setMaxResults(1);
+        $result  = $query->getArrayResult();
+
+        $this->assertCount(1, $result);
+        $this->assertArrayHasKey('now', $result[0]);
+        $this->assertArrayHasKey('add', $result[0]);
+
+        $now  = strtotime($result[0]['now']);
+        $add  = strtotime($result[0]['add']);
+        $diff = $add - $now;
+
+        $this->assertSQLEquals(10, $diff);
     }
 
     /**

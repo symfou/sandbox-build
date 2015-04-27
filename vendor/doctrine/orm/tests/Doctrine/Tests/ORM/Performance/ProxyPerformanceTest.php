@@ -24,7 +24,7 @@ use Doctrine\Common\Proxy\Proxy;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\UnitOfWork;
 use Doctrine\ORM\Proxy\ProxyFactory;
-use Doctrine\ORM\Persisters\BasicEntityPersister;
+use Doctrine\ORM\Persisters\Entity\BasicEntityPersister;
 
 /**
  * Performance test used to measure performance of proxy instantiation
@@ -111,6 +111,12 @@ class MockEntityManager extends EntityManager
             $config->getProxyNamespace(),
             $config->getAutoGenerateProxyClasses()
         );
+    }
+
+    /** {@inheritDoc} */
+    public function getMetadataFactory()
+    {
+        return $this->em->getMetadataFactory();
     }
 
     /** {@inheritDoc} */

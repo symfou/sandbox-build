@@ -236,6 +236,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_knp_menu.html">2. KnpMenu</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_knp_menu.html#add-a-custom-controller-entry-in-the-menu">2.1. Add a custom controller entry in the menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/recipe_knp_menu.html#using-a-menu-provider">2.2. Using a menu provider</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cookbook/recipe_file_uploads.html">3. Uploading and saving documents (including images) using DoctrineORM and SonataAdmin</a><ul>
@@ -609,6 +610,16 @@ Though this <tt class="docutils literal"><span class="pre">operator_type</span><
 <span class="x">    $datagridMapper</span>
 <span class="x">        -&gt;add(&#39;foo&#39;, null, array(&#39;operator_type&#39; =&gt; &#39;sonata_type_boolean&#39;))</span>
 <span class="x">        -&gt;add(&#39;bar&#39;, null, array(&#39;operator_type&#39; =&gt; &#39;hidden&#39;))</span>
+<span class="x">    ;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<p>If you don&#8217;t need the advanced filters, or all your <tt class="docutils literal"><span class="pre">operator_type</span></tt> are hidden, you can disable them by setting
+<tt class="docutils literal"><span class="pre">advanced_filter</span></tt> to <tt class="docutils literal"><span class="pre">false</span></tt>. You need to disable all advanced filters to make the button disappear.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">protected function configureDatagridFilters(DatagridMapper $datagridMapper)</span>
+<span class="x">{</span>
+<span class="x">    $datagridMapper</span>
+<span class="x">        -&gt;add(&#39;bar&#39;, null, array(&#39;operator_type&#39; =&gt; &#39;hidden&#39;, &#39;advanced_filter&#39; =&gt; false))</span>
 <span class="x">    ;</span>
 <span class="x">}</span>
 </pre></div>

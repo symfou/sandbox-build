@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Paypal setup &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../../index.html"/>
+        <link rel="up" title="Payment" href="index.html"/>
+        <link rel="next" title="Check setup" href="check.html"/>
+        <link rel="prev" title="Ogone setup" href="ogone.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html"> Bundles</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../order.html">Order</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html"> Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Sonata e-commerce bundles</a> &raquo;</li>
+      
+          <li><a href="index.html">Payment</a> &raquo;</li>
+      
+    <li>Paypal setup</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../../_sources/reference/bundles/payment/paypal.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="paypal-setup">
+<span id="index-0"></span><h1>Paypal setup<a class="headerlink" href="#paypal-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="presentation">
+<h2>Presentation<a class="headerlink" href="#presentation" title="Permalink to this headline">¶</a></h2>
+<p>Paypal is a CreditCard and web payment provider. Here&#8217;s how to configure it in order to use it in your application.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Here&#8217;s how to configure paypal for Sonata e-commerce:</p>
+<ol class="arabic simple">
+<li>Activate IPN notification service</li>
+</ol>
+<p>URL: <a class="reference external" href="http://youwebsite.com/shop/payment/callback">http://youwebsite.com/shop/payment/callback</a></p>
+<ol class="arabic simple" start="2">
+<li>Retrieve paypal public certificate (paypal_cert_pem.txt)</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Go to <a class="reference external" href="https://www.paypal.com/fr/cgi-bin/webscr?cmd=_profile-website-cert">https://www.paypal.com/fr/cgi-bin/webscr?cmd=_profile-website-cert</a></li>
+<li>Click <em>Download</em></li>
+<li>Put this file somewhere in your project</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Generate your private and public keys <a class="reference internal" href="#f1" id="id1">[f1]</a></li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>yoursite/keys
+<span class="nv">$ </span>sudo openssl genrsa -out my-prvkey.pem 1024
+<span class="nv">$ </span>openssl req -new -key my-prvkey.pem -x509 -days 365 -out my-pubcert.pem
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Then:</dt>
+<dd><ul class="first last simple">
+<li>Go to <a class="reference external" href="https://www.paypal.com/fr/cgi-bin/webscr?cmd=_profile-website-cert">https://www.paypal.com/fr/cgi-bin/webscr?cmd=_profile-website-cert</a></li>
+<li>Press <em>Upload</em></li>
+<li>Select the <tt class="docutils literal"><span class="pre">my-pubcert.pem</span></tt> file</li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic simple" start="4">
+<li>Configure the payment gateway</li>
+</ol>
+<div class="highlight-yaml"><div class="highlight"><pre>sonata_payment.config:
+    methods:
+        paypal:
+            name: Paypal
+            id: paypal
+            enabled: true
+            class: Sonata\Component\Payment\Paypal
+            options:
+                cert_id:            CERTIFICATE ID # related to the cert_file file
+                account:            PAYPAL ACCOUNT NUMBER
+                debug:              false
+                class_order:        Application\Sonata\OrderBundle\Entity\Order
+                url_callback:       sonata_payment_callback
+                url_return_ko:      sonata_payment_error
+                url_return_ok:      sonata_payment_confirmation
+                url_action:         https://www.paypal.com/cgi-bin/webscr
+
+                method:             encryptViaBuffer # encryptViaFile || encryptViaBuffer
+
+                key_file:           %kernel.root_dir%/my-prvkey.pem
+                cert_file:          %kernel.root_dir%/my-pubcert.pem
+                paypal_cert_file:   %kernel.root_dir%/paypal_cert_pem.txt
+                openssl:            /opt/local/bin/openssl
+
+            transformers:
+                basket: sonata.transformer.basket
+                order: sonata.transformer.order
+</pre></div>
+</div>
+<p class="rubric">Footnotes</p>
+<table class="docutils citation" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[f1]</a></td><td>A good way to do it is explained here: <a class="reference external" href="http://help.ubuntu.com/community/SSH/OpenSSH/Keys">http://help.ubuntu.com/community/SSH/OpenSSH/Keys</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="check.html" class="btn btn-neutral float-right" title="Check setup"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ogone.html" class="btn btn-neutral" title="Ogone setup"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

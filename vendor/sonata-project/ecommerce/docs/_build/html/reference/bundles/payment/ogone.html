@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ogone setup &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../../index.html"/>
+        <link rel="up" title="Payment" href="index.html"/>
+        <link rel="next" title="Paypal setup" href="paypal.html"/>
+        <link rel="prev" title="Scellius setup" href="scellius.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html"> Bundles</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../order.html">Order</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html"> Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Sonata e-commerce bundles</a> &raquo;</li>
+      
+          <li><a href="index.html">Payment</a> &raquo;</li>
+      
+    <li>Ogone setup</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../../_sources/reference/bundles/payment/ogone.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="ogone-setup">
+<span id="index-0"></span><h1>Ogone setup<a class="headerlink" href="#ogone-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="presentation">
+<h2>Presentation<a class="headerlink" href="#presentation" title="Permalink to this headline">¶</a></h2>
+<p>Ogone is a CreditCard payment provider. Here&#8217;s how to configure it in order to use it in your application.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Here&#8217;s how to configure Ogone for Sonata e-commerce:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Go to the Ogone configuration portal:</dt>
+<dd><ol class="first last arabic">
+<li><p class="first"><tt class="docutils literal"><span class="pre">Technical</span> <span class="pre">Settings</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Global</span> <span class="pre">Security</span> <span class="pre">Parameters</span></tt> ; set <tt class="docutils literal"><span class="pre">Hash</span> <span class="pre">Algorithm</span></tt> to <tt class="docutils literal"><span class="pre">SHA-1</span></tt></p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Technical</span> <span class="pre">Settings</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Data</span> <span class="pre">and</span> <span class="pre">origin</span> <span class="pre">verification</span></tt> ; add your various domain(s) URL(s) separated by &#8216;;&#8217; (no spaces)</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Technical</span> <span class="pre">Settings</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Data</span> <span class="pre">and</span> <span class="pre">origin</span> <span class="pre">verification</span></tt> ; fill in your SHA-IN pass phrase (keep it, you&#8217;ll need it for your app config)</p>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">Technical</span> <span class="pre">Settings</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Transaction</span> <span class="pre">feedback</span></tt></dt>
+<dd><ol class="first last arabic">
+<li><p class="first"><tt class="docutils literal"><span class="pre">HTTP</span> <span class="pre">redirection</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">browser</span></tt> : leave all fields blank</p>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">Direct</span> <span class="pre">HTTP</span> <span class="pre">server-to-server</span> <span class="pre">request</span></tt> <span class="classifier-delimiter">:</span> <span class="classifier"><tt class="docutils literal"><span class="pre">Timing</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">request</span></tt></span> <span class="classifier-delimiter">:</span> <span class="classifier"><tt class="docutils literal"><span class="pre">always</span> <span class="pre">deferred</span></tt></span></dt>
+<dd><dl class="first last docutils">
+<dt>URL of the merchant&#8217;s post-payment page</dt>
+<dd><ol class="first last arabic simple">
+<li>If the payment&#8217;s status is &#8220;accepted&#8221;, &#8220;on hold&#8221; or &#8220;uncertain&#8221; -&gt; <tt class="docutils literal"><span class="pre">{your_host}/payment/callback</span></tt></li>
+<li>If the payment&#8217;s status is &#8220;cancelled by the client&#8221; or &#8220;too many rejections by the acquirer&#8221;. -&gt; <tt class="docutils literal"><span class="pre">{your_host}/payment/error</span></tt></li>
+</ol>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">SHA-OUT</span> <span class="pre">pass</span> <span class="pre">phrase</span></tt> ; fill in with the same key as the one you&#8217;ve given for the SHA-IN</p>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">Configure the payment gateway according to the values you&#8217;ll get with your Ogone account (or you&#8217;ll fill in the Ogone admin)</p>
+</li>
+</ol>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_payment</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+
+        <span class="c1"># ...</span>
+
+        <span class="l-Scalar-Plain">ogone</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span>                   <span class="l-Scalar-Plain">ogone</span>
+            <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span>                <span class="l-Scalar-Plain">true</span>
+            <span class="l-Scalar-Plain">code</span><span class="p-Indicator">:</span>                   <span class="l-Scalar-Plain">ogone</span>
+
+            <span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">basket</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">sonata.payment.transformer.basket</span>
+                <span class="l-Scalar-Plain">order</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">sonata.payment.transformer.order</span>
+
+            <span class="l-Scalar-Plain">options</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">url_callback</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">sonata_payment_callback</span>
+                <span class="l-Scalar-Plain">url_return_ko</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">sonata_payment_error</span>
+                <span class="l-Scalar-Plain">url_return_ok</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">sonata_payment_confirmation</span>
+
+                <span class="l-Scalar-Plain">form_url</span><span class="p-Indicator">:</span>           <span class="s">&quot;%ogone.form_url%&quot;</span>
+                <span class="l-Scalar-Plain">pspid</span><span class="p-Indicator">:</span>              <span class="s">&quot;%ogone.pspid%&quot;</span>
+                <span class="l-Scalar-Plain">home_url</span><span class="p-Indicator">:</span>           <span class="s">&quot;%ogone.home_url%&quot;</span>
+                <span class="l-Scalar-Plain">catalog_url</span><span class="p-Indicator">:</span>        <span class="s">&quot;%ogone.catalog_url%&quot;</span>
+
+                <span class="l-Scalar-Plain">sha_key</span><span class="p-Indicator">:</span>            <span class="s">&quot;%ogone.sha_key%&quot;</span>
+                <span class="l-Scalar-Plain">sha-out_key</span><span class="p-Indicator">:</span>        <span class="s">&quot;%ogone.sha-out_key%&quot;</span>
+
+        <span class="c1"># ...</span>
+
+    <span class="l-Scalar-Plain">parameters</span><span class="p-Indicator">:</span>
+        <span class="c1"># ...</span>
+
+        <span class="c1"># If you&#39;ve overridden the OgonePayment class</span>
+        <span class="l-Scalar-Plain">sonata.payment.method.ogone.class</span><span class="p-Indicator">:</span>      <span class="s">&quot;Application\\Sonata\\Component\\Payment\\Ogone\\OgonePayment&quot;</span>
+        <span class="c1">#...</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="paypal.html" class="btn btn-neutral float-right" title="Paypal setup"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scellius.html" class="btn btn-neutral" title="Scellius setup"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

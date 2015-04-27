@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sonata e-commerce Architecture &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../index.html"/>
+        <link rel="next" title="Product" href="product.html"/>
+        <link rel="prev" title="Invoice" href="../bundles/invoice.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bundles/index.html"> Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/order.html">Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/payment/index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""> Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Sonata e-commerce Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/architecture/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="sonata-e-commerce-architecture">
+<span id="index-0"></span><h1>Sonata e-commerce Architecture<a class="headerlink" href="#sonata-e-commerce-architecture" title="Permalink to this headline">¶</a></h1>
+<p>Congratulations! You&#8217;ve successfully installed the e-commerce bundles of Sonata! Now, it&#8217;s time to digg in. Here&#8217;s an overview of the architecture of the library.</p>
+<p>Below, you&#8217;ll find a simple <cite>Class Diagram</cite>, representing the relationships between the different entities. Be warned however! Some of those aren&#8217;t DB relations, as they shouldn&#8217;t be (you&#8217;ll get more details as you keep reading).</p>
+<img src="../../_images/dcEntities.svg" /><div class="section" id="technical-choices">
+<h2>Technical Choices<a class="headerlink" href="#technical-choices" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="entity-mappings">
+<h3>Entity Mappings<a class="headerlink" href="#entity-mappings" title="Permalink to this headline">¶</a></h3>
+<p>You might be surprised not to find entity mappings in the Doctrine configuration files. Those mappings are actually defined in each bundle&#8217;s extensions, in order to enable the mapping files overrides. So if you&#8217;re looking for them, feel free to check those files.</p>
+<p>If you&#8217;d like to add relations to your entities, you may add them in your overridden mapping files.</p>
+</div>
+<div class="section" id="order-process-customer-workflow">
+<h3>Order process (customer workflow)<a class="headerlink" href="#order-process-customer-workflow" title="Permalink to this headline">¶</a></h3>
+<p>Currently, the order process is implemented as follows:</p>
+<ul>
+<li><p class="first">The <cite>Customer</cite> chooses a <cite>Product</cite></p>
+</li>
+<li><p class="first">He adds it to the <cite>Basket</cite> (which can be stored either in a session or in a database. See <a class="reference internal" href="../bundles/basket.html"><em>Basket</em></a> for more information about DB storage)</p>
+</li>
+<li><p class="first">The <cite>Customer</cite> proceeds to checkout</p>
+</li>
+<li><p class="first">And he is invited to complete his profile, Sonata provides two options for this:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <cite>Customer</cite> creates an account/authenticate on the website (option setted up by default when you installed the Sonata framework)</li>
+<li>Or he fills a list of information in a one-time <cite>Order</cite>. In that case, we store his information in the <cite>Basket</cite> and he needs to fill the form for each <cite>Order</cite> he will make.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">He selects his <cite>Delivery</cite> option</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This option depends on its country, as you can see in <a class="reference internal" href="product.html"><em>Product</em></a>.</p>
+</div>
+<ul class="simple">
+<li>He selects his <cite>Payment</cite> mode</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The choices depend on the products in his <cite>Basket</cite>.</p>
+</div>
+<ul class="simple">
+<li>He processes to <cite>Payment</cite></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There, the <cite>Basket</cite> is transformed into an <cite>Order</cite>. This implies that the data that concerns the <cite>Basket</cite> is serialized and duplicated into an <cite>Order</cite>.
+This process is made in case of the <cite>Customer&#8217;s</cite> information and/or the <cite>Product&#8217;s</cite> information change. If the <cite>Order</cite> has been checked out, it has to be fixed in time, hence the serialization.</p>
+</div>
+<ul class="simple">
+<li>When the payment is completed, we edit an invoice, which can be printed out as a PDF or HTML file. The default behavior is HTML representation.</li>
+</ul>
+</div>
+<div class="section" id="product-variations">
+<h3>Product variations<a class="headerlink" href="#product-variations" title="Permalink to this headline">¶</a></h3>
+<p>Each product can be splitted into <cite>sub-products</cite>: we call them <tt class="docutils literal"><span class="pre">variations</span></tt>. The main <cite>Product</cite> is then called <tt class="docutils literal"><span class="pre">master</span> <span class="pre">product</span></tt>.</p>
+<p>The <tt class="docutils literal"><span class="pre">master</span> <span class="pre">product</span></tt> is used to be displayed in search results, recent products listing and catalog. The variations are displayed on a product view page.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The default variation displayed on a product view page is the cheapest one.</p>
+</div>
+</div>
+<div class="section" id="price-computation">
+<h3>Price computation<a class="headerlink" href="#price-computation" title="Permalink to this headline">¶</a></h3>
+<p>Well... We&#8217;re entering the depths of it, aren&#8217;t we? To be crystal clear, we&#8217;ll try to answer the basic questions:</p>
+<dl class="docutils">
+<dt><strong>When?</strong></dt>
+<dd>Each time you add a <cite>Product</cite> (ie. <cite>BasketElement</cite>) to your <cite>Basket</cite>, the <cite>BasketElement price</cite> is calculated &amp; the <cite>Basket price</cite> is calculated as well.</dd>
+<dt><strong>Based on?</strong></dt>
+<dd>The <cite>Price</cite> is computed based on defined product prices, VAT if any, quantity, and currency.</dd>
+<dt><strong>Who/How?</strong></dt>
+<dd>As you can see below, when the <cite>BasketElements</cite> of the <cite>Basket</cite> are altered (added/removed), the <cite>buildPrices</cite> method is called, which for each element will compute its price. To do that, we go through the <cite>Product</cite> provider of the <cite>BasketElement&#8217;s product</cite> (which you can override easily in your implementation), and then through the <cite>Currency price</cite> calculator (whose default behavior is only to return the <cite>Product&#8217;s price</cite>).</dd>
+</dl>
+<img src="../../_images/dsPrice.svg" /></div>
+<div class="section" id="basket-order-transformations-and-storage">
+<h3>Basket &lt;-&gt; Order transformations and storage<a class="headerlink" href="#basket-order-transformations-and-storage" title="Permalink to this headline">¶</a></h3>
+<p>Along the checkout process, once the <cite>Basket</cite> has been validated by the <cite>Customer</cite> and is about to be paid for, we&#8217;ll transform the <cite>Basket</cite> (which is submitted to change) into an <cite>Order</cite> (which will be fixed in time). Therefore, Basket &amp; Order entities are quite similar, but we&#8217;ll need to copy data from one to the other. We can&#8217;t afford having relationships / dependencies that may evolve later in the <cite>Order</cite> entity, therefore we copy or serialize those.</p>
+<div class="section" id="basket-order">
+<h4>Basket -&gt; Order<a class="headerlink" href="#basket-order" title="Permalink to this headline">¶</a></h4>
+<p>At the <cite>Order</cite> instance construction depending on the <cite>Basket</cite>, we&#8217;ll compute the final <cite>Order price</cite>, based on <cite>BasketElements</cite>, <cite>Delivery</cite>, etc. We use the <tt class="docutils literal"><span class="pre">BasketTransformer::transformIntoOrder</span></tt> method to do so. This will check the <cite>Basket</cite> validity and create an <cite>Order</cite> instance based on that.</p>
+<p>You may, of course, override this transformer and the associated service (service id is <tt class="docutils literal"><span class="pre">sonata.payment.transformer.basket</span></tt>).</p>
+</div>
+<div class="section" id="order-basket">
+<h4>Order -&gt; Basket<a class="headerlink" href="#order-basket" title="Permalink to this headline">¶</a></h4>
+<p>You may need sometimes to rebuild a <cite>Basket</cite> from a previous <cite>Order</cite>. In order to do so, the <tt class="docutils literal"><span class="pre">OrderTransformer::transformIntoBasket</span></tt> method does the job. Based on the stored product id, you&#8217;ll be able to rebuild a <cite>Basket</cite> with the potentially new information (if you changed your product) of your website.</p>
+<p>You may, of course, override this transformer and the associated service (service id is <tt class="docutils literal"><span class="pre">sonata.payment.transformer.order</span></tt>).</p>
+</div>
+<div class="section" id="order-invoice">
+<h4>Order -&gt; Invoice<a class="headerlink" href="#order-invoice" title="Permalink to this headline">¶</a></h4>
+<p>See <a class="reference internal" href="invoice.html"><em>Invoice</em></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="going-in-depths">
+<h2>Going in depths<a class="headerlink" href="#going-in-depths" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="product.html">Product</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="product.html#product-variations">Product Variations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product.html#product-template">Product Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product.html#product-helpers">Product Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product.html#product-block-services">Product Block Services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="currency.html">Currency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customer.html">Customer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="customer.html#customer-helpers">Customer Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basket.html">Basket</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basket.html#basket-class-diagram">Basket Class Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basket.html#basket-api-consumer-schema">Basket API Consumer Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basket.html#basket-api-sequence-diagram">Basket API Sequence Diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="order.html">Order</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="order.html#order-statuses">Order Statuses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="payment.html">Payment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="payment.html#interaction-with-payment-institution">Interaction with payment institution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment.html#data-transformation-during-payment">Data transformation during payment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="invoice.html">Invoice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="invoice.html#invoice-statuses">Invoice Statuses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#basket">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#payment">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#transformers">Transformers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#order">Order</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="product.html" class="btn btn-neutral float-right" title="Product"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../bundles/invoice.html" class="btn btn-neutral" title="Invoice"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

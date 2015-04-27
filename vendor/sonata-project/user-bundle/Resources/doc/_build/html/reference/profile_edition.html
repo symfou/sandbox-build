@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Profile Edition &mdash; Sonata ~ UserBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ UserBundle  documentation" href="../index.html"/>
+        <link rel="next" title="7. API" href="api.html"/>
+        <link rel="prev" title="5. User Dashboard" href="user_dashboard.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ UserBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">2.2. Enable the Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">2.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#using-the-roles">2.4. Using the roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#extending-the-bundle">2.5. Extending the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">3. Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two_step_validation.html">4. Two-step Validation (with Google Authenticator)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="two_step_validation.html#installation">4.1. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_dashboard.html">5. User Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#dashboard">5.2. Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#block">5.3. Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#menu-factory">5.4. Menu Factory</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">6. Profile Edition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sonata-profile-configuration">6.1. Sonata Profile Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actions">6.2. Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">7. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">7.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">7.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ UserBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>6. Profile Edition</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/profile_edition.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="profile-edition">
+<span id="index-0"></span><h1>6. Profile Edition<a class="headerlink" href="#profile-edition" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt> already has a form to edit a <cite>profile</cite>, the form allows to edit login and password information. However the <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> introduces new
+fields inside the user table. In order to have a clear separation between authentication information and profile information, a specific form has been created.</p>
+<p>In <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt>, the <cite>profile</cite> term is related to user information and the <cite>authentication</cite> term is related to the user&#8217;s login and password. This separation
+is also useful if the credential system is not the default one provided by the solution but still want to store user&#8217;s metadata.</p>
+<p>So if you have configured a specific <cite>profile</cite> form inside the <tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt>, you actually edit the authentication form inside the <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> (if you enable the feature).</p>
+<p>This is also the reason why the configuration between <tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt> and <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> might look the same, however the final purpose is not the same.</p>
+<div class="section" id="sonata-profile-configuration">
+<h2>6.1. Sonata Profile Configuration<a class="headerlink" href="#sonata-profile-configuration" title="Permalink to this headline">¶</a></h2>
+<p>You are not forced to use the current configuration as everything can be done in the <tt class="docutils literal"><span class="pre">FOSUserBundle</span></tt> from the original <cite>profile</cite> form. Now, if you like to quickly build a user profile with more fields
+than the default one, please continue reading ...</p>
+<p>First, the <cite>fos_user</cite> section need to be altered to set the valid <cite>Authentication</cite> group.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">fos_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">orm</span> <span class="c1"># can be orm or odm</span>
+    <span class="l-Scalar-Plain">firewall_name</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">main</span>
+    <span class="l-Scalar-Plain">user_class</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">Application\Sonata\UserBundle\Entity\User</span>
+
+    <span class="l-Scalar-Plain">group</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">group_class</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">Application\Sonata\UserBundle\Entity\Group</span>
+
+    <span class="l-Scalar-Plain">profile</span><span class="p-Indicator">:</span>  <span class="c1"># Authentication Form</span>
+        <span class="l-Scalar-Plain">form</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">fos_user_profile</span>
+            <span class="l-Scalar-Plain">handler</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">fos_user.profile.form.handler.default</span>
+            <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">fos_user_profile_form</span>
+            <span class="l-Scalar-Plain">validation_groups</span><span class="p-Indicator">:</span>  <span class="p-Indicator">[</span><span class="nv">Authentication</span><span class="p-Indicator">]</span> <span class="c1"># Please note : this is not the default value</span>
+</pre></div>
+</div>
+<p>Next, you need to configure the <cite>profile</cite> section of <cite>sonata_user</cite>:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">sonata_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">security_acl</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">false</span>
+    <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">Application\Sonata\UserBundle\Entity\User</span>
+        <span class="l-Scalar-Plain">group</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">Application\Sonata\UserBundle\Entity\Group</span>
+
+    <span class="l-Scalar-Plain">profile</span><span class="p-Indicator">:</span>  <span class="c1"># Profile Form (firstname, lastname, etc ...)</span>
+        <span class="l-Scalar-Plain">form</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">sonata_user_profile</span>
+            <span class="l-Scalar-Plain">handler</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">sonata.user.profile.form.handler.default</span>
+            <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">sonata_user_profile_form</span>
+            <span class="l-Scalar-Plain">validation_groups</span><span class="p-Indicator">:</span>  <span class="p-Indicator">[</span><span class="nv">Profile</span><span class="p-Indicator">]</span>
+</pre></div>
+</div>
+<p>And finally, just change the default <cite>profile</cite> routing. Actually it is the only configuration you need to define to make it work.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># replace these 3 lines :</span>
+<span class="l-Scalar-Plain">fos_user_profile</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/profile.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+
+<span class="c1"># by those lines :</span>
+<span class="l-Scalar-Plain">sonata_user_profile</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="actions">
+<h2>6.2. Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> comes with 3 profiles actions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>show</cite>: show the current user; this is actually a user dashboard to give the user a portal. The dashboard works as <a class="reference external" href="https://sonata-project.org/bundles/admin/master/doc/reference/dashboard.html">SonataAdminBundle&#8217;s dashboard</a>.</li>
+<li><cite>edit profile</cite>: edit the profile information (lastname, firstname, etc ...)</li>
+<li><cite>edit authentication</cite>: edit the profile authentication information (login, password)</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="7. API"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="user_dashboard.html" class="btn btn-neutral" title="5. User Dashboard"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

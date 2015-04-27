@@ -11,24 +11,26 @@
 
 namespace Sonata\Bundle\DemoBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\GalleryHasMedia;
+use AppBundle\Entity\Media\GalleryHasMedia;
+use AppBundle\Entity\Commerce\Delivery;
+use AppBundle\Entity\Commerce\Package;
+use AppBundle\Entity\Commerce\ProductCategory;
+use AppBundle\Entity\Commerce\ProductCollection;
+
 use Sonata\Bundle\DemoBundle\Entity\Goodie;
-use AppBundle\Entity\Delivery;
 use Sonata\Bundle\DemoBundle\Entity\Travel;
-use AppBundle\Entity\Package;
-use AppBundle\Entity\ProductCategory;
-use AppBundle\Entity\ProductCollection;
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
 use Sonata\ClassificationBundle\Model\CategoryInterface;
 use Sonata\ClassificationBundle\Model\CollectionInterface;
 use Sonata\Component\Product\ProductInterface;
 use Sonata\MediaBundle\Model\GalleryInterface;
 use Sonata\MediaBundle\Model\MediaInterface;
+
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Finder;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * Product fixtures loader.
@@ -74,39 +76,39 @@ class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
 
         $dummyMedia = $this->createMedia(__DIR__.'/../data/files/sonata_logo.png', 'Dummy', 'Dummy product', null, null, 'dummy_category');
 
-        $dummyProductsCount = 501;
+        if ($this->container->hasParameter("sonata.fixtures.product.fake")) {
+            for ($i = 1; $i < (int)$this->container->getParameter("sonata.fixtures.product.fake"); $i++) {
+                // Goodies products
+                $dummy = new Goodie();
+                $dummy->setSku('dummy_'.$i);
+                $dummy->setName(sprintf('Dummy %d', $i));
+                $dummy->setSlug('dummy');
+                $dummy->setDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>'.$this->getLorem());
+                $dummy->setRawDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>'.$this->getLorem());
+                $dummy->setPriceIncludingVat(true);
+                $dummy->setShortDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>');
+                $dummy->setRawShortDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>');
+                $dummy->setDescriptionFormatter('richhtml');
+                $dummy->setShortDescriptionFormatter('richhtml');
+                $dummy->setPrice(rand(0, 2*$i));
+                $dummy->setStock(rand(1, 100*$i));
+                $dummy->setVatRate(20);
+                $dummy->setEnabled(true);
+                $manager->persist($dummy);
 
-        for ($i = 1; $i < $dummyProductsCount; $i++) {
-            // Goodies products
-            $dummy = new Goodie();
-            $dummy->setSku('dummy_'.$i);
-            $dummy->setName(sprintf('Dummy %d', $i));
-            $dummy->setSlug('dummy');
-            $dummy->setDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>'.$this->getLorem());
-            $dummy->setRawDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>'.$this->getLorem());
-            $dummy->setPriceIncludingVat(true);
-            $dummy->setShortDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>');
-            $dummy->setRawShortDescription('<p>Dummy product. We use it to test our catalog capabilities.</p>');
-            $dummy->setDescriptionFormatter('richhtml');
-            $dummy->setShortDescriptionFormatter('richhtml');
-            $dummy->setPrice(rand(0, 2*$i));
-            $dummy->setStock(rand(1, 100*$i));
-            $dummy->setVatRate(20);
-            $dummy->setEnabled(true);
-            $manager->persist($dummy);
+                $this->setReference('dummy_product_'.$i, $dummy);
 
-            $this->setReference('dummy_product_'.$i, $dummy);
-
-            $dummy->setImage($dummyMedia);
+                $dummy->setImage($dummyMedia);
 
 
-            $this->addProductToCategory($dummy, $dummyCategory, $manager);
-            $this->addProductToCollection($dummy, $dummyCollection, $manager);
-            $this->addProductDeliveries($dummy, $manager);
-            $this->addPackageToProduct($dummy, $manager);
+                $this->addProductToCategory($dummy, $dummyCategory, $manager);
+                $this->addProductToCollection($dummy, $dummyCollection, $manager);
+                $this->addProductDeliveries($dummy, $manager);
+                $this->addPackageToProduct($dummy, $manager);
 
-            if (0 === ($i % 20)) {
-                $manager->flush();
+                if (0 === ($i % 20)) {
+                    $manager->flush();
+                }
             }
         }
 

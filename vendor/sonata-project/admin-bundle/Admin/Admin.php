@@ -45,6 +45,12 @@ use Knp\Menu\ItemInterface as MenuItemInterface;
 use Doctrine\Common\Util\ClassUtils;
 use Sonata\AdminBundle\Datagrid\Pager;
 
+/**
+ * Class Admin
+ *
+ * @package Sonata\AdminBundle\Admin
+ * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ */
 abstract class Admin implements AdminInterface, DomainObjectInterface
 {
     const CONTEXT_MENU       = 'menu';
@@ -777,9 +783,10 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
 
         if (count($this->getBatchActions()) > 0) {
             $fieldDescription = $this->getModelManager()->getNewFieldDescriptionInstance($this->getClass(), 'batch', array(
-                'label'    => 'batch',
-                'code'     => '_batch',
-                'sortable' => false,
+                'label'         => 'batch',
+                'code'          => '_batch',
+                'sortable'      => false,
+                'virtual_field' => true,
             ));
 
             $fieldDescription->setAdmin($this);
@@ -796,9 +803,10 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
 
         if ($this->hasRequest() && $this->getRequest()->isXmlHttpRequest()) {
             $fieldDescription = $this->getModelManager()->getNewFieldDescriptionInstance($this->getClass(), 'select', array(
-                'label'    => false,
-                'code'     => '_select',
-                'sortable' => false,
+                'label'         => false,
+                'code'          => '_select',
+                'sortable'      => false,
+                'virtual_field' => false,
             ));
 
             $fieldDescription->setAdmin($this);
@@ -1745,7 +1753,7 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
     {
         if ($this->subject === null && $this->request) {
             $id = $this->request->get($this->getIdParameter());
-            if (!preg_match('#^[0-9A-Fa-f]+$#', $id)) {
+            if (!preg_match('#^[0-9A-Fa-f\-]+$#', $id)) {
                 $this->subject = false;
             } else {
                 $this->subject = $this->getModelManager()->find($this->class, $id);

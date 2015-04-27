@@ -17,8 +17,6 @@ use Doctrine\Tests\Models\Company\CompanyFixContract;
 use Doctrine\Tests\Models\Company\CompanyEmployee;
 use Doctrine\Tests\Models\Company\CompanyPerson;
 
-require_once __DIR__ . '/../../TestInit.php';
-
 /**
  * NativeQueryTest
  *
@@ -311,6 +309,25 @@ class NativeQueryTest extends \Doctrine\Tests\OrmFunctionalTestCase
 
         $this->assertNotNull($address->getUser());
         $this->assertEquals($user->name, $address->getUser()->getName());
+    }
+
+    /**
+     * @group rsm-sti
+     */
+    public function testConcreteClassInSingleTableInheritanceSchemaWithRSMBuilderIsFine()
+    {
+        $rsm = new ResultSetMappingBuilder($this->_em);
+        $rsm->addRootEntityFromClassMetadata('Doctrine\Tests\Models\Company\CompanyFixContract', 'c');
+    }
+
+    /**
+     * @group rsm-sti
+     */
+    public function testAbstractClassInSingleTableInheritanceSchemaWithRSMBuilderThrowsException()
+    {
+        $this->setExpectedException('\InvalidArgumentException', 'ResultSetMapping builder does not currently support your inheritance scheme.');
+        $rsm = new ResultSetMappingBuilder($this->_em);
+        $rsm->addRootEntityFromClassMetadata('Doctrine\Tests\Models\Company\CompanyContract', 'c');
     }
 
     /**

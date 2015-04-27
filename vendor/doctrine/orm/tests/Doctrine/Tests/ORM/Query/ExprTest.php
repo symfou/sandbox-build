@@ -22,8 +22,6 @@ namespace Doctrine\Tests\ORM\Query;
 use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\Query;
 
-require_once __DIR__ . '/../../TestInit.php';
-
 /**
  * Test case for the DQL Expr class used for generating DQL snippets through
  * a programmatic interface
@@ -37,6 +35,11 @@ require_once __DIR__ . '/../../TestInit.php';
 class ExprTest extends \Doctrine\Tests\OrmTestCase
 {
     private $_em;
+
+    /**
+     * @var Expr
+     */
+    private $_expr;
 
     protected function setUp()
     {
@@ -269,6 +272,14 @@ class ExprTest extends \Doctrine\Tests\OrmTestCase
     public function testIsNotNullExpr()
     {
         $this->assertEquals('u.id IS NOT NULL', (string) $this->_expr->isNotNull('u.id'));
+    }
+
+    public function testIsInstanceOfExpr() {
+        $this->assertEquals('u INSTANCE OF Doctrine\Tests\Models\Company\CompanyEmployee', (string) $this->_expr->isInstanceOf('u', 'Doctrine\Tests\Models\Company\CompanyEmployee'));
+    }
+
+    public function testIsMemberOfExpr() {
+        $this->assertEquals(':groupId MEMBER OF u.groups', (string) $this->_expr->isMemberOf(':groupId', 'u.groups'));
     }
 
     public function testInExpr()

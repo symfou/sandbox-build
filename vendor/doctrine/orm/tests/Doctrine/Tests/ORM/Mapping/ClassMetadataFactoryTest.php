@@ -2,15 +2,17 @@
 
 namespace Doctrine\Tests\ORM\Mapping;
 
-use Doctrine\Tests\Mocks\MetadataDriverMock;
-use Doctrine\Tests\Mocks\EntityManagerMock;
+use Doctrine\Common\EventManager;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Event\OnClassMetadataNotFoundEventArgs;
+use Doctrine\ORM\Events;
+use Doctrine\ORM\Id\AbstractIdGenerator;
+use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\ORM\Mapping\ClassMetadataFactory;
 use Doctrine\Tests\Mocks\ConnectionMock;
 use Doctrine\Tests\Mocks\DriverMock;
-use Doctrine\ORM\Mapping\ClassMetadata;
-use Doctrine\Common\EventManager;
-use Doctrine\ORM\Mapping\ClassMetadataFactory;
-
-require_once __DIR__ . '/../../TestInit.php';
+use Doctrine\Tests\Mocks\EntityManagerMock;
+use Doctrine\Tests\Mocks\MetadataDriverMock;
 
 class ClassMetadataFactoryTest extends \Doctrine\Tests\OrmTestCase
 {
@@ -27,7 +29,7 @@ class ClassMetadataFactoryTest extends \Doctrine\Tests\OrmTestCase
         $cm1 = $this->_createValidClassMetadata();
 
         // SUT
-        $cmf = new \Doctrine\ORM\Mapping\ClassMetadataFactory();
+        $cmf = new ClassMetadataFactory();
         $cmf->setEntityManager($entityManager);
         $cmf->setMetadataFor($cm1->name, $cm1);
 
@@ -192,15 +194,38 @@ class ClassMetadataFactoryTest extends \Doctrine\Tests\OrmTestCase
         $rootMetadata = $cmf->getMetadataFor('Doctrine\Tests\Models\JoinedInheritanceType\RootClass');
     }
 
-    protected function _createEntityManager($metadataDriver)
+    public function testGetAllMetadataWorksWithBadConnection()
+    {
+        // DDC-3551
+        $conn = $this->getMockBuilder('Doctrine\DBAL\Connection')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $mockDriver    = new MetadataDriverMock();
+        $em = $this->_createEntityManager($mockDriver, $conn);
+
+        $conn->expects($this->any())
+            ->method('getDatabasePlatform')
+            ->will($this->throwException(new \Exception('Exception thrown in test when calling getDatabasePlatform')));
+
+        $cmf = new ClassMetadataFactory();
+        $cmf->setEntityManager($em);
+
+        // getting all the metadata should work, even if get DatabasePlatform blows up
+        $metadata = $cmf->getAllMetadata();
+        // this will just be an empty array - there was no error
+        $this->assertEquals(array(), $metadata);
+    }
+
+    protected function _createEntityManager($metadataDriver, $conn = null)
     {
         $driverMock = new DriverMock();
         $config = new \Doctrine\ORM\Configuration();
         $config->setProxyDir(__DIR__ . '/../../Proxies');
         $config->setProxyNamespace('Doctrine\Tests\Proxies');
         $eventManager = new EventManager();
-        $conn = new ConnectionMock(array(), $driverMock, $config, $eventManager);
-        $mockDriver = new MetadataDriverMock();
+        if (!$conn) {
+            $conn = new ConnectionMock(array(), $driverMock, $config, $eventManager);
+        }
         $config->setMetadataDriverImpl($metadataDriver);
 
         return EntityManagerMock::create($conn, $config, $eventManager);
@@ -323,10 +348,85 @@ class ClassMetadataFactoryTest extends \Doctrine\Tests\OrmTestCase
         $this->assertEquals('group-id', $groups['joinTable']['inverseJoinColumns'][0]['name']);
         $this->assertEquals('group-id', $groups['joinTable']['inverseJoinColumns'][0]['referencedColumnName']);
     }
+
+    /**
+     * @group DDC-3385
+     * @group 1181
+     * @group 385
+     */
+    public function testFallbackLoadingCausesEventTriggeringThatCanModifyFetchedMetadata()
+    {
+        $test          = $this;
+        /* @var $metadata \Doctrine\Common\Persistence\Mapping\ClassMetadata */
+        $metadata      = $this->getMock('Doctrine\Common\Persistence\Mapping\ClassMetadata');
+        $cmf           = new ClassMetadataFactory();
+        $mockDriver    = new MetadataDriverMock();
+        $em = $this->_createEntityManager($mockDriver);
+        $listener      = $this->getMock('stdClass', array('onClassMetadataNotFound'));
+        $eventManager  = $em->getEventManager();
+
+        $cmf->setEntityManager($em);
+
+        $listener
+            ->expects($this->any())
+            ->method('onClassMetadataNotFound')
+            ->will($this->returnCallback(function (OnClassMetadataNotFoundEventArgs $args) use ($metadata, $em, $test) {
+                $test->assertNull($args->getFoundMetadata());
+                $test->assertSame('Foo', $args->getClassName());
+                $test->assertSame($em, $args->getObjectManager());
+
+                $args->setFoundMetadata($metadata);
+            }));
+
+        $eventManager->addEventListener(array(Events::onClassMetadataNotFound), $listener);
+
+        $this->assertSame($metadata, $cmf->getMetadataFor('Foo'));
+    }
+
+    /**
+     * @group DDC-3427
+     */
+    public function testAcceptsEntityManagerInterfaceInstances()
+    {
+        $classMetadataFactory = new ClassMetadataFactory();
+
+        /* @var $entityManager EntityManager */
+        $entityManager        = $this->getMock('Doctrine\\ORM\\EntityManagerInterface');
+
+        $classMetadataFactory->setEntityManager($entityManager);
+
+        // not really the cleanest way to check it, but we won't add a getter to the CMF just for the sake of testing.
+        $this->assertAttributeSame($entityManager, 'em', $classMetadataFactory);
+    }
+
+    /**
+     * @group DDC-3305
+     */
+    public function testRejectsEmbeddableWithoutValidClassName()
+    {
+        $metadata = $this->_createValidClassMetadata();
+
+        $metadata->mapEmbedded(array(
+            'fieldName'    => 'embedded',
+            'class'        => '',
+            'columnPrefix' => false,
+        ));
+
+        $cmf = $this->_createTestFactory();
+
+        $cmf->setMetadataForClass($metadata->name, $metadata);
+
+        $this->setExpectedException(
+            'Doctrine\ORM\Mapping\MappingException',
+            'The embed mapping \'embedded\' misses the \'class\' attribute.'
+        );
+
+        $cmf->getMetadataFor($metadata->name);
+    }
 }
 
 /* Test subject class with overridden factory method for mocking purposes */
-class ClassMetadataFactoryTestSubject extends \Doctrine\ORM\Mapping\ClassMetadataFactory
+class ClassMetadataFactoryTestSubject extends ClassMetadataFactory
 {
     private $mockMetadata = array();
     private $requestedClasses = array();
@@ -336,7 +436,7 @@ class ClassMetadataFactoryTestSubject extends \Doctrine\ORM\Mapping\ClassMetadat
     {
         $this->requestedClasses[] = $className;
         if ( ! isset($this->mockMetadata[$className])) {
-            throw new InvalidArgumentException("No mock metadata found for class $className.");
+            throw new \InvalidArgumentException("No mock metadata found for class $className.");
         }
         return $this->mockMetadata[$className];
     }
@@ -358,11 +458,12 @@ class TestEntity1
     private $name;
     private $other;
     private $association;
+    private $embedded;
 }
 
-class CustomIdGenerator extends \Doctrine\ORM\Id\AbstractIdGenerator
+class CustomIdGenerator extends AbstractIdGenerator
 {
-    public function generate(\Doctrine\ORM\EntityManager $em, $entity)
+    public function generate(EntityManager $em, $entity)
     {
     }
 }

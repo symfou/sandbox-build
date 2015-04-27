@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Two-step Validation (with Google Authenticator) &mdash; Sonata ~ UserBundle  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ UserBundle  documentation" href="../index.html"/>
+        <link rel="next" title="5. User Dashboard" href="user_dashboard.html"/>
+        <link rel="prev" title="3. Advanced Configuration" href="advanced_configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ UserBundle</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#enable-the-bundle">2.2. Enable the Bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration">2.3. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#using-the-roles">2.4. Using the roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#extending-the-bundle">2.5. Extending the Bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_configuration.html">3. Advanced Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">4. Two-step Validation (with Google Authenticator)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">4.1. Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_dashboard.html">5. User Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#dashboard">5.2. Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#block">5.3. Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_dashboard.html#menu-factory">5.4. Menu Factory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profile_edition.html">6. Profile Edition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profile_edition.html#sonata-profile-configuration">6.1. Sonata Profile Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_edition.html#actions">6.2. Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">7. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">7.1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">7.2. Serialization</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ UserBundle</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>4. Two-step Validation (with Google Authenticator)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/two_step_validation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="two-step-validation-with-google-authenticator">
+<span id="index-0"></span><h1>4. Two-step Validation (with Google Authenticator)<a class="headerlink" href="#two-step-validation-with-google-authenticator" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">SonataUserBundle</span></tt> provides an optional layer of security by including a support for a Two-step Validation process.</p>
+<p>When the option is enabled, the login process is done with the following workflow:</p>
+<ul class="simple">
+<li>the user enters the login and password</li>
+<li>if the user get the correct credentials, then a code validation form is displayed</li>
+<li>at this point, the user must enter a time based code provided by the Google Authenticator application</li>
+<li>the code is valid only once per minute</li>
+</ul>
+<p>So if your login and password are compromised then the hacker must also hold your phone!</p>
+<div class="section" id="installation">
+<h2>4.1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Add the following line to the <tt class="docutils literal"><span class="pre">composer.json</span></tt> file:</p>
+<div class="highlight-python"><div class="highlight"><pre>&quot;sonata-project/google-authenticator&quot;: &quot;dev-master&quot;
+</pre></div>
+</div>
+<p>Edit the configuration file:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">sonata_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">google_authenticator</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">yourserver.com</span>
+</pre></div>
+</div>
+<p>Now if the <tt class="docutils literal"><span class="pre">User::twoStepVerificationCode</span></tt> property is not null, then a second form will be displayed.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user_dashboard.html" class="btn btn-neutral float-right" title="5. User Dashboard"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="advanced_configuration.html" class="btn btn-neutral" title="3. Advanced Configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

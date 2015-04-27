@@ -11,6 +11,7 @@ return array(
     'Symfony\\Bundle\\SwiftmailerBundle\\' => array($vendorDir . '/symfony/swiftmailer-bundle'),
     'Symfony\\Bundle\\MonologBundle\\' => array($vendorDir . '/symfony/monolog-bundle'),
     'Symfony\\Bundle\\AsseticBundle\\' => array($vendorDir . '/symfony/assetic-bundle'),
+    'Symfony\\Bridge\\PhpUnit\\' => array($vendorDir . '/symfony/phpunit-bridge'),
     'Spy\\Timeline\\' => array($vendorDir . '/stephpy/timeline/src'),
     'Spy\\TimelineBundle\\' => array($vendorDir . '/stephpy/timeline-bundle'),
     'Sonata\\UserBundle\\' => array($vendorDir . '/sonata-project/user-bundle'),

@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Payment &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../index.html"/>
+        <link rel="up" title="Sonata e-commerce Architecture" href="index.html"/>
+        <link rel="next" title="Invoice" href="invoice.html"/>
+        <link rel="prev" title="Order" href="order.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bundles/index.html"> Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/order.html">Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/payment/index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"> Architecture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Sonata e-commerce Architecture</a> &raquo;</li>
+      
+    <li>Payment</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/architecture/payment.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="payment">
+<span id="index-0"></span><h1>Payment<a class="headerlink" href="#payment" title="Permalink to this headline">¶</a></h1>
+<p><cite>Payment</cite> can be quite a complicated subject. One of our main goals was to provide a system that could interconnect with any payment institution (or be overridden to do so easily). The other one was, of course, security.</p>
+<p>You&#8217;ll find here the payment processes described, so you can understand them and be more comfortable with all of them when you&#8217;ll digg in.</p>
+<div class="section" id="interaction-with-payment-institution">
+<h2>Interaction with payment institution<a class="headerlink" href="#interaction-with-payment-institution" title="Permalink to this headline">¶</a></h2>
+<p>Regardless of the <cite>Payment</cite> method, the <cite>Payment</cite> process is as follows:</p>
+<ol class="arabic simple">
+<li><tt class="docutils literal"><span class="pre">PaymentController::callbankAction</span></tt></li>
+</ol>
+<p>Redirects the user to the payment institution (through the <cite>Payment</cite> method&#8217;s callbank method)</p>
+<ol class="arabic simple" start="2">
+<li>Payment&#8217;s return, the payment institution initiates a call to the <tt class="docutils literal"><span class="pre">PaymentController::callback</span></tt> action</li>
+</ol>
+<p>This is a secured, server-to-server call; this is where we&#8217;ll check the payment&#8217;s return (depending on the payment institution&#8217;s security policies), and update the order&#8217;s status depending on the feedback given by the payment institution.</p>
+<blockquote>
+<div><ul class="simple">
+<li>(Optionally) If everything is well, we send a request to the server to notify it that we did indeed handle its callback.</li>
+<li>If the <cite>Payment</cite> method does not support this case, we simply update the application data and don&#8217;t notify the server.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>User&#8217;s return</li>
+</ol>
+<p>If the user didn&#8217;t simply close the window, he&#8217;s redirected to our website: this can be to the <tt class="docutils literal"><span class="pre">PaymentController::error</span></tt> action if there was an error, or he canceled; otherwise, if the <cite>Payment</cite> is successful, the user is redirected to the <tt class="docutils literal"><span class="pre">PaymentController::confirmation</span></tt> action which will only checks that the order&#8217;s payment is indeed confirmed and displays a confirmation message to the user.</p>
+<img src="../../_images/dsPayment.svg" /></div>
+<div class="section" id="data-transformation-during-payment">
+<h2>Data transformation during payment<a class="headerlink" href="#data-transformation-during-payment" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Before calling the payment institution:</dt>
+<dd><ul class="first last simple">
+<li>The <cite>Basket</cite> is transformed into an <cite>Order</cite> via the <cite>basketTransformer</cite> linked to the <cite>Payment</cite> method chosen by the user and the <cite>Order</cite> is saved.</li>
+<li>The <cite>Basket</cite> is resetted (ie. emptied - deleted from DB or cleaned from session) once the transformation is ended.</li>
+<li>The status of the <cite>Order</cite> at this point is: <tt class="docutils literal"><span class="pre">OrderInterface::STATUS_OPEN</span></tt>; its payment status is: <tt class="docutils literal"><span class="pre">TransactionInterface::STATUS_OPEN</span></tt>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>On payment institution&#8217;s callback (not redirection):</dt>
+<dd><ul class="first last simple">
+<li>Creating a new transaction based on the callback&#8217;s parameters (<tt class="docutils literal"><span class="pre">GET</span></tt> &amp; <tt class="docutils literal"><span class="pre">POST</span></tt> ; <tt class="docutils literal"><span class="pre">POST</span></tt> parameters overriding <tt class="docutils literal"><span class="pre">GET</span></tt> parameters),</li>
+<li>Validating the transaction (its status is then updated).</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Notifying callback handling to payment institution</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Update the order&#8217;s status &amp; payment status:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">OrderInterface::STATUS_VALIDATED</span></tt> and <tt class="docutils literal"><span class="pre">TransactionInterface::STATUS_VALIDATED</span></tt> if it&#8217;s ok,</li>
+<li><tt class="docutils literal"><span class="pre">OrderInterface::STATUS_VALIDATED</span></tt> and <tt class="docutils literal"><span class="pre">TransactionInterface::STATUS_ERROR_VALIDATION</span></tt> if not.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>User redirected to confirmation</dt>
+<dd><ul class="first last simple">
+<li>No data alteration during this step, only controls are performed</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>User redirected to error</dt>
+<dd><ul class="first last simple">
+<li>If <tt class="docutils literal"><span class="pre">Order</span></tt> is canceled, set its status to <tt class="docutils literal"><span class="pre">OrderInterface::STATUS_STOPPED</span></tt></li>
+<li>Set transaction&#8217;s status to <tt class="docutils literal"><span class="pre">TransactionInterface::STATUS_CANCELLED</span></tt></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="invoice.html" class="btn btn-neutral float-right" title="Invoice"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="order.html" class="btn btn-neutral" title="Order"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

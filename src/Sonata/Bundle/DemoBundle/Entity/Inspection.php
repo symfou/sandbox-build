@@ -13,6 +13,7 @@ namespace Sonata\Bundle\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\User\User;
 
 /**
  * @ORM\Entity
@@ -34,6 +35,13 @@ class Inspection
     protected $car;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User\User", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull
+     **/
+    protected $inspector;
+
+    /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank
      */
@@ -45,6 +53,13 @@ class Inspection
      * @Assert\NotNull
      */
     protected $comment;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\NotNull
+     */
+    protected $status;
 
     public function getId()
     {
@@ -102,6 +117,38 @@ class Inspection
     }
 
     /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInspector()
+    {
+        return $this->inspector;
+    }
+
+    /**
+     * @param mixed $inspector
+     */
+    public function setInspector(User $inspector = null)
+    {
+        $this->inspector = $inspector;
+    }
+
+    /**
      * @return string
      */
     public function __toString()
@@ -109,4 +156,3 @@ class Inspection
         return $this->getDate() ? $this->getDate()->format('Y-m-d') : 'n/a';
     }
 }
-

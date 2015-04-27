@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>e-commerce Bundles installation &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../index.html"/>
+        <link rel="next" title="Sonata e-commerce bundles" href="bundles/index.html"/>
+        <link rel="prev" title="Sonata e-commerce" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href=""> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bundles/index.html"> Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bundles/product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bundles/price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bundles/customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bundles/basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bundles/delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bundles/order.html">Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bundles/payment/index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bundles/invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/index.html"> Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture/index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture/api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>e-commerce Bundles installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/installation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="e-commerce-bundles-installation">
+<h1>e-commerce Bundles installation<a class="headerlink" href="#e-commerce-bundles-installation" title="Permalink to this headline">¶</a></h1>
+<p>2 installation process are available:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#quick-install-ref"><em>Quick install</em></a></li>
+<li><a class="reference internal" href="#manual-install-ref"><em>Manual installation</em></a></li>
+</ul>
+<div class="section" id="quick-install">
+<span id="quick-install-ref"></span><h2>Quick install<a class="headerlink" href="#quick-install" title="Permalink to this headline">¶</a></h2>
+<p>In case you need to work with Sonata e-commerce for a new project or just want to test it for a simple overview, we strongly advise that you use our demo.
+This demo is available <a class="reference external" href="http://demo.sonata-project.org">here</a> and the code on <a class="reference external" href="https://github.com/sonata-project/sandbox">Github</a>.</p>
+<p>See the <a class="reference external" href="https://github.com/sonata-project/sandbox/blob/2.3-develop/README.md">README.md</a> for the dedicated <em>but very easy</em> installation process and <a class="reference external" href="https://github.com/sonata-project/sandbox/blob/2.3-develop/CONTRIBUTING.md">CONTRIBUTING.MD</a>  if you want to contribute.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We recommend the 2.3-develop branch for testing purposes only.</p>
+</div>
+</div>
+<div class="section" id="manual-installation">
+<span id="manual-install-ref"></span><h2>Manual installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h2>
+<p>We assume that you already have a Symfony2 project available and want to add e-commerce capabilities.</p>
+<p>Follow these instructions:</p>
+<ul>
+<li><p class="first">First, be sure that all dependencies are installed:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Symfony2 (2.3.x)</li>
+<li>Composer</li>
+<li>Javascript</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Add the e-commerce bundles to your <cite>composer.json</cite>:</p>
+</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">// composer.json</span>
+<span class="x">// &quot;dev-develop&quot;</span>
+
+<span class="x">&quot;require&quot; {</span>
+<span class="x">    ...</span>
+<span class="x">    &quot;sonata-project/ecommerce&quot;: &quot;2.3@dev&quot;,</span>
+<span class="x">    ...</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have problems if this part of the installation or just want to use the develop branch of e-commerce, check the <a class="reference external" href="https://github.com/sonata-project/sandbox/blob/2.3-develop/composer.json">composer.json</a> available in the sandbox.</p>
+</div>
+<ul class="simple">
+<li>Run this command at the root directory of your project:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>composer update
+</pre></div>
+</div>
+<ul class="simple">
+<li>Follow the installation procedure available in every <cite>README.md</cite> for these bundles:<ul>
+<li>FOSUserBundle</li>
+<li>SonataUserBundle</li>
+<li>SonataEasyExtendsBundle</li>
+<li>SonataMediaBundle</li>
+<li>SonataAdminBundle</li>
+<li>SonataBlockBundle</li>
+<li>SonataPageBundle</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li>Add the following bundles in your <cite>kernel::registerBundles()</cite> method:</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="c1">// app/AppKernel.php</span>
+
+    <span class="k">new</span> <span class="nx">FOS\UserBundle\FOSUserBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\EasyExtendsBundle\SonataEasyExtendsBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\IntlBundle\SonataIntlBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\NotificationBundle\SonataNotificationBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\UserBundle\SonataUserBundle</span><span class="p">(),</span>
+
+    <span class="k">new</span> <span class="nx">Sonata\CustomerBundle\SonataCustomerBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\ProductBundle\SonataProductBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\BasketBundle\SonataBasketBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\OrderBundle\SonataOrderBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\InvoiceBundle\SonataInvoiceBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\MediaBundle\SonataMediaBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\DeliveryBundle\SonataDeliveryBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\PaymentBundle\SonataPaymentBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Sonata\PriceBundle\SonataPriceBundle</span><span class="p">(),</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Edit your <cite>config.yml</cite> and add the following lines:</li>
+</ul>
+<div class="highlight-yaml"><div class="highlight"><pre>        # app/config/config.yml
+
+        sonata_user:
+            #... Your conf
+            profile:
+                menu:
+                    - { route: &#39;sonata_user_profile_edit&#39;, label: &#39;link_edit_profile&#39;, domain: &#39;SonataUserBundle&#39;}
+                    - { route: &#39;sonata_user_profile_edit_authentication&#39;, label: &#39;link_edit_authentication&#39;, domain: &#39;SonataUserBundle&#39;}
+                    - { route: &#39;sonata_order_index&#39;, label: &#39;order_list&#39;, domain: &#39;SonataOrderBundle&#39;}
+
+        sonata_delivery:
+            services:
+                free_address_required:
+                    name: Free
+                    enabled: true
+                    priority: 1
+                    code: free
+
+            selector: sonata.delivery.selector.default
+
+        sonata_media:
+            # if you don&#39;t use default namespace configuration
+            #class:
+            #    media: MyVendor\MediaBundle\Entity\Media
+            #    gallery: MyVendor\MediaBundle\Entity\Gallery
+            #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+            default_context: default
+            db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+            contexts:
+                default:  # the default context is mandatory
+                    providers:
+                        - sonata.media.provider.dailymotion
+                        - sonata.media.provider.youtube
+                        - sonata.media.provider.image
+                        - sonata.media.provider.file
+
+                    formats:
+                        small: { width: 100 , quality: 70}
+                        big:   { width: 500 , quality: 70}
+
+            cdn:
+                server:
+                    path: /uploads/media # http://media.sonata-project.org/
+
+            filesystem:
+                local:
+                    directory:  %kernel.root_dir%/../web/uploads/media
+                    create:     false
+
+        sonata_payment:
+            services:
+                pass:
+                    name:    Pass
+                    enabled: true
+                    code:    pass
+                    browser: sonata.payment.browser.curl
+
+                    transformers:
+                        basket: sonata.payment.transformer.basket
+                        order:  sonata.payment.transformer.order
+
+                    options:
+                        shop_secret_key: assdsds
+                        url_callback:    sonata_payment_callback
+                        url_return_ko:   sonata_payment_error
+                        url_return_ok:   sonata_payment_confirmation
+
+            # service which find the correct payment methods for a basket
+            selector: sonata.payment.selector.simple
+
+            # service which generate the correct order and invoice number
+            generator: sonata.payment.generator.mysql
+
+            transformers:
+                order:  sonata.payment.transformer.order
+                basket: sonata.payment.transformer.basket
+
+        sonata_price:
+            currency: EUR
+
+        # Doctrine Configuration
+        doctrine:
+            # ...
+            dbal:
+                types:
+                    # ...
+                    currency: Sonata\Component\Currency\CurrencyDoctrineType
+
+        services:
+            # Register dedicated Product Managers
+#           sonata.product.manager.amazon:
+#                class: Sonata\ProductBundle\Entity\ProductManager
+#                arguments:
+#                    - Application\Sonata\ProductBundle\Entity\Amazon
+#                    - @sonata.product.entity_manager
+#
+#           sonata.product.manager.bottle:
+#                class: Sonata\ProductBundle\Entity\ProductManager
+#                arguments:
+#                    - Application\Sonata\ProductBundle\Entity\Bottle
+#                    - @sonata.product.entity_manager
+#
+#           # Register dedicated Product Providers
+#            sonata.product.type.amazon:
+#                class: Application\Sonata\ProductBundle\Entity\AmazonProductProvider
+#
+#           sonata.product.type.bottle:
+#                class: Application\Sonata\ProductBundle\Entity\BottleProductProvider
+</pre></div>
+</div>
+<ul class="simple">
+<li>In order to generate the <cite>Application entities</cite> required by the Sonata&#8217;s bundles, run these <cite>easy-extends:generate</cite> commands:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>php app/console sonata:easy-extends:generate SonataBasketBundle
+php app/console sonata:easy-extends:generate SonataCustomerBundle
+php app/console sonata:easy-extends:generate SonataDeliveryBundle
+php app/console sonata:easy-extends:generate SonataInvoiceBundle
+php app/console sonata:easy-extends:generate SonataMediaBundle
+php app/console sonata:easy-extends:generate SonataOrderBundle
+php app/console sonata:easy-extends:generate SonataPaymentBundle
+php app/console sonata:easy-extends:generate SonataProductBundle
+</pre></div>
+</div>
+<ul class="simple">
+<li>Then add the following bundles in your <cite>kernel::registerBundles()</cite> method (after the previously added bundles):</li>
+</ul>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="c1">// app/AppKernel.php</span>
+    <span class="o">...</span>
+
+    <span class="k">new</span> <span class="nx">Application\Sonata\CustomerBundle\ApplicationSonataCustomerBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Application\Sonata\DeliveryBundle\ApplicationSonataDeliveryBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Application\Sonata\BasketBundle\ApplicationSonataBasketBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Application\Sonata\InvoiceBundle\ApplicationSonataInvoiceBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Application\Sonata\MediaBundle\ApplicationSonataMediaBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Application\Sonata\OrderBundle\ApplicationSonataOrderBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Application\Sonata\PaymentBundle\ApplicationSonataPaymentBundle</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">Application\Sonata\ProductBundle\ApplicationSonataProductBundle</span><span class="p">(),</span>
+</pre></div>
+</div>
+<p>Now, you can use these bundles to extend entities or template files.</p>
+<ul class="simple">
+<li>Add the current lines in your <cite>routing.yml</cite> files:</li>
+</ul>
+<div class="highlight-yaml"><div class="highlight"><pre># app/config/routing.yml
+
+# sonata front controller
+sonata_customer:
+    resource: @SonataCustomerBundle/Resources/config/routing/customer.xml
+    prefix: /shop/user
+
+sonata_basket:
+    resource: @SonataBasketBundle/Resources/config/routing/basket.xml
+    prefix: /shop/basket
+
+sonata_order:
+    resource: @SonataOrderBundle/Resources/config/routing/order.xml
+    prefix: /shop/user/invoice
+
+sonata_product_catalog:
+    resource: @SonataProductBundle/Resources/config/routing/catalog.xml
+    prefix: /shop/catalog
+
+sonata_product:
+    resource: @SonataProductBundle/Resources/config/routing/product.xml
+    prefix: /shop/product
+
+sonata_payment:
+    resource: @SonataPaymentBundle/Resources/config/routing/payment.xml
+    prefix: /shop/payment
+
+sonata_invoice:
+    resource: @SonataInvoiceBundle/Resources/config/routing/invoice.xml
+    prefix: /shop/user/invoice
+</pre></div>
+</div>
+<p>And voilà! Your application boosted with Sonata e-commerce is now ready to rumble! ;-)</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bundles/index.html" class="btn btn-neutral float-right" title="Sonata e-commerce bundles"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Sonata e-commerce"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

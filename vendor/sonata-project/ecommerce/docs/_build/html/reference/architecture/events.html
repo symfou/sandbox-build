@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Events &mdash; Sonata ~ Ecommerce  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Sonata ~ Ecommerce  documentation" href="../../index.html"/>
+        <link rel="up" title="Sonata e-commerce Architecture" href="index.html"/>
+        <link rel="next" title="API" href="api.html"/>
+        <link rel="prev" title="API" href="api.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> Sonata ~ Ecommerce</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#quick-install">Quick install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#manual-installation">Manual installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bundles/index.html"> Bundles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/product.html">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/price.html">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/customer.html">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/basket.html">Basket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/delivery.html">Delivery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/order.html">Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/payment/index.html">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/invoice.html">Invoice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"> Architecture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#technical-choices">Technical Choices</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#going-in-depths">Going in depths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html"> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#serialization">Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html"> Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-category.html"> Create a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-collection.html"> Create a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-product.html"> Create a product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/product-provider-options.html"> Basic options for product providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-delivery-method.html"> Create a delivery method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/create-payment-method.html"> Create a payment method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/extend.html"> Extend the e-commerce part of Sonata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/interact.html"> Interact with other bundles</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sonata ~ Ecommerce</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Sonata e-commerce Architecture</a> &raquo;</li>
+      
+    <li>Events</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/architecture/events.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="events">
+<span id="index-0"></span><h1>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
+<p>Sonata e-commerce provides events through Symfony2&#8217;s EventDispatcher to allow you to further customize your business logic.</p>
+<div class="section" id="basket">
+<h2>Basket<a class="headerlink" href="#basket" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">BasketEvents</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">PRE_ADD_PRODUCT</span>  <span class="o">=</span> <span class="s1">&#39;sonata.ecommerce.basket.pre_add_product&#39;</span><span class="p">;</span> <span class="c1">// AddBasketElementEvent</span>
+    <span class="k">const</span> <span class="no">POST_ADD_PRODUCT</span> <span class="o">=</span> <span class="s1">&#39;sonata.ecommerce.basket.post_add_product&#39;</span><span class="p">;</span> <span class="c1">// AddBasketElementEvent</span>
+
+    <span class="k">const</span> <span class="no">PRE_MERGE_PRODUCT</span>  <span class="o">=</span> <span class="s1">&#39;sonata.ecommerce.basket.pre_merge_product&#39;</span><span class="p">;</span> <span class="c1">// AddBasketElementEvent</span>
+    <span class="k">const</span> <span class="no">POST_MERGE_PRODUCT</span> <span class="o">=</span> <span class="s1">&#39;sonata.ecommerce.basket.post_merge_product&#39;</span><span class="p">;</span> <span class="c1">// AddBasketElementEvent</span>
+
+    <span class="k">const</span> <span class="no">PRE_CALCULATE_PRICE</span>  <span class="o">=</span> <span class="s1">&#39;sonata.ecommerce.basket.pre_calculate_price&#39;</span><span class="p">;</span> <span class="c1">// BeforeCalculatePriceEvent</span>
+    <span class="k">const</span> <span class="no">POST_CALCULATE_PRICE</span> <span class="o">=</span> <span class="s1">&#39;sonata.ecommerce.basket.post_calculate_price&#39;</span><span class="p">;</span> <span class="c1">// AfterCalculatePriceEvent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="payment">
+<h2>Payment<a class="headerlink" href="#payment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PaymentEvents</span>
+<span class="p">{</span>
+    <span class="c1">// Fires only PaymentEvent instances</span>
+
+    <span class="k">const</span> <span class="no">PRE_ERROR</span>  <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.payment.pre_error&quot;</span><span class="p">;</span>
+    <span class="c1">// Sent just before adding the order to the message queue</span>
+    <span class="k">const</span> <span class="no">POST_ERROR</span> <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.payment.post_error&quot;</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="no">CONFIRMATION</span> <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.payment.confirmation&quot;</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="no">PRE_CALLBACK</span>  <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.payment.pre_callback&quot;</span><span class="p">;</span>
+    <span class="c1">// Sent just before adding the order to the message queue</span>
+    <span class="k">const</span> <span class="no">POST_CALLBACK</span> <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.payment.post_callback&quot;</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="no">PRE_SENDBANK</span>  <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.payment.pre_sendbank&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">POST_SENDBANK</span> <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.payment.post_sendbank&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transformers">
+<h2>Transformers<a class="headerlink" href="#transformers" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">TransformerEvents</span>
+<span class="p">{</span>
+    <span class="c1">// Basket to order transformation</span>
+    <span class="k">const</span> <span class="no">PRE_BASKET_TO_ORDER_TRANSFORM</span>   <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.pre_basket_to_order_transform&quot;</span><span class="p">;</span> <span class="c1">// BasketTransformEvent</span>
+    <span class="k">const</span> <span class="no">POST_BASKET_TO_ORDER_TRANSFORM</span>  <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.pre_basket_to_order_transform&quot;</span><span class="p">;</span> <span class="c1">// OrderTransformEvent</span>
+
+    <span class="c1">// Order to basket transformation</span>
+    <span class="k">const</span> <span class="no">PRE_ORDER_TO_BASKET_TRANSFORM</span>   <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.pre_order_to_basket_transform&quot;</span><span class="p">;</span> <span class="c1">// OrderTransformEvent</span>
+    <span class="k">const</span> <span class="no">POST_ORDER_TO_BASKET_TRANSFORM</span>  <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.pre_order_to_basket_transform&quot;</span><span class="p">;</span> <span class="c1">// BasketTransformEvent</span>
+
+    <span class="c1">// Order to invoice transformation</span>
+    <span class="k">const</span> <span class="no">PRE_ORDER_TO_INVOICE_TRANSFORM</span>  <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.pre_order_to_invoice_transform&quot;</span><span class="p">;</span> <span class="c1">// OrderTransformEvent</span>
+    <span class="k">const</span> <span class="no">POST_ORDER_TO_INVOICE_TRANSFORM</span> <span class="o">=</span> <span class="s2">&quot;sonata.ecommerce.pre_order_to_invoice_transform&quot;</span><span class="p">;</span> <span class="c1">// InvoiceTransformEvent</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="order">
+<h2>Order<a class="headerlink" href="#order" title="Permalink to this headline">¶</a></h2>
+<p>We were planning on adding events on order creation/alteration/deletion and status change; however the most effective way is to listen to events fired by the doctrine ORM layer. See <a class="reference external" href="http://symfony.com/doc/current/cookbook/doctrine/event_listeners_subscribers.html">How to Register Event Listeners and Subscribers</a> on the Symfony documentation to do so.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="API"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2014, Thomas Rabaix.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

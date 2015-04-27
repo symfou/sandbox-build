@@ -2,6 +2,7 @@
 
 namespace Doctrine\Tests\ORM\Functional;
 
+use Doctrine\DBAL\Platforms\SQLServerPlatform;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\DBAL\Platforms\PostgreSqlPlatform;
 
@@ -184,17 +185,18 @@ class DatabaseDriverTest extends DatabaseDriverTestCase
         $this->assertEquals('integer', (string) $metadata->fieldMappings['id']['type']);
 
         // FIXME: Condition here is fugly.
-        // NOTE: PostgreSQL does not support UNSIGNED
-        if ( ! $this->_em->getConnection()->getDatabasePlatform() instanceof PostgreSqlPlatform) {
+        // NOTE: PostgreSQL and SQL SERVER do not support UNSIGNED integer
+        if ( ! $this->_em->getConnection()->getDatabasePlatform() instanceof PostgreSqlPlatform AND
+             ! $this->_em->getConnection()->getDatabasePlatform() instanceof SQLServerPlatform) {
             $this->assertArrayHasKey('columnUnsigned', $metadata->fieldMappings);
-            $this->assertTrue($metadata->fieldMappings['columnUnsigned']['unsigned']);
+            $this->assertTrue($metadata->fieldMappings['columnUnsigned']['options']['unsigned']);
         }
 
         $this->assertArrayHasKey('columnComment', $metadata->fieldMappings);
-        $this->assertEquals('test_comment', $metadata->fieldMappings['columnComment']['comment']);
+        $this->assertEquals('test_comment', $metadata->fieldMappings['columnComment']['options']['comment']);
 
         $this->assertArrayHasKey('columnDefault', $metadata->fieldMappings);
-        $this->assertEquals('test_default', $metadata->fieldMappings['columnDefault']['default']);
+        $this->assertEquals('test_default', $metadata->fieldMappings['columnDefault']['options']['default']);
 
         $this->assertArrayHasKey('columnDecimal', $metadata->fieldMappings);
         $this->assertEquals(4, $metadata->fieldMappings['columnDecimal']['precision']);

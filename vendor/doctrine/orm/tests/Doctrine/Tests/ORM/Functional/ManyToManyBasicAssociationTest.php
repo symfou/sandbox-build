@@ -2,11 +2,10 @@
 
 namespace Doctrine\Tests\ORM\Functional;
 
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\Tests\Models\CMS\CmsUser,
     Doctrine\Tests\Models\CMS\CmsGroup,
     Doctrine\Common\Collections\ArrayCollection;
-
-require_once __DIR__ . '/../../TestInit.php';
 
 /**
  * Basic many-to-many association tests.
@@ -376,5 +375,26 @@ class ManyToManyBasicAssociationTest extends \Doctrine\Tests\OrmFunctionalTestCa
 
         $user = $this->_em->find(get_class($user), $user->id);
         $this->assertEquals(0, count($user->groups));
+    }
+
+    public function testMatching()
+    {
+        $user = $this->addCmsUserGblancoWithGroups(2);
+        $this->_em->clear();
+
+        $user = $this->_em->find(get_class($user), $user->id);
+
+        $groups = $user->groups;
+        $this->assertFalse($user->groups->isInitialized(), "Pre-condition: lazy collection");
+
+        $criteria = Criteria::create()->where(Criteria::expr()->eq('name', (string) 'Developers_0'));
+        $result   = $groups->matching($criteria);
+
+        $this->assertCount(1, $result);
+
+        $firstGroup = $result->first();
+        $this->assertEquals('Developers_0', $firstGroup->name);
+
+        $this->assertFalse($user->groups->isInitialized(), "Post-condition: matching does not initialize collection");
     }
 }

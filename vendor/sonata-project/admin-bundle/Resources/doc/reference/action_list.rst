@@ -272,6 +272,17 @@ Though this ``operator_type`` is automatically detected it can be changed or eve
         ;
     }
 
+If you don't need the advanced filters, or all your ``operator_type`` are hidden, you can disable them by setting
+``advanced_filter`` to ``false``. You need to disable all advanced filters to make the button disappear.
+
+.. code-block:: php
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('bar', null, array('operator_type' => 'hidden', 'advanced_filter' => false))
+        ;
+    }
 
 Default filters
 ^^^^^^^^^^^^^^^
@@ -413,6 +424,29 @@ If you have the **SonataDoctrineORMAdminBundle** installed you can use the ``doc
                 $queryBuilder->expr()->like($alias.'.firstName', $queryBuilder->expr()->literal('%' . $value['value'] . '%')),
                 $queryBuilder->expr()->like($alias.'.lastName', $queryBuilder->expr()->literal('%' . $value['value'] . '%'))
             ));
+
+            return true;
+        }
+    }
+    
+You can also get the filter type which can be helpful to change the operator type of your condition(s):
+
+.. code-block:: php
+
+    use Sonata\CoreBundle\Form\Type\EqualType;
+
+    class UserAdmin extends SonataUserAdmin
+    {
+        public function getFullTextFilter($queryBuilder, $alias, $field, $value)
+        {
+            if (!$value['value']) {
+                return;
+            }
+            
+            $operator = $value['type'] == EqualType::TYPE_IS_EQUAL ? '=' : '!=';
+            
+            $queryBuilder->andWhere($alias.'.username ' . $operator . ' :username')
+                         ->setParameter('username', $value['value']);
 
             return true;
         }

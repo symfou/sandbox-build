@@ -11,7 +11,6 @@ return array(
     'WebDriver' => array($vendorDir . '/instaclick/php-webdriver/lib'),
     'Twig_Extensions_' => array($vendorDir . '/twig/extensions/lib'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
-    'Symfony\\Bridge\\PhpUnit\\' => array($vendorDir . '/symfony/phpunit-bridge'),
     'Symfony\\' => array($vendorDir . '/symfony/symfony/src'),
     'Stof\\DoctrineExtensionsBundle' => array($vendorDir . '/stof/doctrine-extensions-bundle'),
     'SimpleThings\\EntityAudit' => array($vendorDir . '/simplethings/entity-audit-bundle/src'),

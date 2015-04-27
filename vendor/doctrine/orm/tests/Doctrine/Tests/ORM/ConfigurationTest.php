@@ -2,13 +2,13 @@
 
 namespace Doctrine\Tests\ORM;
 
+use Doctrine\Common\Proxy\AbstractProxyFactory;
+use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\ORM\Mapping as AnnotationNamespace;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\ORMException;
 use ReflectionClass;
 use PHPUnit_Framework_TestCase;
-
-require_once __DIR__ . '/../TestInit.php';
 
 /**
  * Tests for the Configuration object
@@ -37,10 +37,16 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase
 
     public function testSetGetAutoGenerateProxyClasses()
     {
-        $this->assertSame(true, $this->configuration->getAutoGenerateProxyClasses()); // defaults
+        $this->assertSame(AbstractProxyFactory::AUTOGENERATE_ALWAYS, $this->configuration->getAutoGenerateProxyClasses()); // defaults
 
         $this->configuration->setAutoGenerateProxyClasses(false);
-        $this->assertSame(false, $this->configuration->getAutoGenerateProxyClasses());
+        $this->assertSame(AbstractProxyFactory::AUTOGENERATE_NEVER, $this->configuration->getAutoGenerateProxyClasses());
+
+        $this->configuration->setAutoGenerateProxyClasses(true);
+        $this->assertSame(AbstractProxyFactory::AUTOGENERATE_ALWAYS, $this->configuration->getAutoGenerateProxyClasses());
+
+        $this->configuration->setAutoGenerateProxyClasses(AbstractProxyFactory::AUTOGENERATE_FILE_NOT_EXISTS);
+        $this->assertSame(AbstractProxyFactory::AUTOGENERATE_FILE_NOT_EXISTS, $this->configuration->getAutoGenerateProxyClasses());
     }
 
     public function testSetGetProxyNamespace()
@@ -138,31 +144,87 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase
         $this->configuration->getNamedQuery('NonExistingQuery');
     }
 
-    public function ensureProductionSettings()
+    /**
+     * Configures $this->configuration to use production settings.
+     *
+     * @param string $skipCache Do not configure a cache of this type, either "query" or "metadata".
+     */
+    protected function setProductionSettings($skipCache = false)
     {
+        $this->configuration->setAutoGenerateProxyClasses(AbstractProxyFactory::AUTOGENERATE_NEVER);
+
         $cache = $this->getMock('Doctrine\Common\Cache\Cache');
-        $this->configuration->setAutoGenerateProxyClasses(true);
 
-        try {
-            $this->configuration->ensureProductionSettings();
-            $this->fail('Didn\'t check all production settings');
-        } catch (ORMException $e) {}
+        if ('query' !== $skipCache) {
+            $this->configuration->setQueryCacheImpl($cache);
+        }
 
-        $this->configuration->setQueryCacheImpl($cache);
+        if ('metadata' !== $skipCache) {
+            $this->configuration->setMetadataCacheImpl($cache);
+        }
+    }
 
-        try {
-            $this->configuration->ensureProductionSettings();
-            $this->fail('Didn\'t check all production settings');
-        } catch (ORMException $e) {}
+    public function testEnsureProductionSettings()
+    {
+        $this->setProductionSettings();
+        $this->configuration->ensureProductionSettings();
+    }
 
-        $this->configuration->setMetadataCacheImpl($cache);
+    public function testEnsureProductionSettingsQueryCache()
+    {
+        $this->setProductionSettings('query');
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Query Cache is not configured.');
+        $this->configuration->ensureProductionSettings();
+    }
 
-        try {
-            $this->configuration->ensureProductionSettings();
-            $this->fail('Didn\'t check all production settings');
-        } catch (ORMException $e) {}
+    public function testEnsureProductionSettingsMetadataCache()
+    {
+        $this->setProductionSettings('metadata');
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Metadata Cache is not configured.');
+        $this->configuration->ensureProductionSettings();
+    }
 
-        $this->configuration->setAutoGenerateProxyClasses(false);
+    public function testEnsureProductionSettingsQueryArrayCache()
+    {
+        $this->setProductionSettings();
+        $this->configuration->setQueryCacheImpl(new ArrayCache());
+        $this->setExpectedException(
+            'Doctrine\ORM\ORMException',
+            'Query Cache uses a non-persistent cache driver, Doctrine\Common\Cache\ArrayCache.');
+        $this->configuration->ensureProductionSettings();
+    }
+
+    public function testEnsureProductionSettingsMetadataArrayCache()
+    {
+        $this->setProductionSettings();
+        $this->configuration->setMetadataCacheImpl(new ArrayCache());
+        $this->setExpectedException(
+            'Doctrine\ORM\ORMException',
+            'Metadata Cache uses a non-persistent cache driver, Doctrine\Common\Cache\ArrayCache.');
+        $this->configuration->ensureProductionSettings();
+    }
+
+    public function testEnsureProductionSettingsAutoGenerateProxyClassesAlways()
+    {
+        $this->setProductionSettings();
+        $this->configuration->setAutoGenerateProxyClasses(AbstractProxyFactory::AUTOGENERATE_ALWAYS);
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Proxy Classes are always regenerating.');
+        $this->configuration->ensureProductionSettings();
+    }
+
+    public function testEnsureProductionSettingsAutoGenerateProxyClassesFileNotExists()
+    {
+        $this->setProductionSettings();
+        $this->configuration->setAutoGenerateProxyClasses(AbstractProxyFactory::AUTOGENERATE_FILE_NOT_EXISTS);
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Proxy Classes are always regenerating.');
+        $this->configuration->ensureProductionSettings();
+    }
+
+    public function testEnsureProductionSettingsAutoGenerateProxyClassesEval()
+    {
+        $this->setProductionSettings();
+        $this->configuration->setAutoGenerateProxyClasses(AbstractProxyFactory::AUTOGENERATE_EVAL);
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Proxy Classes are always regenerating.');
         $this->configuration->ensureProductionSettings();
     }
 
@@ -271,6 +333,18 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase
         $resolver = $this->getMock('Doctrine\ORM\Mapping\EntityListenerResolver');
         $this->configuration->setEntityListenerResolver($resolver);
         $this->assertSame($resolver, $this->configuration->getEntityListenerResolver());
+    }
+
+    /**
+     * @group DDC-2183
+     */
+    public function testSetGetSecondLevelCacheConfig()
+    {
+        $mockClass = $this->getMock('Doctrine\ORM\Cache\CacheConfiguration');
+
+        $this->assertNull($this->configuration->getSecondLevelCacheConfiguration());
+        $this->configuration->setSecondLevelCacheConfiguration($mockClass);
+        $this->assertEquals($mockClass, $this->configuration->getSecondLevelCacheConfiguration());
     }
 }
 

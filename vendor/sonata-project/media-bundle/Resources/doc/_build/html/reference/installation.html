@@ -6,33 +6,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <title>1. Installation &mdash; Sonata ~ MediaBundle  documentation</title>
+  
 
+  
+  
 
-
-
-
-
+  
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
+  
+  
+    
 
+  
 
-
-
-
-
-
-
+  
+  
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
 
-
-
+  
     <link rel="top" title="Sonata ~ MediaBundle  documentation" href="../index.html"/>
         <link rel="next" title="2. Helpers" href="helpers.html"/>
-        <link rel="prev" title="Media Bundle Documentation" href="../index.html"/>
+        <link rel="prev" title="Media Bundle Documentation" href="../index.html"/> 
 
-
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
@@ -41,7 +41,7 @@
 
   <div class="wy-grid-for-nav">
 
-
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         <a href="../index.html" class="fa fa-home"> Sonata ~ MediaBundle</a>
@@ -55,8 +55,8 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-
-
+        
+        
             <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">1. Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#base-bundles">1.1. Base bundles</a></li>
@@ -127,38 +127,38 @@
 </li>
 </ul>
 
-
+        
       </div>
       &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-
+      
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
         <a href="../index.html">Sonata ~ MediaBundle</a>
       </nav>
 
 
-
+      
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
-
+      
     <li>1. Installation</li>
       <li class="wy-breadcrumbs-aside">
-
+        
           <a href="../_sources/reference/installation.txt" rel="nofollow"> View page source</a>
-
+        
       </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
-
+            
   <div class="section" id="installation">
 <h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="base-bundles">
@@ -185,14 +185,19 @@
 <div class="highlight-sh"><div class="highlight"><pre>php composer.phar require sonata-project/media-bundle --no-update
 </pre></div>
 </div>
-<p>Register the new bundle into your AppKernel:</p>
+<p>Register these bundles in your AppKernel:</p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
 <span class="c1">// app/AppKernel.php</span>
 <span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
         <span class="c1">// ...</span>
+        <span class="k">new</span> <span class="nx">Sonata\MediaBundle\SonataMediaBundle</span><span class="p">(),</span>
         <span class="k">new</span> <span class="nx">Sonata\EasyExtendsBundle\SonataEasyExtendsBundle</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">Sonata\IntlBundle\SonataIntlBundle</span><span class="p">(),</span>
+
+        <span class="c1">//You need to add this dependency to make media functional</span>
+        <span class="k">new</span> <span class="nx">JMS\SerializerBundle\JMSSerializerBundle</span><span class="p">(),</span>
         <span class="c1">// ...</span>
     <span class="p">);</span>
 <span class="p">}</span>
@@ -244,7 +249,8 @@ sonata_media:
     #    gallery: MyVendor\MediaBundle\Entity\Gallery
     #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
     default_context: default
-    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
+    default_context: default # you need to set a context
     contexts:
         default:  # the default context is mandatory
             providers:
@@ -347,16 +353,16 @@ chmod -R 0777 web/uploads
 
           </div>
           <footer>
-
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-
+      
         <a href="helpers.html" class="btn btn-neutral float-right" title="2. Helpers"/>Next <span class="fa fa-arrow-circle-right"></span></a>
-
-
+      
+      
         <a href="../index.html" class="btn btn-neutral" title="Media Bundle Documentation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-
+      
     </div>
-
+  
 
   <hr/>
 
@@ -374,10 +380,10 @@ chmod -R 0777 web/uploads
     </section>
 
   </div>
+  
 
 
-
-
+  
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
@@ -392,21 +398,21 @@ chmod -R 0777 web/uploads
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
 
+  
 
-
-
-
+  
+  
     <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
 
-
-
-
+  
+  
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-
+   
 
 </body>
 </html>

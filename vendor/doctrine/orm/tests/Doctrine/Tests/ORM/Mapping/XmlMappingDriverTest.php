@@ -2,11 +2,9 @@
 
 namespace Doctrine\Tests\ORM\Mapping;
 
-use Doctrine\ORM\Mapping\ClassMetadata,
-    Doctrine\ORM\Mapping\Driver\XmlDriver,
-    Doctrine\ORM\Mapping\Driver\YamlDriver;
-
-require_once __DIR__ . '/../../TestInit.php';
+use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\ORM\Mapping\ClassMetadataFactory;
+use Doctrine\ORM\Mapping\Driver\XmlDriver;
 
 class XmlMappingDriverTest extends AbstractMappingDriverTest
 {
@@ -25,9 +23,9 @@ class XmlMappingDriverTest extends AbstractMappingDriverTest
         $mappingDriver->loadMetadataForClass($className, $class);
 
         $expectedMap = array(
-            "foo" => "Doctrine\Tests\ORM\Mapping\CTIFoo",
-            "bar" => "Doctrine\Tests\ORM\Mapping\CTIBar",
-            "baz" => "Doctrine\Tests\ORM\Mapping\CTIBaz",
+            'foo' => 'Doctrine\Tests\ORM\Mapping\CTIFoo',
+            'bar' => 'Doctrine\Tests\ORM\Mapping\CTIBar',
+            'baz' => 'Doctrine\Tests\ORM\Mapping\CTIBaz',
         );
 
         $this->assertEquals(3, count($class->discriminatorMap));
@@ -38,7 +36,7 @@ class XmlMappingDriverTest extends AbstractMappingDriverTest
     {
         $driver  = $this->_loadDriver();
         $em      = $this->_getTestEntityManager();
-        $factory = new \Doctrine\ORM\Mapping\ClassMetadataFactory();
+        $factory = new ClassMetadataFactory();
 
         $em->getConfiguration()->setMetadataDriverImpl($driver);
         $factory->setEntityManager($em);
@@ -50,6 +48,71 @@ class XmlMappingDriverTest extends AbstractMappingDriverTest
 
         $this->assertArrayHasKey('id', $class->associationMappings['article']);
         $this->assertTrue($class->associationMappings['article']['id']);
+    }
+
+    public function testEmbeddableMapping()
+    {
+        $class = $this->createClassMetadata('Doctrine\Tests\Models\ValueObjects\Name');
+
+        $this->assertEquals(true, $class->isEmbeddedClass);
+    }
+
+    /**
+     * @group DDC-3293
+     * @group DDC-3477
+     * @group 1238
+     */
+    public function testEmbeddedMappingsWithUseColumnPrefix()
+    {
+        $factory = new ClassMetadataFactory();
+        $em      = $this->_getTestEntityManager();
+
+        $em->getConfiguration()->setMetadataDriverImpl($this->_loadDriver());
+        $factory->setEntityManager($em);
+
+        $this->assertEquals(
+            '__prefix__',
+            $factory
+                ->getMetadataFor('Doctrine\Tests\Models\DDC3293\DDC3293UserPrefixed')
+                ->embeddedClasses['address']['columnPrefix']
+        );
+    }
+
+    /**
+     * @group DDC-3293
+     * @group DDC-3477
+     * @group 1238
+     */
+    public function testEmbeddedMappingsWithFalseUseColumnPrefix()
+    {
+        $factory = new ClassMetadataFactory();
+        $em      = $this->_getTestEntityManager();
+
+        $em->getConfiguration()->setMetadataDriverImpl($this->_loadDriver());
+        $factory->setEntityManager($em);
+
+        $this->assertFalse(
+            $factory
+                ->getMetadataFor('Doctrine\Tests\Models\DDC3293\DDC3293User')
+                ->embeddedClasses['address']['columnPrefix']
+        );
+    }
+
+    public function testEmbeddedMapping()
+    {
+        $class = $this->createClassMetadata('Doctrine\Tests\Models\ValueObjects\Person');
+
+        $this->assertEquals(
+            array(
+                'name' => array(
+                    'class' => 'Doctrine\Tests\Models\ValueObjects\Name',
+                    'columnPrefix' => 'nm_',
+                    'declaredField' => null,
+                    'originalField' => null,
+                )
+            ),
+            $class->embeddedClasses
+        );
     }
 
     /**
@@ -96,7 +159,7 @@ class XmlMappingDriverTest extends AbstractMappingDriverTest
 
     /**
      * @group DDC-889
-     * @expectedException Doctrine\Common\Persistence\Mapping\MappingException
+     * @expectedException \Doctrine\Common\Persistence\Mapping\MappingException
      * @expectedExceptionMessage Invalid mapping file 'Doctrine.Tests.Models.DDC889.DDC889Class.dcm.xml' for class 'Doctrine\Tests\Models\DDC889\DDC889Class'.
      */
     public function testinvalidEntityOrMappedSuperClassShouldMentionParentClasses()

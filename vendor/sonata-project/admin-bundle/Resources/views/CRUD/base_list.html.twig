@@ -37,7 +37,7 @@ file that was distributed with this source code.
 
                 {% set batchactions = admin.batchactions %}
                 {% if admin.datagrid.results|length > 0 %}
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped sonata-ba-list">
                         {% block table_header %}
                             <thead>
                                 <tr class="sonata-ba-list-field-header">
@@ -93,7 +93,9 @@ file that was distributed with this source code.
                                 <div class="progress-bar" style="width: 0%"></div>
                             </div>
                             <span class="progress-description">
-                                {% include 'SonataAdminBundle:Button:create_button.html.twig' %}
+                                {% if not app.request.xmlHttpRequest %}
+                                    {% include 'SonataAdminBundle:Button:create_button.html.twig' %}
+                                {% endif %}
                             </span>
                         </div><!-- /.info-box-content -->
                     </div>
@@ -235,8 +237,9 @@ file that was distributed with this source code.
 
                         <div class="row">
                             <div class="col-sm-9">
+                                {% set withAdvancedFilter = false %}
                                 {% for filter in admin.datagrid.filters %}
-                                    <div class="form-group" id="filter-{{ admin.uniqid }}-{{ filter.name }}" sonata-filter="{{ (filter.options['show_filter'] is sameas(true) or filter.options['show_filter'] is null) ? 'true' : 'false' }}" style="display: {% if (filter.isActive() and filter.options['show_filter'] is null) or (filter.options['show_filter'] is sameas(true)) %}block{% else %}none{% endif %}">
+                                    <div class="form-group {% block sonata_list_filter_group_class %}{% endblock %}" id="filter-{{ admin.uniqid }}-{{ filter.name }}" sonata-filter="{{ (filter.options['show_filter'] is sameas(true) or filter.options['show_filter'] is null) ? 'true' : 'false' }}" style="display: {% if (filter.isActive() and filter.options['show_filter'] is null) or (filter.options['show_filter'] is sameas(true)) %}block{% else %}none{% endif %}">
                                         {% if filter.label is not sameas(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}" class="col-sm-3 control-label">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
                                         {% endif %}
@@ -258,6 +261,10 @@ file that was distributed with this source code.
                                             </label>
                                         </div>
                                     </div>
+
+                                    {% if filter.options['advanced_filter'] %}
+                                        {% set withAdvancedFilter = true %}
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                             <div class="col-sm-3 text-center">
@@ -276,12 +283,14 @@ file that was distributed with this source code.
                                     </a>
                                 </div>
 
-                                <div class="form-group">
-                                    <a href="#" data-toggle="advanced-filter">
-                                        <i class="fa fa-cogs"></i>
-                                        {{ 'btn_advanced_filters'|trans({}, 'SonataAdminBundle') }}
-                                    </a>
-                                </div>
+                                {% if withAdvancedFilter %}
+                                    <div class="form-group">
+                                        <a href="#" data-toggle="advanced-filter">
+                                            <i class="fa fa-cogs"></i>
+                                            {{ 'btn_advanced_filters'|trans({}, 'SonataAdminBundle') }}
+                                        </a>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
 

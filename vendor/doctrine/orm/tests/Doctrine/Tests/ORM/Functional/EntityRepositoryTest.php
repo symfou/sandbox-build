@@ -394,14 +394,14 @@ class EntityRepositoryTest extends \Doctrine\Tests\OrmFunctionalTestCase
     public function testFindOneByOrderBy()
     {
     	$this->loadFixture();
-    	
+
     	$repos = $this->_em->getRepository('Doctrine\Tests\Models\CMS\CmsUser');
     	$userAsc = $repos->findOneBy(array(), array("username" => "ASC"));
     	$userDesc = $repos->findOneBy(array(), array("username" => "DESC"));
-    	
+
     	$this->assertNotSame($userAsc, $userDesc);
     }
-    
+
     /**
      * @group DDC-817
      */
@@ -612,8 +612,35 @@ class EntityRepositoryTest extends \Doctrine\Tests\OrmFunctionalTestCase
     }
 
     /**
+     * @group DDC-3257
+     */
+    public function testSingleRepositoryInstanceForDifferentEntityAliases()
+    {
+        $config = $this->_em->getConfiguration();
+
+        $config->addEntityNamespace('Aliased', 'Doctrine\Tests\Models\CMS');
+        $config->addEntityNamespace('AliasedAgain', 'Doctrine\Tests\Models\CMS');
+
+        $repository = $this->_em->getRepository('Doctrine\Tests\Models\CMS\CmsUser');
+
+        $this->assertSame($repository, $this->_em->getRepository('Aliased:CmsUser'));
+        $this->assertSame($repository, $this->_em->getRepository('AliasedAgain:CmsUser'));
+    }
+
+    /**
+     * @group DDC-3257
+     */
+    public function testCanRetrieveRepositoryFromClassNameWithLeadingBackslash()
+    {
+        $this->assertSame(
+            $this->_em->getRepository('\\Doctrine\\Tests\\Models\\CMS\\CmsUser'),
+            $this->_em->getRepository('Doctrine\\Tests\\Models\\CMS\\CmsUser')
+        );
+    }
+
+    /**
      * @group DDC-1376
-     * 
+     *
      * @expectedException Doctrine\ORM\ORMException
      * @expectedExceptionMessage You cannot search for the association field 'Doctrine\Tests\Models\CMS\CmsUser#address', because it is the inverse side of an association.
      */
@@ -881,6 +908,139 @@ class EntityRepositoryTest extends \Doctrine\Tests\OrmFunctionalTestCase
 
         $this->assertInstanceOf('Doctrine\ORM\Query\ResultSetMappingBuilder', $rsm);
         $this->assertEquals(array('u' => 'Doctrine\Tests\Models\CMS\CmsUser'), $rsm->aliasMap);
+    }
+
+    /**
+     * @group DDC-3045
+     */
+    public function testFindByFieldInjectionPrevented()
+    {
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Unrecognized field: ');
+
+        $repository = $this->_em->getRepository('Doctrine\Tests\Models\CMS\CmsUser');
+        $repository->findBy(array('username = ?; DELETE FROM cms_users; SELECT 1 WHERE 1' => 'test'));
+    }
+
+    /**
+     * @group DDC-3045
+     */
+    public function testFindOneByFieldInjectionPrevented()
+    {
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Unrecognized field: ');
+
+        $repository = $this->_em->getRepository('Doctrine\Tests\Models\CMS\CmsUser');
+        $repository->findOneBy(array('username = ?; DELETE FROM cms_users; SELECT 1 WHERE 1' => 'test'));
+    }
+
+    /**
+     * @group DDC-3045
+     */
+    public function testMatchingInjectionPrevented()
+    {
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Unrecognized field: ');
+
+        $repository = $this->_em->getRepository('Doctrine\Tests\Models\CMS\CmsUser');
+        $result     = $repository->matching(new Criteria(
+            Criteria::expr()->eq('username = ?; DELETE FROM cms_users; SELECT 1 WHERE 1', 'beberlei')
+        ));
+
+        // Because repository returns a lazy collection, we call toArray to force initialization
+        $result->toArray();
+    }
+
+    /**
+     * @group DDC-3045
+     */
+    public function testFindInjectionPrevented()
+    {
+        $this->setExpectedException('Doctrine\ORM\ORMException', 'Unrecognized identifier fields: ');
+
+        $repository = $this->_em->getRepository('Doctrine\Tests\Models\CMS\CmsUser');
+        $repository->find(array('username = ?; DELETE FROM cms_users; SELECT 1 WHERE 1' => 'test', 'id' => 1));
+    }
+
+    /**
+     * @group DDC-3056
+     */
+    public function testFindByNullValueInInCondition()
+    {
+        $user1 = new CmsUser();
+        $user2 = new CmsUser();
+
+        $user1->username = 'ocramius';
+        $user1->name = 'Marco';
+        $user2->status = null;
+        $user2->username = 'deeky666';
+        $user2->name = 'Steve';
+        $user2->status = 'dbal maintainer';
+
+        $this->_em->persist($user1);
+        $this->_em->persist($user2);
+        $this->_em->flush();
+
+        $users = $this->_em->getRepository('Doctrine\Tests\Models\CMS\CmsUser')->findBy(array('status' => array(null)));
+
+        $this->assertCount(1, $users);
+        $this->assertSame($user1, reset($users));
+    }
+
+    /**
+     * @group DDC-3056
+     */
+    public function testFindByNullValueInMultipleInCriteriaValues()
+    {
+        $user1 = new CmsUser();
+        $user2 = new CmsUser();
+
+        $user1->username = 'ocramius';
+        $user1->name = 'Marco';
+        $user2->status = null;
+        $user2->username = 'deeky666';
+        $user2->name = 'Steve';
+        $user2->status = 'dbal maintainer';
+
+        $this->_em->persist($user1);
+        $this->_em->persist($user2);
+        $this->_em->flush();
+
+        $users = $this
+            ->_em
+            ->getRepository('Doctrine\Tests\Models\CMS\CmsUser')
+            ->findBy(array('status' => array('foo', null)));
+
+        $this->assertCount(1, $users);
+        $this->assertSame($user1, reset($users));
+    }
+
+    /**
+     * @group DDC-3056
+     */
+    public function testFindMultipleByNullValueInMultipleInCriteriaValues()
+    {
+        $user1 = new CmsUser();
+        $user2 = new CmsUser();
+
+        $user1->username = 'ocramius';
+        $user1->name = 'Marco';
+        $user2->status = null;
+        $user2->username = 'deeky666';
+        $user2->name = 'Steve';
+        $user2->status = 'dbal maintainer';
+
+        $this->_em->persist($user1);
+        $this->_em->persist($user2);
+        $this->_em->flush();
+
+        $users = $this
+            ->_em
+            ->getRepository('Doctrine\Tests\Models\CMS\CmsUser')
+            ->findBy(array('status' => array('dbal maintainer', null)));
+
+        $this->assertCount(2, $users);
+
+        foreach ($users as $user) {
+            $this->assertTrue(in_array($user, array($user1, $user2)));
+        }
     }
 }
 
