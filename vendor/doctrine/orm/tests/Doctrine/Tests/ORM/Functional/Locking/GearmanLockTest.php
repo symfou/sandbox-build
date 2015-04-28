@@ -7,6 +7,8 @@ use Doctrine\Tests\Models\CMS\CmsArticle,
     Doctrine\DBAL\LockMode,
     Doctrine\ORM\EntityManager;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 /**
  * @group locking_functional
  */

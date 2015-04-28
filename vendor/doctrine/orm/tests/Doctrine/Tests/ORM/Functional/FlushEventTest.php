@@ -7,6 +7,8 @@ use Doctrine\Tests\Models\CMS\CmsPhonenumber;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * FlushEventTest
  *

@@ -5,7 +5,7 @@ namespace Doctrine\Tests\Models\CompositeKeyInheritance;
  * @Entity
  * @InheritanceType("JOINED")
  * @DiscriminatorColumn(name="discr", type="string")
- * @DiscriminatorMap({"child" = "JoinedChildClass", "root" = "JoinedRootClass"})
+ * @DiscriminatorMap({"child" = "JoinedChildClass",})
  */
 class JoinedRootClass
 {

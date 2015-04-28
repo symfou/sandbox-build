@@ -6,6 +6,8 @@ use Doctrine\Tests\Models\ECommerce\ECommerceProduct;
 use Doctrine\Tests\Models\ECommerce\ECommerceFeature;
 use Doctrine\Common\Collections\Criteria;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * Tests a bidirectional one-to-one association mapping (without inheritance).
  */

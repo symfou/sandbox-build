@@ -8,6 +8,8 @@ use Doctrine\Tests\Models\ECommerce\ECommerceProduct;
 use Doctrine\Tests\Models\ECommerce\ECommerceShipping;
 use Doctrine\Tests\Models\Company\CompanyAuction;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * Tests the generation of a proxy object for lazy loading.
  * @author Giorgio Sironi <piccoloprincipeazzurro@gmail.com>
@@ -18,7 +20,6 @@ class ReferenceProxyTest extends \Doctrine\Tests\OrmFunctionalTestCase
     protected function setUp()
     {
         $this->useModelSet('ecommerce');
-        $this->useModelSet('company');
         parent::setUp();
         $this->_factory = new ProxyFactory(
                 $this->_em,

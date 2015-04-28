@@ -4,6 +4,8 @@ namespace Doctrine\Tests\ORM\Functional;
 
 use Doctrine\Common\Collections\Collection;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * Base class for testing a many-to-many association mapping (without inheritance).
  */

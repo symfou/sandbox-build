@@ -4,6 +4,8 @@ namespace Doctrine\Tests\ORM\Query;
 
 use Doctrine\ORM\Query\Lexer;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 class LexerTest extends \Doctrine\Tests\OrmTestCase
 {
     //private $_lexer;
@@ -154,15 +156,6 @@ class LexerTest extends \Doctrine\Tests\OrmTestCase
         $token = $lexer->lookahead;
         $this->assertEquals(Lexer::T_INPUT_PARAMETER, $token['type']);
         $this->assertEquals(':name', $token['value']);
-    }
-
-    public function testScannerRecognizesNamedInputParameterStartingWithUnderscore()
-    {
-        $lexer = new Lexer(':_name');
-        $lexer->moveNext();
-        $token = $lexer->lookahead;
-        $this->assertEquals(Lexer::T_INPUT_PARAMETER, $token['type']);
-        $this->assertEquals(':_name', $token['value']);
     }
 
     public function testScannerTokenizesASimpleQueryCorrectly()

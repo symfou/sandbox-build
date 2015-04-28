@@ -5,7 +5,7 @@ namespace Doctrine\Tests\Models\CompositeKeyInheritance;
  * @Entity
  * @InheritanceType("SINGLE_TABLE")
  * @DiscriminatorColumn(name="discr", type="string")
- * @DiscriminatorMap({"child" = "SingleChildClass", "root" = "SingleRootClass"})
+ * @DiscriminatorMap({"child" = "SingleChildClass",})
  */
 class SingleRootClass
 {

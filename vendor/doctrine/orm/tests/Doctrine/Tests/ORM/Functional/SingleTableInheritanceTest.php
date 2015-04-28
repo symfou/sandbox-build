@@ -240,9 +240,6 @@ class SingleTableInheritanceTest extends \Doctrine\Tests\OrmFunctionalTestCase
         $this->assertEquals(1000, $contract->getFixPrice());
     }
 
-    /**
-     * @group non-cacheable
-     */
     public function testUpdateChildClassWithCondition()
     {
         $this->loadFullFixture();
@@ -370,9 +367,6 @@ class SingleTableInheritanceTest extends \Doctrine\Tests\OrmFunctionalTestCase
         $contracts = $repository->matching(new Criteria(
             Criteria::expr()->eq('salesPerson', $this->salesPerson->getId())
         ));
-
-        // Load the association because it's wrapped in a lazy collection
-        $contracts->toArray();
     }
 
     /**

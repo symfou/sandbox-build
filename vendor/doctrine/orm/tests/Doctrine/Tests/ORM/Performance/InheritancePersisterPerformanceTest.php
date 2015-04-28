@@ -5,6 +5,8 @@ namespace Doctrine\Tests\ORM\Performance;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Query;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
 * @group performance
  */

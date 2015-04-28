@@ -24,7 +24,7 @@ abstract class PaginationTestCase extends OrmTestCase
 class MyBlogPost
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @Id @column(type="integer") @generatedValue */
     public $id;
     /**
      * @ManyToOne(targetEntity="Author")
@@ -34,7 +34,7 @@ class MyBlogPost
      * @ManyToOne(targetEntity="Category")
      */
     public $category;
-    /** @Column(type="string") */
+    /** @column(type="string") */
     public $title;
 }
 
@@ -44,7 +44,7 @@ class MyBlogPost
 class MyAuthor
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @Id @column(type="integer") @generatedValue */
     public $id;
 
 }
@@ -55,7 +55,7 @@ class MyAuthor
 class MyCategory
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @id @column(type="integer") @generatedValue */
     public $id;
 
 }
@@ -67,7 +67,7 @@ class MyCategory
 class BlogPost
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @Id @column(type="integer") @generatedValue */
     public $id;
     /**
      * @ManyToOne(targetEntity="Author")
@@ -85,7 +85,7 @@ class BlogPost
 class Author
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @Id @column(type="integer") @generatedValue */
     public $id;
     /** @Column(type="string") */
     public $name;
@@ -98,7 +98,7 @@ class Author
 class Person
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @Id @column(type="integer") @generatedValue */
     public $id;
     /** @Column(type="string") */
     public $name;
@@ -113,7 +113,7 @@ class Person
 class Category
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @id @column(type="integer") @generatedValue */
     public $id;
 
 }
@@ -123,7 +123,7 @@ class Category
 class Group
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @Id @column(type="integer") @generatedValue */
     public $id;
     /** @ManyToMany(targetEntity="User", mappedBy="groups") */
     public $users;
@@ -133,7 +133,7 @@ class Group
 class User
 {
 
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /** @Id @column(type="integer") @generatedValue */
     public $id;
     /**
      * @ManyToMany(targetEntity="Group", inversedBy="users")
@@ -144,28 +144,4 @@ class User
      * )
      */
     public $groups;
-    /**
-     * @OneToOne(targetEntity="Avatar", mappedBy="user")
-     */
-    public $avatar;
-}
-
-/** @Entity */
-class Avatar
-{
-    /** @Id @Column(type="integer") @GeneratedValue */
-    public $id;
-    /**
-     * @OneToOne(targetEntity="User", inversedBy="avatar")
-     * @JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    public $user;
-    /** @Column(type="string", length=255) */
-    public $image;
-    /** @Column(type="integer") */
-    public $image_height;
-    /** @Column(type="integer") */
-    public $image_width;
-    /** @Column(type="string", length=255) */
-    public $image_alt_desc;
 }

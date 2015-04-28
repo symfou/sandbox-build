@@ -27,7 +27,6 @@ return array(
     'Mopa\\Bridge\\Composer' => array($vendorDir . '/mopa/composer-bridge/src'),
     'Michelf' => array($vendorDir . '/michelf/php-markdown'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
-    'Matthias\\SymfonyDependencyInjectionTest\\' => array($vendorDir . '/matthiasnoback/symfony-dependency-injection-test'),
     'Knp\\Menu\\' => array($vendorDir . '/knplabs/knp-menu/src'),
     'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'Knp\\Bundle\\PaginatorBundle' => array($vendorDir . '/knplabs/knp-paginator-bundle'),

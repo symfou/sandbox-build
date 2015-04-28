@@ -1,12 +1,10 @@
 language: php
 
 php:
+  - 5.3
   - 5.4
   - 5.5
   - 5.6
-  - 7.0
-  - hhvm
-  - hhvm-nightly
 
 env:
   - DB=mysql
@@ -14,28 +12,14 @@ env:
   - DB=sqlite
 
 before_script:
-  - if [[ $TRAVIS_PHP_VERSION = '5.6' && $DB = 'sqlite' ]]; then PHPUNIT_FLAGS="--coverage-clover ./build/logs/clover.xml"; else PHPUNIT_FLAGS=""; fi
-  - if [[ $TRAVIS_PHP_VERSION != '5.6' && $TRAVIS_PHP_VERSION != 'hhvm' && $TRAVIS_PHP_VERSION != 'hhvm-nightly' && $TRAVIS_PHP_VERSION != '7.0' ]]; then phpenv config-rm xdebug.ini; fi
-  - composer self-update
-  - composer install --prefer-source --dev
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS doctrine_tests_tmp;create database IF NOT EXISTS doctrine_tests;'; fi"
+  - composer install --prefer-dist --dev
 
-script:
-  - ENABLE_SECOND_LEVEL_CACHE=0 ./vendor/bin/phpunit -v -c tests/travis/$DB.travis.xml $PHPUNIT_FLAGS
-  - ENABLE_SECOND_LEVEL_CACHE=1 ./vendor/bin/phpunit -v -c tests/travis/$DB.travis.xml --exclude-group performance,non-cacheable,locking_functional
+script: phpunit --configuration tests/travis/$DB.travis.xml
 
 after_script:
   - php vendor/bin/coveralls -v
-
-matrix:
-  exclude:
-    - php: hhvm
-      env: DB=pgsql  # driver currently unsupported by HHVM
-    - php: hhvm
-      env: DB=mysqli # driver currently unsupported by HHVM
-    - php: hhvm-nightly
-      env: DB=pgsql  # driver currently unsupported by HHVM
-    - php: hhvm-nightly
-      env: DB=mysqli # driver currently unsupported by HHVM
-  allow_failures:
-    - php: 7.0
-    - php: hhvm-nightly # hhvm-nightly currently chokes on composer installation

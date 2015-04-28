@@ -7,6 +7,8 @@ use Doctrine\Tests\Models\ECommerce\ECommerceCustomer;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Query\AST;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class DDC736Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     protected function setUp()

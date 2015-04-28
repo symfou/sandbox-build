@@ -5,6 +5,8 @@ use Doctrine\Common\Collections\ArrayCollection,
     Doctrine\Common\NotifyPropertyChanged,
     Doctrine\Common\PropertyChangedListener;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * NativeQueryTest
  *

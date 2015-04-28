@@ -11,6 +11,8 @@ use Doctrine\ORM\Query;
 
 use Doctrine\Tests\Models\CMS\CmsUser;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 class ObjectHydratorTest extends HydrationTestCase
 {
     public function provideDataForUserEntityResult()

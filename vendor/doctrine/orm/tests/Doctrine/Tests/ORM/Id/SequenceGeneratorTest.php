@@ -4,6 +4,8 @@ namespace Doctrine\Tests\ORM\Id;
 
 use Doctrine\ORM\Id\SequenceGenerator;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * Description of SequenceGeneratorTest
  *

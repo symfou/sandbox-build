@@ -2,7 +2,6 @@
 
 namespace Doctrine\Tests\ORM\Functional;
 
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Persistence\PersistentObject;
 
 /**
@@ -42,57 +41,6 @@ class PersistentCollectionTest extends \Doctrine\Tests\OrmFunctionalTestCase
         $this->assertEquals(2, $collectionHolder->getCollection()->count());
     }
 
-    /**
-     * Tests that PersistentCollection::isEmpty() does not initialize the collection when FETCH_EXTRA_LAZY is used.
-     */
-    public function testExtraLazyIsEmptyDoesNotInitializeCollection()
-    {
-        $collectionHolder = new PersistentCollectionHolder();
-
-        $this->_em->persist($collectionHolder);
-        $this->_em->flush();
-        $this->_em->clear();
-
-        $collectionHolder = $this->_em->find(__NAMESPACE__ . '\PersistentCollectionHolder', $collectionHolder->getId());
-        $collection = $collectionHolder->getRawCollection();
-
-        $this->assertTrue($collection->isEmpty());
-        $this->assertFalse($collection->isInitialized());
-
-        $collectionHolder->addElement(new PersistentCollectionContent());
-
-        $this->_em->flush();
-        $this->_em->clear();
-
-        $collectionHolder = $this->_em->find(__NAMESPACE__ . '\PersistentCollectionHolder', $collectionHolder->getId());
-        $collection = $collectionHolder->getRawCollection();
-
-        $this->assertFalse($collection->isEmpty());
-        $this->assertFalse($collection->isInitialized());
-    }
-
-    /**
-     * @group #1206
-     * @group DDC-3430
-     */
-    public function testMatchingDoesNotModifyTheGivenCriteria()
-    {
-        $collectionHolder = new PersistentCollectionHolder();
-
-        $this->_em->persist($collectionHolder);
-        $this->_em->flush();
-        $this->_em->clear();
-
-        $criteria = new Criteria();
-
-        $collectionHolder = $this->_em->find(__NAMESPACE__ . '\PersistentCollectionHolder', $collectionHolder->getId());
-        $collectionHolder->getCollection()->matching($criteria);
-
-        $this->assertEmpty($criteria->getWhereExpression());
-        $this->assertEmpty($criteria->getFirstResult());
-        $this->assertEmpty($criteria->getMaxResults());
-        $this->assertEmpty($criteria->getOrderings());
-    }
 }
 
 /**
@@ -108,7 +56,7 @@ class PersistentCollectionHolder extends PersistentObject
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @ManyToMany(targetEntity="PersistentCollectionContent", cascade={"all"}, fetch="EXTRA_LAZY")
+     * @ManyToMany(targetEntity="PersistentCollectionContent", cascade={"all"})
      */
     protected $collection;
 
@@ -133,13 +81,6 @@ class PersistentCollectionHolder extends PersistentObject
         return clone $this->collection;
     }
 
-    /**
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getRawCollection()
-    {
-        return $this->collection;
-    }
 }
 
 /**
@@ -147,9 +88,11 @@ class PersistentCollectionHolder extends PersistentObject
  */
 class PersistentCollectionContent extends PersistentObject
 {
+
     /**
      * @Id @Column(type="integer") @GeneratedValue
      * @var int
      */
     protected $id;
+
 }

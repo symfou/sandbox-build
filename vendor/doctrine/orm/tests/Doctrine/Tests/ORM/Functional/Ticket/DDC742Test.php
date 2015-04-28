@@ -2,27 +2,33 @@
 
 namespace Doctrine\Tests\ORM\Functional\Ticket;
 
-use Doctrine\Common\Cache\FilesystemCache;
 use Doctrine\Common\Collections\ArrayCollection;
 
-/**
- * @group non-cacheable
- */
+require_once __DIR__ . '/../../../TestInit.php';
+
 class DDC742Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
-    /**
-     * {@inheritDoc}
-     */
+    private $userCm;
+    private $commentCm;
+
     protected function setUp()
     {
         parent::setUp();
 
-        $testDir = sys_get_temp_dir() . '/DDC742Test' . uniqid();
+        if (\extension_loaded('memcache') && @fsockopen('localhost', 11211)) {
+            $memcache = new \Memcache();
+            $memcache->addServer('localhost');
+            $memcache->flush();
 
-        mkdir($testDir);
+            $cacheDriver = new \Doctrine\Common\Cache\MemcacheCache();
+            $cacheDriver->setMemcache($memcache);
 
-        // using a Filesystemcache to ensure that the cached data is serialized
-        $this->_em->getMetadataFactory()->setCacheDriver(new FilesystemCache($testDir));
+            $this->_em->getMetadataFactory()->setCacheDriver($cacheDriver);
+        } else if (\extension_loaded('apc')) {
+            $this->_em->getMetadataFactory()->setCacheDriver(new \Doctrine\Common\Cache\ApcCache());
+        } else {
+            $this->markTestSkipped('Test only works with a cache enabled.');
+        }
 
         try {
             $this->_schemaTool->createSchema(array(
@@ -30,6 +36,7 @@ class DDC742Test extends \Doctrine\Tests\OrmFunctionalTestCase
                 $this->_em->getClassMetadata(__NAMESPACE__ . '\DDC742Comment')
             ));
         } catch(\Exception $e) {
+
         }
 
         // make sure classes will be deserialized from caches

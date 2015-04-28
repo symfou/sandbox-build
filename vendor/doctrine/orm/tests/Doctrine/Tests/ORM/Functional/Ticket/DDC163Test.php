@@ -4,6 +4,8 @@ namespace Doctrine\Tests\ORM\Functional\Ticket;
 
 use Doctrine\Tests\Models\Company\CompanyPerson;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class DDC163Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     protected function setUp()

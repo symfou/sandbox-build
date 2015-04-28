@@ -5,6 +5,8 @@ namespace Doctrine\Tests\ORM\Functional;
 use Doctrine\ORM\Event\OnClearEventArgs;
 use Doctrine\ORM\Events;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * ClearEventTest
  *

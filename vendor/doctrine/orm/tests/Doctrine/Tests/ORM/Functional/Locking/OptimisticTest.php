@@ -10,6 +10,8 @@ use Doctrine\Tests\TestUtil;
 use Doctrine\DBAL\LockMode;
 use DateTime;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class OptimisticTest extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     protected function setUp()
@@ -148,19 +150,6 @@ class OptimisticTest extends \Doctrine\Tests\OrmFunctionalTestCase
         } catch (OptimisticLockException $e) {
             $this->assertSame($test, $e->getEntity());
         }
-    }
-
-    public function testLockWorksWithProxy()
-    {
-        $test = new OptimisticStandard();
-        $test->name = 'test';
-        $this->_em->persist($test);
-        $this->_em->flush();
-        $this->_em->clear();
-
-        $proxy = $this->_em->getReference('Doctrine\Tests\ORM\Functional\Locking\OptimisticStandard', $test->id);
-
-        $this->_em->lock($proxy, LockMode::OPTIMISTIC, 1);
     }
 
     public function testOptimisticTimestampSetsDefaultValue()

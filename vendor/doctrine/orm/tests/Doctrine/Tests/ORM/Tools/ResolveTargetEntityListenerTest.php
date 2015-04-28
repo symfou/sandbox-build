@@ -2,9 +2,11 @@
 
 namespace Doctrine\Tests\ORM\Tools;
 
+use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\ClassMetadataFactory;
 use Doctrine\ORM\Tools\ResolveTargetEntityListener;
-use Doctrine\ORM\Events;
+
+require_once __DIR__ . '/../../TestInit.php';
 
 class ResolveTargetEntityListenerTest extends \Doctrine\Tests\OrmTestCase
 {
@@ -29,8 +31,9 @@ class ResolveTargetEntityListenerTest extends \Doctrine\Tests\OrmTestCase
 
         $this->em = $this->_getTestEntityManager();
         $this->em->getConfiguration()->setMetadataDriverImpl($annotationDriver);
-        $this->factory = $this->em->getMetadataFactory();
-        $this->listener = new ResolveTargetEntityListener();
+        $this->factory = new ClassMetadataFactory;
+        $this->factory->setEntityManager($this->em);
+        $this->listener = new ResolveTargetEntityListener;
     }
 
     /**
@@ -49,37 +52,13 @@ class ResolveTargetEntityListenerTest extends \Doctrine\Tests\OrmTestCase
             'Doctrine\Tests\ORM\Tools\TargetEntity',
             array()
         );
-        $evm->addEventSubscriber($this->listener);
-
-        $cm   = $this->factory->getMetadataFor('Doctrine\Tests\ORM\Tools\ResolveTargetEntity');
+        $evm->addEventListener(Events::loadClassMetadata, $this->listener);
+        $cm = $this->factory->getMetadataFor('Doctrine\Tests\ORM\Tools\ResolveTargetEntity');
         $meta = $cm->associationMappings;
-
         $this->assertSame('Doctrine\Tests\ORM\Tools\TargetEntity', $meta['manyToMany']['targetEntity']);
         $this->assertSame('Doctrine\Tests\ORM\Tools\ResolveTargetEntity', $meta['manyToOne']['targetEntity']);
         $this->assertSame('Doctrine\Tests\ORM\Tools\ResolveTargetEntity', $meta['oneToMany']['targetEntity']);
         $this->assertSame('Doctrine\Tests\ORM\Tools\TargetEntity', $meta['oneToOne']['targetEntity']);
-
-        $this->assertSame($cm, $this->factory->getMetadataFor('Doctrine\Tests\ORM\Tools\ResolveTargetInterface'));
-    }
-
-    /**
-     * @group DDC-3385
-     * @group 1181
-     * @group 385
-     */
-    public function testResolveTargetEntityListenerCanRetrieveTargetEntityByInterfaceName()
-    {
-        $this->listener->addResolveTargetEntity(
-            'Doctrine\Tests\ORM\Tools\ResolveTargetInterface',
-            'Doctrine\Tests\ORM\Tools\ResolveTargetEntity',
-            array()
-        );
-
-        $this->em->getEventManager()->addEventSubscriber($this->listener);
-
-        $cm = $this->factory->getMetadataFor('Doctrine\Tests\ORM\Tools\ResolveTargetInterface');
-
-        $this->assertSame($this->factory->getMetadataFor('Doctrine\Tests\ORM\Tools\ResolveTargetEntity'), $cm);
     }
 
     /**

@@ -4,6 +4,8 @@ namespace Doctrine\Tests\ORM\Functional\Ticket;
 
 use Doctrine\Tests\Models\Company\CompanyEmployee;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class DDC168Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     protected $oldMetadata;

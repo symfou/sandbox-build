@@ -5,6 +5,8 @@ namespace Doctrine\Tests\ORM\Functional\Ticket;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\UnitOfWork;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 /**
  * @group DDC-1452
  */
@@ -92,7 +94,7 @@ class DDC1452EntityA
     public $id;
     /** @Column */
     public $title;
-    /** @OneToMany(targetEntity="DDC1452EntityB", mappedBy="entityAFrom") */
+    /** @ManyToMany(targetEntity="DDC1452EntityB", mappedBy="entityAFrom") */
     public $entitiesB;
 
     public function __construct()

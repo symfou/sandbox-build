@@ -2,6 +2,8 @@
 
 namespace Doctrine\Tests\ORM\Functional\Ticket;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class DDC440Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
 
@@ -39,12 +41,10 @@ class DDC440Test extends \Doctrine\Tests\OrmFunctionalTestCase
         $client->setName('Client1');
 
         $phone = new DDC440Phone;
-        $phone->setId(1);
         $phone->setNumber('418 111-1111');
         $phone->setClient($client);
 
         $phone2 = new DDC440Phone;
-        $phone->setId(2);
         $phone2->setNumber('418 222-2222');
         $phone2->setClient($client);
 
@@ -58,9 +58,8 @@ class DDC440Test extends \Doctrine\Tests\OrmFunctionalTestCase
         $uw = $this->_em->getUnitOfWork();
         $client = $this->_em->find('Doctrine\Tests\ORM\Functional\Ticket\DDC440Client', $id);
         $clientPhones = $client->getPhones();
-
-        $p1 = $clientPhones[1];
-        $p2 = $clientPhones[2];
+        $p1 = $clientPhones[0];
+        $p2 = $clientPhones[1];
 
         // Test the first phone.  The assertion actually failed because original entity data is not set properly.
         // This was because it is also set as MainPhone and that one is created as a proxy, not the
@@ -159,8 +158,8 @@ class DDC440Client
      */
     protected $main_phone;
     /**
-     * @OneToMany(targetEntity="DDC440Phone", mappedBy="client", cascade={"persist", "remove"}, fetch="EAGER", indexBy="id")
-     * @OrderBy({"number"="ASC"})
+     * @OneToMany(targetEntity="DDC440Phone", mappedBy="client", cascade={"persist", "remove"}, fetch="EAGER")
+     * @orderBy({"number"="ASC"})
      */
     protected $phones;
     /**

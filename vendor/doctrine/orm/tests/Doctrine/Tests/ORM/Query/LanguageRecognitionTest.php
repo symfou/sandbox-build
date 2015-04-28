@@ -4,6 +4,8 @@ namespace Doctrine\Tests\ORM\Query;
 use Doctrine\ORM\Query,
     Doctrine\ORM\Query\QueryException;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 class LanguageRecognitionTest extends \Doctrine\Tests\OrmTestCase
 {
     private $_em;
@@ -596,22 +598,6 @@ class LanguageRecognitionTest extends \Doctrine\Tests\OrmTestCase
     {
         $this->assertValidDQL("SELECT u.name FROM Doctrine\Tests\Models\CMS\CmsUser u HAVING u.username IS NULL");
     }
-    
-    /**
-     * @group DDC-3085
-     */
-    public function testHavingSupportResultVariableInNullComparisonExpression()
-    {
-        $this->assertValidDQL("SELECT u AS user, SUM(a.id) AS score FROM Doctrine\Tests\Models\CMS\CmsUser u LEFT JOIN Doctrine\Tests\Models\CMS\CmsAddress a WITH a.user = u GROUP BY u HAVING score IS NOT NULL AND score >= 5");
-    }
-
-    /**
-     * @group DDC-1858
-     */
-    public function testHavingSupportLikeExpression()
-    {
-        $this->assertValidDQL("SELECT _u.id, count(_articles) as uuuu FROM Doctrine\Tests\Models\CMS\CmsUser _u LEFT JOIN _u.articles _articles GROUP BY _u HAVING uuuu LIKE '3'");
-    }
 
     /**
      * @group DDC-3018
@@ -619,14 +605,6 @@ class LanguageRecognitionTest extends \Doctrine\Tests\OrmTestCase
     public function testNewLiteralExpression()
     {
         $this->assertValidDQL("SELECT new " . __NAMESPACE__ . "\\DummyStruct(u.id, 'foo', 1, true) FROM Doctrine\Tests\Models\CMS\CmsUser u");
-    }
-
-    /**
-     * @group DDC-3075
-     */
-    public function testNewLiteralWithSubselectExpression()
-    {
-        $this->assertValidDQL("SELECT new " . __NAMESPACE__ . "\\DummyStruct(u.id, 'foo', (SELECT 1 FROM Doctrine\Tests\Models\CMS\CmsUser su), true) FROM Doctrine\Tests\Models\CMS\CmsUser u");
     }
 }
 

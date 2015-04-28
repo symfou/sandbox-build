@@ -33,6 +33,8 @@ use Doctrine\Common\EventManager;
 use Doctrine\ORM\Tools\DisconnectedClassMetadataFactory;
 use Doctrine\ORM\Mapping\ClassMetadataFactory;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 /**
  * Test case for ClassMetadataExporter
  *
@@ -155,8 +157,6 @@ abstract class AbstractClassMetadataExporterTest extends \Doctrine\Tests\OrmTest
     public function testTableIsExported($class)
     {
         $this->assertEquals('cms_users', $class->table['name']);
-        $this->assertEquals(array('engine' => 'MyISAM', 'foo' => array('bar' => 'baz')),
-            $class->table['options']);
 
         return $class;
     }
@@ -226,7 +226,7 @@ abstract class AbstractClassMetadataExporterTest extends \Doctrine\Tests\OrmTest
             $this->assertEquals(1, count($nodes));
         }
         else {
-            $this->markTestSkipped('Test not available for '.$type.' driver');
+            $this->markTestSkipped('Test available only for '.$type.' driver');
         }
     }
 
@@ -248,7 +248,6 @@ abstract class AbstractClassMetadataExporterTest extends \Doctrine\Tests\OrmTest
         $this->assertFalse($class->associationMappings['address']['isCascadeMerge']);
         $this->assertFalse($class->associationMappings['address']['isCascadeDetach']);
         $this->assertTrue($class->associationMappings['address']['orphanRemoval']);
-        $this->assertEquals(ClassMetadataInfo::FETCH_EAGER, $class->associationMappings['address']['fetch']);
 
         return $class;
     }
@@ -280,7 +279,6 @@ abstract class AbstractClassMetadataExporterTest extends \Doctrine\Tests\OrmTest
         $this->assertTrue($class->associationMappings['phonenumbers']['isCascadeMerge']);
         $this->assertFalse($class->associationMappings['phonenumbers']['isCascadeDetach']);
         $this->assertTrue($class->associationMappings['phonenumbers']['orphanRemoval']);
-        $this->assertEquals(ClassMetadataInfo::FETCH_LAZY, $class->associationMappings['phonenumbers']['fetch']);
 
         return $class;
     }
@@ -308,7 +306,6 @@ abstract class AbstractClassMetadataExporterTest extends \Doctrine\Tests\OrmTest
         $this->assertTrue($class->associationMappings['groups']['isCascadeRefresh']);
         $this->assertTrue($class->associationMappings['groups']['isCascadeMerge']);
         $this->assertTrue($class->associationMappings['groups']['isCascadeDetach']);
-        $this->assertEquals(ClassMetadataInfo::FETCH_EXTRA_LAZY, $class->associationMappings['groups']['fetch']);
 
         return $class;
     }
@@ -379,7 +376,7 @@ abstract class AbstractClassMetadataExporterTest extends \Doctrine\Tests\OrmTest
             $this->assertEquals('all', $value['Doctrine\Tests\ORM\Tools\Export\ExportedUser']['oneToMany']['interests']['cascade'][0]);
 
         } else {
-            $this->markTestSkipped('Test not available for '.$type.' driver');
+            $this->markTestSkipped('Test available only for '.$type.' driver');
         }
     }
     public function __destruct()
@@ -393,10 +390,8 @@ abstract class AbstractClassMetadataExporterTest extends \Doctrine\Tests\OrmTest
             return unlink($path);
         } else if (is_dir($path)) {
             $files = glob(rtrim($path,'/').'/*');
-            if (is_array($files)) {
-                foreach ($files as $file){
-                    $this->_deleteDirectory($file);
-                }
+            foreach ($files as $file){
+                $this->_deleteDirectory($file);
             }
             return rmdir($path);
         }

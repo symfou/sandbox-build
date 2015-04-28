@@ -5,12 +5,12 @@ namespace Doctrine\Tests\ORM\Functional\SchemaTool;
 use Doctrine\ORM\Tools\SchemaTool,
     Doctrine\ORM\Mapping\ClassMetadata;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class PostgreSqlSchemaToolTest extends \Doctrine\Tests\OrmFunctionalTestCase
 {
-    protected function setUp()
-    {
+    protected function setUp() {
         parent::setUp();
-
         if ($this->_em->getConnection()->getDatabasePlatform()->getName() !== 'postgresql') {
             $this->markTestSkipped('The ' . __CLASS__ .' requires the use of postgresql.');
         }
@@ -19,7 +19,6 @@ class PostgreSqlSchemaToolTest extends \Doctrine\Tests\OrmFunctionalTestCase
     public function testPostgresMetadataSequenceIncrementedBy10()
     {
         $address = $this->_em->getClassMetadata('Doctrine\Tests\Models\CMS\CmsAddress');
-
         $this->assertEquals(1, $address->sequenceGeneratorDefinition['allocationSize']);
     }
 
@@ -98,9 +97,7 @@ class PostgreSqlSchemaToolTest extends \Doctrine\Tests\OrmFunctionalTestCase
         $sql = $tool->getDropSchemaSQL($classes);
 
         $this->assertEquals(14, count($sql));
-
         $dropSequenceSQLs = 0;
-
         foreach ($sql AS $stmt) {
             if (strpos($stmt, "DROP SEQUENCE") === 0) {
                 $dropSequenceSQLs++;
@@ -118,6 +115,10 @@ class PostgreSqlSchemaToolTest extends \Doctrine\Tests\OrmFunctionalTestCase
             $this->_em->getClassMetadata(__NAMESPACE__ . '\\DDC1657Screen'),
             $this->_em->getClassMetadata(__NAMESPACE__ . '\\DDC1657Avatar'),
         );
+        try {
+            $this->_em->getConnection()->exec("CREATE SCHEMA stonewood");
+        } catch(\Exception $e) {
+        }
 
         $tool = new SchemaTool($this->_em);
         $tool->createSchema($classes);

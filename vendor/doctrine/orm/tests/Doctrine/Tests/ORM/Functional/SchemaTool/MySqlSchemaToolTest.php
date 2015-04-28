@@ -5,6 +5,8 @@ namespace Doctrine\Tests\ORM\Functional\SchemaTool;
 use Doctrine\ORM\Tools\SchemaTool,
     Doctrine\ORM\Mapping\ClassMetadata;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class MySqlSchemaToolTest extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     protected function setUp() {

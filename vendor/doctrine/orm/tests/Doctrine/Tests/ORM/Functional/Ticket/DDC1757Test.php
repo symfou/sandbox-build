@@ -4,6 +4,8 @@ namespace Doctrine\Tests\ORM\Functional\Ticket;
 
 use Doctrine\ORM\UnitOfWork;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class DDC1757Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     public function testFailingCase()

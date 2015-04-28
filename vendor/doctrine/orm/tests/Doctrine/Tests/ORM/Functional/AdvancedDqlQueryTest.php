@@ -7,6 +7,8 @@ use Doctrine\Tests\Models\Company\CompanyEmployee,
     Doctrine\Tests\Models\Company\CompanyPerson,
     Doctrine\Tests\Models\Company\CompanyCar;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * Functional Query tests.
  *

@@ -4,35 +4,31 @@ namespace Doctrine\Tests\ORM\Functional\Ticket;
 
 use Doctrine\Tests\Models\Quote\SimpleEntity;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 /**
  * @group DDC-1719
  */
 class DDC1719Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
-    const CLASS_NAME = 'Doctrine\Tests\ORM\Functional\Ticket\DDC1719SimpleEntity';
+
+    const CLASS_NAME = '\Doctrine\Tests\Models\Quote\SimpleEntity';
 
     protected function setUp()
     {
         parent::setUp();
-
-        $this->_schemaTool->createSchema(array(
-            $this->_em->getClassMetadata(self::CLASS_NAME),
-        ));
-    }
-
-    protected function tearDown()
-    {
-        parent::tearDown();
-
-        $this->_schemaTool->dropSchema(array(
-            $this->_em->getClassMetadata(self::CLASS_NAME),
-        ));
+        try {
+            $this->_schemaTool->createSchema(array(
+                $this->_em->getClassMetadata(self::CLASS_NAME),
+            ));
+        } catch(\Exception $e) {
+        }
     }
 
     public function testCreateRetrieveUpdateDelete()
     {
-        $e1 = new DDC1719SimpleEntity('Bar 1');
-        $e2 = new DDC1719SimpleEntity('Foo 1');
+        $e1 = new SimpleEntity('Bar 1');
+        $e2 = new SimpleEntity('Foo 1');
 
         // Create
         $this->_em->persist($e1);
@@ -87,35 +83,6 @@ class DDC1719Test extends \Doctrine\Tests\OrmFunctionalTestCase
 
         $this->assertNull($e1);
         $this->assertNull($e2);
-    }
-
-}
-
-/**
- * @Entity
- * @Table(name="`ddc-1719-simple-entity`")
- */
-class DDC1719SimpleEntity
-{
-
-    /**
-     * @Id
-     * @Column(type="integer", name="`simple-entity-id`")
-     * @GeneratedValue(strategy="AUTO")
-     */
-    public $id;
-
-    /**
-     * @Column(type="string", name="`simple-entity-value`")
-     */
-    public $value;
-
-    /**
-     * @param string $value
-     */
-    public function __construct($value)
-    {
-        $this->value = $value;
     }
 
 }

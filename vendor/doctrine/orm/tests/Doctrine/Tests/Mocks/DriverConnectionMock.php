@@ -12,7 +12,6 @@ class DriverConnectionMock implements \Doctrine\DBAL\Driver\Connection
      */
     public function prepare($prepareString)
     {
-        return new StatementMock();
     }
 
     /**

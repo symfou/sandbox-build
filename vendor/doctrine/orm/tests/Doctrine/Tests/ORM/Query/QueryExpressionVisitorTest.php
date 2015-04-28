@@ -47,7 +47,7 @@ class QueryExpressionVisitorTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->visitor = new QueryExpressionVisitor(array('o','p'));
+        $this->visitor = new QueryExpressionVisitor('o');
     }
 
     /**
@@ -85,14 +85,8 @@ class QueryExpressionVisitorTest extends \PHPUnit_Framework_TestCase
             array($cb->in('field', array('value')), $qb->in('o.field', ':field'), new Parameter('field', array('value'))),
             array($cb->notIn('field', array('value')), $qb->notIn('o.field', ':field'), new Parameter('field', array('value'))),
 
-            array($cb->contains('field', 'value'), $qb->like('o.field', ':field'), new Parameter('field', '%value%')),
-
             // Test parameter conversion
             array($cb->eq('object.field', 'value'), $qb->eq('o.object.field', ':object_field'), new Parameter('object_field', 'value')),
-
-            // Test alternative rootAlias
-            array($cb->eq('p.field', 'value'), $qb->eq('p.field', ':p_field'), new Parameter('p_field', 'value')),
-            array($cb->eq('p.object.field', 'value'), $qb->eq('p.object.field', ':p_object_field'), new Parameter('p_object_field', 'value')),
         );
     }
 

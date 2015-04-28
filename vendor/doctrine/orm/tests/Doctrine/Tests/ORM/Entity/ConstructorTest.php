@@ -2,6 +2,8 @@
 
 namespace Doctrine\Tests\ORM\Entity;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 class ConstructorTest extends \Doctrine\Tests\OrmTestCase
 {
     public function testFieldInitializationInConstructor()

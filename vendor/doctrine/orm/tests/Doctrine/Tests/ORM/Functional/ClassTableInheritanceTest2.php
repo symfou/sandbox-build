@@ -2,6 +2,8 @@
 
 namespace Doctrine\Tests\ORM\Functional;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * Functional tests for the Class Table Inheritance mapping strategy.
  *

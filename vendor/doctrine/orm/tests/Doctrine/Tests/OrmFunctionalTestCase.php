@@ -2,11 +2,6 @@
 
 namespace Doctrine\Tests;
 
-use Doctrine\DBAL\Types\Type;
-use Doctrine\Tests\EventListener\CacheMetadataListener;
-use Doctrine\ORM\Cache\Logging\StatisticsCacheLogger;
-use Doctrine\ORM\Cache\DefaultCacheFactory;
-
 /**
  * Base testcase class for all functional ORM testcases.
  *
@@ -167,113 +162,6 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
             'Doctrine\Tests\Models\Taxi\Car',
             'Doctrine\Tests\Models\Taxi\Driver',
         ),
-        'cache' => array(
-            'Doctrine\Tests\Models\Cache\Country',
-            'Doctrine\Tests\Models\Cache\State',
-            'Doctrine\Tests\Models\Cache\City',
-            'Doctrine\Tests\Models\Cache\Traveler',
-            'Doctrine\Tests\Models\Cache\TravelerProfileInfo',
-            'Doctrine\Tests\Models\Cache\TravelerProfile',
-            'Doctrine\Tests\Models\Cache\Travel',
-            'Doctrine\Tests\Models\Cache\Attraction',
-            'Doctrine\Tests\Models\Cache\Restaurant',
-            'Doctrine\Tests\Models\Cache\Beach',
-            'Doctrine\Tests\Models\Cache\Bar',
-            'Doctrine\Tests\Models\Cache\Flight',
-            'Doctrine\Tests\Models\Cache\Token',
-            'Doctrine\Tests\Models\Cache\Login',
-            'Doctrine\Tests\Models\Cache\Client',
-            'Doctrine\Tests\Models\Cache\Action',
-            'Doctrine\Tests\Models\Cache\ComplexAction',
-            'Doctrine\Tests\Models\Cache\AttractionInfo',
-            'Doctrine\Tests\Models\Cache\AttractionContactInfo',
-            'Doctrine\Tests\Models\Cache\AttractionLocationInfo'
-        ),
-        'tweet' => array(
-            'Doctrine\Tests\Models\Tweet\User',
-            'Doctrine\Tests\Models\Tweet\Tweet',
-            'Doctrine\Tests\Models\Tweet\UserList',
-        ),
-        'ddc2504' => array(
-            'Doctrine\Tests\Models\DDC2504\DDC2504RootClass',
-            'Doctrine\Tests\Models\DDC2504\DDC2504ChildClass',
-            'Doctrine\Tests\Models\DDC2504\DDC2504OtherClass',
-        ),
-        'ddc3346' => array(
-            'Doctrine\Tests\Models\DDC3346\DDC3346Author',
-            'Doctrine\Tests\Models\DDC3346\DDC3346Article',
-        ),
-        'quote' => array(
-            'Doctrine\Tests\Models\Quote\Address',
-            'Doctrine\Tests\Models\Quote\Group',
-            'Doctrine\Tests\Models\Quote\NumericEntity',
-            'Doctrine\Tests\Models\Quote\Phone',
-            'Doctrine\Tests\Models\Quote\User'
-        ),
-        'vct_onetoone' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedOneToOneEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningOneToOneEntity'
-        ),
-        'vct_onetoone_compositeid' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedOneToOneCompositeIdEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningOneToOneCompositeIdEntity'
-        ),
-        'vct_onetoone_compositeid_foreignkey' => array(
-            'Doctrine\Tests\Models\ValueConversionType\AuxiliaryEntity',
-            'Doctrine\Tests\Models\ValueConversionType\InversedOneToOneCompositeIdForeignKeyEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningOneToOneCompositeIdForeignKeyEntity'
-        ),
-        'vct_onetomany' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedOneToManyEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToOneEntity'
-        ),
-        'vct_onetomany_compositeid' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedOneToManyCompositeIdEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToOneCompositeIdEntity'
-        ),
-        'vct_onetomany_compositeid_foreignkey' => array(
-            'Doctrine\Tests\Models\ValueConversionType\AuxiliaryEntity',
-            'Doctrine\Tests\Models\ValueConversionType\InversedOneToManyCompositeIdForeignKeyEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToOneCompositeIdForeignKeyEntity'
-        ),
-        'vct_onetomany_extralazy' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedOneToManyExtraLazyEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToOneExtraLazyEntity'
-        ),
-        'vct_manytomany' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedManyToManyEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToManyEntity'
-        ),
-        'vct_manytomany_compositeid' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedManyToManyCompositeIdEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToManyCompositeIdEntity'
-        ),
-        'vct_manytomany_compositeid_foreignkey' => array(
-            'Doctrine\Tests\Models\ValueConversionType\AuxiliaryEntity',
-            'Doctrine\Tests\Models\ValueConversionType\InversedManyToManyCompositeIdForeignKeyEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToManyCompositeIdForeignKeyEntity'
-        ),
-        'vct_manytomany_extralazy' => array(
-            'Doctrine\Tests\Models\ValueConversionType\InversedManyToManyExtraLazyEntity',
-            'Doctrine\Tests\Models\ValueConversionType\OwningManyToManyExtraLazyEntity'
-        ),
-        'geonames' => array(
-            'Doctrine\Tests\Models\GeoNames\Country',
-            'Doctrine\Tests\Models\GeoNames\Admin1',
-            'Doctrine\Tests\Models\GeoNames\Admin1AlternateName',
-            'Doctrine\Tests\Models\GeoNames\City'
-        ),
-        'custom_id_object_type' => array(
-            'Doctrine\Tests\Models\CustomType\CustomIdObjectTypeParent',
-            'Doctrine\Tests\Models\CustomType\CustomIdObjectTypeChild',
-        ),
-        'pagination' => array(
-            'Doctrine\Tests\Models\Pagination\Company',
-            'Doctrine\Tests\Models\Pagination\Logo',
-            'Doctrine\Tests\Models\Pagination\Department',
-            'Doctrine\Tests\Models\Pagination\User',
-            'Doctrine\Tests\Models\Pagination\User1',
-        ),
     );
 
     /**
@@ -293,8 +181,7 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
      */
     protected function tearDown()
     {
-        $conn     = static::$_sharedConn;
-        $platform = $conn->getDatabasePlatform();
+        $conn = static::$_sharedConn;
 
         $this->_sqlLoggerStack->enabled = false;
 
@@ -361,7 +248,7 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
             $conn->executeUpdate('DELETE FROM navigation_countries');
         }
         if (isset($this->_usedModelSets['directorytree'])) {
-            $conn->executeUpdate('DELETE FROM ' . $platform->quoteIdentifier("file"));
+            $conn->executeUpdate('DELETE FROM ' . $this->_em->getConnection()->getDatabasePlatform()->quoteIdentifier("file"));
             // MySQL doesn't know deferred deletions therefore only executing the second query gives errors.
             $conn->executeUpdate('DELETE FROM Directory WHERE parentDirectory_id IS NOT NULL');
             $conn->executeUpdate('DELETE FROM Directory');
@@ -410,125 +297,6 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
             $conn->executeUpdate('DELETE FROM taxi_driver');
         }
 
-        if (isset($this->_usedModelSets['tweet'])) {
-            $conn->executeUpdate('DELETE FROM tweet_tweet');
-            $conn->executeUpdate('DELETE FROM tweet_user_list');
-            $conn->executeUpdate('DELETE FROM tweet_user');
-        }
-
-        if (isset($this->_usedModelSets['cache'])) {
-            $conn->executeUpdate('DELETE FROM cache_attraction_location_info');
-            $conn->executeUpdate('DELETE FROM cache_attraction_contact_info');
-            $conn->executeUpdate('DELETE FROM cache_attraction_info');
-            $conn->executeUpdate('DELETE FROM cache_visited_cities');
-            $conn->executeUpdate('DELETE FROM cache_flight');
-            $conn->executeUpdate('DELETE FROM cache_attraction');
-            $conn->executeUpdate('DELETE FROM cache_travel');
-            $conn->executeUpdate('DELETE FROM cache_traveler');
-            $conn->executeUpdate('DELETE FROM cache_traveler_profile_info');
-            $conn->executeUpdate('DELETE FROM cache_traveler_profile');
-            $conn->executeUpdate('DELETE FROM cache_city');
-            $conn->executeUpdate('DELETE FROM cache_state');
-            $conn->executeUpdate('DELETE FROM cache_country');
-            $conn->executeUpdate('DELETE FROM cache_login');
-            $conn->executeUpdate('DELETE FROM cache_complex_action');
-            $conn->executeUpdate('DELETE FROM cache_token');
-            $conn->executeUpdate('DELETE FROM cache_action');
-            $conn->executeUpdate('DELETE FROM cache_client');
-        }
-
-        if (isset($this->_usedModelSets['ddc3346'])) {
-            $conn->executeUpdate('DELETE FROM ddc3346_articles');
-            $conn->executeUpdate('DELETE FROM ddc3346_users');
-        }
-
-        if (isset($this->_usedModelSets['quote'])) {
-            $conn->executeUpdate('DELETE FROM ' . $platform->quoteIdentifier("quote-address"));
-            $conn->executeUpdate('DELETE FROM ' . $platform->quoteIdentifier("quote-group"));
-            $conn->executeUpdate('DELETE FROM ' . $platform->quoteIdentifier("quote-phone"));
-            $conn->executeUpdate('DELETE FROM ' . $platform->quoteIdentifier("quote-user"));
-        }
-
-        if (isset($this->_usedModelSets['vct_onetoone'])) {
-            $conn->executeUpdate('DELETE FROM vct_owning_onetoone');
-            $conn->executeUpdate('DELETE FROM vct_inversed_onetoone');
-        }
-
-        if (isset($this->_usedModelSets['vct_onetoone_compositeid'])) {
-            $conn->executeUpdate('DELETE FROM vct_owning_onetoone_compositeid');
-            $conn->executeUpdate('DELETE FROM vct_inversed_onetoone_compositeid');
-        }
-
-        if (isset($this->_usedModelSets['vct_onetoone_compositeid_foreignkey'])) {
-            $conn->executeUpdate('DELETE FROM vct_owning_onetoone_compositeid_foreignkey');
-            $conn->executeUpdate('DELETE FROM vct_inversed_onetoone_compositeid_foreignkey');
-            $conn->executeUpdate('DELETE FROM vct_auxiliary');
-        }
-
-        if (isset($this->_usedModelSets['vct_onetomany'])) {
-            $conn->executeUpdate('DELETE FROM vct_owning_manytoone');
-            $conn->executeUpdate('DELETE FROM vct_inversed_onetomany');
-        }
-
-        if (isset($this->_usedModelSets['vct_onetomany_compositeid'])) {
-            $conn->executeUpdate('DELETE FROM vct_owning_manytoone_compositeid');
-            $conn->executeUpdate('DELETE FROM vct_inversed_onetomany_compositeid');
-        }
-
-        if (isset($this->_usedModelSets['vct_onetomany_compositeid_foreignkey'])) {
-            $conn->executeUpdate('DELETE FROM vct_owning_manytoone_compositeid_foreignkey');
-            $conn->executeUpdate('DELETE FROM vct_inversed_onetomany_compositeid_foreignkey');
-            $conn->executeUpdate('DELETE FROM vct_auxiliary');
-        }
-
-        if (isset($this->_usedModelSets['vct_onetomany_extralazy'])) {
-            $conn->executeUpdate('DELETE FROM vct_owning_manytoone_extralazy');
-            $conn->executeUpdate('DELETE FROM vct_inversed_onetomany_extralazy');
-        }
-
-        if (isset($this->_usedModelSets['vct_manytomany'])) {
-            $conn->executeUpdate('DELETE FROM vct_xref_manytomany');
-            $conn->executeUpdate('DELETE FROM vct_owning_manytomany');
-            $conn->executeUpdate('DELETE FROM vct_inversed_manytomany');
-        }
-
-        if (isset($this->_usedModelSets['vct_manytomany_compositeid'])) {
-            $conn->executeUpdate('DELETE FROM vct_xref_manytomany_compositeid');
-            $conn->executeUpdate('DELETE FROM vct_owning_manytomany_compositeid');
-            $conn->executeUpdate('DELETE FROM vct_inversed_manytomany_compositeid');
-        }
-
-        if (isset($this->_usedModelSets['vct_manytomany_compositeid_foreignkey'])) {
-            $conn->executeUpdate('DELETE FROM vct_xref_manytomany_compositeid_foreignkey');
-            $conn->executeUpdate('DELETE FROM vct_owning_manytomany_compositeid_foreignkey');
-            $conn->executeUpdate('DELETE FROM vct_inversed_manytomany_compositeid_foreignkey');
-            $conn->executeUpdate('DELETE FROM vct_auxiliary');
-        }
-
-        if (isset($this->_usedModelSets['vct_manytomany_extralazy'])) {
-            $conn->executeUpdate('DELETE FROM vct_xref_manytomany_extralazy');
-            $conn->executeUpdate('DELETE FROM vct_owning_manytomany_extralazy');
-            $conn->executeUpdate('DELETE FROM vct_inversed_manytomany_extralazy');
-        }
-        if (isset($this->_usedModelSets['geonames'])) {
-            $conn->executeUpdate('DELETE FROM geonames_admin1_alternate_name');
-            $conn->executeUpdate('DELETE FROM geonames_admin1');
-            $conn->executeUpdate('DELETE FROM geonames_city');
-            $conn->executeUpdate('DELETE FROM geonames_country');
-        }
-
-        if (isset($this->_usedModelSets['custom_id_object_type'])) {
-            $conn->executeUpdate('DELETE FROM custom_id_type_child');
-            $conn->executeUpdate('DELETE FROM custom_id_type_parent');
-        }
-
-        if (isset($this->_usedModelSets['pagination'])) {
-            $conn->executeUpdate('DELETE FROM pagination_logo');
-            $conn->executeUpdate('DELETE FROM pagination_department');
-            $conn->executeUpdate('DELETE FROM pagination_company');
-            $conn->executeUpdate('DELETE FROM pagination_user');
-        }
-
         $this->_em->clear();
     }
 
@@ -566,8 +334,6 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
      */
     protected function setUp()
     {
-        $this->setUpDBALTypes();
-
         $forceCreateTables = false;
 
         if ( ! isset(static::$_sharedConn)) {
@@ -645,32 +411,7 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
         $config->setProxyDir(__DIR__ . '/Proxies');
         $config->setProxyNamespace('Doctrine\Tests\Proxies');
 
-        $enableSecondLevelCache = getenv('ENABLE_SECOND_LEVEL_CACHE');
-
-        if ($this->isSecondLevelCacheEnabled || $enableSecondLevelCache) {
-
-            $cacheConfig    = new \Doctrine\ORM\Cache\CacheConfiguration();
-            $cache          = $this->getSharedSecondLevelCacheDriverImpl();
-            $factory        = new DefaultCacheFactory($cacheConfig->getRegionsConfiguration(), $cache);
-
-            $this->secondLevelCacheFactory = $factory;
-
-            if ($this->isSecondLevelCacheLogEnabled) {
-                $this->secondLevelCacheLogger = new StatisticsCacheLogger();
-                $cacheConfig->setCacheLogger($this->secondLevelCacheLogger);
-            }
-
-            $cacheConfig->setCacheFactory($factory);
-            $config->setSecondLevelCacheEnabled(true);
-            $config->setSecondLevelCacheConfiguration($cacheConfig);
-
-            $this->isSecondLevelCacheEnabled = true;
-        }
-
-        $config->setMetadataDriverImpl($config->newDefaultAnnotationDriver(array(
-            realpath(__DIR__ . '/Models/Cache'),
-            realpath(__DIR__ . '/Models/GeoNames')
-        ), true));
+        $config->setMetadataDriverImpl($config->newDefaultAnnotationDriver(array(), true));
 
         $conn = static::$_sharedConn;
         $conn->getConfiguration()->setSQLLogger($this->_sqlLoggerStack);
@@ -681,10 +422,6 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
             foreach ($listeners AS $listener) {
                 $evm->removeEventListener(array($event), $listener);
             }
-        }
-
-        if ($enableSecondLevelCache) {
-            $evm->addEventListener('loadClassMetadata', new CacheMetadataListener());
         }
 
         if (isset($GLOBALS['db_event_subscribers'])) {
@@ -755,17 +492,5 @@ abstract class OrmFunctionalTestCase extends OrmTestCase
     protected function getCurrentQueryCount()
     {
         return count($this->_sqlLoggerStack->queries);
-    }
-
-    /**
-     * Configures DBAL types required in tests
-     */
-    protected function setUpDBALTypes()
-    {
-        if (Type::hasType('rot13')) {
-            Type::overrideType('rot13', 'Doctrine\Tests\DbalTypes\Rot13Type');
-        } else {
-            Type::addType('rot13', 'Doctrine\Tests\DbalTypes\Rot13Type');
-        }
     }
 }

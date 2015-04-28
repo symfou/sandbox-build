@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Tests\Models\CMS\CmsUser;
 use Doctrine\Tests\Models\CMS\CmsGroup;
 
+require_once __DIR__ . '/../../../TestInit.php';
+
 class DDC832Test extends \Doctrine\Tests\OrmFunctionalTestCase
 {
     public function setUp()

@@ -25,12 +25,12 @@ use Doctrine\Tests\Models\Company\CompanyAuction;
 use Doctrine\Tests\Models\Company\CompanyFlexContract;
 use Doctrine\Tests\Models\Company\CompanyFlexUltraContract;
 
+require_once __DIR__ . '/../../TestInit.php';
+
 /**
  * Tests SQLFilter functionality.
  *
  * @author Alexander <iam.asm89@gmail.com>
- *
- * @group non-cacheable
  */
 class SQLFilterTest extends \Doctrine\Tests\OrmFunctionalTestCase
 {
@@ -241,28 +241,6 @@ class SQLFilterTest extends \Doctrine\Tests\OrmFunctionalTestCase
         $filter->setParameter('locale', 'en', DBALType::STRING);
 
         $this->assertEquals("'en'", $filter->getParameter('locale'));
-    }
-
-    /**
-     * @group DDC-3161
-     * @group 1054
-     */
-    public function testSQLFilterGetConnection()
-    {
-        // Setup mock connection
-        $conn = $this->getMockConnection();
-
-        $em = $this->getMockEntityManager($conn);
-        $em->expects($this->once())
-            ->method('getConnection')
-            ->will($this->returnValue($conn));
-
-        $filter = new MyLocaleFilter($em);
-
-        $reflMethod = new \ReflectionMethod('Doctrine\ORM\Query\Filter\SQLFilter', 'getConnection');
-        $reflMethod->setAccessible(true);
-
-        $this->assertSame($conn, $reflMethod->invoke($filter));
     }
 
     public function testSQLFilterSetParameterInfersType()
